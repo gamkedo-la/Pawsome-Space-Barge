@@ -1,5 +1,5 @@
 {
-    "name": "Asteroid Tug",
+    "name": "PawsomeControls",
     "maps": [
         {
             "name": "Gameplay",
@@ -11,7 +11,8 @@
                     "id": "3913bfe5-22d0-4ed0-a9db-7e7187cb45ad",
                     "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": "Hold"
+                    "interactions": "Hold",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Thrust",
@@ -19,15 +20,8 @@
                     "id": "33d96291-0c77-46b6-9cd4-31f03b0e1ab8",
                     "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": "Hold"
-                },
-                {
-                    "name": "Fire",
-                    "type": "Button",
-                    "id": "a98d6532-0cf5-492f-b85e-e75392664718",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Hold",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Grab",
@@ -35,7 +29,17 @@
                     "id": "19caddd9-4151-47ce-9323-3d6d2ad8a44f",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Fire",
+                    "type": "Button",
+                    "id": "a98d6532-0cf5-492f-b85e-e75392664718",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
