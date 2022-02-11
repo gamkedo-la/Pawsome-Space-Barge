@@ -529,6 +529,7 @@ GameObject:
   - component: {fileID: 1594565496}
   - component: {fileID: 1594565495}
   - component: {fileID: 1594565494}
+  - component: {fileID: 1594565497}
   m_Layer: 0
   m_Name: Rings
   m_TagString: Untagged
@@ -544,7 +545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594565492}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.01}
   m_LocalScale: {x: 5, y: 5, z: 0.0005}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -615,6 +616,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594565492}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1594565497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594565492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5647ad8bbc7095237bbadac21711e973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1635844456
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +714,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_PlayerPrefab: {fileID: 3716827569439174972, guid: 9e4d193bce5a08231ab1660c78767b3d, type: 3}
-  m_SplitScreen: 0
+  m_SplitScreen: 1
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
   m_SplitScreenRect:
