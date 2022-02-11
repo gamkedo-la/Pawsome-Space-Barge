@@ -52,7 +52,7 @@ public class ShipMovement : MonoBehaviour
         // input reaction
         if (rotationInput != 0)
         {
-            rb2d.rotation += rotationSpeed * Time.deltaTime * rotationInput;
+            rb2d.rotation += rotationSpeed * Time.fixedDeltaTime * rotationInput;
         }
         if (thrustInput > 0)
         {
