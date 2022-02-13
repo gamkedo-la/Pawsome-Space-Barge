@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    [SerializeField] int targetFPS = 60;
     [SerializeField] GameObject cameraPlane;
     [SerializeField] GameObject sampleShip;
 
@@ -13,7 +12,7 @@ public class CameraManager : MonoBehaviour
     {
         cameraPlane.SetActive(false);
         sampleShip.SetActive(false);
-        Application.targetFrameRate = targetFPS;
+        QualitySettings.vSyncCount = 1;
     }
 
 
