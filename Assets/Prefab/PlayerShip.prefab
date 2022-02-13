@@ -379,3 +379,4 @@ MonoBehaviour:
   thrustForce: 750
   decelerationCoefficient: 4
   maxSpeed: 75
+  enforceBoundary: 0

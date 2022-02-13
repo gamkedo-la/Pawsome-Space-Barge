@@ -18,6 +18,8 @@ public class ShipMovement : MonoBehaviour
     [Tooltip("Tug max speed.")]
     [Range(50,300)]
     [SerializeField] int maxSpeed = 150;
+    [Tooltip("Disable for free flight!")]
+    [SerializeField] bool enforceBoundary = true;
 
     // boundary properties
     private BoxCollider2D playerBoundary;
@@ -66,7 +68,10 @@ public class ShipMovement : MonoBehaviour
         // enforce maximum speed
         rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, maxSpeed);
 
-        checkPosition();
+        if (enforceBoundary)
+        {
+            checkPosition();
+        }
     }
 
     // check bounds, wrap around ship as necessary
