@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CelestialRotation : MonoBehaviour
 {
-    [SerializeField] private float rotationSpeed = 0.2f;
+    private float rotationSpeed;
 
-    // void Start()
-    // {
-        
-    // }
+    void Start()
+    {
+        rotationSpeed = (float)AsteroidField.instance.fieldSpeed / 80f;
+    }
 
     void Update()
     {
