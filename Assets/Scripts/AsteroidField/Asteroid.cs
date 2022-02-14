@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    // private int fieldSpeed;
+    // speed relative to overall field
     private float speed;
-    private Rigidbody2D rb2d;
+    
+    // rotational velocity for asteroid
     private Vector3 rotationalVelocity;
+    
+    private Rigidbody2D rb2d;
 
     private void Start()
     {
@@ -16,7 +19,7 @@ public class Asteroid : MonoBehaviour
         Randomize();
     }
 
-    // randomize asteroid speed, rotation, and velocity
+    // randomize asteroid speed, rotation, and relative velocity
     private void Randomize()
     {
         speed = Random.Range(-AsteroidField.instance.orbitalSpeedVariance, AsteroidField.instance.orbitalSpeedVariance);
@@ -24,9 +27,9 @@ public class Asteroid : MonoBehaviour
         transform.rotation = Random.rotation;
 
         rotationalVelocity = new Vector3(
-            Random.Range(AsteroidField.instance.minAsteroidTumbleSpeed, AsteroidField.instance.maxAsteroidTumbleSpeed),
-            Random.Range(AsteroidField.instance.minAsteroidTumbleSpeed, AsteroidField.instance.maxAsteroidTumbleSpeed),
-            Random.Range(AsteroidField.instance.minAsteroidTumbleSpeed, AsteroidField.instance.maxAsteroidTumbleSpeed)
+            Random.Range(-AsteroidField.instance.maxAsteroidTumbleSpeed, AsteroidField.instance.maxAsteroidTumbleSpeed),
+            Random.Range(-AsteroidField.instance.maxAsteroidTumbleSpeed, AsteroidField.instance.maxAsteroidTumbleSpeed),
+            Random.Range(-AsteroidField.instance.maxAsteroidTumbleSpeed, AsteroidField.instance.maxAsteroidTumbleSpeed)
         );
     }
 
@@ -45,7 +48,7 @@ public class Asteroid : MonoBehaviour
             transform.RotateAround(
                 AsteroidField.instance.planet,
                 Vector3.forward,
-                (float)AsteroidField.instance.fieldSpeed / (100f + speed) * Time.deltaTime
+                ((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime
             );
         }
     }
@@ -58,17 +61,21 @@ public class Asteroid : MonoBehaviour
     // respawn asteroids at start of field
     private void resetPosition()
     {
+        // which side to spawn on
         float xPos = (rb2d.position.x > 0) ?
             Random.Range(-AsteroidField.instance.fieldXextent, -AsteroidField.instance.fieldXextent + 50) :
             Random.Range(AsteroidField.instance.fieldXextent, AsteroidField.instance.fieldXextent - 50);
         
+        // y axis spawn
         float yPos = Random.Range(-AsteroidField.instance.fieldYextent + 150, AsteroidField.instance.fieldYextent - 150);
 
+        // set new position
         rb2d.position = new Vector2(
             xPos,
             yPos
         );
 
+        // re-randomize asteroid properties
         Randomize();
     }
 }
