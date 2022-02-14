@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    [SerializeField] GameObject cameraPlane;
-    [SerializeField] GameObject sampleShip;
+    // [SerializeField] GameObject sampleShip;
+    [SerializeField] private GameObject[] hidenObjects;
 
 
     void Awake()
     {
-        cameraPlane.SetActive(false);
-        sampleShip.SetActive(false);
+        // sampleShip.SetActive(false);
         QualitySettings.vSyncCount = 1;
+
+        foreach (GameObject o in hidenObjects)
+        {
+            o.SetActive(false);
+        }
     }
 
 
