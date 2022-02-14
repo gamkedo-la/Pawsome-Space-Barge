@@ -13240,7 +13240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3920154883608981214}
   m_Layer: 0
-  m_Name: Demo Rotational Asteroids
+  m_Name: Demo Asteroids (low density)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
