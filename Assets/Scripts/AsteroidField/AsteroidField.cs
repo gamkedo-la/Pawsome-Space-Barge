@@ -5,16 +5,24 @@ using UnityEngine;
 public class AsteroidField : MonoBehaviour
 {
     // Singleton
-    public static AsteroidField instance;
+    [HideInInspector] public static AsteroidField instance;
 
     // asteroid field boundary
     [HideInInspector] public BoxCollider2D fieldBounds;
+
     // field extents x + y
     [HideInInspector] public float fieldXextent;
     [HideInInspector] public float fieldYextent;
 
+    // rotational center
+    [HideInInspector] public Vector3 planet;
+
     // speed of asteroid field
-    [SerializeField] public int fieldSpeed = 10;
+    [Range(-100,100)]
+    [SerializeField] public int fieldSpeed = 25;
+    [SerializeField] public float minAsteroidTumbleSpeed = 0;
+    [SerializeField] public float maxAsteroidTumbleSpeed = 5;
+    [SerializeField] public float orbitalSpeedVariance = 10;
 
     private void Awake()
     {
@@ -31,5 +39,8 @@ public class AsteroidField : MonoBehaviour
         fieldBounds = GetComponent<BoxCollider2D>();
         fieldXextent = fieldBounds.bounds.extents.x;
         fieldYextent = fieldBounds.bounds.extents.y;
+
+        // cache rotational center
+        planet = GameObject.FindGameObjectWithTag("Planet").transform.position;
     }
 }

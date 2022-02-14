@@ -7,6 +7,7 @@ TagManager:
   - Asteroid
   - Boundary
   - PlayerBoundary
+  - Planet
   layers:
   - Default
   - TransparentFX
