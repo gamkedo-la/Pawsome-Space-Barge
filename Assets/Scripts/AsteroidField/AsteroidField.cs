@@ -17,12 +17,16 @@ public class AsteroidField : MonoBehaviour
     // rotational center
     [HideInInspector] public Vector3 planet;
 
-    // speed of asteroid field
+    [Tooltip("asteroid field 'speed'")]
     [Range(-100,100)]
     [SerializeField] public int fieldSpeed = 25;
-    [SerializeField] public float minAsteroidTumbleSpeed = 0;
+
+    [Tooltip("max random rotational speed for asteroids (degrees / second)")]
     [SerializeField] public float maxAsteroidTumbleSpeed = 5;
-    [SerializeField] public float orbitalSpeedVariance = 10;
+
+    [Tooltip("speed variance of asteroids")]
+    [Range(0, 0.2f)]
+    [SerializeField] public float orbitalSpeedVariance = 0.1f;
 
     private void Awake()
     {
@@ -36,7 +40,7 @@ public class AsteroidField : MonoBehaviour
         }
 
         // setup boundary values
-        fieldBounds = GetComponent<BoxCollider2D>();
+        fieldBounds = GameObject.FindGameObjectWithTag("AsteroidBoundary").GetComponent<BoxCollider2D>();
         fieldXextent = fieldBounds.bounds.extents.x;
         fieldYextent = fieldBounds.bounds.extents.y;
 
