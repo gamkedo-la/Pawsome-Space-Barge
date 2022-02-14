@@ -7,6 +7,7 @@ public class Asteroid : MonoBehaviour
     private int fieldSpeed;
     private float speed;
     private Rigidbody2D rb2d;
+    private Vector3 rotationalVelocity;
 
     private void Start()
     {
@@ -24,9 +25,15 @@ public class Asteroid : MonoBehaviour
         speed = Random.Range(fieldSpeed*0.8f, fieldSpeed*1.2f);
         
         transform.rotation = Random.rotation;
+        rotationalVelocity = new Vector3(Random.Range(0,5), Random.Range(0,5), Random.Range(0,5));
 
         // TODO replace this by placing asteroids on a rotating parent object
         rb2d.velocity = new Vector2(speed, 0);
+    }
+
+    private void Update()
+    {
+        transform.Rotate(rotationalVelocity * Time.deltaTime);
     }
 
     private void FixedUpdate()
