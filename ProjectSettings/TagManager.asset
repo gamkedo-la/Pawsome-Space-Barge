@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Asteroid
-  - Boundary
-  - PlayerBoundary
   - Planet
+  - AsteroidBoundary
+  - PlayerBoundary
   layers:
   - Default
   - TransparentFX
