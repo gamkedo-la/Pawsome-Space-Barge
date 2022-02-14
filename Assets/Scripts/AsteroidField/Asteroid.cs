@@ -5,12 +5,12 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     // speed relative to overall field
-    private float speed;
+    [HideInInspector] private float speed;
     
     // rotational velocity for asteroid
-    private Vector3 rotationalVelocity;
+    [HideInInspector] private Vector3 rotationalVelocity;
     
-    private Rigidbody2D rb2d;
+    [HideInInspector] private Rigidbody2D rb2d;
 
     private void Start()
     {
