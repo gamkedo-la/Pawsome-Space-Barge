@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CelestialRotation : MonoBehaviour
 {
-    // void Start()
+    // private void Start()
     // {
-
+    //     // not used
     // }
 
-    void Update()
+    private void Update()
     {
         transform.Rotate(new Vector3(0, 0, (float)AsteroidField.instance.fieldSpeed / 100f) * Time.deltaTime);
     }
