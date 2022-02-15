@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    // speed relative to overall field
+    /// <summary>
+    /// Speed relative to overall field.
+    /// </summary>
     [HideInInspector] private float speed;
-    
-    // rotational velocity for asteroid
+
+    /// <summary>
+    /// Rotational velocity for asteroid.
+    /// </summary>
     [HideInInspector] private Vector3 rotationalVelocity;
     
     [HideInInspector] private Rigidbody2D rb2d;
@@ -19,7 +23,9 @@ public class Asteroid : MonoBehaviour
         Randomize();
     }
 
-    // randomize asteroid speed, rotation, and relative velocity
+    /// <summary>
+    /// Randomize asteroid speed, rotation, and relative velocity.
+    /// </summary>
     private void Randomize()
     {
         speed = Random.Range(-AsteroidField.instance.orbitalSpeedVariance, AsteroidField.instance.orbitalSpeedVariance);
@@ -58,16 +64,18 @@ public class Asteroid : MonoBehaviour
     //     // not used
     // }
 
-    // respawn asteroids at start of field
+    /// <summary>
+    /// Respawn asteroids at opposite side of field.
+    /// </summary>
     private void resetPosition()
     {
         // which side to spawn on
         float xPos = (rb2d.position.x > 0) ?
-            Random.Range(-AsteroidField.instance.fieldXextent, -AsteroidField.instance.fieldXextent + 50) :
-            Random.Range(AsteroidField.instance.fieldXextent, AsteroidField.instance.fieldXextent - 50);
+            Random.Range(-AsteroidField.instance.fieldBounds.bounds.extents.x, -AsteroidField.instance.fieldBounds.bounds.extents.x + 50) :
+            Random.Range(AsteroidField.instance.fieldBounds.bounds.extents.x, AsteroidField.instance.fieldBounds.bounds.extents.x - 50);
         
         // y axis spawn
-        float yPos = Random.Range(-AsteroidField.instance.fieldYextent + 150, AsteroidField.instance.fieldYextent - 150);
+        float yPos = Random.Range(-AsteroidField.instance.fieldBounds.bounds.extents.y + 150, AsteroidField.instance.fieldBounds.bounds.extents.y - 150);
 
         // set new position
         rb2d.position = new Vector2(
