@@ -5,51 +5,47 @@ public class ShipMovement : MonoBehaviour
 {
     [Tooltip("Tug rotation speed.")]
     [Range(100,500)]
-    [SerializeField] int rotationSpeed = 300;
+    [SerializeField] private int rotationSpeed = 300;
 
     [Tooltip("Tug thrust power. Moar POWER!")]
     [Range(250,1000)]
-    [SerializeField] int thrustForce = 500;
+    [SerializeField] private int thrustForce = 500;
 
     [Tooltip("Tug braking coefficient, more => faster.")]
     [Range(0,10)]
-    [SerializeField] float decelerationCoefficient = 4;
+    [SerializeField] private float decelerationCoefficient = 4;
 
     [Tooltip("Tug max speed.")]
     [Range(50,300)]
-    [SerializeField] int maxSpeed = 150;
+    [SerializeField] private int maxSpeed = 150;
     [Tooltip("Disable for free flight!")]
-    [SerializeField] bool enforceBoundary = true;
+    [SerializeField] private bool enforceBoundary = true;
 
     // boundary properties
-    private BoxCollider2D playerBoundary;
-    private float boundaryXextent;
-    private float boundaryYextent;
+    [HideInInspector] private BoxCollider2D playerBoundary;
 
     // player rigidbody
-    private Rigidbody2D rb2d;
+    [HideInInspector] private Rigidbody2D rb2d;
 
     // input triggers
-    private float rotationInput = 0;
-    private float thrustInput = 0;
+    [HideInInspector] private float rotationInput = 0;
+    [HideInInspector] private float thrustInput = 0;
 
 
-    void Awake()
+    private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
 
         // setup boundary values
         playerBoundary = GameObject.FindGameObjectWithTag("PlayerBoundary").GetComponent<BoxCollider2D>();
-        boundaryXextent = playerBoundary.bounds.extents.x;
-        boundaryYextent = playerBoundary.bounds.extents.y;
     }
 
-    // void Update()
+    // private void Update()
     // {
     //     // not used yet
     // }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         // input reaction
         if (rotationInput != 0)
@@ -68,6 +64,7 @@ public class ShipMovement : MonoBehaviour
         // enforce maximum speed
         rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, maxSpeed);
 
+        // enforce player boundary
         if (enforceBoundary)
         {
             checkPosition();
@@ -77,26 +74,33 @@ public class ShipMovement : MonoBehaviour
     // check bounds, wrap around ship as necessary
     private void checkPosition()
     {
-        // not in box collider
         if (!rb2d.IsTouching(playerBoundary))
         {
             // copy current position
-            Vector2 correctedPos = rb2d.position;
+            Vector2 mirroredPos = rb2d.position;
 
             // modify new position by which axis is passed
             // x axis boundary check
-            if (rb2d.position.x > boundaryXextent || rb2d.position.x < -boundaryXextent)
+            if (rb2d.position.x > playerBoundary.bounds.extents.x + playerBoundary.offset.x)
             {
-                correctedPos.x *= -1f * 0.95f;
+                mirroredPos.x = (-playerBoundary.bounds.extents.x + playerBoundary.offset.x) * 0.95f;
+            }
+            if (rb2d.position.x < -playerBoundary.bounds.extents.x + playerBoundary.offset.x)
+            {
+                mirroredPos.x = (playerBoundary.bounds.extents.x + playerBoundary.offset.x) * 0.95f;
             }
             // y axis boundary check
-            if (rb2d.position.y > boundaryYextent || rb2d.position.y < -boundaryYextent)
+            if (rb2d.position.y > playerBoundary.bounds.extents.y + playerBoundary.offset.y)
             {
-                correctedPos.y *= -1f * 0.95f;
+                mirroredPos.y = (-playerBoundary.bounds.extents.y + playerBoundary.offset.y) * 0.95f;
+            }
+            if (rb2d.position.y < -playerBoundary.bounds.extents.y + playerBoundary.offset.y)
+            {
+                mirroredPos.y = (playerBoundary.bounds.extents.y + playerBoundary.offset.y) * 0.95f;
             }
 
             // set corrected transform
-            transform.position = correctedPos;
+            rb2d.position = mirroredPos;
         }
     }
 
