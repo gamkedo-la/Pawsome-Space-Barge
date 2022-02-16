@@ -105,7 +105,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &3422324302562657404
 CircleCollider2D:
@@ -240,7 +240,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738141765474
 CircleCollider2D:
@@ -375,7 +375,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738156233426
 CircleCollider2D:
@@ -510,7 +510,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738065862011
 CircleCollider2D:
@@ -645,7 +645,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738058447024
 CircleCollider2D:
@@ -780,7 +780,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738078913126
 CircleCollider2D:
@@ -915,7 +915,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738104397450
 CircleCollider2D:
@@ -1050,7 +1050,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738245027716
 CircleCollider2D:
@@ -1185,7 +1185,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738244933453
 CircleCollider2D:
@@ -1320,7 +1320,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738243202461
 CircleCollider2D:
@@ -1455,7 +1455,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738287526087
 CircleCollider2D:
@@ -1590,7 +1590,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738277380566
 CircleCollider2D:
@@ -1725,7 +1725,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738294813299
 CircleCollider2D:
@@ -1860,7 +1860,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738292518417
 CircleCollider2D:
@@ -1995,7 +1995,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738192172653
 CircleCollider2D:
@@ -2130,7 +2130,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738383869472
 CircleCollider2D:
@@ -2265,7 +2265,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738419903571
 CircleCollider2D:
@@ -2400,7 +2400,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738360725465
 CircleCollider2D:
@@ -2535,7 +2535,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738538086755
 CircleCollider2D:
@@ -2670,7 +2670,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738553283180
 CircleCollider2D:
@@ -2805,7 +2805,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738549164646
 CircleCollider2D:
@@ -2940,7 +2940,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738501920072
 CircleCollider2D:
@@ -3075,7 +3075,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738498709729
 CircleCollider2D:
@@ -3210,7 +3210,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737575950215
 CircleCollider2D:
@@ -3345,7 +3345,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737600650733
 CircleCollider2D:
@@ -3480,7 +3480,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737602572175
 CircleCollider2D:
@@ -3615,7 +3615,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737625970754
 CircleCollider2D:
@@ -3750,7 +3750,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737526163319
 CircleCollider2D:
@@ -3885,7 +3885,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737524009436
 CircleCollider2D:
@@ -4020,7 +4020,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737546419696
 CircleCollider2D:
@@ -4155,7 +4155,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737547144362
 CircleCollider2D:
@@ -4290,7 +4290,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737766651164
 CircleCollider2D:
@@ -4425,7 +4425,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737766531303
 CircleCollider2D:
@@ -4560,7 +4560,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737645467740
 CircleCollider2D:
@@ -4695,7 +4695,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737667264698
 CircleCollider2D:
@@ -4830,7 +4830,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737672344497
 CircleCollider2D:
@@ -4965,7 +4965,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737702327941
 CircleCollider2D:
@@ -5100,7 +5100,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737845098929
 CircleCollider2D:
@@ -5235,7 +5235,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737844085972
 CircleCollider2D:
@@ -5370,7 +5370,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737842914452
 CircleCollider2D:
@@ -5505,7 +5505,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737838151899
 CircleCollider2D:
@@ -5640,7 +5640,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737893832703
 CircleCollider2D:
@@ -5775,7 +5775,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737781047867
 CircleCollider2D:
@@ -5910,7 +5910,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737796761181
 CircleCollider2D:
@@ -6045,7 +6045,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737793148553
 CircleCollider2D:
@@ -6180,7 +6180,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737831187906
 CircleCollider2D:
@@ -6315,7 +6315,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738009769083
 CircleCollider2D:
@@ -6450,7 +6450,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738026048763
 CircleCollider2D:
@@ -6585,7 +6585,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737907704890
 CircleCollider2D:
@@ -6720,7 +6720,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737927866398
 CircleCollider2D:
@@ -6855,7 +6855,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616737970671441
 CircleCollider2D:
@@ -6990,7 +6990,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739202420351
 CircleCollider2D:
@@ -7125,7 +7125,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739214397111
 CircleCollider2D:
@@ -7260,7 +7260,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739166587394
 CircleCollider2D:
@@ -7395,7 +7395,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739165909464
 CircleCollider2D:
@@ -7530,7 +7530,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739339722228
 CircleCollider2D:
@@ -7665,7 +7665,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739262727330
 CircleCollider2D:
@@ -7800,7 +7800,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739262852118
 CircleCollider2D:
@@ -7935,7 +7935,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739295686737
 CircleCollider2D:
@@ -8070,7 +8070,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739287999983
 CircleCollider2D:
@@ -8205,7 +8205,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739298672022
 CircleCollider2D:
@@ -8340,7 +8340,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739463461742
 CircleCollider2D:
@@ -8475,7 +8475,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739448910987
 CircleCollider2D:
@@ -8610,7 +8610,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739473278549
 CircleCollider2D:
@@ -8745,7 +8745,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739464633869
 CircleCollider2D:
@@ -8880,7 +8880,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739495157817
 CircleCollider2D:
@@ -9015,7 +9015,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739389182726
 CircleCollider2D:
@@ -9150,7 +9150,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739446904414
 CircleCollider2D:
@@ -9285,7 +9285,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739446225316
 CircleCollider2D:
@@ -9420,7 +9420,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739592284827
 CircleCollider2D:
@@ -9555,7 +9555,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739586536502
 CircleCollider2D:
@@ -9690,7 +9690,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739583471875
 CircleCollider2D:
@@ -9825,7 +9825,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739544232705
 CircleCollider2D:
@@ -9960,7 +9960,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739580867340
 CircleCollider2D:
@@ -10095,7 +10095,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739576577182
 CircleCollider2D:
@@ -10230,7 +10230,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739570960999
 CircleCollider2D:
@@ -10365,7 +10365,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738664379932
 CircleCollider2D:
@@ -10500,7 +10500,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738809926751
 CircleCollider2D:
@@ -10635,7 +10635,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738824454122
 CircleCollider2D:
@@ -10770,7 +10770,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738810328294
 CircleCollider2D:
@@ -10905,7 +10905,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738828167346
 CircleCollider2D:
@@ -11040,7 +11040,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738735600998
 CircleCollider2D:
@@ -11175,7 +11175,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738733970859
 CircleCollider2D:
@@ -11310,7 +11310,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738754826059
 CircleCollider2D:
@@ -11445,7 +11445,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738753009017
 CircleCollider2D:
@@ -11580,7 +11580,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738936951810
 CircleCollider2D:
@@ -11715,7 +11715,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738933130527
 CircleCollider2D:
@@ -11850,7 +11850,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738849039249
 CircleCollider2D:
@@ -11985,7 +11985,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738871083079
 CircleCollider2D:
@@ -12120,7 +12120,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738901157903
 CircleCollider2D:
@@ -12255,7 +12255,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739054067789
 CircleCollider2D:
@@ -12390,7 +12390,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739050942060
 CircleCollider2D:
@@ -12525,7 +12525,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739062965501
 CircleCollider2D:
@@ -12660,7 +12660,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739091827449
 CircleCollider2D:
@@ -12795,7 +12795,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616738982214189
 CircleCollider2D:
@@ -12930,7 +12930,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739006675667
 CircleCollider2D:
@@ -13065,7 +13065,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1125616739035996653
 CircleCollider2D:
@@ -13200,7 +13200,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &3660916169064681683
 CircleCollider2D:
@@ -13776,7 +13776,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434979011715
 CircleCollider2D:
@@ -13911,7 +13911,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434938609408
 CircleCollider2D:
@@ -14046,7 +14046,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434939619266
 CircleCollider2D:
@@ -14181,7 +14181,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434920026543
 CircleCollider2D:
@@ -14316,7 +14316,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434891729474
 CircleCollider2D:
@@ -14451,7 +14451,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435139961848
 CircleCollider2D:
@@ -14586,7 +14586,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435139145191
 CircleCollider2D:
@@ -14721,7 +14721,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435144468150
 CircleCollider2D:
@@ -14856,7 +14856,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435115179755
 CircleCollider2D:
@@ -14991,7 +14991,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435124638243
 CircleCollider2D:
@@ -15126,7 +15126,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435101749594
 CircleCollider2D:
@@ -15261,7 +15261,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435063509832
 CircleCollider2D:
@@ -15396,7 +15396,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435067502430
 CircleCollider2D:
@@ -15531,7 +15531,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435076637264
 CircleCollider2D:
@@ -15666,7 +15666,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435052906017
 CircleCollider2D:
@@ -15801,7 +15801,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435034522130
 CircleCollider2D:
@@ -15936,7 +15936,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435036945534
 CircleCollider2D:
@@ -16071,7 +16071,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435019538676
 CircleCollider2D:
@@ -16206,7 +16206,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435024300836
 CircleCollider2D:
@@ -16341,7 +16341,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434723540595
 CircleCollider2D:
@@ -16476,7 +16476,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434697229756
 CircleCollider2D:
@@ -16611,7 +16611,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434696596051
 CircleCollider2D:
@@ -16746,7 +16746,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434702416287
 CircleCollider2D:
@@ -16881,7 +16881,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434680847776
 CircleCollider2D:
@@ -17016,7 +17016,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434661774692
 CircleCollider2D:
@@ -17151,7 +17151,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434610529069
 CircleCollider2D:
@@ -17286,7 +17286,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434619366614
 CircleCollider2D:
@@ -17421,7 +17421,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434624011262
 CircleCollider2D:
@@ -17556,7 +17556,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434875196153
 CircleCollider2D:
@@ -17691,7 +17691,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434778903316
 CircleCollider2D:
@@ -17826,7 +17826,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434781987876
 CircleCollider2D:
@@ -17961,7 +17961,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434769959859
 CircleCollider2D:
@@ -18096,7 +18096,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434756589843
 CircleCollider2D:
@@ -18231,7 +18231,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434755709515
 CircleCollider2D:
@@ -18366,7 +18366,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434428816493
 CircleCollider2D:
@@ -18501,7 +18501,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434440075565
 CircleCollider2D:
@@ -18636,7 +18636,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434340310026
 CircleCollider2D:
@@ -18771,7 +18771,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434354399543
 CircleCollider2D:
@@ -18906,7 +18906,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434599138112
 CircleCollider2D:
@@ -19041,7 +19041,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434604326514
 CircleCollider2D:
@@ -19176,7 +19176,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434588437382
 CircleCollider2D:
@@ -19311,7 +19311,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434529644781
 CircleCollider2D:
@@ -19446,7 +19446,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434529229128
 CircleCollider2D:
@@ -19581,7 +19581,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434538781860
 CircleCollider2D:
@@ -19716,7 +19716,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434519424327
 CircleCollider2D:
@@ -19851,7 +19851,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434521695955
 CircleCollider2D:
@@ -19986,7 +19986,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434189793543
 CircleCollider2D:
@@ -20121,7 +20121,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434169992220
 CircleCollider2D:
@@ -20256,7 +20256,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434123801641
 CircleCollider2D:
@@ -20391,7 +20391,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434126418474
 CircleCollider2D:
@@ -20526,7 +20526,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434133069894
 CircleCollider2D:
@@ -20661,7 +20661,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434120782088
 CircleCollider2D:
@@ -20796,7 +20796,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434117828480
 CircleCollider2D:
@@ -20931,7 +20931,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434102234098
 CircleCollider2D:
@@ -21066,7 +21066,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434076252624
 CircleCollider2D:
@@ -21201,7 +21201,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434080355474
 CircleCollider2D:
@@ -21336,7 +21336,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434327705523
 CircleCollider2D:
@@ -21471,7 +21471,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434333002210
 CircleCollider2D:
@@ -21606,7 +21606,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434303633494
 CircleCollider2D:
@@ -21741,7 +21741,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434250253727
 CircleCollider2D:
@@ -21876,7 +21876,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434226251288
 CircleCollider2D:
@@ -22011,7 +22011,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411434210297279
 CircleCollider2D:
@@ -22146,7 +22146,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411436075142274
 CircleCollider2D:
@@ -22281,7 +22281,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435986531075
 CircleCollider2D:
@@ -22416,7 +22416,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411436000607821
 CircleCollider2D:
@@ -22551,7 +22551,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411436205319205
 CircleCollider2D:
@@ -22686,7 +22686,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411436203214643
 CircleCollider2D:
@@ -22821,7 +22821,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411436208557289
 CircleCollider2D:
@@ -22956,7 +22956,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411436180928623
 CircleCollider2D:
@@ -23091,7 +23091,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411436182069699
 CircleCollider2D:
@@ -23226,7 +23226,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411436154407085
 CircleCollider2D:
@@ -23361,7 +23361,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411436137369781
 CircleCollider2D:
@@ -23496,7 +23496,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411436102222926
 CircleCollider2D:
@@ -23631,7 +23631,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411436109140508
 CircleCollider2D:
@@ -23766,7 +23766,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411436117986927
 CircleCollider2D:
@@ -23901,7 +23901,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435785125624
 CircleCollider2D:
@@ -24036,7 +24036,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435772569409
 CircleCollider2D:
@@ -24171,7 +24171,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435776861676
 CircleCollider2D:
@@ -24306,7 +24306,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435753380877
 CircleCollider2D:
@@ -24441,7 +24441,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435744897442
 CircleCollider2D:
@@ -24576,7 +24576,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435725028889
 CircleCollider2D:
@@ -24711,7 +24711,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435907739431
 CircleCollider2D:
@@ -24846,7 +24846,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435910324474
 CircleCollider2D:
@@ -24981,7 +24981,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435892420597
 CircleCollider2D:
@@ -25116,7 +25116,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435870490584
 CircleCollider2D:
@@ -25251,7 +25251,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435871560272
 CircleCollider2D:
@@ -25386,7 +25386,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435853730444
 CircleCollider2D:
@@ -25521,7 +25521,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435852497267
 CircleCollider2D:
@@ -25656,7 +25656,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435852217771
 CircleCollider2D:
@@ -25791,7 +25791,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435536919229
 CircleCollider2D:
@@ -25926,7 +25926,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435529281385
 CircleCollider2D:
@@ -26061,7 +26061,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435510818857
 CircleCollider2D:
@@ -26196,7 +26196,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435480796769
 CircleCollider2D:
@@ -26331,7 +26331,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435463909298
 CircleCollider2D:
@@ -26466,7 +26466,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435458668240
 CircleCollider2D:
@@ -26601,7 +26601,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435460029524
 CircleCollider2D:
@@ -26736,7 +26736,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435659621276
 CircleCollider2D:
@@ -26871,7 +26871,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435658982487
 CircleCollider2D:
@@ -27006,7 +27006,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435664531036
 CircleCollider2D:
@@ -27141,7 +27141,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435635185838
 CircleCollider2D:
@@ -27276,7 +27276,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435642518756
 CircleCollider2D:
@@ -27411,7 +27411,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435601057038
 CircleCollider2D:
@@ -27546,7 +27546,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435577148474
 CircleCollider2D:
@@ -27681,7 +27681,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435265793691
 CircleCollider2D:
@@ -27816,7 +27816,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435262858158
 CircleCollider2D:
@@ -27951,7 +27951,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435268612293
 CircleCollider2D:
@@ -28086,7 +28086,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435272262157
 CircleCollider2D:
@@ -28221,7 +28221,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435278610220
 CircleCollider2D:
@@ -28356,7 +28356,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435261540326
 CircleCollider2D:
@@ -28491,7 +28491,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435230217573
 CircleCollider2D:
@@ -28626,7 +28626,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435236863388
 CircleCollider2D:
@@ -28761,7 +28761,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435226828252
 CircleCollider2D:
@@ -28896,7 +28896,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435196581923
 CircleCollider2D:
@@ -29031,7 +29031,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435172542534
 CircleCollider2D:
@@ -29166,7 +29166,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435400928704
 CircleCollider2D:
@@ -29301,7 +29301,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435404883051
 CircleCollider2D:
@@ -29436,7 +29436,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435401519301
 CircleCollider2D:
@@ -29571,7 +29571,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435367684045
 CircleCollider2D:
@@ -29706,7 +29706,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435346772257
 CircleCollider2D:
@@ -29841,7 +29841,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435335611665
 CircleCollider2D:
@@ -29976,7 +29976,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435303328681
 CircleCollider2D:
@@ -30111,7 +30111,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435301842947
 CircleCollider2D:
@@ -30246,7 +30246,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &6147411435284156123
 CircleCollider2D:
@@ -30381,7 +30381,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221536248509
 CircleCollider2D:
@@ -30516,7 +30516,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221487485523
 CircleCollider2D:
@@ -30651,7 +30651,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221490426490
 CircleCollider2D:
@@ -30786,7 +30786,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221435670661
 CircleCollider2D:
@@ -30921,7 +30921,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221420507761
 CircleCollider2D:
@@ -31056,7 +31056,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221404040603
 CircleCollider2D:
@@ -31191,7 +31191,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221395000581
 CircleCollider2D:
@@ -31326,7 +31326,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221383837911
 CircleCollider2D:
@@ -31461,7 +31461,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221359765098
 CircleCollider2D:
@@ -31596,7 +31596,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221365403368
 CircleCollider2D:
@@ -31731,7 +31731,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221347139169
 CircleCollider2D:
@@ -31866,7 +31866,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221302579568
 CircleCollider2D:
@@ -32001,7 +32001,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221292730970
 CircleCollider2D:
@@ -32136,7 +32136,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221296211441
 CircleCollider2D:
@@ -32271,7 +32271,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221285178500
 CircleCollider2D:
@@ -32406,7 +32406,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221810293280
 CircleCollider2D:
@@ -32541,7 +32541,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221811086419
 CircleCollider2D:
@@ -32676,7 +32676,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221796739670
 CircleCollider2D:
@@ -32811,7 +32811,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221772707337
 CircleCollider2D:
@@ -32946,7 +32946,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221774973752
 CircleCollider2D:
@@ -33081,7 +33081,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221767246996
 CircleCollider2D:
@@ -33216,7 +33216,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221743389270
 CircleCollider2D:
@@ -33351,7 +33351,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221733820748
 CircleCollider2D:
@@ -33486,7 +33486,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221707497470
 CircleCollider2D:
@@ -33621,7 +33621,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221701196941
 CircleCollider2D:
@@ -33756,7 +33756,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221686991459
 CircleCollider2D:
@@ -33891,7 +33891,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221662777156
 CircleCollider2D:
@@ -34026,7 +34026,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221663598535
 CircleCollider2D:
@@ -34161,7 +34161,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221660730521
 CircleCollider2D:
@@ -34296,7 +34296,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221668103706
 CircleCollider2D:
@@ -34431,7 +34431,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221658476302
 CircleCollider2D:
@@ -34566,7 +34566,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221639515023
 CircleCollider2D:
@@ -34701,7 +34701,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221640267085
 CircleCollider2D:
@@ -34836,7 +34836,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221620002333
 CircleCollider2D:
@@ -34971,7 +34971,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221616489228
 CircleCollider2D:
@@ -35106,7 +35106,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221596495788
 CircleCollider2D:
@@ -35241,7 +35241,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221584124331
 CircleCollider2D:
@@ -35376,7 +35376,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221569768599
 CircleCollider2D:
@@ -35511,7 +35511,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221563925854
 CircleCollider2D:
@@ -35646,7 +35646,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221554717065
 CircleCollider2D:
@@ -35781,7 +35781,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221556991216
 CircleCollider2D:
@@ -35916,7 +35916,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221551330727
 CircleCollider2D:
@@ -36051,7 +36051,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222078906255
 CircleCollider2D:
@@ -36186,7 +36186,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222056165521
 CircleCollider2D:
@@ -36321,7 +36321,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222061570542
 CircleCollider2D:
@@ -36456,7 +36456,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222062403180
 CircleCollider2D:
@@ -36591,7 +36591,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222024312948
 CircleCollider2D:
@@ -36726,7 +36726,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222027984267
 CircleCollider2D:
@@ -36861,7 +36861,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221996969385
 CircleCollider2D:
@@ -36996,7 +36996,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221997582790
 CircleCollider2D:
@@ -37131,7 +37131,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222001357800
 CircleCollider2D:
@@ -37266,7 +37266,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221967049476
 CircleCollider2D:
@@ -37401,7 +37401,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221968119945
 CircleCollider2D:
@@ -37536,7 +37536,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221953001398
 CircleCollider2D:
@@ -37671,7 +37671,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221944089295
 CircleCollider2D:
@@ -37806,7 +37806,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221935850952
 CircleCollider2D:
@@ -37941,7 +37941,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221924047735
 CircleCollider2D:
@@ -38076,7 +38076,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221911853811
 CircleCollider2D:
@@ -38211,7 +38211,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221885433908
 CircleCollider2D:
@@ -38346,7 +38346,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221886086826
 CircleCollider2D:
@@ -38481,7 +38481,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221884768135
 CircleCollider2D:
@@ -38616,7 +38616,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221874347952
 CircleCollider2D:
@@ -38751,7 +38751,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221862788426
 CircleCollider2D:
@@ -38886,7 +38886,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221869910906
 CircleCollider2D:
@@ -39021,7 +39021,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221866495156
 CircleCollider2D:
@@ -39156,7 +39156,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221858982342
 CircleCollider2D:
@@ -39291,7 +39291,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221851278883
 CircleCollider2D:
@@ -39426,7 +39426,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363221838282779
 CircleCollider2D:
@@ -39561,7 +39561,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222344366177
 CircleCollider2D:
@@ -39696,7 +39696,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222328667664
 CircleCollider2D:
@@ -39831,7 +39831,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222320970502
 CircleCollider2D:
@@ -39966,7 +39966,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222296806196
 CircleCollider2D:
@@ -40101,7 +40101,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222286416478
 CircleCollider2D:
@@ -40236,7 +40236,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222266649431
 CircleCollider2D:
@@ -40371,7 +40371,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222268889834
 CircleCollider2D:
@@ -40506,7 +40506,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222247731962
 CircleCollider2D:
@@ -40641,7 +40641,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222253938910
 CircleCollider2D:
@@ -40776,7 +40776,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222241562687
 CircleCollider2D:
@@ -40911,7 +40911,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222241775732
 CircleCollider2D:
@@ -41046,7 +41046,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222246709745
 CircleCollider2D:
@@ -41181,7 +41181,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222233573337
 CircleCollider2D:
@@ -41316,7 +41316,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222199450908
 CircleCollider2D:
@@ -41451,7 +41451,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222199089295
 CircleCollider2D:
@@ -41586,7 +41586,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222199071334
 CircleCollider2D:
@@ -41721,7 +41721,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222189465351
 CircleCollider2D:
@@ -41856,7 +41856,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222194782087
 CircleCollider2D:
@@ -41991,7 +41991,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222186981849
 CircleCollider2D:
@@ -42126,7 +42126,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222188785588
 CircleCollider2D:
@@ -42261,7 +42261,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222178861055
 CircleCollider2D:
@@ -42396,7 +42396,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222176423248
 CircleCollider2D:
@@ -42531,7 +42531,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222170375104
 CircleCollider2D:
@@ -42666,7 +42666,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222152129482
 CircleCollider2D:
@@ -42801,7 +42801,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222152908968
 CircleCollider2D:
@@ -42936,7 +42936,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222139095488
 CircleCollider2D:
@@ -43071,7 +43071,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222114603893
 CircleCollider2D:
@@ -43206,7 +43206,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222112180457
 CircleCollider2D:
@@ -43341,7 +43341,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222093924583
 CircleCollider2D:
@@ -43476,7 +43476,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222094461925
 CircleCollider2D:
@@ -43611,7 +43611,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222615649766
 CircleCollider2D:
@@ -43746,7 +43746,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222604236961
 CircleCollider2D:
@@ -43881,7 +43881,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222550794863
 CircleCollider2D:
@@ -44016,7 +44016,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222544589910
 CircleCollider2D:
@@ -44151,7 +44151,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222547603588
 CircleCollider2D:
@@ -44286,7 +44286,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222534771025
 CircleCollider2D:
@@ -44421,7 +44421,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222495014934
 CircleCollider2D:
@@ -44556,7 +44556,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222491328901
 CircleCollider2D:
@@ -44691,7 +44691,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222488269106
 CircleCollider2D:
@@ -44826,7 +44826,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222481330735
 CircleCollider2D:
@@ -44961,7 +44961,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222454506177
 CircleCollider2D:
@@ -45096,7 +45096,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222448621536
 CircleCollider2D:
@@ -45231,7 +45231,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222440248955
 CircleCollider2D:
@@ -45366,7 +45366,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222428307466
 CircleCollider2D:
@@ -45501,7 +45501,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222430046498
 CircleCollider2D:
@@ -45636,7 +45636,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222420014452
 CircleCollider2D:
@@ -45771,7 +45771,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222408487070
 CircleCollider2D:
@@ -45906,7 +45906,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222392003895
 CircleCollider2D:
@@ -46041,7 +46041,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222360681897
 CircleCollider2D:
@@ -46176,7 +46176,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222875675689
 CircleCollider2D:
@@ -46311,7 +46311,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222862666171
 CircleCollider2D:
@@ -46446,7 +46446,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222849308964
 CircleCollider2D:
@@ -46581,7 +46581,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222826909393
 CircleCollider2D:
@@ -46716,7 +46716,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222831139698
 CircleCollider2D:
@@ -46851,7 +46851,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222813129172
 CircleCollider2D:
@@ -46986,7 +46986,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222805318060
 CircleCollider2D:
@@ -47121,7 +47121,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222807510020
 CircleCollider2D:
@@ -47256,7 +47256,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222798424902
 CircleCollider2D:
@@ -47391,7 +47391,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222782691956
 CircleCollider2D:
@@ -47526,7 +47526,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222765667835
 CircleCollider2D:
@@ -47661,7 +47661,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222764830435
 CircleCollider2D:
@@ -47796,7 +47796,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222764972782
 CircleCollider2D:
@@ -47931,7 +47931,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222736959644
 CircleCollider2D:
@@ -48066,7 +48066,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222727041793
 CircleCollider2D:
@@ -48201,7 +48201,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222713011417
 CircleCollider2D:
@@ -48336,7 +48336,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222713809512
 CircleCollider2D:
@@ -48471,7 +48471,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222683335155
 CircleCollider2D:
@@ -48606,7 +48606,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222653457114
 CircleCollider2D:
@@ -48741,7 +48741,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222655260971
 CircleCollider2D:
@@ -48876,7 +48876,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222649451439
 CircleCollider2D:
@@ -49011,7 +49011,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223139632396
 CircleCollider2D:
@@ -49146,7 +49146,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223135651450
 CircleCollider2D:
@@ -49281,7 +49281,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223133941429
 CircleCollider2D:
@@ -49416,7 +49416,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223125659416
 CircleCollider2D:
@@ -49551,7 +49551,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223119516511
 CircleCollider2D:
@@ -49686,7 +49686,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223100569406
 CircleCollider2D:
@@ -49821,7 +49821,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223071130360
 CircleCollider2D:
@@ -49956,7 +49956,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223074197376
 CircleCollider2D:
@@ -50091,7 +50091,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223059307443
 CircleCollider2D:
@@ -50226,7 +50226,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223042862179
 CircleCollider2D:
@@ -50361,7 +50361,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223026960401
 CircleCollider2D:
@@ -50496,7 +50496,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223003319527
 CircleCollider2D:
@@ -50631,7 +50631,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222979124024
 CircleCollider2D:
@@ -50766,7 +50766,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222985087839
 CircleCollider2D:
@@ -50901,7 +50901,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222985480866
 CircleCollider2D:
@@ -51036,7 +51036,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222953535836
 CircleCollider2D:
@@ -51171,7 +51171,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222949268466
 CircleCollider2D:
@@ -51306,7 +51306,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222939502831
 CircleCollider2D:
@@ -51441,7 +51441,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222930431326
 CircleCollider2D:
@@ -51576,7 +51576,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222931228391
 CircleCollider2D:
@@ -51711,7 +51711,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222907111460
 CircleCollider2D:
@@ -51846,7 +51846,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363222895967310
 CircleCollider2D:
@@ -51981,7 +51981,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223418909065
 CircleCollider2D:
@@ -52116,7 +52116,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223419414047
 CircleCollider2D:
@@ -52251,7 +52251,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223407698178
 CircleCollider2D:
@@ -52386,7 +52386,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223405914873
 CircleCollider2D:
@@ -52521,7 +52521,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223410242002
 CircleCollider2D:
@@ -52656,7 +52656,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223398477652
 CircleCollider2D:
@@ -52791,7 +52791,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223367519097
 CircleCollider2D:
@@ -52926,7 +52926,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223358206727
 CircleCollider2D:
@@ -53061,7 +53061,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223353262992
 CircleCollider2D:
@@ -53196,7 +53196,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223336729401
 CircleCollider2D:
@@ -53331,7 +53331,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223325887703
 CircleCollider2D:
@@ -53466,7 +53466,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223307373417
 CircleCollider2D:
@@ -53601,7 +53601,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223306553192
 CircleCollider2D:
@@ -53736,7 +53736,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223312700329
 CircleCollider2D:
@@ -53871,7 +53871,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223300218527
 CircleCollider2D:
@@ -54006,7 +54006,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223283770734
 CircleCollider2D:
@@ -54065,7 +54065,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6677054543053254197}
   m_LocalRotation: {x: 0.9275795, y: 0.32736924, z: -0.0021915725, w: 0.18005799}
-  m_LocalPosition: {x: 29.531889, y: 11.080078, z: 0}
+  m_LocalPosition: {x: -50.6, y: -115.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54141,7 +54141,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223274934851
 CircleCollider2D:
@@ -54276,7 +54276,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223268844339
 CircleCollider2D:
@@ -54411,7 +54411,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223260834955
 CircleCollider2D:
@@ -54546,7 +54546,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223240175474
 CircleCollider2D:
@@ -54681,7 +54681,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223239401544
 CircleCollider2D:
@@ -54816,7 +54816,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223231788904
 CircleCollider2D:
@@ -54951,7 +54951,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223223785304
 CircleCollider2D:
@@ -55086,7 +55086,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223212487171
 CircleCollider2D:
@@ -55221,7 +55221,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223219912218
 CircleCollider2D:
@@ -55356,7 +55356,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223195797857
 CircleCollider2D:
@@ -55491,7 +55491,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223195341863
 CircleCollider2D:
@@ -55626,7 +55626,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223155788402
 CircleCollider2D:
@@ -55761,7 +55761,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ee041db1593c76e6586b760bfad03f19, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &5325363223160477232
 CircleCollider2D:
