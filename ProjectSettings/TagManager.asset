@@ -8,6 +8,8 @@ TagManager:
   - Planet
   - AsteroidBoundary
   - PlayerBoundary
+  - AsteroidRings
+  - Sun
   layers:
   - Default
   - TransparentFX
