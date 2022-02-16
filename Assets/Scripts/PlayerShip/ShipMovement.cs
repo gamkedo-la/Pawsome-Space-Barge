@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Ship Movement Controller.
+/// Handles ship physics input,
+/// and position mirroring when out of bounds.
+/// </summary>
 public class ShipMovement : MonoBehaviour
 {
     [Tooltip("Tug rotation speed.")]
@@ -18,17 +23,20 @@ public class ShipMovement : MonoBehaviour
     [Tooltip("Tug max speed.")]
     [Range(50,300)]
     [SerializeField] private int maxSpeed = 150;
+
     [Tooltip("Disable for free flight!")]
     [SerializeField] private bool enforceBoundary = true;
 
-    // boundary properties
+    /// <summary> Player boundary collider. </summary>
     [HideInInspector] private BoxCollider2D playerBoundary;
 
-    // player rigidbody
+    /// <summary> Player ship RigidBody2D. </summary>
     [HideInInspector] private Rigidbody2D rb2d;
 
-    // input triggers
+    /// <summary> Most recent rotation input value. </summary>
     [HideInInspector] private float rotationInput = 0;
+
+    /// <summary> Most recent thrust input value. </summary>
     [HideInInspector] private float thrustInput = 0;
 
 
@@ -36,7 +44,7 @@ public class ShipMovement : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
 
-        // setup boundary values
+        // setup boundary
         playerBoundary = GameObject.FindGameObjectWithTag("PlayerBoundary").GetComponent<BoxCollider2D>();
     }
 
