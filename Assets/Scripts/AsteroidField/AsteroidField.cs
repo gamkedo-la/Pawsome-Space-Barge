@@ -3,43 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Asteroid Field Manger script.
-/// Mostly holds variables for other scripts, but also rotates planet.
+/// Asteroid Field Manger.
+/// Mostly holds variables for other scripts.
 /// </summary>
 public class AsteroidField : MonoBehaviour
 {
-    /// <summary>
-    /// AsteroidField Singleton.
-    /// </summary>
+    /// <summary> AsteroidField Singleton. </summary>
     [HideInInspector] public static AsteroidField instance;
-    public static float baseSpeed = 50f;
 
     /// <summary>
-    /// Asteroid field boundary.
+    /// Base speed of planet rotation.
+    /// When fieldSpeed == 0 the planet still rotates at this speed.
     /// </summary>
+    public static float baseSpeed = 100f;
+
+    /// <summary> Asteroid field boundary. </summary>
     [HideInInspector] public BoxCollider2D fieldBounds;
 
-    /// <summary>
-    /// Field extents x + y.
-    /// </summary>
-    // [HideInInspector] public float fieldXextent;
-    // [HideInInspector] public float fieldYextent;
-
-    // rotational center
+    /// <summary> Rotational center of things. </summary>
     [HideInInspector] public Vector3 planet;
-    [HideInInspector] private GameObject planetObject;
 
-    [Tooltip("asteroid field 'speed'")]
-    // [Range(-100,100)]
-    [Range(-25,25)]
+
+    [Tooltip("Asteroid field 'speed'.")]
+    [Range(-50,50)]
     [SerializeField] public float fieldSpeed = 25;
 
-    [Tooltip("max random rotational speed for asteroids (degrees / second)")]
+    [Tooltip("Max random rotational speed for asteroids (degrees / second).")]
     [SerializeField] public float maxAsteroidTumbleSpeed = 5;
 
-    [Tooltip("speed variance of asteroids")]
+    [Tooltip("Speed variance of asteroids.")]
     [Range(0, 0.2f)]
     [SerializeField] public float orbitalSpeedVariance = 0.1f;
+
 
     private void Awake()
     {
@@ -56,21 +51,11 @@ public class AsteroidField : MonoBehaviour
         fieldBounds = GameObject.FindGameObjectWithTag("AsteroidBoundary").GetComponent<BoxCollider2D>();
 
         // cache rotational center
-        planetObject = GameObject.FindGameObjectWithTag("Planet");
-        planet = planetObject.transform.position;
+        planet = GameObject.FindGameObjectWithTag("Planet").transform.position;
     }
 
-    private void Update()
-    {
-        // rotate planet
-        planetObject.transform.Rotate(
-            new Vector3(
-                0,
-                0,
-                // baseSpeed is used for offset so something is always moving.
-                (fieldSpeed - baseSpeed) / 100f
-            ) * Time.deltaTime,
-            Space.World
-        );
-    }
+    // private void Update()
+    // {
+    //     // 
+    // }
 }

@@ -204,14 +204,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207041445}
-  m_LocalRotation: {x: 0.000000014901161, y: 0.58503604, z: -0, w: -0.8110073}
-  m_LocalPosition: {x: 250.8, y: 279.1, z: -449.8}
+  m_LocalRotation: {x: 0.26714048, y: -0.2526255, z: 0.27829129, w: -0.8873389}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 787281842}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 288.389, z: 0}
+  m_LocalEulerAnglesHint: {x: -19.48, y: 399.29102, z: -41.839}
 --- !u!108 &207041447
 Light:
   m_ObjectHideFlags: 0
@@ -298,14 +298,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427374653}
-  m_LocalRotation: {x: 0.00670442, y: 0.68261945, z: 0.12320343, w: 0.7202823}
+  m_LocalRotation: {x: -0.3507294, y: 0.1324531, z: 0.8937408, w: -0.2463178}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 787281842}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -9.122, y: 86.053, z: 10.896}
+  m_LocalEulerAnglesHint: {x: 183.668, y: 496.085, z: 32.296005}
 --- !u!108 &427374655
 Light:
   m_ObjectHideFlags: 0
@@ -646,8 +646,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787281840}
-  m_LocalRotation: {x: -0.5828792, y: 0.13450676, z: 0.5174953, w: -0.6118485}
-  m_LocalPosition: {x: 0, y: -813.0774, z: -1.2512207}
+  m_LocalRotation: {x: -0.59584355, y: 0.053019095, z: 0.42837775, w: -0.67723846}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.9249998, y: 1.9249994, z: 1.9249998}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -655,7 +655,7 @@ Transform:
   - {fileID: 427374654}
   m_Father: {fileID: 1110421750}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -215.033, y: 110.318, z: 74.77}
+  m_LocalEulerAnglesHint: {x: -229.608, y: 116.025, z: 83.169}
 --- !u!1 &990271506
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,6 +723,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1110421750}
+  - component: {fileID: 1110421751}
   m_Layer: 0
   m_Name: Celestial Things
   m_TagString: Untagged
@@ -748,6 +749,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1110421751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110421749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5647ad8bbc7095237bbadac21711e973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1187131670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,7 +1050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fieldBounds: {fileID: 0}
   planet: {x: 0, y: 0, z: 0}
-  fieldSpeed: 25
+  fieldSpeed: -25
   maxAsteroidTumbleSpeed: 10
   orbitalSpeedVariance: 0.1
 --- !u!1 &1665768952
@@ -1147,7 +1160,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1668632127}
-  - component: {fileID: 1668632128}
   m_Layer: 0
   m_Name: Rings
   m_TagString: AsteroidRings
@@ -1173,18 +1185,6 @@ Transform:
   m_Father: {fileID: 1110421750}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1668632128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668632126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5647ad8bbc7095237bbadac21711e973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1723032556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,7 +1484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 292fb712e9e7a48f5a5b06acdcc89d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementCoefficient: -0.3
+  movementCoefficient: 0.3
 --- !u!61 &1880467955
 BoxCollider2D:
   m_ObjectHideFlags: 0
