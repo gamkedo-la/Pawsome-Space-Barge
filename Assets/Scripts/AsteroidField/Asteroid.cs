@@ -62,6 +62,8 @@ public class Asteroid : MonoBehaviour
     //     Quaternion q = Quaternion.AngleAxis(((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
     //     rb2d.MovePosition(q * (rb2d.transform.position - AsteroidField.instance.planet) + AsteroidField.instance.planet);
     //     rb2d.MoveRotation(rb2d.transform.rotation * q);
+    //
+    //     // I think this would work if instead of MovePosition() we set rb2d.velocity to the vector...
     // }
 
     /// <summary>
