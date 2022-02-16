@@ -13,12 +13,14 @@ public class CelestialRotation : MonoBehaviour
     /// <summary> Lights representing the sun. </summary>
     private GameObject sun;
 
+
     private void Awake()
     {
         rings = GameObject.FindGameObjectWithTag("AsteroidRings");
         caturn = GameObject.FindGameObjectWithTag("Planet");
         sun = GameObject.FindGameObjectWithTag("Sun");
     }
+
 
     private void Update()
     {

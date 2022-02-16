@@ -9,10 +9,12 @@ public class BargeController : MonoBehaviour
     [Range(-1,1)]
     [SerializeField] private float movementCoefficient = -0.3f;
 
+
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();       
     }
+
 
     void FixedUpdate()
     {

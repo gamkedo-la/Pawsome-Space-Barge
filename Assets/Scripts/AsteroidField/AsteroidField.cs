@@ -54,6 +54,7 @@ public class AsteroidField : MonoBehaviour
         planet = GameObject.FindGameObjectWithTag("Planet").transform.position;
     }
 
+
     // private void Update()
     // {
     //     // 

@@ -15,6 +15,7 @@ public class CameraManager : MonoBehaviour
     /// </summary>
     [SerializeField] private GameObject[] hidenObjects;
 
+
     private void Awake()
     {
         // set vsync on
@@ -26,6 +27,7 @@ public class CameraManager : MonoBehaviour
             o.SetActive(false);
         }
     }
+
 
     // sudo code for camera behaviour:
     // private void Update()

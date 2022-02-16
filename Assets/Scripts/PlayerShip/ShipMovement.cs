@@ -48,10 +48,12 @@ public class ShipMovement : MonoBehaviour
         playerBoundary = GameObject.FindGameObjectWithTag("PlayerBoundary").GetComponent<BoxCollider2D>();
     }
 
+
     // private void Update()
     // {
     //     // not used yet
     // }
+
 
     private void FixedUpdate()
     {
@@ -78,6 +80,7 @@ public class ShipMovement : MonoBehaviour
             checkPosition();
         }
     }
+
 
     // check bounds, wrap around ship as necessary
     private void checkPosition()
@@ -112,11 +115,13 @@ public class ShipMovement : MonoBehaviour
         }
     }
 
+
     // rotation event handler
     public void OnRotate(InputAction.CallbackContext context)
     {
         rotationInput = context.ReadValue<float>();
     }
+
 
     // thrust event handler
     public void OnThrust(InputAction.CallbackContext context)
