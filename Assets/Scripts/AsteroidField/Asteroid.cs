@@ -34,6 +34,45 @@ public class Asteroid : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+        transform.Rotate(rotationalVelocity * Time.deltaTime);
+
+        transform.RotateAround(
+            AsteroidField.instance.planet,
+            Vector3.forward,
+            ((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime
+        );
+    }
+
+
+    // private void FixedUpdate()
+    // {
+        // // https://answers.unity.com/questions/10093/rigidbody-rotating-around-a-point-instead-on-self.html
+        // // Works and produces more realistic collision rotations of asteroids on the barge,
+        // // buuuut... this blocks the tug from interacting with the asteroids.
+        // // Stick with using transform.RotateAround()
+        // Quaternion q = Quaternion.AngleAxis(((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
+        // rb2d.MovePosition(q * (rb2d.transform.position - AsteroidField.instance.planet) + AsteroidField.instance.planet);
+        // rb2d.MoveRotation(rb2d.transform.rotation * q);
+
+        // this works too, modifying velocity instead... tug still cannot interact
+        // Quaternion q = Quaternion.AngleAxis(((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
+        // rb2d.MoveRotation(rb2d.transform.rotation * q);
+        // Vector2 newPosition = q * (rb2d.transform.position - AsteroidField.instance.planet) + AsteroidField.instance.planet;
+        // Vector2 temp = newPosition - rb2d.position;
+        // rb2d.velocity = temp * Mathf.Abs(AsteroidField.instance.fieldSpeed);
+
+
+        // // I have not yet tried this:
+        // // https://forum.unity.com/threads/orbital-physics-maintaining-a-circular-orbit.403077/
+        // float r = Vector3.Distance(star.Position, planet.Position);
+        // float totalForce = -(Constants.G * star.Mass * planet.Mass) / (r * r);
+        // Vector3 force = (planet.Position - star.Position).normalized * totalForce;
+        // planet.GetComponent<Rigidbody>().AddForce(force);
+    // }
+
+
     /// <summary>
     /// Randomize asteroid speed, rotation, and relative velocity.
     /// </summary>
@@ -49,39 +88,6 @@ public class Asteroid : MonoBehaviour
             Random.Range(-AsteroidField.instance.maxAsteroidTumbleSpeed, AsteroidField.instance.maxAsteroidTumbleSpeed)
         );
     }
-
-
-    private void Update()
-    {
-        transform.Rotate(rotationalVelocity * Time.deltaTime);
-
-        transform.RotateAround(
-            AsteroidField.instance.planet,
-            Vector3.forward,
-            ((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime
-        );
-    }
-
-
-    // private void FixedUpdate()
-    // {
-    //     // // https://answers.unity.com/questions/10093/rigidbody-rotating-around-a-point-instead-on-self.html
-    //     // // Works and produces more realistic collision rotations of asteroids on the barge,
-    //     // // buuuut... this blocks the tug from interacting with the asteroids.
-    //     // // Stick with using transform.RotateAround()
-    //     // Quaternion q = Quaternion.AngleAxis(((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
-    //     // rb2d.MovePosition(q * (rb2d.transform.position - AsteroidField.instance.planet) + AsteroidField.instance.planet);
-    //     // rb2d.MoveRotation(rb2d.transform.rotation * q);
-    
-    //     // // I think this would work if instead of MovePosition() we set rb2d.velocity to the vector...
-
-
-    //     // // https://forum.unity.com/threads/orbital-physics-maintaining-a-circular-orbit.403077/
-    //     // float r = Vector3.Distance(star.Position, planet.Position);
-    //     // float totalForce = -(Constants.G * star.Mass * planet.Mass) / (r * r);
-    //     // Vector3 force = (planet.Position - star.Position).normalized * totalForce;
-    //     // planet.GetComponent<Rigidbody>().AddForce(force);
-    // }
 
 
     /// <summary>
