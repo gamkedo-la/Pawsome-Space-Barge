@@ -38,16 +38,23 @@ public class Asteroid : MonoBehaviour
     {
         transform.Rotate(rotationalVelocity * Time.deltaTime);
 
-        transform.RotateAround(
+        // transform.RotateAround(
+        //     AsteroidField.instance.planet,
+        //     Vector3.forward,
+        //     ((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime
+        // );
+    }
+
+
+    private void FixedUpdate()
+    {
+        // this is the simplest solution
+        rb2d.transform.RotateAround(
             AsteroidField.instance.planet,
             Vector3.forward,
             ((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime
         );
-    }
 
-
-    // private void FixedUpdate()
-    // {
         // // https://answers.unity.com/questions/10093/rigidbody-rotating-around-a-point-instead-on-self.html
         // // Works and produces more realistic collision rotations of asteroids on the barge,
         // // buuuut... this blocks the tug from interacting with the asteroids.
@@ -56,12 +63,20 @@ public class Asteroid : MonoBehaviour
         // rb2d.MovePosition(q * (rb2d.transform.position - AsteroidField.instance.planet) + AsteroidField.instance.planet);
         // rb2d.MoveRotation(rb2d.transform.rotation * q);
 
-        // this works too, modifying velocity instead... tug still cannot interact
+
+        // // // this works too, modifying velocity instead... tug still cannot interact
         // Quaternion q = Quaternion.AngleAxis(((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
-        // rb2d.MoveRotation(rb2d.transform.rotation * q);
         // Vector2 newPosition = q * (rb2d.transform.position - AsteroidField.instance.planet) + AsteroidField.instance.planet;
         // Vector2 temp = newPosition - rb2d.position;
         // rb2d.velocity = temp * Mathf.Abs(AsteroidField.instance.fieldSpeed);
+
+
+        // // With RigidBody2D.AddForce, rather wonky
+        // Quaternion q = Quaternion.AngleAxis(((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
+        // Vector2 newPosition = q * (rb2d.transform.position - AsteroidField.instance.planet) + AsteroidField.instance.planet;
+        // Vector2 temp = newPosition - rb2d.position;
+        // rb2d.AddForce(temp * Mathf.Abs(AsteroidField.instance.fieldSpeed*100f));
+        // rb2d.MoveRotation(rb2d.transform.rotation * q);
 
 
         // // I have not yet tried this:
@@ -70,7 +85,7 @@ public class Asteroid : MonoBehaviour
         // float totalForce = -(Constants.G * star.Mass * planet.Mass) / (r * r);
         // Vector3 force = (planet.Position - star.Position).normalized * totalForce;
         // planet.GetComponent<Rigidbody>().AddForce(force);
-    // }
+    }
 
 
     /// <summary>
