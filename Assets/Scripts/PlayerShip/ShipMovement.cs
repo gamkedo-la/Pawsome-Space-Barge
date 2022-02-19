@@ -64,7 +64,21 @@ public class ShipMovement : MonoBehaviour
         }
         if (thrustInput > 0)
         {
-            rb2d.AddForce(gameObject.transform.right * thrustForce);
+            if (!rb2d.isKinematic)
+            {
+                // this is the default
+                rb2d.AddForce(gameObject.transform.right * thrustForce);
+            }
+            else
+            {
+                // this is cruft (for now)
+
+                // part of experiments to improve physics simulation,
+                // this with Quaternion orbit method is promising
+                rb2d.velocity += new Vector2(rb2d.transform.right.x, rb2d.transform.right.y) * thrustForce * Time.fixedDeltaTime;
+                // will need collider events for interactions with asteroids,
+                // else tug barges through regardless of asteroid mass
+            }
         }
         if (thrustInput < 0)
         {

@@ -37,12 +37,6 @@ public class Asteroid : MonoBehaviour
     private void Update()
     {
         transform.Rotate(rotationalVelocity * Time.deltaTime);
-
-        // transform.RotateAround(
-        //     AsteroidField.instance.planet,
-        //     Vector3.forward,
-        //     ((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime
-        // );
     }
 
 
@@ -58,7 +52,7 @@ public class Asteroid : MonoBehaviour
         // // https://answers.unity.com/questions/10093/rigidbody-rotating-around-a-point-instead-on-self.html
         // // Works and produces more realistic collision rotations of asteroids on the barge,
         // // buuuut... this blocks the tug from interacting with the asteroids.
-        // // Stick with using transform.RotateAround()
+        // // Solution: make player kinematic type. But this raises further issues, lol.
         // Quaternion q = Quaternion.AngleAxis(((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
         // rb2d.MovePosition(q * (rb2d.transform.position - AsteroidField.instance.planet) + AsteroidField.instance.planet);
         // rb2d.MoveRotation(rb2d.transform.rotation * q);
