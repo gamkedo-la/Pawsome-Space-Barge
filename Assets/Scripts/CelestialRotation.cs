@@ -26,7 +26,7 @@ public class CelestialRotation : MonoBehaviour
     {
         // rotate rings
         rings.transform.Rotate(
-            new Vector3(0, 0, AsteroidField.instance.fieldSpeed / 100f) * Time.deltaTime
+            new Vector3(0, 0, AsteroidField.Instance.fieldSpeed / 100f) * Time.deltaTime
         );
 
         // rotate sun
@@ -36,7 +36,7 @@ public class CelestialRotation : MonoBehaviour
         caturn.transform.Rotate(
             new Vector3(0, 0,
                 // baseSpeed is used for offset so planet is always rotating.
-                (AsteroidField.instance.fieldSpeed + AsteroidField.baseSpeed) / 100f * Time.deltaTime
+                (AsteroidField.Instance.fieldSpeed + AsteroidField.baseSpeed) / 100f * Time.deltaTime
             ),
             // because we're in space
             Space.World

@@ -9,7 +9,7 @@ using UnityEngine;
 public class AsteroidField : MonoBehaviour
 {
     /// <summary> AsteroidField Singleton. </summary>
-    [HideInInspector] public static AsteroidField instance;
+    [HideInInspector] public static AsteroidField Instance;
 
     /// <summary>
     /// Base speed of planet rotation.
@@ -39,12 +39,12 @@ public class AsteroidField : MonoBehaviour
     private void Awake()
     {
         // setup singleton
-        if (instance != null && instance != this) {
+        if (Instance != null && Instance != this) {
             Destroy(this);
         }
         else
         {
-            instance = this;
+            Instance = this;
         }
 
         // cache boundary

@@ -44,32 +44,32 @@ public class Asteroid : MonoBehaviour
     {
         // this is the simplest solution
         rb2d.transform.RotateAround(
-            AsteroidField.instance.planet,
+            AsteroidField.Instance.planet,
             Vector3.forward,
-            ((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime
+            ((AsteroidField.Instance.fieldSpeed / 100f) + speed) * Time.deltaTime
         );
 
         // // https://answers.unity.com/questions/10093/rigidbody-rotating-around-a-point-instead-on-self.html
         // // Works and produces more realistic collision rotations of asteroids on the barge,
         // // buuuut... this blocks the tug from interacting with the asteroids.
         // // Solution: make player kinematic type. But this raises further issues, lol.
-        // Quaternion q = Quaternion.AngleAxis(((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
-        // rb2d.MovePosition(q * (rb2d.transform.position - AsteroidField.instance.planet) + AsteroidField.instance.planet);
+        // Quaternion q = Quaternion.AngleAxis(((AsteroidField.Instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
+        // rb2d.MovePosition(q * (rb2d.transform.position - AsteroidField.Instance.planet) + AsteroidField.Instance.planet);
         // rb2d.MoveRotation(rb2d.transform.rotation * q);
 
 
         // // // this works too, modifying velocity instead... tug still cannot interact
-        // Quaternion q = Quaternion.AngleAxis(((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
-        // Vector2 newPosition = q * (rb2d.transform.position - AsteroidField.instance.planet) + AsteroidField.instance.planet;
+        // Quaternion q = Quaternion.AngleAxis(((AsteroidField.Instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
+        // Vector2 newPosition = q * (rb2d.transform.position - AsteroidField.Instance.planet) + AsteroidField.Instance.planet;
         // Vector2 temp = newPosition - rb2d.position;
-        // rb2d.velocity = temp * Mathf.Abs(AsteroidField.instance.fieldSpeed);
+        // rb2d.velocity = temp * Mathf.Abs(AsteroidField.Instance.fieldSpeed);
 
 
         // // With RigidBody2D.AddForce, rather wonky
-        // Quaternion q = Quaternion.AngleAxis(((AsteroidField.instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
-        // Vector2 newPosition = q * (rb2d.transform.position - AsteroidField.instance.planet) + AsteroidField.instance.planet;
+        // Quaternion q = Quaternion.AngleAxis(((AsteroidField.Instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
+        // Vector2 newPosition = q * (rb2d.transform.position - AsteroidField.Instance.planet) + AsteroidField.Instance.planet;
         // Vector2 temp = newPosition - rb2d.position;
-        // rb2d.AddForce(temp * Mathf.Abs(AsteroidField.instance.fieldSpeed*100f));
+        // rb2d.AddForce(temp * Mathf.Abs(AsteroidField.Instance.fieldSpeed*100f));
         // rb2d.MoveRotation(rb2d.transform.rotation * q);
 
 
@@ -87,14 +87,14 @@ public class Asteroid : MonoBehaviour
     /// </summary>
     private void Randomize()
     {
-        speed = Random.Range(-AsteroidField.instance.orbitalSpeedVariance, AsteroidField.instance.orbitalSpeedVariance);
+        speed = Random.Range(-AsteroidField.Instance.orbitalSpeedVariance, AsteroidField.Instance.orbitalSpeedVariance);
         
         transform.rotation = Random.rotation;
 
         rotationalVelocity = new Vector3(
-            Random.Range(-AsteroidField.instance.maxAsteroidTumbleSpeed, AsteroidField.instance.maxAsteroidTumbleSpeed),
-            Random.Range(-AsteroidField.instance.maxAsteroidTumbleSpeed, AsteroidField.instance.maxAsteroidTumbleSpeed),
-            Random.Range(-AsteroidField.instance.maxAsteroidTumbleSpeed, AsteroidField.instance.maxAsteroidTumbleSpeed)
+            Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed),
+            Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed),
+            Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed)
         );
     }
 
@@ -106,11 +106,11 @@ public class Asteroid : MonoBehaviour
     {
         // which side to spawn on
         float xPos = (rb2d.position.x > 0) ?
-            Random.Range(-AsteroidField.instance.fieldBounds.bounds.extents.x, -AsteroidField.instance.fieldBounds.bounds.extents.x + 50) :
-            Random.Range(AsteroidField.instance.fieldBounds.bounds.extents.x, AsteroidField.instance.fieldBounds.bounds.extents.x - 50);
+            Random.Range(-AsteroidField.Instance.fieldBounds.bounds.extents.x, -AsteroidField.Instance.fieldBounds.bounds.extents.x + 50) :
+            Random.Range(AsteroidField.Instance.fieldBounds.bounds.extents.x, AsteroidField.Instance.fieldBounds.bounds.extents.x - 50);
         
         // y axis spawn
-        float yPos = Random.Range(-AsteroidField.instance.fieldBounds.bounds.extents.y + 150, AsteroidField.instance.fieldBounds.bounds.extents.y - 150);
+        float yPos = Random.Range(-AsteroidField.Instance.fieldBounds.bounds.extents.y + 150, AsteroidField.Instance.fieldBounds.bounds.extents.y - 150);
 
         // set new position
         transform.position = new Vector2(xPos, yPos);

@@ -20,7 +20,7 @@ public class BargeController : MonoBehaviour
     {
         Vector2 newPosition =
             rb2d.position +
-            new Vector2(0, AsteroidField.instance.fieldSpeed * movementCoefficient * Time.deltaTime);
+            new Vector2(0, AsteroidField.Instance.fieldSpeed * movementCoefficient * Time.deltaTime);
 
         rb2d.MovePosition(newPosition);
     }
