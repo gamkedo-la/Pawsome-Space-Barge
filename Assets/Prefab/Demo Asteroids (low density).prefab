@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2575850121634499847}
   - component: {fileID: 3422324302562657404}
   - component: {fileID: 7927007329673755142}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 242971927565088281}
   - component: {fileID: 1125616738141765474}
   - component: {fileID: 5684128277117813016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (71)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 242971927580085161}
   - component: {fileID: 1125616738156233426}
   - component: {fileID: 5684128277102951592}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (93)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 242971927673734144}
   - component: {fileID: 1125616738065862011}
   - component: {fileID: 5684128277008380673}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (54)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 242971927683129803}
   - component: {fileID: 1125616738058447024}
   - component: {fileID: 5684128276998854346}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (92)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 242971927628069661}
   - component: {fileID: 1125616738078913126}
   - component: {fileID: 5684128277046578204}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (35)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -830,7 +830,7 @@ GameObject:
   - component: {fileID: 242971927637297137}
   - component: {fileID: 1125616738104397450}
   - component: {fileID: 5684128277036429552}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (48)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 242971927458672383}
   - component: {fileID: 1125616738245027716}
   - component: {fileID: 5684128276946360830}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (25)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -1102,7 +1102,7 @@ GameObject:
   - component: {fileID: 242971927459036726}
   - component: {fileID: 1125616738244933453}
   - component: {fileID: 5684128276946258231}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (45)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -1238,7 +1238,7 @@ GameObject:
   - component: {fileID: 242971927465723110}
   - component: {fileID: 1125616738243202461}
   - component: {fileID: 5684128276948743143}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (82)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -1374,7 +1374,7 @@ GameObject:
   - component: {fileID: 242971927417219516}
   - component: {fileID: 1125616738287526087}
   - component: {fileID: 5684128276988862141}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (41)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -1510,7 +1510,7 @@ GameObject:
   - component: {fileID: 242971927424342189}
   - component: {fileID: 1125616738277380566}
   - component: {fileID: 5684128276980821932}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (3)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -1646,7 +1646,7 @@ GameObject:
   - component: {fileID: 242971927441775368}
   - component: {fileID: 1125616738294813299}
   - component: {fileID: 5684128276964699145}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (14)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -1782,7 +1782,7 @@ GameObject:
   - component: {fileID: 242971927447865194}
   - component: {fileID: 1125616738292518417}
   - component: {fileID: 5684128276966600811}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (72)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -1918,7 +1918,7 @@ GameObject:
   - component: {fileID: 242971927548358422}
   - component: {fileID: 1125616738192172653}
   - component: {fileID: 5684128276866242583}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (31)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -2054,7 +2054,7 @@ GameObject:
   - component: {fileID: 242971927858020187}
   - component: {fileID: 1125616738383869472}
   - component: {fileID: 5684128276825147482}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (43)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -2190,7 +2190,7 @@ GameObject:
   - component: {fileID: 242971927818552616}
   - component: {fileID: 1125616738419903571}
   - component: {fileID: 5684128276854911529}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (91)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -2326,7 +2326,7 @@ GameObject:
   - component: {fileID: 242971927918757538}
   - component: {fileID: 1125616738360725465}
   - component: {fileID: 5684128276764275107}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (7)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -2462,7 +2462,7 @@ GameObject:
   - component: {fileID: 242971927735379992}
   - component: {fileID: 1125616738538086755}
   - component: {fileID: 5684128276671094553}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (30)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -2598,7 +2598,7 @@ GameObject:
   - component: {fileID: 242971927691856663}
   - component: {fileID: 1125616738553283180}
   - component: {fileID: 5684128276721957910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (67)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -2734,7 +2734,7 @@ GameObject:
   - component: {fileID: 242971927695598365}
   - component: {fileID: 1125616738549164646}
   - component: {fileID: 5684128276709430300}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (40)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -2870,7 +2870,7 @@ GameObject:
   - component: {fileID: 242971927774284851}
   - component: {fileID: 1125616738501920072}
   - component: {fileID: 5684128276639136562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (52)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -3006,7 +3006,7 @@ GameObject:
   - component: {fileID: 242971927779983770}
   - component: {fileID: 1125616738498709729}
   - component: {fileID: 5684128276625438363}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (46)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -3142,7 +3142,7 @@ GameObject:
   - component: {fileID: 242971928132198140}
   - component: {fileID: 1125616737575950215}
   - component: {fileID: 5684128277615274493}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (19)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -3278,7 +3278,7 @@ GameObject:
   - component: {fileID: 242971928140149910}
   - component: {fileID: 1125616737600650733}
   - component: {fileID: 5684128277608498071}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (27)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -3414,7 +3414,7 @@ GameObject:
   - component: {fileID: 242971928100194036}
   - component: {fileID: 1125616737602572175}
   - component: {fileID: 5684128277656580597}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (85)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -3550,7 +3550,7 @@ GameObject:
   - component: {fileID: 242971928114680121}
   - component: {fileID: 1125616737625970754}
   - component: {fileID: 5684128277633836600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (56)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -3686,7 +3686,7 @@ GameObject:
   - component: {fileID: 242971928216727052}
   - component: {fileID: 1125616737526163319}
   - component: {fileID: 5684128277531924749}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (60)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -3822,7 +3822,7 @@ GameObject:
   - component: {fileID: 242971928214536359}
   - component: {fileID: 1125616737524009436}
   - component: {fileID: 5684128277533980582}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (34)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -3958,7 +3958,7 @@ GameObject:
   - component: {fileID: 242971928161481867}
   - component: {fileID: 1125616737546419696}
   - component: {fileID: 5684128277594112906}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (77)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -4094,7 +4094,7 @@ GameObject:
   - component: {fileID: 242971928162174417}
   - component: {fileID: 1125616737547144362}
   - component: {fileID: 5684128277594862288}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (75)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -4230,7 +4230,7 @@ GameObject:
   - component: {fileID: 242971927970610279}
   - component: {fileID: 1125616737766651164}
   - component: {fileID: 5684128277508164454}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (53)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -4366,7 +4366,7 @@ GameObject:
   - component: {fileID: 242971927969933724}
   - component: {fileID: 1125616737766531303}
   - component: {fileID: 5684128277510151837}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (22)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -4502,7 +4502,7 @@ GameObject:
   - component: {fileID: 242971928058614055}
   - component: {fileID: 1125616737645467740}
   - component: {fileID: 5684128277428938278}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (1)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -4638,7 +4638,7 @@ GameObject:
   - component: {fileID: 242971928072092097}
   - component: {fileID: 1125616737667264698}
   - component: {fileID: 5684128277406682816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (59)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -4774,7 +4774,7 @@ GameObject:
   - component: {fileID: 242971928035687114}
   - component: {fileID: 1125616737672344497}
   - component: {fileID: 5684128277451607499}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (63)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -4910,7 +4910,7 @@ GameObject:
   - component: {fileID: 242971928040570878}
   - component: {fileID: 1125616737702327941}
   - component: {fileID: 5684128277439645951}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (24)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -5046,7 +5046,7 @@ GameObject:
   - component: {fileID: 242971928400851146}
   - component: {fileID: 1125616737845098929}
   - component: {fileID: 5684128277347534795}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (9)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -5182,7 +5182,7 @@ GameObject:
   - component: {fileID: 242971928399875503}
   - component: {fileID: 1125616737844085972}
   - component: {fileID: 5684128277348645550}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (79)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -5318,7 +5318,7 @@ GameObject:
   - component: {fileID: 242971928398704111}
   - component: {fileID: 1125616737842914452}
   - component: {fileID: 5684128277349554926}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (23)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -5454,7 +5454,7 @@ GameObject:
   - component: {fileID: 242971928402817440}
   - component: {fileID: 1125616737838151899}
   - component: {fileID: 5684128277353170593}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (16)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -5590,7 +5590,7 @@ GameObject:
   - component: {fileID: 242971928382512772}
   - component: {fileID: 1125616737893832703}
   - component: {fileID: 5684128277364828549}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (81)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -5726,7 +5726,7 @@ GameObject:
   - component: {fileID: 242971928462666560}
   - component: {fileID: 1125616737781047867}
   - component: {fileID: 5684128277293980737}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (32)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -5862,7 +5862,7 @@ GameObject:
   - component: {fileID: 242971928478412582}
   - component: {fileID: 1125616737796761181}
   - component: {fileID: 5684128277278234663}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (90)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -5998,7 +5998,7 @@ GameObject:
   - component: {fileID: 242971928483188722}
   - component: {fileID: 1125616737793148553}
   - component: {fileID: 5684128277264152819}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (87)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -6134,7 +6134,7 @@ GameObject:
   - component: {fileID: 242971928446221497}
   - component: {fileID: 1125616737831187906}
   - component: {fileID: 5684128277310557112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (89)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -6270,7 +6270,7 @@ GameObject:
   - component: {fileID: 242971928230014208}
   - component: {fileID: 1125616738009769083}
   - component: {fileID: 5684128277250071041}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (33)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -6406,7 +6406,7 @@ GameObject:
   - component: {fileID: 242971928246224256}
   - component: {fileID: 1125616738026048763}
   - component: {fileID: 5684128277232808577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (58)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -6542,7 +6542,7 @@ GameObject:
   - component: {fileID: 242971928338222401}
   - component: {fileID: 1125616737907704890}
   - component: {fileID: 5684128277150120512}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (42)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -6678,7 +6678,7 @@ GameObject:
   - component: {fileID: 242971928349401445}
   - component: {fileID: 1125616737927866398}
   - component: {fileID: 5684128277130417764}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (5)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -6814,7 +6814,7 @@ GameObject:
   - component: {fileID: 242971928308811306}
   - component: {fileID: 1125616737970671441}
   - component: {fileID: 5684128277171138859}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (11)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -6950,7 +6950,7 @@ GameObject:
   - component: {fileID: 242971926536914692}
   - component: {fileID: 1125616739202420351}
   - component: {fileID: 5684128275989065733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (10)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -7086,7 +7086,7 @@ GameObject:
   - component: {fileID: 242971926490728396}
   - component: {fileID: 1125616739214397111}
   - component: {fileID: 5684128276045082829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (74)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -7222,7 +7222,7 @@ GameObject:
   - component: {fileID: 242971926568813433}
   - component: {fileID: 1125616739166587394}
   - component: {fileID: 5684128275957429368}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (17)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -7358,7 +7358,7 @@ GameObject:
   - component: {fileID: 242971926575937699}
   - component: {fileID: 1125616739165909464}
   - component: {fileID: 5684128275958828962}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (66)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -7494,7 +7494,7 @@ GameObject:
   - component: {fileID: 242971926397916303}
   - component: {fileID: 1125616739339722228}
   - component: {fileID: 5684128275868410766}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (12)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -7630,7 +7630,7 @@ GameObject:
   - component: {fileID: 242971926446329305}
   - component: {fileID: 1125616739262727330}
   - component: {fileID: 5684128275812399832}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (26)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -7766,7 +7766,7 @@ GameObject:
   - component: {fileID: 242971926446351725}
   - component: {fileID: 1125616739262852118}
   - component: {fileID: 5684128275812504172}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (21)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -7902,7 +7902,7 @@ GameObject:
   - component: {fileID: 242971926412605738}
   - component: {fileID: 1125616739295686737}
   - component: {fileID: 5684128275845336619}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (73)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -8038,7 +8038,7 @@ GameObject:
   - component: {fileID: 242971926421204116}
   - component: {fileID: 1125616739287999983}
   - component: {fileID: 5684128275837655957}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (80)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -8174,7 +8174,7 @@ GameObject:
   - component: {fileID: 242971926440817901}
   - component: {fileID: 1125616739298672022}
   - component: {fileID: 5684128275825247212}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (76)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -8310,7 +8310,7 @@ GameObject:
   - component: {fileID: 242971926781702677}
   - component: {fileID: 1125616739463461742}
   - component: {fileID: 5684128275744670996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (61)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -8446,7 +8446,7 @@ GameObject:
   - component: {fileID: 242971926791798256}
   - component: {fileID: 1125616739448910987}
   - component: {fileID: 5684128275742706417}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (68)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -8582,7 +8582,7 @@ GameObject:
   - component: {fileID: 242971926799912750}
   - component: {fileID: 1125616739473278549}
   - component: {fileID: 5684128275735640111}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (95)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -8718,7 +8718,7 @@ GameObject:
   - component: {fileID: 242971926807517046}
   - component: {fileID: 1125616739464633869}
   - component: {fileID: 5684128275726983287}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (94)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -8854,7 +8854,7 @@ GameObject:
   - component: {fileID: 242971926745803074}
   - component: {fileID: 1125616739495157817}
   - component: {fileID: 5684128275780574787}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (29)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -8990,7 +8990,7 @@ GameObject:
   - component: {fileID: 242971926849542781}
   - component: {fileID: 1125616739389182726}
   - component: {fileID: 5684128275685092732}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (8)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -9126,7 +9126,7 @@ GameObject:
   - component: {fileID: 242971926831800101}
   - component: {fileID: 1125616739446904414}
   - component: {fileID: 5684128275694577700}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (18)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -9262,7 +9262,7 @@ GameObject:
   - component: {fileID: 242971926831050975}
   - component: {fileID: 1125616739446225316}
   - component: {fileID: 5684128275695978462}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (84)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -9398,7 +9398,7 @@ GameObject:
   - component: {fileID: 242971926650512352}
   - component: {fileID: 1125616739592284827}
   - component: {fileID: 5684128275615552737}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (39)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -9534,7 +9534,7 @@ GameObject:
   - component: {fileID: 242971926653123917}
   - component: {fileID: 1125616739586536502}
   - component: {fileID: 5684128275605604940}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (20)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -9670,7 +9670,7 @@ GameObject:
   - component: {fileID: 242971926658545784}
   - component: {fileID: 1125616739583471875}
   - component: {fileID: 5684128275608833913}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (88)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -9806,7 +9806,7 @@ GameObject:
   - component: {fileID: 242971926727801466}
   - component: {fileID: 1125616739544232705}
   - component: {fileID: 5684128275529747835}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (6)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -9942,7 +9942,7 @@ GameObject:
   - component: {fileID: 242971926697851511}
   - component: {fileID: 1125616739580867340}
   - component: {fileID: 5684128275560090998}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (2)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -10078,7 +10078,7 @@ GameObject:
   - component: {fileID: 242971926701880805}
   - component: {fileID: 1125616739576577182}
   - component: {fileID: 5684128275564184292}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (57)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -10214,7 +10214,7 @@ GameObject:
   - component: {fileID: 242971926704194332}
   - component: {fileID: 1125616739570960999}
   - component: {fileID: 5684128275554399261}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (62)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -10350,7 +10350,7 @@ GameObject:
   - component: {fileID: 242971927073144679}
   - component: {fileID: 1125616738664379932}
   - component: {fileID: 5684128276526844006}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (70)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -10486,7 +10486,7 @@ GameObject:
   - component: {fileID: 242971926932954404}
   - component: {fileID: 1125616738809926751}
   - component: {fileID: 5684128276399778341}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (64)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -10622,7 +10622,7 @@ GameObject:
   - component: {fileID: 242971926880433809}
   - component: {fileID: 1125616738824454122}
   - component: {fileID: 5684128276452032912}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (86)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -10758,7 +10758,7 @@ GameObject:
   - component: {fileID: 242971926891412893}
   - component: {fileID: 1125616738810328294}
   - component: {fileID: 5684128276448397980}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (28)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -10894,7 +10894,7 @@ GameObject:
   - component: {fileID: 242971926909346249}
   - component: {fileID: 1125616738828167346}
   - component: {fileID: 5684128276430591688}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (13)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -11030,7 +11030,7 @@ GameObject:
   - component: {fileID: 242971927001791517}
   - component: {fileID: 1125616738735600998}
   - component: {fileID: 5684128276338019100}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (44)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -11166,7 +11166,7 @@ GameObject:
   - component: {fileID: 242971927008517328}
   - component: {fileID: 1125616738733970859}
   - component: {fileID: 5684128276323822545}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (51)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -11302,7 +11302,7 @@ GameObject:
   - component: {fileID: 242971926953444912}
   - component: {fileID: 1125616738754826059}
   - component: {fileID: 5684128276386623793}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (47)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -11438,7 +11438,7 @@ GameObject:
   - component: {fileID: 242971926952123394}
   - component: {fileID: 1125616738753009017}
   - component: {fileID: 5684128276388997891}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (37)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -11574,7 +11574,7 @@ GameObject:
   - component: {fileID: 242971927337426297}
   - component: {fileID: 1125616738936951810}
   - component: {fileID: 5684128276270951032}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (50)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -11710,7 +11710,7 @@ GameObject:
   - component: {fileID: 242971927341370468}
   - component: {fileID: 1125616738933130527}
   - component: {fileID: 5684128276258749285}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (78)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -11846,7 +11846,7 @@ GameObject:
   - component: {fileID: 242971927391529706}
   - component: {fileID: 1125616738849039249}
   - component: {fileID: 5684128276208197099}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (49)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -11982,7 +11982,7 @@ GameObject:
   - component: {fileID: 242971927405250876}
   - component: {fileID: 1125616738871083079}
   - component: {fileID: 5684128276202995261}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (15)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -12118,7 +12118,7 @@ GameObject:
   - component: {fileID: 242971927376503156}
   - component: {fileID: 1125616738901157903}
   - component: {fileID: 5684128276224661109}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (38)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -12254,7 +12254,7 @@ GameObject:
   - component: {fileID: 242971927185582390}
   - component: {fileID: 1125616739054067789}
   - component: {fileID: 5684128276155276855}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (69)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -12390,7 +12390,7 @@ GameObject:
   - component: {fileID: 242971927190808343}
   - component: {fileID: 1125616739050942060}
   - component: {fileID: 5684128276141658134}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (36)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -12526,7 +12526,7 @@ GameObject:
   - component: {fileID: 242971927211158918}
   - component: {fileID: 1125616739062965501}
   - component: {fileID: 5684128276128520839}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (83)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -12662,7 +12662,7 @@ GameObject:
   - component: {fileID: 242971927147807618}
   - component: {fileID: 1125616739091827449}
   - component: {fileID: 5684128276184659075}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (4)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -12798,7 +12798,7 @@ GameObject:
   - component: {fileID: 242971927256265558}
   - component: {fileID: 1125616738982214189}
   - component: {fileID: 5684128276075021399}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (55)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -12934,7 +12934,7 @@ GameObject:
   - component: {fileID: 242971927272829864}
   - component: {fileID: 1125616739006675667}
   - component: {fileID: 5684128276068025513}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (65)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -13070,7 +13070,7 @@ GameObject:
   - component: {fileID: 242971927243499670}
   - component: {fileID: 1125616739035996653}
   - component: {fileID: 5684128276088971159}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-40m (96)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -13206,7 +13206,7 @@ GameObject:
   - component: {fileID: 5555154810866499379}
   - component: {fileID: 3660916169064681683}
   - component: {fileID: 3058415662046145173}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -13783,7 +13783,7 @@ GameObject:
   - component: {fileID: 7665100587522053744}
   - component: {fileID: 6147411434979011715}
   - component: {fileID: 8679048532767752087}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (46)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -13919,7 +13919,7 @@ GameObject:
   - component: {fileID: 7665100587461662195}
   - component: {fileID: 6147411434938609408}
   - component: {fileID: 8679048532672822292}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (42)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -14055,7 +14055,7 @@ GameObject:
   - component: {fileID: 7665100587460652337}
   - component: {fileID: 6147411434939619266}
   - component: {fileID: 8679048532669629654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (109)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -14191,7 +14191,7 @@ GameObject:
   - component: {fileID: 7665100587447343964}
   - component: {fileID: 6147411434920026543}
   - component: {fileID: 8679048532691464891}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (68)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -14327,7 +14327,7 @@ GameObject:
   - component: {fileID: 7665100587408531633}
   - component: {fileID: 6147411434891729474}
   - component: {fileID: 8679048532650576214}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (41)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -14463,7 +14463,7 @@ GameObject:
   - component: {fileID: 7665100587663091979}
   - component: {fileID: 6147411435139961848}
   - component: {fileID: 8679048532605731052}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (53)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -14599,7 +14599,7 @@ GameObject:
   - component: {fileID: 7665100587664303892}
   - component: {fileID: 6147411435139145191}
   - component: {fileID: 8679048532604391155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (77)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -14735,7 +14735,7 @@ GameObject:
   - component: {fileID: 7665100587659111493}
   - component: {fileID: 6147411435144468150}
   - component: {fileID: 8679048532601324962}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (10)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -14871,7 +14871,7 @@ GameObject:
   - component: {fileID: 7665100587654714392}
   - component: {fileID: 6147411435115179755}
   - component: {fileID: 8679048532630502911}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (112)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -15007,7 +15007,7 @@ GameObject:
   - component: {fileID: 7665100587645384912}
   - component: {fileID: 6147411435124638243}
   - component: {fileID: 8679048532618989879}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (56)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -15143,7 +15143,7 @@ GameObject:
   - component: {fileID: 7665100587634064297}
   - component: {fileID: 6147411435101749594}
   - component: {fileID: 8679048532575654478}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (99)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -15279,7 +15279,7 @@ GameObject:
   - component: {fileID: 7665100587605195195}
   - component: {fileID: 6147411435063509832}
   - component: {fileID: 8679048532545802332}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (73)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -15415,7 +15415,7 @@ GameObject:
   - component: {fileID: 7665100587601860013}
   - component: {fileID: 6147411435067502430}
   - component: {fileID: 8679048532545076298}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (13)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -15551,7 +15551,7 @@ GameObject:
   - component: {fileID: 7665100587592067235}
   - component: {fileID: 6147411435076637264}
   - component: {fileID: 8679048532533756228}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (88)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -15687,7 +15687,7 @@ GameObject:
   - component: {fileID: 7665100587582246098}
   - component: {fileID: 6147411435052906017}
   - component: {fileID: 8679048532556424501}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (58)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -15823,7 +15823,7 @@ GameObject:
   - component: {fileID: 7665100587567073505}
   - component: {fileID: 6147411435034522130}
   - component: {fileID: 8679048532508680454}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (55)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -15959,7 +15959,7 @@ GameObject:
   - component: {fileID: 7665100587565307533}
   - component: {fileID: 6147411435036945534}
   - component: {fileID: 8679048532506394474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (40)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -16095,7 +16095,7 @@ GameObject:
   - component: {fileID: 7665100587548633607}
   - component: {fileID: 6147411435019538676}
   - component: {fileID: 8679048532522796000}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (103)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -16231,7 +16231,7 @@ GameObject:
   - component: {fileID: 7665100587544265175}
   - component: {fileID: 6147411435024300836}
   - component: {fileID: 8679048532518905904}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (29)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -16367,7 +16367,7 @@ GameObject:
   - component: {fileID: 7665100587241047168}
   - component: {fileID: 6147411434723540595}
   - component: {fileID: 8679048533023190375}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (54)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -16503,7 +16503,7 @@ GameObject:
   - component: {fileID: 7665100587233935183}
   - component: {fileID: 6147411434697229756}
   - component: {fileID: 8679048532980373160}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (92)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -16639,7 +16639,7 @@ GameObject:
   - component: {fileID: 7665100587234042016}
   - component: {fileID: 6147411434696596051}
   - component: {fileID: 8679048532979992903}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (24)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -16775,7 +16775,7 @@ GameObject:
   - component: {fileID: 7665100587228615532}
   - component: {fileID: 6147411434702416287}
   - component: {fileID: 8679048532977171083}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (3)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -16911,7 +16911,7 @@ GameObject:
   - component: {fileID: 7665100587216238419}
   - component: {fileID: 6147411434680847776}
   - component: {fileID: 8679048532997807796}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (71)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -17047,7 +17047,7 @@ GameObject:
   - component: {fileID: 7665100587201626007}
   - component: {fileID: 6147411434661774692}
   - component: {fileID: 8679048532949636720}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (107)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -17183,7 +17183,7 @@ GameObject:
   - component: {fileID: 7665100587152206302}
   - component: {fileID: 6147411434610529069}
   - component: {fileID: 8679048532931674169}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (22)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -17319,7 +17319,7 @@ GameObject:
   - component: {fileID: 7665100587143501349}
   - component: {fileID: 6147411434619366614}
   - component: {fileID: 8679048532924006338}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (33)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -17455,7 +17455,7 @@ GameObject:
   - component: {fileID: 7665100587138724109}
   - component: {fileID: 6147411434624011262}
   - component: {fileID: 8679048532920260842}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (114)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -17591,7 +17591,7 @@ GameObject:
   - component: {fileID: 7665100587390986250}
   - component: {fileID: 6147411434875196153}
   - component: {fileID: 8679048532869448173}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (2)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -17727,7 +17727,7 @@ GameObject:
   - component: {fileID: 7665100587319507431}
   - component: {fileID: 6147411434778903316}
   - component: {fileID: 8679048532831621120}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (69)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -17863,7 +17863,7 @@ GameObject:
   - component: {fileID: 7665100587316293335}
   - component: {fileID: 6147411434781987876}
   - component: {fileID: 8679048532830504752}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (28)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -17999,7 +17999,7 @@ GameObject:
   - component: {fileID: 7665100587294896448}
   - component: {fileID: 6147411434769959859}
   - component: {fileID: 8679048532772346023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (79)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -18135,7 +18135,7 @@ GameObject:
   - component: {fileID: 7665100587275236320}
   - component: {fileID: 6147411434756589843}
   - component: {fileID: 8679048532787812871}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (66)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -18271,7 +18271,7 @@ GameObject:
   - component: {fileID: 7665100587275591864}
   - component: {fileID: 6147411434755709515}
   - component: {fileID: 8679048532787710303}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (45)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -18407,7 +18407,7 @@ GameObject:
   - component: {fileID: 7665100586965477022}
   - component: {fileID: 6147411434428816493}
   - component: {fileID: 8679048532175081337}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (50)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -18543,7 +18543,7 @@ GameObject:
   - component: {fileID: 7665100586953692126}
   - component: {fileID: 6147411434440075565}
   - component: {fileID: 8679048532165900857}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (80)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -18679,7 +18679,7 @@ GameObject:
   - component: {fileID: 7665100586886211321}
   - component: {fileID: 6147411434340310026}
   - component: {fileID: 8679048532128255774}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (6)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -18815,7 +18815,7 @@ GameObject:
   - component: {fileID: 7665100586871989188}
   - component: {fileID: 6147411434354399543}
   - component: {fileID: 8679048532117178915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (105)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -18951,7 +18951,7 @@ GameObject:
   - component: {fileID: 7665100587130567091}
   - component: {fileID: 6147411434599138112}
   - component: {fileID: 8679048532072779860}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (57)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -19087,7 +19087,7 @@ GameObject:
   - component: {fileID: 7665100587124987009}
   - component: {fileID: 6147411434604326514}
   - component: {fileID: 8679048532065647974}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (100)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -19223,7 +19223,7 @@ GameObject:
   - component: {fileID: 7665100587107320181}
   - component: {fileID: 6147411434588437382}
   - component: {fileID: 8679048532083566738}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (1)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -19359,7 +19359,7 @@ GameObject:
   - component: {fileID: 7665100587065317918}
   - component: {fileID: 6147411434529644781}
   - component: {fileID: 8679048532008006649}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (95)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -19495,7 +19495,7 @@ GameObject:
   - component: {fileID: 7665100587065734075}
   - component: {fileID: 6147411434529229128}
   - component: {fileID: 8679048532007328348}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (36)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -19631,7 +19631,7 @@ GameObject:
   - component: {fileID: 7665100587056313943}
   - component: {fileID: 6147411434538781860}
   - component: {fileID: 8679048532000104368}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (52)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -19767,7 +19767,7 @@ GameObject:
   - component: {fileID: 7665100587042510772}
   - component: {fileID: 6147411434519424327}
   - component: {fileID: 8679048532018232915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (83)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -19903,7 +19903,7 @@ GameObject:
   - component: {fileID: 7665100587040369696}
   - component: {fileID: 6147411434521695955}
   - component: {fileID: 8679048532016039367}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (8)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -20039,7 +20039,7 @@ GameObject:
   - component: {fileID: 7665100586734605300}
   - component: {fileID: 6147411434189793543}
   - component: {fileID: 8679048532481063443}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (120)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -20175,7 +20175,7 @@ GameObject:
   - component: {fileID: 7665100586686775023}
   - component: {fileID: 6147411434169992220}
   - component: {fileID: 8679048532432688904}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (18)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -20311,7 +20311,7 @@ GameObject:
   - component: {fileID: 7665100586666512090}
   - component: {fileID: 6147411434123801641}
   - component: {fileID: 8679048532415063869}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (17)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -20447,7 +20447,7 @@ GameObject:
   - component: {fileID: 7665100586663893209}
   - component: {fileID: 6147411434126418474}
   - component: {fileID: 8679048532409299262}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (49)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -20583,7 +20583,7 @@ GameObject:
   - component: {fileID: 7665100586657241781}
   - component: {fileID: 6147411434133069894}
   - component: {fileID: 8679048532403630930}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (4)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -20719,7 +20719,7 @@ GameObject:
   - component: {fileID: 7665100586635451387}
   - component: {fileID: 6147411434120782088}
   - component: {fileID: 8679048532417032732}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (44)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -20855,7 +20855,7 @@ GameObject:
   - component: {fileID: 7665100586638800243}
   - component: {fileID: 6147411434117828480}
   - component: {fileID: 8679048532417748116}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (89)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -20991,7 +20991,7 @@ GameObject:
   - component: {fileID: 7665100586620838145}
   - component: {fileID: 6147411434102234098}
   - component: {fileID: 8679048532368328934}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (5)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -21127,7 +21127,7 @@ GameObject:
   - component: {fileID: 7665100586612740899}
   - component: {fileID: 6147411434076252624}
   - component: {fileID: 8679048532393212612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (74)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -21263,7 +21263,7 @@ GameObject:
   - component: {fileID: 7665100586608639585}
   - component: {fileID: 6147411434080355474}
   - component: {fileID: 8679048532389189510}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (26)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -21399,7 +21399,7 @@ GameObject:
   - component: {fileID: 7665100586865261888}
   - component: {fileID: 6147411434327705523}
   - component: {fileID: 8679048532342150311}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (118)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -21535,7 +21535,7 @@ GameObject:
   - component: {fileID: 7665100586859963153}
   - component: {fileID: 6147411434333002210}
   - component: {fileID: 8679048532339051254}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (9)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -21671,7 +21671,7 @@ GameObject:
   - component: {fileID: 7665100586822222501}
   - component: {fileID: 6147411434303633494}
   - component: {fileID: 8679048532301294402}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (87)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -21807,7 +21807,7 @@ GameObject:
   - component: {fileID: 7665100586774417260}
   - component: {fileID: 6147411434250253727}
   - component: {fileID: 8679048532286449291}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (84)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -21943,7 +21943,7 @@ GameObject:
   - component: {fileID: 7665100586764733675}
   - component: {fileID: 6147411434226251288}
   - component: {fileID: 8679048532245406988}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (110)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -22079,7 +22079,7 @@ GameObject:
   - component: {fileID: 7665100586747789132}
   - component: {fileID: 6147411434210297279}
   - component: {fileID: 8679048532258297515}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (34)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -22215,7 +22215,7 @@ GameObject:
   - component: {fileID: 7665100586459870833}
   - component: {fileID: 6147411436075142274}
   - component: {fileID: 8679048533816958870}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (60)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -22351,7 +22351,7 @@ GameObject:
   - component: {fileID: 7665100586380708336}
   - component: {fileID: 6147411435986531075}
   - component: {fileID: 8679048533770280983}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (115)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -22487,7 +22487,7 @@ GameObject:
   - component: {fileID: 7665100586366764222}
   - component: {fileID: 6147411436000607821}
   - component: {fileID: 8679048533759454553}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (91)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -22623,7 +22623,7 @@ GameObject:
   - component: {fileID: 7665100586597736150}
   - component: {fileID: 6147411436205319205}
   - component: {fileID: 8679048533687875377}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (116)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -22759,7 +22759,7 @@ GameObject:
   - component: {fileID: 7665100586599841216}
   - component: {fileID: 6147411436203214643}
   - component: {fileID: 8679048533689963559}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (93)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -22895,7 +22895,7 @@ GameObject:
   - component: {fileID: 7665100586594367002}
   - component: {fileID: 6147411436208557289}
   - component: {fileID: 8679048533682462717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (38)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -23031,7 +23031,7 @@ GameObject:
   - component: {fileID: 7665100586555409052}
   - component: {fileID: 6147411436180928623}
   - component: {fileID: 8679048533646175099}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (67)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -23167,7 +23167,7 @@ GameObject:
   - component: {fileID: 7665100586554268464}
   - component: {fileID: 6147411436182069699}
   - component: {fileID: 8679048533642867415}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (63)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -23303,7 +23303,7 @@ GameObject:
   - component: {fileID: 7665100586547851870}
   - component: {fileID: 6147411436154407085}
   - component: {fileID: 8679048533670517689}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (65)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -23439,7 +23439,7 @@ GameObject:
   - component: {fileID: 7665100586531859014}
   - component: {fileID: 6147411436137369781}
   - component: {fileID: 8679048533619393441}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (98)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -23575,7 +23575,7 @@ GameObject:
   - component: {fileID: 7665100586499899069}
   - component: {fileID: 6147411436102222926}
   - component: {fileID: 8679048533588449114}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (102)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -23711,7 +23711,7 @@ GameObject:
   - component: {fileID: 7665100586493110511}
   - component: {fileID: 6147411436109140508}
   - component: {fileID: 8679048533582774536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (72)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -23847,7 +23847,7 @@ GameObject:
   - component: {fileID: 7665100586484135068}
   - component: {fileID: 6147411436117986927}
   - component: {fileID: 8679048533574851963}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (25)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -23983,7 +23983,7 @@ GameObject:
   - component: {fileID: 7665100586179593227}
   - component: {fileID: 6147411435785125624}
   - component: {fileID: 8679048534106009068}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (122)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -24119,7 +24119,7 @@ GameObject:
   - component: {fileID: 7665100586158595506}
   - component: {fileID: 6147411435772569409}
   - component: {fileID: 8679048534051517525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (30)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -24255,7 +24255,7 @@ GameObject:
   - component: {fileID: 7665100586154303263}
   - component: {fileID: 6147411435776861676}
   - component: {fileID: 8679048534047160056}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (14)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -24391,7 +24391,7 @@ GameObject:
   - component: {fileID: 7665100586143704830}
   - component: {fileID: 6147411435753380877}
   - component: {fileID: 8679048534070595353}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (90)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -24527,7 +24527,7 @@ GameObject:
   - component: {fileID: 7665100586119156561}
   - component: {fileID: 6147411435744897442}
   - component: {fileID: 8679048534015195830}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (117)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -24663,7 +24663,7 @@ GameObject:
   - component: {fileID: 7665100586104816874}
   - component: {fileID: 6147411435725028889}
   - component: {fileID: 8679048534033853709}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (94)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -24799,7 +24799,7 @@ GameObject:
   - component: {fileID: 7665100586291729876}
   - component: {fileID: 6147411435907739431}
   - component: {fileID: 8679048533918252083}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (47)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -24935,7 +24935,7 @@ GameObject:
   - component: {fileID: 7665100586288749065}
   - component: {fileID: 6147411435910324474}
   - component: {fileID: 8679048533916906478}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (31)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -25071,7 +25071,7 @@ GameObject:
   - component: {fileID: 7665100586272969990}
   - component: {fileID: 6147411435892420597}
   - component: {fileID: 8679048533932555489}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (43)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -25207,7 +25207,7 @@ GameObject:
   - component: {fileID: 7665100586261869867}
   - component: {fileID: 6147411435870490584}
   - component: {fileID: 8679048533889391820}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (111)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -25343,7 +25343,7 @@ GameObject:
   - component: {fileID: 7665100586260797603}
   - component: {fileID: 6147411435871560272}
   - component: {fileID: 8679048533886267716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (37)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -25479,7 +25479,7 @@ GameObject:
   - component: {fileID: 7665100586245073023}
   - component: {fileID: 6147411435853730444}
   - component: {fileID: 8679048533906178456}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (82)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -25615,7 +25615,7 @@ GameObject:
   - component: {fileID: 7665100586245913472}
   - component: {fileID: 6147411435852497267}
   - component: {fileID: 8679048533905478247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (119)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -25751,7 +25751,7 @@ GameObject:
   - component: {fileID: 7665100586246719320}
   - component: {fileID: 6147411435852217771}
   - component: {fileID: 8679048533904666303}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (27)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -25887,7 +25887,7 @@ GameObject:
   - component: {fileID: 7665100585923825742}
   - component: {fileID: 6147411435536919229}
   - component: {fileID: 8679048533283453353}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (7)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -26023,7 +26023,7 @@ GameObject:
   - component: {fileID: 7665100585898567066}
   - component: {fileID: 6147411435529281385}
   - component: {fileID: 8679048533288127613}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (96)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -26159,7 +26159,7 @@ GameObject:
   - component: {fileID: 7665100585882948314}
   - component: {fileID: 6147411435510818857}
   - component: {fileID: 8679048533240576829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (48)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -26295,7 +26295,7 @@ GameObject:
   - component: {fileID: 7665100585879418002}
   - component: {fileID: 6147411435480796769}
   - component: {fileID: 8679048533269536117}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (75)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -26431,7 +26431,7 @@ GameObject:
   - component: {fileID: 7665100585862620481}
   - component: {fileID: 6147411435463909298}
   - component: {fileID: 8679048533219085478}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (16)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -26567,7 +26567,7 @@ GameObject:
   - component: {fileID: 7665100585834306595}
   - component: {fileID: 6147411435458668240}
   - component: {fileID: 8679048533226436036}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (61)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -26703,7 +26703,7 @@ GameObject:
   - component: {fileID: 7665100585833469607}
   - component: {fileID: 6147411435460029524}
   - component: {fileID: 8679048533223079744}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (70)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -26839,7 +26839,7 @@ GameObject:
   - component: {fileID: 7665100586036005231}
   - component: {fileID: 6147411435659621276}
   - component: {fileID: 8679048533158682760}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (106)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -26975,7 +26975,7 @@ GameObject:
   - component: {fileID: 7665100586036645540}
   - component: {fileID: 6147411435658982487}
   - component: {fileID: 8679048533158307651}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (101)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -27111,7 +27111,7 @@ GameObject:
   - component: {fileID: 7665100586031752367}
   - component: {fileID: 6147411435664531036}
   - component: {fileID: 8679048533154942280}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (78)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -27247,7 +27247,7 @@ GameObject:
   - component: {fileID: 7665100586027541085}
   - component: {fileID: 6147411435635185838}
   - component: {fileID: 8679048533117209530}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (11)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -27383,7 +27383,7 @@ GameObject:
   - component: {fileID: 7665100586020210199}
   - component: {fileID: 6147411435642518756}
   - component: {fileID: 8679048533107765232}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (51)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -27519,7 +27519,7 @@ GameObject:
   - component: {fileID: 7665100585994432509}
   - component: {fileID: 6147411435601057038}
   - component: {fileID: 8679048533083080218}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (97)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -27655,7 +27655,7 @@ GameObject:
   - component: {fileID: 7665100585950707401}
   - component: {fileID: 6147411435577148474}
   - component: {fileID: 8679048533038733102}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (108)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -27791,7 +27791,7 @@ GameObject:
   - component: {fileID: 7665100585658213480}
   - component: {fileID: 6147411435265793691}
   - component: {fileID: 8679048533553646991}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (113)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -27927,7 +27927,7 @@ GameObject:
   - component: {fileID: 7665100585661540701}
   - component: {fileID: 6147411435262858158}
   - component: {fileID: 8679048533554380986}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (85)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -28063,7 +28063,7 @@ GameObject:
   - component: {fileID: 7665100585655786038}
   - component: {fileID: 6147411435268612293}
   - component: {fileID: 8679048533551756241}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -28199,7 +28199,7 @@ GameObject:
   - component: {fileID: 7665100585651742974}
   - component: {fileID: 6147411435272262157}
   - component: {fileID: 8679048533547270425}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (64)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -28335,7 +28335,7 @@ GameObject:
   - component: {fileID: 7665100585645790687}
   - component: {fileID: 6147411435278610220}
   - component: {fileID: 8679048533540781112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (76)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -28471,7 +28471,7 @@ GameObject:
   - component: {fileID: 7665100585628781845}
   - component: {fileID: 6147411435261540326}
   - component: {fileID: 8679048533557781746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (23)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -28607,7 +28607,7 @@ GameObject:
   - component: {fileID: 7665100585626550166}
   - component: {fileID: 6147411435230217573}
   - component: {fileID: 8679048533522011761}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (81)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -28743,7 +28743,7 @@ GameObject:
   - component: {fileID: 7665100585620559727}
   - component: {fileID: 6147411435236863388}
   - component: {fileID: 8679048533515550344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (39)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -28879,7 +28879,7 @@ GameObject:
   - component: {fileID: 7665100585596909359}
   - component: {fileID: 6147411435226828252}
   - component: {fileID: 8679048533526486728}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (15)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -29015,7 +29015,7 @@ GameObject:
   - component: {fileID: 7665100585593205456}
   - component: {fileID: 6147411435196581923}
   - component: {fileID: 8679048533488638775}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (35)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -29151,7 +29151,7 @@ GameObject:
   - component: {fileID: 7665100585550004917}
   - component: {fileID: 6147411435172542534}
   - component: {fileID: 8679048533443357522}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (86)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -29287,7 +29287,7 @@ GameObject:
   - component: {fileID: 7665100585792038707}
   - component: {fileID: 6147411435400928704}
   - component: {fileID: 8679048533419560660}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (19)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -29423,7 +29423,7 @@ GameObject:
   - component: {fileID: 7665100585787559576}
   - component: {fileID: 6147411435404883051}
   - component: {fileID: 8679048533415651199}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (62)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -29559,7 +29559,7 @@ GameObject:
   - component: {fileID: 7665100585790790198}
   - component: {fileID: 6147411435401519301}
   - component: {fileID: 8679048533416752081}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (104)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -29695,7 +29695,7 @@ GameObject:
   - component: {fileID: 7665100585757650238}
   - component: {fileID: 6147411435367684045}
   - component: {fileID: 8679048533382644953}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (121)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -29831,7 +29831,7 @@ GameObject:
   - component: {fileID: 7665100585745398738}
   - component: {fileID: 6147411435346772257}
   - component: {fileID: 8679048533403423285}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (21)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -29967,7 +29967,7 @@ GameObject:
   - component: {fileID: 7665100585722482658}
   - component: {fileID: 6147411435335611665}
   - component: {fileID: 8679048533350573573}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (32)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -30103,7 +30103,7 @@ GameObject:
   - component: {fileID: 7665100585688310106}
   - component: {fileID: 6147411435303328681}
   - component: {fileID: 8679048533313833149}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (59)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -30239,7 +30239,7 @@ GameObject:
   - component: {fileID: 7665100585689795312}
   - component: {fileID: 6147411435301842947}
   - component: {fileID: 8679048533316281111}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (20)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -30375,7 +30375,7 @@ GameObject:
   - component: {fileID: 7665100585673405480}
   - component: {fileID: 6147411435284156123}
   - component: {fileID: 8679048533332942287}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m (12)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -30511,7 +30511,7 @@ GameObject:
   - component: {fileID: 3908717248091749725}
   - component: {fileID: 5325363221536248509}
   - component: {fileID: 5861714919674407163}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (106)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -30647,7 +30647,7 @@ GameObject:
   - component: {fileID: 3908717248039841203}
   - component: {fileID: 5325363221487485523}
   - component: {fileID: 5861714919692761109}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (45)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -30783,7 +30783,7 @@ GameObject:
   - component: {fileID: 3908717248037490074}
   - component: {fileID: 5325363221490426490}
   - component: {fileID: 5861714919686674492}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (97)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -30919,7 +30919,7 @@ GameObject:
   - component: {fileID: 3908717248125079397}
   - component: {fileID: 5325363221435670661}
   - component: {fileID: 5861714919775247043}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (28)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -31055,7 +31055,7 @@ GameObject:
   - component: {fileID: 3908717248106818961}
   - component: {fileID: 5325363221420507761}
   - component: {fileID: 5861714919760001079}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (14)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -31191,7 +31191,7 @@ GameObject:
   - component: {fileID: 3908717247956111995}
   - component: {fileID: 5325363221404040603}
   - component: {fileID: 5861714919541589981}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (154)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -31327,7 +31327,7 @@ GameObject:
   - component: {fileID: 3908717247946269413}
   - component: {fileID: 5325363221395000581}
   - component: {fileID: 5861714919534638915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (72)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -31463,7 +31463,7 @@ GameObject:
   - component: {fileID: 3908717247940073271}
   - component: {fileID: 5325363221383837911}
   - component: {fileID: 5861714919524041361}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (15)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -31599,7 +31599,7 @@ GameObject:
   - component: {fileID: 3908717247916296586}
   - component: {fileID: 5325363221359765098}
   - component: {fileID: 5861714919564631084}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (51)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -31735,7 +31735,7 @@ GameObject:
   - component: {fileID: 3908717247908036872}
   - component: {fileID: 5325363221365403368}
   - component: {fileID: 5861714919564498094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (9)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -31871,7 +31871,7 @@ GameObject:
   - component: {fileID: 3908717247894983041}
   - component: {fileID: 5325363221347139169}
   - component: {fileID: 5861714919543964711}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (76)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -32007,7 +32007,7 @@ GameObject:
   - component: {fileID: 3908717247987842704}
   - component: {fileID: 5325363221302579568}
   - component: {fileID: 5861714919644097334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (34)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -32143,7 +32143,7 @@ GameObject:
   - component: {fileID: 3908717247983461818}
   - component: {fileID: 5325363221292730970}
   - component: {fileID: 5861714919631663132}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (48)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -32279,7 +32279,7 @@ GameObject:
   - component: {fileID: 3908717247977228817}
   - component: {fileID: 5325363221296211441}
   - component: {fileID: 5861714919629496247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (184)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -32415,7 +32415,7 @@ GameObject:
   - component: {fileID: 3908717247971484516}
   - component: {fileID: 5325363221285178500}
   - component: {fileID: 5861714919626897090}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (95)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -32551,7 +32551,7 @@ GameObject:
   - component: {fileID: 3908717247816058304}
   - component: {fileID: 5325363221810293280}
   - component: {fileID: 5861714919941689446}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (126)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -32687,7 +32687,7 @@ GameObject:
   - component: {fileID: 3908717247816838067}
   - component: {fileID: 5325363221811086419}
   - component: {fileID: 5861714919940898325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (150)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -32823,7 +32823,7 @@ GameObject:
   - component: {fileID: 3908717247815071158}
   - component: {fileID: 5325363221796739670}
   - component: {fileID: 5861714919934271504}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (90)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -32959,7 +32959,7 @@ GameObject:
   - component: {fileID: 3908717247788173801}
   - component: {fileID: 5325363221772707337}
   - component: {fileID: 5861714919977966671}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (142)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -33095,7 +33095,7 @@ GameObject:
   - component: {fileID: 3908717247785981144}
   - component: {fileID: 5325363221774973752}
   - component: {fileID: 5861714919971766654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (53)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -33231,7 +33231,7 @@ GameObject:
   - component: {fileID: 3908717247777454964}
   - component: {fileID: 5325363221767246996}
   - component: {fileID: 5861714919963504338}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (74)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -33367,7 +33367,7 @@ GameObject:
   - component: {fileID: 3908717247884666294}
   - component: {fileID: 5325363221743389270}
   - component: {fileID: 5861714920007282704}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (39)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -33503,7 +33503,7 @@ GameObject:
   - component: {fileID: 3908717247877981868}
   - component: {fileID: 5325363221733820748}
   - component: {fileID: 5861714919997190922}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (20)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -33639,7 +33639,7 @@ GameObject:
   - component: {fileID: 3908717247851687966}
   - component: {fileID: 5325363221707497470}
   - component: {fileID: 5861714920040293816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (141)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -33775,7 +33775,7 @@ GameObject:
   - component: {fileID: 3908717247841407853}
   - component: {fileID: 5325363221701196941}
   - component: {fileID: 5861714920033748683}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (133)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -33911,7 +33911,7 @@ GameObject:
   - component: {fileID: 3908717247840867715}
   - component: {fileID: 5325363221686991459}
   - component: {fileID: 5861714920025931813}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (50)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -34047,7 +34047,7 @@ GameObject:
   - component: {fileID: 3908717247677976740}
   - component: {fileID: 5325363221662777156}
   - component: {fileID: 5861714919802946818}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (119)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -34183,7 +34183,7 @@ GameObject:
   - component: {fileID: 3908717247679047719}
   - component: {fileID: 5325363221663598535}
   - component: {fileID: 5861714919801863553}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (33)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -34319,7 +34319,7 @@ GameObject:
   - component: {fileID: 3908717247680408441}
   - component: {fileID: 5325363221660730521}
   - component: {fileID: 5861714919800536799}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (160)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -34455,7 +34455,7 @@ GameObject:
   - component: {fileID: 3908717247675197946}
   - component: {fileID: 5325363221668103706}
   - component: {fileID: 5861714919797357660}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (68)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -34591,7 +34591,7 @@ GameObject:
   - component: {fileID: 3908717247665303790}
   - component: {fileID: 5325363221658476302}
   - component: {fileID: 5861714919790470472}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (117)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -34727,7 +34727,7 @@ GameObject:
   - component: {fileID: 3908717247650767983}
   - component: {fileID: 5325363221639515023}
   - component: {fileID: 5861714919838527945}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (164)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -34863,7 +34863,7 @@ GameObject:
   - component: {fileID: 3908717247650474669}
   - component: {fileID: 5325363221640267085}
   - component: {fileID: 5861714919838826251}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (109)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -34999,7 +34999,7 @@ GameObject:
   - component: {fileID: 3908717247639413245}
   - component: {fileID: 5325363221620002333}
   - component: {fileID: 5861714919824749659}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (110)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -35135,7 +35135,7 @@ GameObject:
   - component: {fileID: 3908717247623535852}
   - component: {fileID: 5325363221616489228}
   - component: {fileID: 5861714919815416138}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (46)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -35271,7 +35271,7 @@ GameObject:
   - component: {fileID: 3908717247746158668}
   - component: {fileID: 5325363221596495788}
   - component: {fileID: 5861714919868966378}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (7)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -35407,7 +35407,7 @@ GameObject:
   - component: {fileID: 3908717247725172299}
   - component: {fileID: 5325363221584124331}
   - component: {fileID: 5861714919848043501}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (152)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -35543,7 +35543,7 @@ GameObject:
   - component: {fileID: 3908717247722611575}
   - component: {fileID: 5325363221569768599}
   - component: {fileID: 5861714919909324497}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (121)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -35679,7 +35679,7 @@ GameObject:
   - component: {fileID: 3908717247712266942}
   - component: {fileID: 5325363221563925854}
   - component: {fileID: 5861714919902846744}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (178)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -35815,7 +35815,7 @@ GameObject:
   - component: {fileID: 3908717247704108649}
   - component: {fileID: 5325363221554717065}
   - component: {fileID: 5861714919894227919}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (21)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -35951,7 +35951,7 @@ GameObject:
   - component: {fileID: 3908717247702498064}
   - component: {fileID: 5325363221556991216}
   - component: {fileID: 5861714919887498934}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (93)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -36087,7 +36087,7 @@ GameObject:
   - component: {fileID: 3908717247691315783}
   - component: {fileID: 5325363221551330727}
   - component: {fileID: 5861714919881887713}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (4)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -36223,7 +36223,7 @@ GameObject:
   - component: {fileID: 3908717247549091951}
   - component: {fileID: 5325363222078906255}
   - component: {fileID: 5861714919134897609}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (127)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -36359,7 +36359,7 @@ GameObject:
   - component: {fileID: 3908717247538663281}
   - component: {fileID: 5325363222056165521}
   - component: {fileID: 5861714919120149207}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (61)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -36495,7 +36495,7 @@ GameObject:
   - component: {fileID: 3908717247530710542}
   - component: {fileID: 5325363222061570542}
   - component: {fileID: 5861714919119725480}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (140)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -36631,7 +36631,7 @@ GameObject:
   - component: {fileID: 3908717247532622220}
   - component: {fileID: 5325363222062403180}
   - component: {fileID: 5861714919117845546}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (58)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -36767,7 +36767,7 @@ GameObject:
   - component: {fileID: 3908717247502890900}
   - component: {fileID: 5325363222024312948}
   - component: {fileID: 5861714919155933746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (78)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -36903,7 +36903,7 @@ GameObject:
   - component: {fileID: 3908717247497122411}
   - component: {fileID: 5325363222027984267}
   - component: {fileID: 5861714919153313741}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (23)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -37039,7 +37039,7 @@ GameObject:
   - component: {fileID: 3908717247612678729}
   - component: {fileID: 5325363221996969385}
   - component: {fileID: 5861714919197173743}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (86)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -37175,7 +37175,7 @@ GameObject:
   - component: {fileID: 3908717247613507110}
   - component: {fileID: 5325363221997582790}
   - component: {fileID: 5861714919196296064}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (166)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -37311,7 +37311,7 @@ GameObject:
   - component: {fileID: 3908717247609732104}
   - component: {fileID: 5325363222001357800}
   - component: {fileID: 5861714919191734702}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (100)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -37447,7 +37447,7 @@ GameObject:
   - component: {fileID: 3908717247575424228}
   - component: {fileID: 5325363221967049476}
   - component: {fileID: 5861714919226042690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (170)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -37583,7 +37583,7 @@ GameObject:
   - component: {fileID: 3908717247576442729}
   - component: {fileID: 5325363221968119945}
   - component: {fileID: 5861714919224971983}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (81)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -37719,7 +37719,7 @@ GameObject:
   - component: {fileID: 3908717247557425238}
   - component: {fileID: 5325363221953001398}
   - component: {fileID: 5861714919210470896}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (139)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -37855,7 +37855,7 @@ GameObject:
   - component: {fileID: 3908717247413245231}
   - component: {fileID: 5325363221944089295}
   - component: {fileID: 5861714919002325129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (13)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -37991,7 +37991,7 @@ GameObject:
   - component: {fileID: 3908717247404763688}
   - component: {fileID: 5325363221935850952}
   - component: {fileID: 5861714918994050958}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (10)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -38127,7 +38127,7 @@ GameObject:
   - component: {fileID: 3908717247402345623}
   - component: {fileID: 5325363221924047735}
   - component: {fileID: 5861714918988026161}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (146)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -38263,7 +38263,7 @@ GameObject:
   - component: {fileID: 3908717247380993299}
   - component: {fileID: 5325363221911853811}
   - component: {fileID: 5861714919034560693}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (159)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -38399,7 +38399,7 @@ GameObject:
   - component: {fileID: 3908717247354591188}
   - component: {fileID: 5325363221885433908}
   - component: {fileID: 5861714919010648690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (63)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -38535,7 +38535,7 @@ GameObject:
   - component: {fileID: 3908717247356027210}
   - component: {fileID: 5325363221886086826}
   - component: {fileID: 5861714919009211628}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (36)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -38671,7 +38671,7 @@ GameObject:
   - component: {fileID: 3908717247357870183}
   - component: {fileID: 5325363221884768135}
   - component: {fileID: 5861714919007385025}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (6)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -38807,7 +38807,7 @@ GameObject:
   - component: {fileID: 3908717247482978384}
   - component: {fileID: 5325363221874347952}
   - component: {fileID: 5861714919066826230}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (125)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -38943,7 +38943,7 @@ GameObject:
   - component: {fileID: 3908717247478481578}
   - component: {fileID: 5325363221862788426}
   - component: {fileID: 5861714919062918924}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (128)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -39079,7 +39079,7 @@ GameObject:
   - component: {fileID: 3908717247473267866}
   - component: {fileID: 5325363221869910906}
   - component: {fileID: 5861714919059726652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (115)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -39215,7 +39215,7 @@ GameObject:
   - component: {fileID: 3908717247474062164}
   - component: {fileID: 5325363221866495156}
   - component: {fileID: 5861714919058949874}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (56)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -39351,7 +39351,7 @@ GameObject:
   - component: {fileID: 3908717247467615782}
   - component: {fileID: 5325363221858982342}
   - component: {fileID: 5861714919048635264}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (189)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -39487,7 +39487,7 @@ GameObject:
   - component: {fileID: 3908717247455715779}
   - component: {fileID: 5325363221851278883}
   - component: {fileID: 5861714919043757157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (114)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -39623,7 +39623,7 @@ GameObject:
   - component: {fileID: 3908717247454228475}
   - component: {fileID: 5325363221838282779}
   - component: {fileID: 5861714919103937117}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (57)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -39759,7 +39759,7 @@ GameObject:
   - component: {fileID: 3908717247281600385}
   - component: {fileID: 5325363222344366177}
   - component: {fileID: 5861714919402373671}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (42)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -39895,7 +39895,7 @@ GameObject:
   - component: {fileID: 3908717247266161136}
   - component: {fileID: 5325363222328667664}
   - component: {fileID: 5861714919384257622}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (149)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -40031,7 +40031,7 @@ GameObject:
   - component: {fileID: 3908717247257154790}
   - component: {fileID: 5325363222320970502}
   - component: {fileID: 5861714919376486720}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (183)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -40167,7 +40167,7 @@ GameObject:
   - component: {fileID: 3908717247228816596}
   - component: {fileID: 5325363222296806196}
   - component: {fileID: 5861714919421622642}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (185)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -40303,7 +40303,7 @@ GameObject:
   - component: {fileID: 3908717247222633918}
   - component: {fileID: 5325363222286416478}
   - component: {fileID: 5861714919411040280}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (64)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -40439,7 +40439,7 @@ GameObject:
   - component: {fileID: 3908717247342343351}
   - component: {fileID: 5325363222266649431}
   - component: {fileID: 5861714919467507985}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (186)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -40575,7 +40575,7 @@ GameObject:
   - component: {fileID: 3908717247340619018}
   - component: {fileID: 5325363222268889834}
   - component: {fileID: 5861714919460810924}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (52)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -40711,7 +40711,7 @@ GameObject:
   - component: {fileID: 3908717247327837466}
   - component: {fileID: 5325363222247731962}
   - component: {fileID: 5861714919448414396}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (69)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -40847,7 +40847,7 @@ GameObject:
   - component: {fileID: 3908717247321491262}
   - component: {fileID: 5325363222253938910}
   - component: {fileID: 5861714919446401688}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (92)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -40983,7 +40983,7 @@ GameObject:
   - component: {fileID: 3908717247317229535}
   - component: {fileID: 5325363222241562687}
   - component: {fileID: 5861714919509371513}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (124)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -41119,7 +41119,7 @@ GameObject:
   - component: {fileID: 3908717247317475220}
   - component: {fileID: 5325363222241775732}
   - component: {fileID: 5861714919509158450}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (165)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -41255,7 +41255,7 @@ GameObject:
   - component: {fileID: 3908717247314245137}
   - component: {fileID: 5325363222246709745}
   - component: {fileID: 5861714919503963063}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (99)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -41391,7 +41391,7 @@ GameObject:
   - component: {fileID: 3908717247308433465}
   - component: {fileID: 5325363222233573337}
   - component: {fileID: 5861714919501372831}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (135)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -41527,7 +41527,7 @@ GameObject:
   - component: {fileID: 3908717247141171964}
   - component: {fileID: 5325363222199450908}
   - component: {fileID: 5861714919266010970}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (94)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -41663,7 +41663,7 @@ GameObject:
   - component: {fileID: 3908717247143696239}
   - component: {fileID: 5325363222199089295}
   - component: {fileID: 5861714919263486665}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (108)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -41799,7 +41799,7 @@ GameObject:
   - component: {fileID: 3908717247143648646}
   - component: {fileID: 5325363222199071334}
   - component: {fileID: 5861714919263504416}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (8)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -41935,7 +41935,7 @@ GameObject:
   - component: {fileID: 3908717247134314727}
   - component: {fileID: 5325363222189465351}
   - component: {fileID: 5861714919256073537}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (31)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -42071,7 +42071,7 @@ GameObject:
   - component: {fileID: 3908717247131226215}
   - component: {fileID: 5325363222194782087}
   - component: {fileID: 5861714919250757057}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (134)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -42207,7 +42207,7 @@ GameObject:
   - component: {fileID: 3908717247120021049}
   - component: {fileID: 5325363222186981849}
   - component: {fileID: 5861714919245185951}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (120)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -42343,7 +42343,7 @@ GameObject:
   - component: {fileID: 3908717247121035348}
   - component: {fileID: 5325363222188785588}
   - component: {fileID: 5861714919244170738}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (54)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -42479,7 +42479,7 @@ GameObject:
   - component: {fileID: 3908717247111946271}
   - component: {fileID: 5325363222178861055}
   - component: {fileID: 5861714919303640505}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (102)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -42615,7 +42615,7 @@ GameObject:
   - component: {fileID: 3908717247113933488}
   - component: {fileID: 5325363222176423248}
   - component: {fileID: 5861714919301621526}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (155)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -42751,7 +42751,7 @@ GameObject:
   - component: {fileID: 3908717247103728672}
   - component: {fileID: 5325363222170375104}
   - component: {fileID: 5861714919295084934}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (84)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -42887,7 +42887,7 @@ GameObject:
   - component: {fileID: 3908717247088346154}
   - component: {fileID: 5325363222152129482}
   - component: {fileID: 5861714919276892556}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (5)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -43023,7 +43023,7 @@ GameObject:
   - component: {fileID: 3908717247089147720}
   - component: {fileID: 5325363222152908968}
   - component: {fileID: 5861714919276112622}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (18)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -43159,7 +43159,7 @@ GameObject:
   - component: {fileID: 3908717247218951712}
   - component: {fileID: 5325363222139095488}
   - component: {fileID: 5861714919339209606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (26)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -43295,7 +43295,7 @@ GameObject:
   - component: {fileID: 3908717247194496149}
   - component: {fileID: 5325363222114603893}
   - component: {fileID: 5861714919313369395}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (66)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -43431,7 +43431,7 @@ GameObject:
   - component: {fileID: 3908717247178700553}
   - component: {fileID: 5325363222112180457}
   - component: {fileID: 5861714919371104943}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (19)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -43567,7 +43567,7 @@ GameObject:
   - component: {fileID: 3908717247165425415}
   - component: {fileID: 5325363222093924583}
   - component: {fileID: 5861714919350825633}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (88)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -43703,7 +43703,7 @@ GameObject:
   - component: {fileID: 3908717247164896261}
   - component: {fileID: 5325363222094461925}
   - component: {fileID: 5861714919351337379}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (118)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -43839,7 +43839,7 @@ GameObject:
   - component: {fileID: 3908717249158251014}
   - component: {fileID: 5325363222615649766}
   - component: {fileID: 5861714920746948512}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (101)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -43975,7 +43975,7 @@ GameObject:
   - component: {fileID: 3908717249152362305}
   - component: {fileID: 5325363222604236961}
   - component: {fileID: 5861714920736076519}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (79)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -44111,7 +44111,7 @@ GameObject:
   - component: {fileID: 3908717249107312015}
   - component: {fileID: 5325363222550794863}
   - component: {fileID: 5861714920755963945}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (143)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -44247,7 +44247,7 @@ GameObject:
   - component: {fileID: 3908717249230883766}
   - component: {fileID: 5325363222544589910}
   - component: {fileID: 5861714920816958992}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (37)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -44383,7 +44383,7 @@ GameObject:
   - component: {fileID: 3908717249225772900}
   - component: {fileID: 5325363222547603588}
   - component: {fileID: 5861714920813681346}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (30)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -44519,7 +44519,7 @@ GameObject:
   - component: {fileID: 3908717249224457905}
   - component: {fileID: 5325363222534771025}
   - component: {fileID: 5861714920806591255}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (188)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -44655,7 +44655,7 @@ GameObject:
   - component: {fileID: 3908717249180262390}
   - component: {fileID: 5325363222495014934}
   - component: {fileID: 5861714920834026064}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (132)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -44791,7 +44791,7 @@ GameObject:
   - component: {fileID: 3908717249181785701}
   - component: {fileID: 5325363222491328901}
   - component: {fileID: 5861714920832469955}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (83)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -44927,7 +44927,7 @@ GameObject:
   - component: {fileID: 3908717249170353874}
   - component: {fileID: 5325363222488269106}
   - component: {fileID: 5861714920818752372}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (12)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -45063,7 +45063,7 @@ GameObject:
   - component: {fileID: 3908717249024200143}
   - component: {fileID: 5325363222481330735}
   - component: {fileID: 5861714920612567145}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (65)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -45199,7 +45199,7 @@ GameObject:
   - component: {fileID: 3908717249002667297}
   - component: {fileID: 5325363222454506177}
   - component: {fileID: 5861714920583817351}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (177)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -45335,7 +45335,7 @@ GameObject:
   - component: {fileID: 3908717248991242240}
   - component: {fileID: 5325363222448621536}
   - component: {fileID: 5861714920645541286}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (27)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -45471,7 +45471,7 @@ GameObject:
   - component: {fileID: 3908717248982903195}
   - component: {fileID: 5325363222440248955}
   - component: {fileID: 5861714920637135933}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (3)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -45607,7 +45607,7 @@ GameObject:
   - component: {fileID: 3908717248976437226}
   - component: {fileID: 5325363222428307466}
   - component: {fileID: 5861714920626793036}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (180)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -45743,7 +45743,7 @@ GameObject:
   - component: {fileID: 3908717248976860866}
   - component: {fileID: 5325363222430046498}
   - component: {fileID: 5861714920626365284}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (168)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -45879,7 +45879,7 @@ GameObject:
   - component: {fileID: 3908717248967879316}
   - component: {fileID: 5325363222420014452}
   - component: {fileID: 5861714920618573618}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (174)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -46015,7 +46015,7 @@ GameObject:
   - component: {fileID: 3908717249098944382}
   - component: {fileID: 5325363222408487070}
   - component: {fileID: 5861714920680430296}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (41)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -46151,7 +46151,7 @@ GameObject:
   - component: {fileID: 3908717249081422551}
   - component: {fileID: 5325363222392003895}
   - component: {fileID: 5861714920664409969}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (62)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -46287,7 +46287,7 @@ GameObject:
   - component: {fileID: 3908717249046151753}
   - component: {fileID: 5325363222360681897}
   - component: {fileID: 5861714920699664367}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (156)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -46423,7 +46423,7 @@ GameObject:
   - component: {fileID: 3908717248881456073}
   - component: {fileID: 5325363222875675689}
   - component: {fileID: 5861714921007015535}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (82)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -46559,7 +46559,7 @@ GameObject:
   - component: {fileID: 3908717248877098587}
   - component: {fileID: 5325363222862666171}
   - component: {fileID: 5861714921002984445}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (89)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -46695,7 +46695,7 @@ GameObject:
   - component: {fileID: 3908717248859514564}
   - component: {fileID: 5325363222849308964}
   - component: {fileID: 5861714921045701474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (2)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -46831,7 +46831,7 @@ GameObject:
   - component: {fileID: 3908717248846270769}
   - component: {fileID: 5325363222826909393}
   - component: {fileID: 5861714921033761943}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (147)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -46967,7 +46967,7 @@ GameObject:
   - component: {fileID: 3908717248842163346}
   - component: {fileID: 5325363222831139698}
   - component: {fileID: 5861714921029529908}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (49)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -47103,7 +47103,7 @@ GameObject:
   - component: {fileID: 3908717248962811444}
   - component: {fileID: 5325363222813129172}
   - component: {fileID: 5861714921085027218}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (182)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -47239,7 +47239,7 @@ GameObject:
   - component: {fileID: 3908717248953968204}
   - component: {fileID: 5325363222805318060}
   - component: {fileID: 5861714921077109738}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (157)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -47375,7 +47375,7 @@ GameObject:
   - component: {fileID: 3908717248951653348}
   - component: {fileID: 5325363222807510020}
   - component: {fileID: 5861714921070986818}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (73)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -47511,7 +47511,7 @@ GameObject:
   - component: {fileID: 3908717248943895718}
   - component: {fileID: 5325363222798424902}
   - component: {fileID: 5861714921061982464}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (129)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -47647,7 +47647,7 @@ GameObject:
   - component: {fileID: 3908717248923968916}
   - component: {fileID: 5325363222782691956}
   - component: {fileID: 5861714921115463730}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (187)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -47783,7 +47783,7 @@ GameObject:
   - component: {fileID: 3908717248906979867}
   - component: {fileID: 5325363222765667835}
   - component: {fileID: 5861714921098936253}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (162)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -47919,7 +47919,7 @@ GameObject:
   - component: {fileID: 3908717248910053635}
   - component: {fileID: 5325363222764830435}
   - component: {fileID: 5861714921095840933}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (123)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -48055,7 +48055,7 @@ GameObject:
   - component: {fileID: 3908717248910427406}
   - component: {fileID: 5325363222764972782}
   - component: {fileID: 5861714921095434408}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (1)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -48191,7 +48191,7 @@ GameObject:
   - component: {fileID: 3908717248751081340}
   - component: {fileID: 5325363222736959644}
   - component: {fileID: 5861714920877294298}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (169)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -48327,7 +48327,7 @@ GameObject:
   - component: {fileID: 3908717248746441953}
   - component: {fileID: 5325363222727041793}
   - component: {fileID: 5861714920865192263}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (16)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -48463,7 +48463,7 @@ GameObject:
   - component: {fileID: 3908717248727442233}
   - component: {fileID: 5325363222713011417}
   - component: {fileID: 5861714920917759647}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (137)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -48599,7 +48599,7 @@ GameObject:
   - component: {fileID: 3908717248724030856}
   - component: {fileID: 5325363222713809512}
   - component: {fileID: 5861714920912764974}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (161)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -48735,7 +48735,7 @@ GameObject:
   - component: {fileID: 3908717248823580179}
   - component: {fileID: 5325363222683335155}
   - component: {fileID: 5861714920947434421}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (29)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -48871,7 +48871,7 @@ GameObject:
   - component: {fileID: 3908717248803126586}
   - component: {fileID: 5325363222653457114}
   - component: {fileID: 5861714920925931676}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (60)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -49007,7 +49007,7 @@ GameObject:
   - component: {fileID: 3908717248799422155}
   - component: {fileID: 5325363222655260971}
   - component: {fileID: 5861714920921244525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (70)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -49143,7 +49143,7 @@ GameObject:
   - component: {fileID: 3908717248790486095}
   - component: {fileID: 5325363222649451439}
   - component: {fileID: 5861714920980531689}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (131)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -49279,7 +49279,7 @@ GameObject:
   - component: {fileID: 3908717248616901356}
   - component: {fileID: 5325363223139632396}
   - component: {fileID: 5861714920206188362}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (87)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -49415,7 +49415,7 @@ GameObject:
   - component: {fileID: 3908717248604563866}
   - component: {fileID: 5325363223135651450}
   - component: {fileID: 5861714920193391676}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (91)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -49551,7 +49551,7 @@ GameObject:
   - component: {fileID: 3908717248608043349}
   - component: {fileID: 5325363223133941429}
   - component: {fileID: 5861714920189859059}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (32)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -49687,7 +49687,7 @@ GameObject:
   - component: {fileID: 3908717248600072440}
   - component: {fileID: 5325363223125659416}
   - component: {fileID: 5861714920181101918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (179)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -49823,7 +49823,7 @@ GameObject:
   - component: {fileID: 3908717248589446335}
   - component: {fileID: 5325363223119516511}
   - component: {fileID: 5861714920242030873}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (116)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -49959,7 +49959,7 @@ GameObject:
   - component: {fileID: 3908717248574707934}
   - component: {fileID: 5325363223100569406}
   - component: {fileID: 5861714920223231352}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (176)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -50095,7 +50095,7 @@ GameObject:
   - component: {fileID: 3908717248688155928}
   - component: {fileID: 5325363223071130360}
   - component: {fileID: 5861714920269183166}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (171)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -50231,7 +50231,7 @@ GameObject:
   - component: {fileID: 3908717248682795104}
   - component: {fileID: 5325363223074197376}
   - component: {fileID: 5861714920266118598}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (163)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -50367,7 +50367,7 @@ GameObject:
   - component: {fileID: 3908717248663745619}
   - component: {fileID: 5325363223059307443}
   - component: {fileID: 5861714920251646453}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (175)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -50503,7 +50503,7 @@ GameObject:
   - component: {fileID: 3908717248647021443}
   - component: {fileID: 5325363223042862179}
   - component: {fileID: 5861714920301909541}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (148)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -50639,7 +50639,7 @@ GameObject:
   - component: {fileID: 3908717248631138289}
   - component: {fileID: 5325363223026960401}
   - component: {fileID: 5861714920284254807}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (130)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -50775,7 +50775,7 @@ GameObject:
   - component: {fileID: 3908717248484778759}
   - component: {fileID: 5325363223003319527}
   - component: {fileID: 5861714920069871265}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (107)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -50911,7 +50911,7 @@ GameObject:
   - component: {fileID: 3908717248460879064}
   - component: {fileID: 5325363222979124024}
   - component: {fileID: 5861714920110580094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (71)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -51047,7 +51047,7 @@ GameObject:
   - component: {fileID: 3908717248455308479}
   - component: {fileID: 5325363222985087839}
   - component: {fileID: 5861714920107761945}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (22)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -51183,7 +51183,7 @@ GameObject:
   - component: {fileID: 3908717248454391106}
   - component: {fileID: 5325363222985480866}
   - component: {fileID: 5861714920108679396}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (25)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -51319,7 +51319,7 @@ GameObject:
   - component: {fileID: 3908717248436061884}
   - component: {fileID: 5325363222953535836}
   - component: {fileID: 5861714920085050138}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (44)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -51455,7 +51455,7 @@ GameObject:
   - component: {fileID: 3908717248557638674}
   - component: {fileID: 5325363222949268466}
   - component: {fileID: 5861714920139649460}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (144)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -51591,7 +51591,7 @@ GameObject:
   - component: {fileID: 3908717248551282447}
   - component: {fileID: 5325363222939502831}
   - component: {fileID: 5861714920137618089}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (105)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -51727,7 +51727,7 @@ GameObject:
   - component: {fileID: 3908717248542995134}
   - component: {fileID: 5325363222930431326}
   - component: {fileID: 5861714920129128216}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (158)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -51863,7 +51863,7 @@ GameObject:
   - component: {fileID: 3908717248542714119}
   - component: {fileID: 5325363222931228391}
   - component: {fileID: 5861714920129379489}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (173)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -51999,7 +51999,7 @@ GameObject:
   - component: {fileID: 3908717248514402244}
   - component: {fileID: 5325363222907111460}
   - component: {fileID: 5861714920166077026}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (47)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -52135,7 +52135,7 @@ GameObject:
   - component: {fileID: 3908717248508777390}
   - component: {fileID: 5325363222895967310}
   - component: {fileID: 5861714920163329544}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (113)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -52271,7 +52271,7 @@ GameObject:
   - component: {fileID: 3908717248356441705}
   - component: {fileID: 5325363223418909065}
   - component: {fileID: 5861714920475053007}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (172)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -52407,7 +52407,7 @@ GameObject:
   - component: {fileID: 3908717248356649471}
   - component: {fileID: 5325363223419414047}
   - component: {fileID: 5861714920474811481}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (145)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -52543,7 +52543,7 @@ GameObject:
   - component: {fileID: 3908717248349425378}
   - component: {fileID: 5325363223407698178}
   - component: {fileID: 5861714920473680708}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (103)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -52679,7 +52679,7 @@ GameObject:
   - component: {fileID: 3908717248350749977}
   - component: {fileID: 5325363223405914873}
   - component: {fileID: 5861714920472318143}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (38)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -52815,7 +52815,7 @@ GameObject:
   - component: {fileID: 3908717248346431026}
   - component: {fileID: 5325363223410242002}
   - component: {fileID: 5861714920468253588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (104)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -52951,7 +52951,7 @@ GameObject:
   - component: {fileID: 3908717248343310516}
   - component: {fileID: 5325363223398477652}
   - component: {fileID: 5861714920462980370}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (181)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -53087,7 +53087,7 @@ GameObject:
   - component: {fileID: 3908717248305063065}
   - component: {fileID: 5325363223367519097}
   - component: {fileID: 5861714920492888383}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (75)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -53223,7 +53223,7 @@ GameObject:
   - component: {fileID: 3908717248299900135}
   - component: {fileID: 5325363223358206727}
   - component: {fileID: 5861714920489617729}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (98)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -53359,7 +53359,7 @@ GameObject:
   - component: {fileID: 3908717248420572272}
   - component: {fileID: 5325363223353262992}
   - component: {fileID: 5861714920545155542}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (24)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -53495,7 +53495,7 @@ GameObject:
   - component: {fileID: 3908717248402969817}
   - component: {fileID: 5325363223336729401}
   - component: {fileID: 5861714920529183103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (40)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -53631,7 +53631,7 @@ GameObject:
   - component: {fileID: 3908717248397615927}
   - component: {fileID: 5325363223325887703}
   - component: {fileID: 5861714920517744273}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (67)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -53767,7 +53767,7 @@ GameObject:
   - component: {fileID: 3908717248381985929}
   - component: {fileID: 5325363223307373417}
   - component: {fileID: 5861714920575316271}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (136)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -53903,7 +53903,7 @@ GameObject:
   - component: {fileID: 3908717248385624200}
   - component: {fileID: 5325363223306553192}
   - component: {fileID: 5861714920571682094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (59)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -54039,7 +54039,7 @@ GameObject:
   - component: {fileID: 3908717248378960969}
   - component: {fileID: 5325363223312700329}
   - component: {fileID: 5861714920569989615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (43)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -54175,7 +54175,7 @@ GameObject:
   - component: {fileID: 3908717248375124351}
   - component: {fileID: 5325363223300218527}
   - component: {fileID: 5861714920565433561}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (138)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -54311,7 +54311,7 @@ GameObject:
   - component: {fileID: 3908717248221039246}
   - component: {fileID: 5325363223283770734}
   - component: {fileID: 5861714920342019880}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (112)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -54447,7 +54447,7 @@ GameObject:
   - component: {fileID: 3908717248215334307}
   - component: {fileID: 5325363223274934851}
   - component: {fileID: 5861714920339318789}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (17)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -54583,7 +54583,7 @@ GameObject:
   - component: {fileID: 3908717248205032659}
   - component: {fileID: 5325363223268844339}
   - component: {fileID: 5861714920324438389}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (122)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -54719,7 +54719,7 @@ GameObject:
   - component: {fileID: 3908717248194167659}
   - component: {fileID: 5325363223260834955}
   - component: {fileID: 5861714920318555853}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (77)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -54855,7 +54855,7 @@ GameObject:
   - component: {fileID: 3908717248180813970}
   - component: {fileID: 5325363223240175474}
   - component: {fileID: 5861714920373818676}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (85)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -54991,7 +54991,7 @@ GameObject:
   - component: {fileID: 3908717248184274856}
   - component: {fileID: 5325363223239401544}
   - component: {fileID: 5861714920370395662}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (35)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -55127,7 +55127,7 @@ GameObject:
   - component: {fileID: 3908717248172431496}
   - component: {fileID: 5325363223231788904}
   - component: {fileID: 5861714920365428014}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (153)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -55263,7 +55263,7 @@ GameObject:
   - component: {fileID: 3908717248164182200}
   - component: {fileID: 5325363223223785304}
   - component: {fileID: 5861714920356916510}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (151)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -55399,7 +55399,7 @@ GameObject:
   - component: {fileID: 3908717248292330979}
   - component: {fileID: 5325363223212487171}
   - component: {fileID: 5861714920413300805}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (11)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -55535,7 +55535,7 @@ GameObject:
   - component: {fileID: 3908717248287199738}
   - component: {fileID: 5325363223219912218}
   - component: {fileID: 5861714920410072156}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (96)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -55671,7 +55671,7 @@ GameObject:
   - component: {fileID: 3908717248275654273}
   - component: {fileID: 5325363223195797857}
   - component: {fileID: 5861714920396436263}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (167)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -55807,7 +55807,7 @@ GameObject:
   - component: {fileID: 3908717248261831623}
   - component: {fileID: 5325363223195341863}
   - component: {fileID: 5861714920385097313}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (111)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -55943,7 +55943,7 @@ GameObject:
   - component: {fileID: 3908717248231712146}
   - component: {fileID: 5325363223155788402}
   - component: {fileID: 5861714920423600180}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (55)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -56079,7 +56079,7 @@ GameObject:
   - component: {fileID: 3908717248226965968}
   - component: {fileID: 5325363223160477232}
   - component: {fileID: 5861714920419961974}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-20m (80)
   m_TagString: Asteroid
   m_Icon: {fileID: 0}

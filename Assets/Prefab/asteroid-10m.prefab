@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6645299053499993047}
   - component: {fileID: 7145187555831558436}
   - component: {fileID: 5626434854914073136}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: asteroid-10m
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -135,3 +135,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef1c384058aad8f7a8ab21fcc0b0d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullOrbit: 0
