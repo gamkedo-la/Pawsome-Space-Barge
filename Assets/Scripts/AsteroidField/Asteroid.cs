@@ -21,10 +21,18 @@ public class Asteroid : MonoBehaviour
     /// <summary> Asteroid RigidBody2D. </summary>
     [HideInInspector] private Rigidbody2D rb2d;
 
+    /// <summary> Radius of attached collider. </summary>
+    [HideInInspector] private float radius;
+
+    /// <summary> Integer for 'Asteroids' layer. </summary>
+    [HideInInspector] private int layer;
+
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        radius = GetComponent<CircleCollider2D>().radius;
+        layer = LayerMask.NameToLayer("Asteroids");
     }
 
 
@@ -104,16 +112,41 @@ public class Asteroid : MonoBehaviour
     /// </summary>
     private void resetPosition()
     {
-        // which side to spawn on
-        float xPos = (rb2d.position.x > 0) ?
+        bool spotClear = false;
+        Vector2 newPos = new Vector2(0,0);
+
+        while (spotClear == false)
+        {
+            // which side to spawn on
+            newPos.x = (rb2d.position.x > 0) ?
             Random.Range(-AsteroidField.Instance.fieldBounds.bounds.extents.x, -AsteroidField.Instance.fieldBounds.bounds.extents.x + 50) :
             Random.Range(AsteroidField.Instance.fieldBounds.bounds.extents.x, AsteroidField.Instance.fieldBounds.bounds.extents.x - 50);
         
-        // y axis spawn
-        float yPos = Random.Range(-AsteroidField.Instance.fieldBounds.bounds.extents.y + 150, AsteroidField.Instance.fieldBounds.bounds.extents.y - 150);
+            // y axis spawn
+            newPos.y = Random.Range(-AsteroidField.Instance.fieldBounds.bounds.extents.y + 150, AsteroidField.Instance.fieldBounds.bounds.extents.y - 150);
+
+            // WARNING
+            // the OverlapCircle() check locks up the engine if the LayerMask is not properly set
+            // as the asteroids are always in the asteroid boundary this never comes back false
+            if (layer >= 0)
+            {
+                // check for overlap with other asteroids
+                if (!Physics2D.OverlapCircle(newPos, radius, layer)) // 6 == Asteroids, be carful changing layer numbers
+                {
+                    spotClear = true;
+                }
+            }
+            else
+            {
+                Debug.Log("Asteroid LayerMask Error!\nPlease ensure asteroids are marked with layer named 'Asteroids'.\nAsteroid overlap on respawn not being checked.");
+
+                // switch to true to exit the check
+                spotClear = true;
+            }
+        }
 
         // set new position
-        transform.position = new Vector2(xPos, yPos);
+        transform.position = newPos;
 
         // re-randomize asteroid properties
         Randomize();
