@@ -25,14 +25,14 @@ public class Asteroid : MonoBehaviour
     [HideInInspector] private float radius;
 
     /// <summary> Integer for 'Asteroids' layer. </summary>
-    [HideInInspector] private int layer;
+    [HideInInspector] private int layerMask;
 
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         radius = GetComponent<CircleCollider2D>().radius;
-        layer = LayerMask.NameToLayer("Asteroids");
+        layerMask = LayerMask.GetMask("Asteroids");
     }
 
 
@@ -128,10 +128,10 @@ public class Asteroid : MonoBehaviour
             // WARNING
             // the OverlapCircle() check locks up the engine if the LayerMask is not properly set
             // as the asteroids are always in the asteroid boundary this never comes back false
-            if (layer >= 0)
+            if (layerMask >= 0)
             {
                 // check for overlap with other asteroids
-                if (!Physics2D.OverlapCircle(newPos, radius, layer)) // 6 == Asteroids, be carful changing layer numbers
+                if (!Physics2D.OverlapCircle(newPos, radius, layerMask)) 
                 {
                     spotClear = true;
                 }
