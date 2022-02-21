@@ -1,4 +1,3 @@
-using PlayerShip;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

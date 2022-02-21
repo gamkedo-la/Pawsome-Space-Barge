@@ -1,38 +1,35 @@
 ﻿using UnityEngine;
 
-namespace PlayerShip
+[RequireComponent(typeof(ParticleSystem))]
+public class Thruster : MonoBehaviour
 {
-    [RequireComponent(typeof(ParticleSystem))]
-    public class Thruster : MonoBehaviour
+    private ParticleSystem thrusterParticleSystem;
+    private float defaultEmissionRateOverTime;
+
+    private void Awake()
     {
-        private ParticleSystem thrusterParticleSystem;
-        private float defaultEmissionRateOverTime;
+        thrusterParticleSystem = GetComponent<ParticleSystem>();
+        defaultEmissionRateOverTime = thrusterParticleSystem.emission.rateOverTime.constant;
+        Off();
+    }
 
-        private void Awake()
+    public void On(float amount)
+    {
+        AdjustRate(amount);
+        if (thrusterParticleSystem.isStopped)
         {
-            thrusterParticleSystem = GetComponent<ParticleSystem>();
-            defaultEmissionRateOverTime = thrusterParticleSystem.emission.rateOverTime.constant;
-            Off();
+            thrusterParticleSystem.Play();
         }
+    }
 
-        public void On(float amount)
-        {
-            AdjustRate(amount);
-            if (thrusterParticleSystem.isStopped)
-            {
-                thrusterParticleSystem.Play();
-            }
-        }
+    public void Off()
+    {
+        thrusterParticleSystem.Stop();
+    }
 
-        public void Off()
-        {
-            thrusterParticleSystem.Stop();
-        }
-
-        private void AdjustRate(float amount)
-        {
-            var emissionModule = thrusterParticleSystem.emission;
-            emissionModule.rateOverTime = Mathf.Abs(amount) * defaultEmissionRateOverTime;
-        }
+    private void AdjustRate(float amount)
+    {
+        var emissionModule = thrusterParticleSystem.emission;
+        emissionModule.rateOverTime = Mathf.Abs(amount) * defaultEmissionRateOverTime;
     }
 }
