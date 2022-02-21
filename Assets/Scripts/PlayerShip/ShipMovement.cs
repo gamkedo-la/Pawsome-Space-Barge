@@ -1,3 +1,4 @@
+using PlayerShip;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -39,6 +40,15 @@ public class ShipMovement : MonoBehaviour
     /// <summary> Most recent thrust input value. </summary>
     [HideInInspector] private float thrustInput = 0;
 
+    [Header("Thrusters")] 
+    [SerializeField] private Thruster rearLeftThruster;
+    
+    [SerializeField] private Thruster rearRightThruster;
+    
+    [SerializeField] private Thruster frontLeftThruster;
+    
+    [SerializeField] private Thruster frontRightThruster;
+
 
     private void Awake()
     {
@@ -48,12 +58,10 @@ public class ShipMovement : MonoBehaviour
         playerBoundary = GameObject.FindGameObjectWithTag("PlayerBoundary").GetComponent<BoxCollider2D>();
     }
 
-
-    // private void Update()
-    // {
-    //     // not used yet
-    // }
-
+    private void Update()
+    {
+        AdjustThrusters();
+    }
 
     private void FixedUpdate()
     {
@@ -62,6 +70,7 @@ public class ShipMovement : MonoBehaviour
         {
             rb2d.rotation += rotationSpeed * Time.fixedDeltaTime * rotationInput;
         }
+
         if (thrustInput > 0)
         {
             if (!rb2d.isKinematic)
@@ -75,11 +84,13 @@ public class ShipMovement : MonoBehaviour
 
                 // part of experiments to improve physics simulation,
                 // this with Quaternion orbit method is promising
-                rb2d.velocity += new Vector2(rb2d.transform.right.x, rb2d.transform.right.y) * thrustForce * Time.fixedDeltaTime;
+                rb2d.velocity += new Vector2(rb2d.transform.right.x, rb2d.transform.right.y) * thrustForce *
+                                 Time.fixedDeltaTime;
                 // will need collider events for interactions with asteroids,
                 // else tug barges through regardless of asteroid mass
             }
         }
+
         if (thrustInput < 0)
         {
             rb2d.velocity -= rb2d.velocity * decelerationCoefficient * Time.fixedDeltaTime;
@@ -110,15 +121,18 @@ public class ShipMovement : MonoBehaviour
             {
                 mirroredPos.x = (-playerBoundary.bounds.extents.x + playerBoundary.offset.x) * 0.95f;
             }
+
             if (rb2d.position.x < -playerBoundary.bounds.extents.x + playerBoundary.offset.x)
             {
                 mirroredPos.x = (playerBoundary.bounds.extents.x + playerBoundary.offset.x) * 0.95f;
             }
+
             // y axis boundary check
             if (rb2d.position.y > playerBoundary.bounds.extents.y + playerBoundary.offset.y)
             {
                 mirroredPos.y = (-playerBoundary.bounds.extents.y + playerBoundary.offset.y) * 0.95f;
             }
+
             if (rb2d.position.y < -playerBoundary.bounds.extents.y + playerBoundary.offset.y)
             {
                 mirroredPos.y = (playerBoundary.bounds.extents.y + playerBoundary.offset.y) * 0.95f;
@@ -126,6 +140,47 @@ public class ShipMovement : MonoBehaviour
 
             // set corrected transform
             rb2d.position = mirroredPos;
+        }
+    }
+
+    private void AdjustThrusters()
+    {
+        switch (rotationInput)
+        {
+            case > 0:
+                rearLeftThruster.Off();
+                rearRightThruster.On(rotationInput);
+                frontLeftThruster.On(rotationInput);
+                frontRightThruster.Off();
+                return;
+            case < 0:
+                rearLeftThruster.On(rotationInput);
+                rearRightThruster.Off();
+                frontLeftThruster.Off();
+                frontRightThruster.On(rotationInput);
+                return;
+        }
+        
+        switch (thrustInput)
+        {
+            case > 0:
+                rearLeftThruster.On(thrustInput);
+                rearRightThruster.On(thrustInput);
+                frontLeftThruster.Off();
+                frontRightThruster.Off();
+                break;
+            case < 0:
+                rearLeftThruster.Off();
+                rearRightThruster.Off();
+                frontLeftThruster.On(thrustInput);
+                frontRightThruster.On(thrustInput);
+                break;
+            default:
+                rearLeftThruster.Off();
+                rearRightThruster.Off();
+                frontLeftThruster.Off();
+                frontRightThruster.Off();
+                break;
         }
     }
 
