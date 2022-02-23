@@ -20,6 +20,8 @@ public class AsteroidField : MonoBehaviour
     /// <summary> Asteroid field boundary. </summary>
     [HideInInspector] public BoxCollider2D fieldBounds;
 
+    public BoxCollider2D spawnBounds;
+
     /// <summary> Rotational center of things. </summary>
     [HideInInspector] public Vector3 planet;
 
@@ -59,4 +61,33 @@ public class AsteroidField : MonoBehaviour
     // {
     //     // 
     // }
+    
+    /// <summary>
+    /// Returns a random speed suitable to an asteroid in this particular orbit
+    /// </summary>
+    public float RandomSpeed(Vector3 position)
+    {
+        // Asteroids with lower orbits are rotating faster around the planet than asteroids in higher orbits
+        //
+        // This means that if the speed we set on asteroids are their speed relative to the barge, then asteroids
+        // in lower orbits have a lower speed relative to the barge, compared to asteroids in higher orbits.
+        //
+        // But that looks kinda weird, because the ring graphics is on a fixed speed, so I'll leave this commented
+        // out for now.
+        
+        // var zeroRadius = planet.magnitude;
+        // var maxRadius = (fieldBounds.bounds.extents.y) + zeroRadius;
+        // var asteroidRadius = (position - planet).magnitude;
+        // return (maxRadius - asteroidRadius) * 0 * 
+        //        orbitalSpeedVariance / 100f; 
+        return Random.Range(-orbitalSpeedVariance, orbitalSpeedVariance);
+    }
+
+    public Vector2 RandomSpawnPosition()
+    {
+        var bounds = spawnBounds.bounds;
+        var min = bounds.min;
+        var max = bounds.max;
+        return new Vector2(Random.Range(min.x, max.x), Random.Range(min.y, max.y));
+    }
 }

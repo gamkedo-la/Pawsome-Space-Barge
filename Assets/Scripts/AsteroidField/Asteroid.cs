@@ -95,7 +95,7 @@ public class Asteroid : MonoBehaviour
     /// </summary>
     private void Randomize()
     {
-        speed = Random.Range(-AsteroidField.Instance.orbitalSpeedVariance, AsteroidField.Instance.orbitalSpeedVariance);
+        speed = AsteroidField.Instance.RandomSpeed(transform.position);
         
         transform.rotation = Random.rotation;
 
@@ -114,16 +114,25 @@ public class Asteroid : MonoBehaviour
     {
         bool spotClear = false;
         Vector2 newPos = new Vector2(0,0);
+        int maxIterations = 100;
 
-        while (spotClear == false)
+        // If we fail to place the asteroid after 100 tries, just drop it somewhere
+        while (spotClear == false && --maxIterations >= 0)
         {
+            newPos = AsteroidField.Instance.RandomSpawnPosition();
+            if (rb2d.position.x > 0)
+            {
+                newPos.x = -newPos.x;
+            }
+            /*
             // which side to spawn on
             newPos.x = (rb2d.position.x > 0) ?
             Random.Range(-AsteroidField.Instance.fieldBounds.bounds.extents.x, -AsteroidField.Instance.fieldBounds.bounds.extents.x + 50) :
             Random.Range(AsteroidField.Instance.fieldBounds.bounds.extents.x, AsteroidField.Instance.fieldBounds.bounds.extents.x - 50);
         
             // y axis spawn
-            newPos.y = Random.Range(-AsteroidField.Instance.fieldBounds.bounds.extents.y + 150, AsteroidField.Instance.fieldBounds.bounds.extents.y - 150);
+            newPos.y = Random.Range(-AsteroidField.Instance.fieldBounds.bounds.extents.y + 15, AsteroidField.Instance.fieldBounds.bounds.extents.y - 15);
+            */
 
             // WARNING
             // the OverlapCircle() check locks up the engine if the LayerMask is not properly set
@@ -143,6 +152,11 @@ public class Asteroid : MonoBehaviour
                 // switch to true to exit the check
                 spotClear = true;
             }
+        }
+
+        if (!spotClear)
+        {
+            Debug.LogWarning("Unable to place asteroid after 100 tries, probably means something is wrong.");
         }
 
         // set new position
