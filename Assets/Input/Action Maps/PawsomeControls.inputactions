@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Toggle View",
+                    "type": "Button",
+                    "id": "b260ff16-b9d4-40f7-ae70-ffab5b75f34b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -218,6 +227,17 @@
                     "action": "Thrust",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "33adad55-0935-460e-8226-26a4089b30d5",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Catboard",
+                    "action": "Toggle View",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

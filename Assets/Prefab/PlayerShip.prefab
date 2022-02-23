@@ -5008,6 +5008,7 @@ GameObject:
   - component: {fileID: 3716827569439174973}
   - component: {fileID: 3716827569439174967}
   - component: {fileID: 3716827569439174966}
+  - component: {fileID: 1997685034449814611}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Player
@@ -5188,6 +5189,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 19caddd9-4151-47ce-9323-3d6d2ad8a44f
     m_ActionName: Gameplay/Grab
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1997685034449814611}
+        m_TargetAssemblyTypeName: ShipActions, Assembly-CSharp
+        m_MethodName: OnToggleView
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b260ff16-b9d4-40f7-ae70-ffab5b75f34b
+    m_ActionName: Gameplay/Toggle View[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -5214,6 +5231,18 @@ MonoBehaviour:
   rearRightThruster: {fileID: 591906093513762286}
   frontLeftThruster: {fileID: 8720291825281546935}
   frontRightThruster: {fileID: 3186765065032001904}
+--- !u!114 &1997685034449814611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716827569439174972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339749a59fc84cad8d03fe765bff3e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8518703258733265763
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Camera Manager.
@@ -9,12 +10,27 @@ using UnityEngine;
 /// </summary>
 public class CameraManager : MonoBehaviour
 {
+    [Tooltip("Overhead camera used for full screen overhead view")] [SerializeField]
+    private Camera overheadCamera;
+
+    [Tooltip("Overhead camera used for the minimap")] [SerializeField]
+    private Camera minimapCamera;
+
+    [Tooltip("The camera mode used when the scene starts")] [SerializeField]
+    private CameraMode initialCameraMode;
+
+    [Tooltip("If enabled, the minimap will track the player ship if there is just one player")] [SerializeField]
+    private bool minimapFollowSinglePlayer;
+
     /// <summary>
     /// Array of objects to be hidden on game load.
     /// Things like the sample ship to help visualize scales.
     /// </summary>
     [SerializeField] private GameObject[] hidenObjects;
 
+    private CameraMode cameraMode;
+    private List<Camera> playerCameras = new();
+    private bool refreshCameras;
 
     private void Awake()
     {
@@ -26,8 +42,52 @@ public class CameraManager : MonoBehaviour
         {
             o.SetActive(false);
         }
+
+        cameraMode = initialCameraMode;
+        SetActiveCameras();
     }
 
+    public void PlayerJoined(PlayerInput pi)
+    {
+        var isFirstPlayer = playerCameras.Count == 0;
+
+        var playerCamera = pi.GetComponentInChildren<Camera>();
+        playerCameras.Add(playerCamera);
+
+        if (isFirstPlayer)
+        {
+            cameraMode = CameraMode.ThirdPerson;
+        }
+
+        refreshCameras = true;
+    }
+
+    public void PlayerLeft(PlayerInput pi)
+    {
+        var playerCamera = pi.GetComponentInChildren<Camera>();
+        playerCameras.Remove(playerCamera);
+
+        if (playerCameras.Count == 0)
+        {
+            cameraMode = CameraMode.Overhead;
+        }
+
+        refreshCameras = true;
+    }
+
+    public void ToggleCameraMode()
+    {
+        refreshCameras = true;
+        // Make sure we don't switch to third person when there is no active player
+        if (playerCameras.Count == 0)
+        {
+            cameraMode = CameraMode.Overhead;
+            return;
+        }
+
+        // Toggle camera mode between overhead and third person
+        cameraMode = cameraMode == CameraMode.Overhead ? CameraMode.ThirdPerson : CameraMode.Overhead;
+    }
 
     // sudo code for camera behaviour:
     // private void Update()
@@ -51,4 +111,68 @@ public class CameraManager : MonoBehaviour
     //     //     }
     //     // }
     // }
+
+    private void LateUpdate()
+    {
+        if (refreshCameras)
+        {
+            SetActiveCameras();
+        }
+
+        if (minimapCamera.gameObject.activeSelf && minimapFollowSinglePlayer && playerCameras.Count == 1)
+        {
+            FollowTransformXY(minimapCamera.transform, playerCameras[0].transform);
+        }
+    }
+
+    private void FollowTransformXY(Transform follower, Transform target)
+    {
+        var targetPosition = target.position;
+        var followerPosition = follower.position;
+
+        followerPosition.x = targetPosition.x;
+        followerPosition.y = targetPosition.y;
+        follower.position = followerPosition;
+    }
+
+    private void SetActiveCameras()
+    {
+        if (cameraMode == CameraMode.Overhead)
+        {
+            SetOverheadMode();
+        }
+        else
+        {
+            SetThirdPersonMode();
+        }
+
+        refreshCameras = false;
+    }
+
+    private void SetThirdPersonMode()
+    {
+        overheadCamera.gameObject.SetActive(false);
+        minimapCamera.gameObject.SetActive(true);
+        foreach (var playerCamera in playerCameras)
+        {
+            playerCamera.gameObject.SetActive(true);
+        }
+    }
+
+    private void SetOverheadMode()
+    {
+        overheadCamera.gameObject.SetActive(true);
+        minimapCamera.gameObject.SetActive(false);
+        foreach (var playerCamera in playerCameras)
+        {
+            playerCamera.gameObject.SetActive(false);
+        }
+    }
+
+    [Serializable]
+    public enum CameraMode
+    {
+        Overhead,
+        ThirdPerson
+    }
 }
