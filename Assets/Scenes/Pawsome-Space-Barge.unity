@@ -192,10 +192,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Demo Asteroids (low density)
       objectReference: {fileID: 0}
-    - target: {fileID: 3920154883608981213, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3920154883608981214, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -5899,6 +5895,7 @@ GameObject:
   - component: {fileID: 1635844460}
   - component: {fileID: 1635844459}
   - component: {fileID: 1635844461}
+  - component: {fileID: 1635844462}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: GameController
@@ -6028,6 +6025,18 @@ MonoBehaviour:
   minimapFollowSinglePlayer: 1
   hidenObjects:
   - {fileID: 2054041511}
+--- !u!114 &1635844462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635844456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e58a4f1e31b2e4eb4359271af306d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1665768952
 GameObject:
   m_ObjectHideFlags: 0
