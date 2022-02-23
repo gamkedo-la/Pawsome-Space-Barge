@@ -552,10 +552,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1110421750}
     m_Modifications:
-    - target: {fileID: 634073286993880344, guid: 5895af687359e7d438a38a13c5df818d, type: 3}
-      propertyPath: m_MinParticleSize
-      value: 0.001
-      objectReference: {fileID: 0}
     - target: {fileID: 634073286993880345, guid: 5895af687359e7d438a38a13c5df818d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -605,20 +601,12 @@ PrefabInstance:
       value: stars
       objectReference: {fileID: 0}
     - target: {fileID: 634073286993880351, guid: 5895af687359e7d438a38a13c5df818d, type: 3}
-      propertyPath: autoRandomSeed
+      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 634073286993880351, guid: 5895af687359e7d438a38a13c5df818d, type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 634073286993880351, guid: 5895af687359e7d438a38a13c5df818d, type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 50000
-      objectReference: {fileID: 0}
-    - target: {fileID: 634073286993880351, guid: 5895af687359e7d438a38a13c5df818d, type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 0.5
+      propertyPath: prewarm
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5895af687359e7d438a38a13c5df818d, type: 3}
