@@ -125,13 +125,13 @@ public class Asteroid : MonoBehaviour
                 newPos.x = -newPos.x;
             }
             /*
-            // which side to spawn on
-            newPos.x = (rb2d.position.x > 0) ?
-            Random.Range(-AsteroidField.Instance.fieldBounds.bounds.extents.x, -AsteroidField.Instance.fieldBounds.bounds.extents.x + 50) :
-            Random.Range(AsteroidField.Instance.fieldBounds.bounds.extents.x, AsteroidField.Instance.fieldBounds.bounds.extents.x - 50);
-        
-            // y axis spawn
-            newPos.y = Random.Range(-AsteroidField.Instance.fieldBounds.bounds.extents.y + 15, AsteroidField.Instance.fieldBounds.bounds.extents.y - 15);
+                // which side to spawn on
+                newPos.x = (rb2d.position.x > 0) ?
+                Random.Range(-AsteroidField.Instance.fieldBounds.bounds.extents.x, -AsteroidField.Instance.fieldBounds.bounds.extents.x + 50) :
+                Random.Range(AsteroidField.Instance.fieldBounds.bounds.extents.x, AsteroidField.Instance.fieldBounds.bounds.extents.x - 50);
+
+                // y axis spawn
+                newPos.y = Random.Range(-AsteroidField.Instance.fieldBounds.bounds.extents.y + 15, AsteroidField.Instance.fieldBounds.bounds.extents.y - 15);
             */
 
             // WARNING
