@@ -77,3 +77,5 @@ Logs
 
 /_ReaperProjects
 Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+*.kra~
+*.png~
