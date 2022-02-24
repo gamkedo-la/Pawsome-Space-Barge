@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Simple sound manager.
 /// It can play a noise and background loop, not much else.
-/// Use Noise and Music enums for calling sound files.
+/// Add audio files in inspector window.
 /// </summary>
 public class SoundManager : MonoBehaviour
 {
