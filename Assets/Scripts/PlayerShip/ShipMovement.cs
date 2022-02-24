@@ -196,4 +196,14 @@ public class ShipMovement : MonoBehaviour
     {
         thrustInput = context.ReadValue<float>();
     }
+
+
+    // collison event for playing a shield noise
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Asteroid" && other.relativeVelocity.magnitude > 5)
+        {
+            SoundManager.Instance.PlaySound(SoundManager.Noise.Ping, 0.5f);
+        }
+    }
 }
