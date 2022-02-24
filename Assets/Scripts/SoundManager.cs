@@ -19,6 +19,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private List<AudioClipStruct<string, AudioClip>> audioClips
         = new List<AudioClipStruct<string, AudioClip>>();
 
+    // actual dictionary used for audio lookup
     private Dictionary<string, AudioClip> audioLookup;
 
     private void Awake()
