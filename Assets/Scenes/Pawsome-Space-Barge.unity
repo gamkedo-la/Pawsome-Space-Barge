@@ -6037,6 +6037,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e58a4f1e31b2e4eb4359271af306d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambientSound: 1
+  soundEffects: 1
+  ambient: {fileID: 0}
+  effects: {fileID: 0}
 --- !u!1 &1665768952
 GameObject:
   m_ObjectHideFlags: 0
@@ -6520,7 +6524,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945651747}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1945651751
 Camera:
   m_ObjectHideFlags: 0
