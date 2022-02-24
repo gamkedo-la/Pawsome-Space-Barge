@@ -121,7 +121,7 @@ public class CameraManager : MonoBehaviour
 
         if (minimapCamera.gameObject.activeSelf && minimapFollowSinglePlayer && playerCameras.Count == 1)
         {
-            FollowTransformXY(minimapCamera.transform, playerCameras[0].transform);
+            FollowTransformXY(minimapCamera.transform, playerCameras[0].transform.parent.transform);
         }
     }
 
