@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,8 +13,13 @@ public class SoundManager : MonoBehaviour
     [HideInInspector] public static SoundManager Instance;
     [SerializeField] private bool ambientSound = true;
     [SerializeField] private bool soundEffects = true;
-    [SerializeField] private AudioSource ambient, effects;
+    private AudioSource ambient, effects;
 
+    [Tooltip("Dictionary of game sounds.")]
+    [SerializeField] private List<AudioClipStruct<string, AudioClip>> audioClips
+        = new List<AudioClipStruct<string, AudioClip>>();
+
+    private Dictionary<string, AudioClip> audioLookup;
 
     private void Awake()
     {
@@ -26,9 +32,16 @@ public class SoundManager : MonoBehaviour
             Instance = this;
         }
 
+        // turn List<> from inspector into usable Dictionary<>
+        audioLookup = new Dictionary<string, AudioClip>();
+        foreach (var entry in audioClips)
+        {
+            audioLookup[entry.name] = entry.file;
+        }
+
         InitializeAudioSources();
 
-        SetAmbientSound(Music.DarkLoops);
+        SetAmbientSound("DarkLoops");
     }
 
 
@@ -38,20 +51,6 @@ public class SoundManager : MonoBehaviour
         ambient = this.gameObject.AddComponent<AudioSource>();
         effects = this.gameObject.AddComponent<AudioSource>();
     }
-
-
-    /// <summary> Sets ambient AudioClip. </summary>
-    /// <param name="track">Music track to loop.</param>
-    private void SetAmbientSound(Music track)
-    {
-       ambient.clip = (AudioClip)Resources.Load(GetSound(track));
-    }
-
-
-    // void Start()
-    // {
-    //     //
-    // }
 
 
     private void Update()
@@ -76,45 +75,45 @@ public class SoundManager : MonoBehaviour
     }
 
 
+    /// <summary> Sets ambient AudioClip. </summary>
+    /// <param name="track">Music track to loop.</param>
+    public void SetAmbientSound(string track)
+    {
+        ambient.clip = audioLookup[track];
+    }
+
+
     /// <summary> Play OneShot Sound. </summary>
     /// <param name="sound">Which sound to play.</param>
     /// <param name="volume">How loud? [0-1]</param>
-    public void PlaySound(Noise sound, float volume)
+    public void PlaySound(string sound, float volume)
     {
         if (!effects.isPlaying && soundEffects)
         {
-            effects.PlayOneShot((AudioClip)Resources.Load(GetSound(sound)), volume);
+            effects.PlayOneShot(audioLookup[sound], volume);
         }
-    }
-
-
-    /// <summary> Convert Noise enum into file path string. </summary>
-    /// <typeparam name="T">Music or Noise enum.</typeparam>
-    /// <param name="sound">Which sound to load.</param>
-    /// <returns></returns>
-    private string GetSound<T>(T sound)
-    {
-        return "Sounds/" + sound.ToString();
-    }
-
-
-    // some sort of better storage for audio files is needed
-    // I want an inspector modifiable Dictionary<string, AudioClip>
-    // but I don't think such a thing exists.
-
-    
-    /// <summary> Game noise tracks. </summary>
-    public enum Noise
-    {
-        Ping,
-    }
-
-
-    /// <summary> Game music tracks. </summary>
-    public enum Music
-    {
-        DarkLoops,
     }
 }
 
 
+/// <summary>
+/// Part of serializable Dictionary for AudioClips.
+/// <see href="https://buildingblocksgamedesign.com/serialize-a-dictionary-in-unity/">
+/// </summary>
+/// <typeparam name="String"></typeparam>
+/// <typeparam name="AudioClip"></typeparam>
+[Serializable]
+public struct AudioClipStruct<String, AudioClip>
+{
+    // contsructor
+    public AudioClipStruct(string clipName, AudioClip clipFile) => (name, file) = (clipName, clipFile);
+
+    [Tooltip("Name of the audio file for in-game lookup.")]
+    [field: SerializeField] public string name { get; private set; }
+
+    [Tooltip("Audio file.")]
+    [field: SerializeField] public AudioClip file { get; private set; }
+
+    // deconstructor
+    public void Destructor(out string clipName, out AudioClip clipFile) => (clipName, clipFile) = (name, file);
+}

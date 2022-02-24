@@ -203,7 +203,7 @@ public class ShipMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Asteroid" && other.relativeVelocity.magnitude > 5)
         {
-            SoundManager.Instance.PlaySound(SoundManager.Noise.Ping, 0.5f);
+            SoundManager.Instance.PlaySound("Ping", 0.5f);
         }
     }
 }
