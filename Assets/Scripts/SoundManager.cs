@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Simple sound manager.
+/// It can play a noise and background loop, not much else.
+/// Use Noise and Music enums for calling sound files.
+/// </summary>
 public class SoundManager : MonoBehaviour
 {
     [HideInInspector] public static SoundManager Instance;
-    [SerializeField] bool ambientSound = true;
-    [SerializeField] bool soundEffects = true;
-    [SerializeField] AudioSource ambient, effects;
+    [SerializeField] private bool ambientSound = true;
+    [SerializeField] private bool soundEffects = true;
+    [SerializeField] private AudioSource ambient, effects;
 
 
     private void Awake()
@@ -22,6 +27,24 @@ public class SoundManager : MonoBehaviour
         }
 
         InitializeAudioSources();
+
+        SetAmbientSound(Music.DarkLoops);
+    }
+
+
+    /// <summary> Add AudioSources. </summary>
+    private void InitializeAudioSources()
+    {
+        ambient = this.gameObject.AddComponent<AudioSource>();
+        effects = this.gameObject.AddComponent<AudioSource>();
+    }
+
+
+    /// <summary> Sets ambient AudioClip. </summary>
+    /// <param name="track">Music track to loop.</param>
+    private void SetAmbientSound(Music track)
+    {
+       ambient.clip = (AudioClip)Resources.Load(GetSound(track));
     }
 
 
@@ -31,26 +54,17 @@ public class SoundManager : MonoBehaviour
     // }
 
 
-    void Update()
+    private void Update()
     {
-        UpdateAmbient(Noise.DarkLoops);
+        UpdateAmbient();
     }
 
 
-    // add AudioSources
-    private void InitializeAudioSources()
-    {
-        ambient = this.gameObject.AddComponent<AudioSource>();
-        effects = this.gameObject.AddComponent<AudioSource>();
-    }
-
-
-    // turn ambient sounds on/off
-    private void UpdateAmbient(Noise backgroundAmbiance)
+    /// <summary> Turn ambient sounds on or off as bool toggled. </summary>
+    private void UpdateAmbient()
     {
         if (ambientSound && !ambient.isPlaying)
         {
-            ambient.clip = (AudioClip)Resources.Load(GetSound(backgroundAmbiance));
             ambient.loop = true;
             ambient.volume = 1;
             ambient.Play();
@@ -62,7 +76,9 @@ public class SoundManager : MonoBehaviour
     }
 
 
-    // play OneShot sound
+    /// <summary> Play OneShot Sound. </summary>
+    /// <param name="sound">Which sound to play.</param>
+    /// <param name="volume">How loud? [0-1]</param>
     public void PlaySound(Noise sound, float volume)
     {
         if (!effects.isPlaying && soundEffects)
@@ -72,17 +88,32 @@ public class SoundManager : MonoBehaviour
     }
 
 
-    // convert Noise enum into string
-    private string GetSound(Noise sound)
+    /// <summary> Convert Noise enum into file path string. </summary>
+    /// <typeparam name="T">Music or Noise enum.</typeparam>
+    /// <param name="sound">Which sound to load.</param>
+    /// <returns></returns>
+    private string GetSound<T>(T sound)
     {
         return "Sounds/" + sound.ToString();
     }
 
 
-    // enums for file names
-    public enum Noise {
+    // some sort of better storage for audio files is needed
+    // I want an inspector modifiable Dictionary<string, AudioClip>
+    // but I don't think such a thing exists.
+
+    
+    /// <summary> Game noise tracks. </summary>
+    public enum Noise
+    {
+        Ping,
+    }
+
+
+    /// <summary> Game music tracks. </summary>
+    public enum Music
+    {
         DarkLoops,
-        Ping
     }
 }
 
