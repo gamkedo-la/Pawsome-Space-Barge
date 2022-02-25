@@ -169,8 +169,8 @@ public class ShipMovement : MonoBehaviour
                 frontRightThruster.Off();
                 break;
             case < 0:
-                rearLeftThruster.Off();
-                rearRightThruster.Off();
+                rearLeftThruster.On(thrustInput);
+                rearRightThruster.On(thrustInput);
                 frontLeftThruster.On(thrustInput);
                 frontRightThruster.On(thrustInput);
                 break;
