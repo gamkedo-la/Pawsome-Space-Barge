@@ -6007,6 +6007,13 @@ MonoBehaviour:
   fieldSpeed: -25
   maxAsteroidTumbleSpeed: 10
   orbitalSpeedVariance: 0.05
+  asteroidList:
+  - <prefab>k__BackingField: {fileID: 7257938796415413944, guid: 3b8d634d8ca02a1bf9698a342781e403, type: 3}
+    <weight>k__BackingField: 25
+  - <prefab>k__BackingField: {fileID: 7696257734742167689, guid: 56dfb0f54a32422f290468068258ccf7, type: 3}
+    <weight>k__BackingField: 50
+  - <prefab>k__BackingField: {fileID: 1528038712871602469, guid: 9537b7242b983f04fa139e46a8f08c9b, type: 3}
+    <weight>k__BackingField: 25
 --- !u!114 &1635844461
 MonoBehaviour:
   m_ObjectHideFlags: 0
