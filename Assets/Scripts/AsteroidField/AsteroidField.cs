@@ -37,6 +37,8 @@ public class AsteroidField : MonoBehaviour
     [Range(0, 0.2f)]
     [SerializeField] public float orbitalSpeedVariance = 0.1f;
 
+    [SerializeField] private List<AsteroidPrefab> asteroidList;
+
 
     private void Awake()
     {
@@ -90,4 +92,12 @@ public class AsteroidField : MonoBehaviour
         var max = bounds.max;
         return new Vector2(Random.Range(min.x, max.x), Random.Range(min.y, max.y));
     }
+}
+
+public struct AsteroidPrefab
+{
+    public AsteroidPrefab(GameObject _prefab, float _weight) => (prefab, weight) = (_prefab, _weight);
+
+    [field: SerializeField] public GameObject prefab { get; private set; }
+    [field: SerializeField] public float weight { get; private set; }
 }
