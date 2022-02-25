@@ -1,3 +1,5 @@
+
+// using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,7 +39,8 @@ public class AsteroidField : MonoBehaviour
     [Range(0, 0.2f)]
     [SerializeField] public float orbitalSpeedVariance = 0.1f;
 
-    [SerializeField] private List<AsteroidPrefab> asteroidList;
+    [SerializeField] private List<AsteroidPrefab<GameObject, float>> asteroidList
+        = new List<AsteroidPrefab<GameObject, float>>();
 
 
     private void Awake()
@@ -94,7 +97,8 @@ public class AsteroidField : MonoBehaviour
     }
 }
 
-public struct AsteroidPrefab
+[System.Serializable]
+public struct AsteroidPrefab<GameObject, Float>
 {
     public AsteroidPrefab(GameObject _prefab, float _weight) => (prefab, weight) = (_prefab, _weight);
 
