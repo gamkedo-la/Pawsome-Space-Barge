@@ -1,5 +1,3 @@
-
-// using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,8 +37,11 @@ public class AsteroidField : MonoBehaviour
     [Range(0, 0.2f)]
     [SerializeField] public float orbitalSpeedVariance = 0.1f;
 
-    [SerializeField] private List<AsteroidPrefab<GameObject, float>> asteroidList
-        = new List<AsteroidPrefab<GameObject, float>>();
+    [Tooltip("Objects to choose randomly amongst when respawning debris.")]
+    [SerializeField] private List<AsteroidPrefab<GameObject, int>> asteroidList
+        = new List<AsteroidPrefab<GameObject, int>>();
+
+    private int totalWeights;
 
 
     private void Awake()
@@ -59,17 +60,19 @@ public class AsteroidField : MonoBehaviour
 
         // cache rotational center
         planet = GameObject.FindGameObjectWithTag("Planet").transform.position;
+
+        // total probability weights of possible objects
+        foreach (var debris in asteroidList)
+        {
+            totalWeights += debris.weight;
+        }
+
+        // proof of functionality, can be removed
+        Debug.Log(RandomPrefab().name);
     }
 
-
-    // private void Update()
-    // {
-    //     // 
-    // }
     
-    /// <summary>
-    /// Returns a random speed suitable to an asteroid in this particular orbit
-    /// </summary>
+    /// <summary> Returns a random speed suitable to an asteroid in this particular orbit </summary>
     public float RandomSpeed(Vector3 position)
     {
         // Asteroids with lower orbits are rotating faster around the planet than asteroids in higher orbits
@@ -88,6 +91,8 @@ public class AsteroidField : MonoBehaviour
         return Random.Range(-orbitalSpeedVariance, orbitalSpeedVariance);
     }
 
+
+    /// <summary> Returns random position within spawn area. </summary>
     public Vector2 RandomSpawnPosition()
     {
         var bounds = spawnBounds.bounds;
@@ -95,13 +100,43 @@ public class AsteroidField : MonoBehaviour
         var max = bounds.max;
         return new Vector2(Random.Range(min.x, max.x), Random.Range(min.y, max.y));
     }
+
+    
+    /// <summary> Selects a random debris field item, influenced by probability weighting. </summary>
+    /// <returns>Prefab</returns>
+    public GameObject RandomPrefab()
+    {
+        int randomNumber = Random.Range(1, totalWeights + 1);
+        int pos = 0;
+
+        // step through objects looking for the match
+        for (int i = 0; i < asteroidList.Count; i++)
+        {
+            if (randomNumber <= asteroidList[i].weight + pos)
+            {
+                return asteroidList[i].prefab;
+            }
+
+            pos += asteroidList[i].weight;
+        }
+
+        // if that fails (which it shouldn't...)
+        // return default asteroid (index 0)
+        return asteroidList[0].prefab;
+    }
 }
 
-[System.Serializable]
-public struct AsteroidPrefab<GameObject, Float>
-{
-    public AsteroidPrefab(GameObject _prefab, float _weight) => (prefab, weight) = (_prefab, _weight);
 
+/// <summary> Holds prefab and probability weighting data. </summary>
+/// <typeparam name="GameObject">Debris Prefab</typeparam>
+/// <typeparam name="Integer">Probability Weight</typeparam>
+[System.Serializable] public struct AsteroidPrefab<GameObject, Integer>
+{
+    public AsteroidPrefab(GameObject _prefab, int _weight) => (prefab, weight) = (_prefab, _weight);
+
+    [Tooltip("Debris Prefab.")]
     [field: SerializeField] public GameObject prefab { get; private set; }
-    [field: SerializeField] public float weight { get; private set; }
+
+    [Tooltip("Item probability weighting.")]
+    [field: SerializeField] public int weight { get; private set; }
 }
