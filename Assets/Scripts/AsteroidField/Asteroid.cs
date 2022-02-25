@@ -27,12 +27,20 @@ public class Asteroid : MonoBehaviour
     /// <summary> Integer for 'Asteroids' layer. </summary>
     [HideInInspector] private int layerMask;
 
+    // CircleCollider2D collider2d;
+    // MeshFilter filter;
+    // MeshRenderer mesh;
+
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         radius = GetComponent<CircleCollider2D>().radius;
         layerMask = LayerMask.GetMask("Asteroids");
+
+        // collider2d = GetComponent<CircleCollider2D>();
+        // filter = GetComponent<MeshFilter>();
+        // mesh = GetComponent<MeshRenderer>();
     }
 
 
@@ -104,6 +112,16 @@ public class Asteroid : MonoBehaviour
             Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed),
             Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed)
         );
+
+        // this works but what to do with it...
+        // GameObject randomThing = AsteroidField.Instance.RandomPrefab();
+
+        // this then freezes asteroid motion, no idea why
+        // rb2d = randomThing.GetComponent<Rigidbody2D>();
+        // collider2d = randomThing.GetComponent<CircleCollider2D>();
+        // radius = collider2d.radius;
+        // filter = randomThing.GetComponent<MeshFilter>();
+        // mesh = randomThing.GetComponent<MeshRenderer>();
     }
 
 
