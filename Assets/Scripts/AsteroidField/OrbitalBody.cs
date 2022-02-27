@@ -2,15 +2,18 @@
 
 public class OrbitalBody : MonoBehaviour
 {
-    public OrbitalElements orbitalElements = new();
-    public float boosterPower = 0f;
-    public float lateralPower = 0f;
+
+    [Header("Planet Centric Inertial coordinates")]
+    [SerializeField] private Vector3 positionPci;
+    [SerializeField] private Vector3 velocityPci;
+    
+    [Header("Orbital Elements")]
+    [SerializeField] private OrbitalElements orbitalElements = new();
+    
+    [Header("Orbit fast track")]
     public float timeOffset;
 
     private Transform centerOfMass;
-
-    [SerializeField] private Vector3 positionEci;
-    [SerializeField] private Vector3 velocityEci;
 
     private readonly Vector3 up = Vector3.forward;
 
@@ -18,8 +21,8 @@ public class OrbitalBody : MonoBehaviour
     private bool orbitCached;
     private Vector3[] orbitCache;
 
-    public Vector3 Position => positionEci + centerOfMass.position;
-    public Vector3 Velocity => velocityEci;
+    public Vector3 Position => positionPci + centerOfMass.position;
+    public Vector3 Velocity => velocityPci;
     public Vector3 Prograde { get; private set; }
 
     public Vector3 Retrograde => -Prograde;
@@ -27,17 +30,11 @@ public class OrbitalBody : MonoBehaviour
 
     public Vector3 Nadir => -Zenith;
 
+    public float ProgradeRotation => Vector3.Angle(Vector3.right, Prograde);
+
     private void Start()
     {
         centerOfMass = GameObject.FindGameObjectWithTag("Planet").transform;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawRay(Position, Prograde * 10);
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(Position, Zenith * 10);
     }
 
     public void Recalculate(float time)
@@ -51,37 +48,29 @@ public class OrbitalBody : MonoBehaviour
         }
 
         UpdatePositionAndVelocityAtTime(currentTimestamp);
-
-        if (boosterPower == 0 && lateralPower == 0) return;
-
-        AddDeltaV(currentTimestamp, boosterPower * Prograde + lateralPower * Zenith);
-        boosterPower = 0;
-        lateralPower = 0;
     }
 
     public void AddDeltaV(float time, Vector3 deltaV)
     {
-        orbitalElements.SetOrbit(time, positionEci, velocityEci + deltaV);
+        orbitalElements.SetOrbit(time + timeOffset, positionPci, velocityPci + deltaV);
         orbitCached = false;
     }
 
     private void UpdatePositionAndVelocityAtTime(float time)
     {
-        (positionEci, velocityEci) = orbitalElements.ToCartesian(time);
-        var forwardTrajectory = Vector3.Cross(up, positionEci);
+        (positionPci, velocityPci) = orbitalElements.ToCartesian(time);
 
-        Prograde = forwardTrajectory.normalized;
-        Zenith = positionEci.normalized;
-    }
-
-    public Vector3 GetAdjustedWorldPositionAtTime(float time)
-    {
-        var (pos, _) = orbitalElements.ToCartesian(time);
-        return pos + centerOfMass.position;
+        Prograde = velocityPci.normalized;
+        Zenith = positionPci.normalized;
     }
 
     public Vector3[] GetOrbitWorldPositions(int numberOfPoints)
     {
+        if (!Application.isPlaying)
+        {
+            return null;
+        }
+        
         if (numberOfPoints == 0)
         {
             numberOfPoints = orbitCache?.Length ?? 100;

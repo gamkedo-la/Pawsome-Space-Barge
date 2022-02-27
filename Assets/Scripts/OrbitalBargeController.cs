@@ -16,6 +16,7 @@ public class OrbitalBargeController : MonoBehaviour
         orbitalBody.Recalculate(Time.fixedTime);
         rb2d.velocity = orbitalBody.Velocity;
         rb2d.MovePosition(orbitalBody.Position);
+        rb2d.rotation = orbitalBody.ProgradeRotation;
     }
 
     private void OnCollisionEnter2D(Collision2D col)
