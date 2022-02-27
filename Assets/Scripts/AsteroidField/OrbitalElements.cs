@@ -11,15 +11,7 @@ public class OrbitalElements
     public float T;
     public float omega;
 
-    /// <summary>
-    /// Gravitational constant + mass for central body.
-    ///
-    /// We calculate this from the initial call to CircularOrbit, since by the given position and velocity, and the requirement
-    /// that the orbit is circular, there can be only one value that fulfills it.
-    ///
-    /// Doing this, we do not have to tune this constant if we alter any parameters
-    /// </summary>
-    private float mu;
+    private const float mu = 1218470;
 
     // https://elainecoe.github.io/orbital-mechanics-calculator/scripts/calculator.js
     // https://space.stackexchange.com/questions/19322/converting-orbital-elements-to-cartesian-state-vectors
@@ -81,18 +73,22 @@ public class OrbitalElements
         return e0;
     }
 
-    public static OrbitalElements CircularOrbit(float time, Vector3 position, Vector3 velocity)
+    /// <summary>
+    /// Sets a circular orbit from an observation of a position at a certain time
+    ///
+    /// This function calculates what velocity is necessary in order to have a stable circular orbit at the observed distance
+    /// </summary>
+    public void SetCircularOrbit(float time, Vector3 position)
     {
-        var oe = new OrbitalElements
-        {
-            mu = position.magnitude * velocity.sqrMagnitude,
-        };
+        var velocity = Vector3.Cross(position, Vector3.forward).normalized * Mathf.Sqrt(mu / position.magnitude);
 
-        oe.SetOrbitFromObservation(time, position, velocity);
-        return oe;
+        SetOrbit(time, position, velocity);
     }
 
-    public void SetOrbitFromObservation(float time, Vector3 position, Vector3 velocity)
+    /// <summary>
+    /// Set an orbit from an observation of a position and velocity at a certain time
+    /// </summary>
+    public void SetOrbit(float time, Vector3 position, Vector3 velocity)
     {
         var r = position.magnitude;
         var vSquared = velocity.sqrMagnitude;

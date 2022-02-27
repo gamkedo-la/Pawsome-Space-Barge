@@ -58,11 +58,11 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4481398953472882159}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100000
+  m_Mass: 25000
   m_LinearDrag: 1
   m_AngularDrag: 1
   m_GravityScale: 0
@@ -92,8 +92,6 @@ MonoBehaviour:
   boosterPower: 0
   lateralPower: 0
   timeOffset: 0
-  position: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
   positionEci: {x: 0, y: 0, z: 0}
   velocityEci: {x: 0, y: 0, z: 0}
 --- !u!114 &126204426445978275
