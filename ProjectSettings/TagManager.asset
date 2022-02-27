@@ -11,6 +11,7 @@ TagManager:
   - AsteroidRings
   - Sun
   - Boundary
+  - Barge
   layers:
   - Default
   - TransparentFX

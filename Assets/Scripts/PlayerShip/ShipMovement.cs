@@ -57,6 +57,16 @@ public class ShipMovement : MonoBehaviour
         playerBoundary = GameObject.FindGameObjectWithTag("PlayerBoundary").GetComponent<BoxCollider2D>();
     }
 
+    private void Start()
+    {
+        // Spawn close to the barge, if we find it
+        var barge = GameObject.FindGameObjectWithTag("Barge");
+        if (barge != null)
+        {
+            transform.Translate(barge.transform.position);
+        }
+    }
+
     private void Update()
     {
         AdjustThrusters();
