@@ -41,6 +41,8 @@ public class AsteroidField : MonoBehaviour
     [SerializeField] private List<AsteroidPrefab<GameObject, int>> asteroidList
         = new List<AsteroidPrefab<GameObject, int>>();
 
+    private AsteroidDebrisData[] debris;
+
     private int totalWeights;
 
 
@@ -61,14 +63,20 @@ public class AsteroidField : MonoBehaviour
         // cache rotational center
         planet = GameObject.FindGameObjectWithTag("Planet").transform.position;
 
-        // total probability weights of possible objects
-        foreach (var debris in asteroidList)
+        // setup debris data for spawning
+        debris = new AsteroidDebrisData[asteroidList.Count];
+        for (int i = 0; i < asteroidList.Count; i++)
         {
-            totalWeights += debris.weight;
-        }
+            debris[i] = new AsteroidDebrisData
+            (
+                asteroidList[i].prefab.GetComponent<MeshFilter>().sharedMesh,
+                asteroidList[i].prefab.GetComponent<Rigidbody2D>().mass,
+                asteroidList[i].prefab.GetComponent<CircleCollider2D>().radius,
+                asteroidList[i].weight
+            );
 
-        // proof of functionality, can be removed
-        Debug.Log(RandomPrefab().name);
+            totalWeights += asteroidList[i].weight;
+        }
     }
 
     
@@ -103,18 +111,17 @@ public class AsteroidField : MonoBehaviour
 
     
     /// <summary> Selects a random debris field item, influenced by probability weighting. </summary>
-    /// <returns>Prefab</returns>
-    public GameObject RandomPrefab()
+    /// <returns>AsteroidDebrisData</returns>
+    public AsteroidDebrisData RandomDebris()
     {
         int randomNumber = Random.Range(1, totalWeights + 1);
         int pos = 0;
 
-        // step through objects looking for the match
-        for (int i = 0; i < asteroidList.Count; i++)
+        for (int i = 0; i < debris.Length; i++)
         {
-            if (randomNumber <= asteroidList[i].weight + pos)
+            if (randomNumber <= debris[i].probability + pos)
             {
-                return asteroidList[i].prefab;
+                return debris[i];
             }
 
             pos += asteroidList[i].weight;
@@ -122,7 +129,7 @@ public class AsteroidField : MonoBehaviour
 
         // if that fails (which it shouldn't...)
         // return default asteroid (index 0)
-        return asteroidList[0].prefab;
+        return debris[0];
     }
 }
 
@@ -139,4 +146,20 @@ public class AsteroidField : MonoBehaviour
 
     [Tooltip("Item probability weighting.")]
     [field: SerializeField] public int weight { get; private set; }
+}
+
+
+/// <summary>
+/// Stores necessary data to swap mesh of an asteroid.
+/// Includes mesh, mass, radius, and probability data.
+/// Created from asteroidList at runtime.
+/// </summary>
+public struct AsteroidDebrisData
+{
+    public AsteroidDebrisData(Mesh _mesh, float _mass, float _radius, int _probability)
+        => (prefabMesh, mass, radius, probability) = (_mesh, _mass, _radius, _probability);
+    public Mesh prefabMesh;
+    public float mass;
+    public float radius;
+    public int probability;
 }

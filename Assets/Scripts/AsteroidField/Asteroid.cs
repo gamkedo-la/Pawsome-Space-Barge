@@ -21,26 +21,19 @@ public class Asteroid : MonoBehaviour
     /// <summary> Asteroid RigidBody2D. </summary>
     [HideInInspector] private Rigidbody2D rb2d;
 
-    /// <summary> Radius of attached collider. </summary>
-    [HideInInspector] private float radius;
-
     /// <summary> Integer for 'Asteroids' layer. </summary>
     [HideInInspector] private int layerMask;
 
-    // CircleCollider2D collider2d;
-    // MeshFilter filter;
-    // MeshRenderer mesh;
+    private CircleCollider2D collider2d;
+    MeshFilter filter;
 
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        radius = GetComponent<CircleCollider2D>().radius;
         layerMask = LayerMask.GetMask("Asteroids");
-
-        // collider2d = GetComponent<CircleCollider2D>();
-        // filter = GetComponent<MeshFilter>();
-        // mesh = GetComponent<MeshRenderer>();
+        collider2d = GetComponent<CircleCollider2D>();
+        filter = GetComponent<MeshFilter>();
     }
 
 
@@ -113,15 +106,13 @@ public class Asteroid : MonoBehaviour
             Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed)
         );
 
-        // this works but what to do with it...
-        // GameObject randomThing = AsteroidField.Instance.RandomPrefab();
-
-        // this then freezes asteroid motion, no idea why
-        // rb2d = randomThing.GetComponent<Rigidbody2D>();
-        // collider2d = randomThing.GetComponent<CircleCollider2D>();
-        // radius = collider2d.radius;
-        // filter = randomThing.GetComponent<MeshFilter>();
-        // mesh = randomThing.GetComponent<MeshRenderer>();
+        AsteroidDebrisData randomThing = AsteroidField.Instance.RandomDebris();
+        if (randomThing.prefabMesh.name != filter.sharedMesh.name)
+        {
+            rb2d.mass = randomThing.mass;
+            collider2d.radius = randomThing.radius;
+            filter.sharedMesh = randomThing.prefabMesh;
+        }
     }
 
 
@@ -158,7 +149,7 @@ public class Asteroid : MonoBehaviour
             if (layerMask >= 0)
             {
                 // check for overlap with other asteroids
-                if (!Physics2D.OverlapCircle(newPos, radius, layerMask)) 
+                if (!Physics2D.OverlapCircle(newPos, collider2d.radius, layerMask)) 
                 {
                     spotClear = true;
                 }
