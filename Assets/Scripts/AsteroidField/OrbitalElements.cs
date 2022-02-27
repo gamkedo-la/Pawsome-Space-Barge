@@ -23,7 +23,7 @@ public class OrbitalElements
 
     public (Vector3, Vector3) ToCartesian(float t)
     {
-        var meanAnomaly = Mathf.Sqrt(mu / Mathf.Pow(semiMajorAxis, 3)) * (t - T);
+        var meanAnomaly = Mathf.Sqrt(mu / (semiMajorAxis * semiMajorAxis * semiMajorAxis)) * (t - T);
         meanAnomaly = Mathf.Repeat(meanAnomaly, 2 * Mathf.PI);
         var eccentricAnomaly = SolveEccentricAnomaly(meanAnomaly);
         var trueAnomaly = 2 * Mathf.Atan2(Mathf.Sqrt(1 + eccentricity) * Mathf.Sin(eccentricAnomaly / 2),
@@ -52,6 +52,22 @@ public class OrbitalElements
             0
         );
         return (pos, vel);
+    }
+
+    public void GetOrbitCoordinates(Vector3[] points)
+    {
+        var n = points.Length;
+        for (var i = 0; i < n; i++)
+        {
+            var meanAnomaly = 2f * Mathf.PI * i / n;
+            var eccentricAnomaly = SolveEccentricAnomaly(meanAnomaly);
+            var trueAnomaly = 2 * Mathf.Atan2(Mathf.Sqrt(1 + eccentricity) * Mathf.Sin(eccentricAnomaly / 2),
+                Mathf.Sqrt(1 - eccentricity) * Mathf.Cos(eccentricAnomaly / 2));
+            var r = semiMajorAxis * (1 - eccentricity * Mathf.Cos(eccentricAnomaly));
+            var lat = trueAnomaly + omega;
+
+            points[i] = r * new Vector3(Mathf.Cos(lat), Mathf.Sin(lat), 0);
+        }
     }
 
     private float SolveEccentricAnomaly(float m)

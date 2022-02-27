@@ -5,7 +5,6 @@ public class TrajectoryIndicator : MonoBehaviour
     public OrbitalBody body;
     public LineRenderer lineRenderer;
 
-    public float stepDeltaT = 1f;
     [Range(2, 200)]
     public int steps = 10;
 
@@ -16,9 +15,11 @@ public class TrajectoryIndicator : MonoBehaviour
             lineRenderer.positionCount = steps;
         }
 
+        var points = body.GetOrbitWorldPositions(steps);
+
         for (var i = 0; i < steps; i++)
         {
-            var point = body.GetAdjustedWorldPositionAtTime(Time.time + i * stepDeltaT);
+            var point = points[i];
             lineRenderer.SetPosition(i, transform.InverseTransformPoint(point));
         }
     }

@@ -153,7 +153,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 4674204149885162825}
   lineRenderer: {fileID: 6933728805188169981}
-  stepDeltaT: 15
   steps: 200
 --- !u!120 &6933728805188169981
 LineRenderer:
@@ -253,7 +252,7 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 0
-  m_Loop: 0
+  m_Loop: 1
 --- !u!1 &8870666834054838069
 GameObject:
   m_ObjectHideFlags: 0

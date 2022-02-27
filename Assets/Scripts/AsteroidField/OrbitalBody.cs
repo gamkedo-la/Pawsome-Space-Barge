@@ -15,6 +15,8 @@ public class OrbitalBody : MonoBehaviour
     private readonly Vector3 up = Vector3.forward;
 
     private bool initializedOrbit;
+    private bool orbitCached;
+    private Vector3[] orbitCache;
 
     public Vector3 Position => positionEci + centerOfMass.position;
     public Vector3 Velocity => velocityEci;
@@ -60,6 +62,7 @@ public class OrbitalBody : MonoBehaviour
     public void AddDeltaV(float time, Vector3 deltaV)
     {
         orbitalElements.SetOrbit(time, positionEci, velocityEci + deltaV);
+        orbitCached = false;
     }
 
     private void UpdatePositionAndVelocityAtTime(float time)
@@ -75,5 +78,31 @@ public class OrbitalBody : MonoBehaviour
     {
         var (pos, _) = orbitalElements.ToCartesian(time);
         return pos + centerOfMass.position;
+    }
+
+    public Vector3[] GetOrbitWorldPositions(int numberOfPoints)
+    {
+        if (numberOfPoints == 0)
+        {
+            numberOfPoints = orbitCache?.Length ?? 100;
+        }
+
+        if (orbitCache == null || orbitCache.Length != numberOfPoints)
+        {
+            orbitCache = new Vector3[numberOfPoints];
+            orbitCached = false;
+        }
+
+        if (!orbitCached)
+        {
+            orbitalElements.GetOrbitCoordinates(orbitCache);
+            var centerOfMassPosition = centerOfMass.position;
+            for (var i = 0; i < numberOfPoints; i++)
+            {
+                orbitCache[i] += centerOfMassPosition;
+            }
+        }
+
+        return orbitCache;
     }
 }
