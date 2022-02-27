@@ -1,7 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class OrbitalBargeController : MonoBehaviour
+[RequireComponent(typeof(OrbitalBody), typeof(Rigidbody2D))]
+public class OrbitalRigidbody : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     private OrbitalBody orbitalBody;

@@ -2,25 +2,20 @@
 
 public class OrbitalBody : MonoBehaviour
 {
-
-    [Header("Planet Centric Inertial coordinates")]
     [SerializeField] private Vector3 positionPci;
+
     [SerializeField] private Vector3 velocityPci;
-    
-    [Header("Orbital Elements")]
+
     [SerializeField] private OrbitalElements orbitalElements = new();
-    
-    [Header("Orbit fast track")]
-    public float timeOffset;
 
-    private Transform centerOfMass;
+    [Header("Orbit fast track")] public float timeOffset;
 
-    private readonly Vector3 up = Vector3.forward;
+    [SerializeField] private Transform centerOfMass;
 
-    private bool initializedOrbit;
     private bool orbitCached;
     private Vector3[] orbitCache;
 
+    public Vector3 PositionPci => positionPci;
     public Vector3 Position => positionPci + centerOfMass.position;
     public Vector3 Velocity => velocityPci;
     public Vector3 Prograde { get; private set; }
@@ -30,24 +25,39 @@ public class OrbitalBody : MonoBehaviour
 
     public Vector3 Nadir => -Zenith;
 
-    public float ProgradeRotation => Vector3.Angle(Vector3.right, Prograde);
-
-    private void Start()
+    public float ProgradeRotation
     {
-        centerOfMass = GameObject.FindGameObjectWithTag("Planet").transform;
+        get
+        {
+            var a = Vector3.Angle(Vector3.right, Prograde);
+            if (Prograde.y < 0)
+            {
+                a = 360f - a;
+            }
+
+            return a;
+        }
+    }
+
+    public OrbitalElements OrbitalElements => orbitalElements;
+
+    private void Awake()
+    {
+        if (centerOfMass == null)
+        {
+            centerOfMass = GameObject.FindGameObjectWithTag("Planet").transform;
+        }
+    }
+
+    public void InitializeOrbit(float time)
+    {
+        orbitalElements.SetCircularOrbit(time + timeOffset, transform.position - centerOfMass.position);
+        UpdatePositionAndVelocityAtTime(0);
     }
 
     public void Recalculate(float time)
     {
-        var currentTimestamp = time + timeOffset;
-        if (!initializedOrbit)
-        {
-            initializedOrbit = true;
-            // Create the initial orbital elements based on current position being in a stable, circular orbit
-            orbitalElements.SetCircularOrbit(currentTimestamp, transform.position - centerOfMass.position);
-        }
-
-        UpdatePositionAndVelocityAtTime(currentTimestamp);
+        UpdatePositionAndVelocityAtTime(time + timeOffset);
     }
 
     public void AddDeltaV(float time, Vector3 deltaV)
@@ -66,14 +76,15 @@ public class OrbitalBody : MonoBehaviour
 
     public Vector3[] GetOrbitWorldPositions(int numberOfPoints)
     {
-        if (!Application.isPlaying)
+        if (centerOfMass == null)
         {
             return null;
         }
-        
+
         if (numberOfPoints == 0)
         {
-            numberOfPoints = orbitCache?.Length ?? 100;
+            var currentLength = orbitCache?.Length ?? 0;
+            numberOfPoints = currentLength > 1 ? currentLength : 100;
         }
 
         if (orbitCache == null || orbitCache.Length != numberOfPoints)

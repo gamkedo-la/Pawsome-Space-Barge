@@ -6884,6 +6884,9 @@ MonoBehaviour:
     T: 0
     omega: 0
   timeOffset: 0
+  centerOfMass: {fileID: 2063537652}
+  orbitCached: 0
+  orbitCache: []
 --- !u!1 &6748815869950646564
 GameObject:
   m_ObjectHideFlags: 0

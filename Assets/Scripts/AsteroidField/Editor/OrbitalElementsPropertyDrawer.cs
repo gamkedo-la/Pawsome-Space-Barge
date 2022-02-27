@@ -34,4 +34,9 @@ public class OrbitalElementsPropertyDrawer : PropertyDrawer
 
         EditorGUI.EndProperty();
     }
+
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    {
+        return 0f;
+    }
 }

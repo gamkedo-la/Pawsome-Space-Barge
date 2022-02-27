@@ -109,7 +109,6 @@ public class OrbitalElements
         var r = position.magnitude;
         var vSquared = velocity.sqrMagnitude;
 
-        var h = Vector3.Cross(position, velocity);
         var rDotV = Vector3.Dot(position, velocity);
 
         var e = 1 / mu * ((vSquared - mu / r) * position - rDotV * velocity);
@@ -146,6 +145,6 @@ public class OrbitalElements
     public override string ToString()
     {
         return
-            $"{nameof(semiMajorAxis)}: {semiMajorAxis}, {nameof(eccentricity)}: {eccentricity}, {nameof(nu)}: {nu * Mathf.Rad2Deg}, {nameof(omega)}: {omega * Mathf.Rad2Deg}, {nameof(T)}: {T}, {nameof(mu)}: {mu}";
+            $"a: {semiMajorAxis}, e: {eccentricity}, ν: {nu * Mathf.Rad2Deg}, ω: {omega * Mathf.Rad2Deg}, {nameof(T)}: {T}, μ: {mu}";
     }
 }
