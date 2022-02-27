@@ -75,7 +75,7 @@ public class ShipMovement : MonoBehaviour
             if (!rb2d.isKinematic)
             {
                 // this is the default
-                rb2d.AddForce(gameObject.transform.right * thrustForce);
+                rb2d.AddForce(gameObject.transform.right * thrustForce * rb2d.mass );
             }
             else
             {

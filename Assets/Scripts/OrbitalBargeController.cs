@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class OrbitalBargeController : MonoBehaviour
 {
@@ -25,6 +26,17 @@ public class OrbitalBargeController : MonoBehaviour
         var ourMass = rb2d.mass;
         var contact = col.GetContact(0);
         var deltaV = contact.normalImpulse / ourMass * contact.normal;
+        //Debug.Log($"[ENTER] Δv: {deltaV}, |Δv|: {deltaV.magnitude}");
+
+        orbitalBody.AddDeltaV(Time.fixedTime, deltaV);
+    }
+
+    private void OnCollisionStay2D(Collision2D col)
+    {
+        var ourMass = rb2d.mass;
+        var contact = col.GetContact(0);
+        var deltaV = contact.normalImpulse / ourMass * contact.normal;
+        //Debug.Log($"[STAY]  Δv: {deltaV}, |Δv|: {deltaV.magnitude}");
 
         orbitalBody.AddDeltaV(Time.fixedTime, deltaV);
     }
