@@ -14782,8 +14782,8 @@ MonoBehaviour:
   player: {fileID: 7651371204295908859}
   positionOffset: {x: 0, y: 10, z: -70}
   angleOffset: {x: 0, y: 80, z: -90}
-  motionDamping: 10
-  rotationDamping: 0.6
+  motionDamping: 5
+  rotationDamping: 1.5
 --- !u!1 &7651371203584487948
 GameObject:
   m_ObjectHideFlags: 0
