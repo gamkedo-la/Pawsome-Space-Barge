@@ -51,7 +51,12 @@ public class CameraManager : MonoBehaviour
     {
         var isFirstPlayer = playerCameras.Count == 0;
 
+        // if using PlayerShip prefab:
         var playerCamera = pi.GetComponentInChildren<Camera>();
+        // // if using PlayerShip-freeCamera prefab
+        // // stops errors but minimap is broken
+        // var playerCamera = pi.transform.parent.GetComponentInChildren<Camera>();
+
         playerCameras.Add(playerCamera);
 
         if (isFirstPlayer)

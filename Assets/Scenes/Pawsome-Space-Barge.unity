@@ -5686,6 +5686,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orbital Barge
       objectReference: {fileID: 0}
+    - target: {fileID: 4481398953472882159, guid: 40dea1920ff19dc49932632d4b689376, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40dea1920ff19dc49932632d4b689376, type: 3}
 --- !u!1 &1110421749
@@ -6540,7 +6544,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880467946}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 11e737ff7027416b0b95f9ab2397af34, type: 2}
   m_IsTrigger: 0
