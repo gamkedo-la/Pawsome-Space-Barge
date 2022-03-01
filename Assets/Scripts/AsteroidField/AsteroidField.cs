@@ -131,6 +131,15 @@ public class AsteroidField : MonoBehaviour
         // return default asteroid (index 0)
         return debris[0];
     }
+
+    public Vector3 RandomRotationalVelocity()
+    {
+        return new Vector3(
+            Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed),
+            Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed),
+            Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed)
+        );
+    }
 }
 
 

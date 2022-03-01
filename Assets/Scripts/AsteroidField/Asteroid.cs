@@ -100,11 +100,7 @@ public class Asteroid : MonoBehaviour
         
         transform.rotation = Random.rotation;
 
-        rotationalVelocity = new Vector3(
-            Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed),
-            Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed),
-            Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed)
-        );
+        rotationalVelocity = AsteroidField.Instance.RandomRotationalVelocity();
 
         AsteroidDebrisData randomThing = AsteroidField.Instance.RandomDebris();
         if (randomThing.prefabMesh.name != filter.sharedMesh.name)
