@@ -9,12 +9,15 @@ public class ParticleDuality : MonoBehaviour
     private ParticleSystem.Particle originalParticle;
     private Rigidbody2D rb2d;
     private float speed;
+    private Vector3 rotationalVelocity;
     private bool alive = false;
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         speed = AsteroidField.Instance.RandomSpeed(transform.position);
+        rotationalVelocity = AsteroidField.Instance.RandomRotationalVelocity();
+        transform.rotation = Random.rotation;
     }
 
     public void CreateFromParticle(ParticleSystem ps, ParticleSystem.Particle particle)
@@ -50,10 +53,12 @@ public class ParticleDuality : MonoBehaviour
     {
         if (alive)
         {
+            transform.Rotate(rotationalVelocity * Time.fixedDeltaTime);
+
             rb2d.transform.RotateAround(
                 AsteroidField.Instance.planet,
                 Vector3.forward,
-                speed * Time.deltaTime
+                speed * Time.fixedDeltaTime
             );
         }
     }
