@@ -5814,7 +5814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7ecbe8b9ce43d4aca7b7c2cd776b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidFactory: {fileID: 11400000, guid: 618a2a861fc731547920e0fb3ba9ffd4, type: 2}
+  asteroidFactory: {fileID: 11400000, guid: bebff26138d8fac4294f1ba082abac8a, type: 2}
 --- !u!199 &1141971317
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -11605,7 +11605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7ecbe8b9ce43d4aca7b7c2cd776b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidFactory: {fileID: 11400000, guid: 618a2a861fc731547920e0fb3ba9ffd4, type: 2}
+  asteroidFactory: {fileID: 11400000, guid: 4f1c85a1a75542d4b8d829ace69b8610, type: 2}
 --- !u!199 &2011980346
 ParticleSystemRenderer:
   serializedVersion: 6

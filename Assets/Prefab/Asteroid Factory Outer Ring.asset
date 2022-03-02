@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e56359beb94d4cddb3477d303fc41386, type: 3}
-  m_Name: Asteroid Factory
+  m_Name: Asteroid Factory Outer Ring
   m_EditorClassIdentifier: 
   weightedPrefabs:
   - prefab: {fileID: 7257938796415413944, guid: c52061cc98a94874c91cd4600ed2f41f, type: 3}
-    weight: 88
+    weight: 46
   - prefab: {fileID: 7696257734742167689, guid: 372742460a0c3594d909a1d24d671ab9, type: 3}
-    weight: 60
+    weight: 79
   - prefab: {fileID: 1528038712871602469, guid: e03e9861941c25e46ac084a5284ac6a5, type: 3}
-    weight: 35
-  totalWeight: 183
+    weight: 62
+  totalWeight: 187
