@@ -6,6 +6,8 @@ public class OrbitalRigidbody : MonoBehaviour
     private Rigidbody2D rb2d;
     private OrbitalBody orbitalBody;
 
+    private const float MaxAllowedDeltaV = 0.2f;
+
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -26,7 +28,12 @@ public class OrbitalRigidbody : MonoBehaviour
         var ourMass = rb2d.mass;
         var contact = col.GetContact(0);
         var deltaV = contact.normalImpulse / ourMass * contact.normal;
-        //Debug.Log($"[ENTER] Δv: {deltaV}, |Δv|: {deltaV.magnitude}");
+        var deltaVMagnitude = deltaV.magnitude;
+        if (deltaVMagnitude > MaxAllowedDeltaV)
+        {
+            Debug.LogWarning($"[ENTER] Δv: {deltaV}, |Δv|: {deltaV.magnitude}. LIMIT ENFORCED.");
+            deltaV = deltaV * MaxAllowedDeltaV / deltaVMagnitude;
+        }
 
         orbitalBody.AddDeltaV(Time.fixedTime, deltaV);
     }
@@ -36,7 +43,12 @@ public class OrbitalRigidbody : MonoBehaviour
         var ourMass = rb2d.mass;
         var contact = col.GetContact(0);
         var deltaV = contact.normalImpulse / ourMass * contact.normal;
-        //Debug.Log($"[STAY]  Δv: {deltaV}, |Δv|: {deltaV.magnitude}");
+        var deltaVMagnitude = deltaV.magnitude;
+        if (deltaVMagnitude > MaxAllowedDeltaV)
+        {
+            Debug.LogWarning($"[STAY]  Δv: {deltaV}, |Δv|: {deltaV.magnitude}. LIMIT ENFORCED.");
+            deltaV = deltaV * MaxAllowedDeltaV / deltaVMagnitude;
+        }
 
         orbitalBody.AddDeltaV(Time.fixedTime, deltaV);
     }

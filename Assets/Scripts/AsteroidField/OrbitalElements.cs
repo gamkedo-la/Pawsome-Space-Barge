@@ -111,19 +111,31 @@ public class OrbitalElements
 
         var rDotV = Vector3.Dot(position, velocity);
 
-        var e = 1 / mu * ((vSquared - mu / r) * position - rDotV * velocity);
-        eccentricity = e.magnitude;
+        var ev = 1 / mu * ((vSquared - mu / r) * position - rDotV * velocity);
+        var e = ev.magnitude;
 
         var specE = vSquared / 2 - mu / r;
-        semiMajorAxis = -mu / (2 * specE);
+        var a = -mu / (2 * specE);
 
-        if (eccentricity < 1e-3)
+        if (e is < 0 or >= 1)
         {
-            nu = 0;
+            Debug.LogWarning($"Refusing SetOrbit({time}, {position}, {velocity}) because calculated e is {e}");
+            return;
         }
-        else
+
+        if (a <= 0)
         {
-            var arg = Vector3.Dot(position, e) / (r * eccentricity);
+            Debug.LogWarning($"Refusing SetOrbit({time}, {position}, {velocity}) because calculated a is {a}");
+            return;
+        }
+
+        eccentricity = e;
+        semiMajorAxis = a;
+
+        nu = 0f;
+        if (eccentricity > 1e-3)
+        {
+            var arg = Vector3.Dot(position, ev) / (r * eccentricity);
             nu = Mathf.Acos(arg);
             if (rDotV < 0)
             {

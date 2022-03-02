@@ -34,31 +34,32 @@ public class OrbitalBodyEditor : Editor
 
         EditorGUILayout.BeginHorizontal();
 
+        var time = Application.isPlaying ? Time.fixedTime : 0;
         if (GUILayout.Button("- [Retrograde]"))
         {
-            body.AddDeltaV(0, deltaV * body.Retrograde);
-            body.Recalculate(0);
+            body.AddDeltaV(time, deltaV * body.Retrograde);
+            body.Recalculate(time);
             ApplyChange(body);
         }
 
         if (GUILayout.Button("+ [Prograde]"))
         {
-            body.AddDeltaV(0, deltaV * body.Prograde);
-            body.Recalculate(0);
+            body.AddDeltaV(time, deltaV * body.Prograde);
+            body.Recalculate(time);
             ApplyChange(body);
         }
 
         if (GUILayout.Button("- [Nadir]"))
         {
-            body.AddDeltaV(0, deltaV * body.Nadir);
-            body.Recalculate(0);
+            body.AddDeltaV(time, deltaV * body.Nadir);
+            body.Recalculate(time);
             ApplyChange(body);
         }
 
         if (GUILayout.Button("+ [Zenith]"))
         {
-            body.AddDeltaV(0, deltaV * body.Zenith);
-            body.Recalculate(0);
+            body.AddDeltaV(time, deltaV * body.Zenith);
+            body.Recalculate(time);
             ApplyChange(body);
         }
 
@@ -72,7 +73,7 @@ public class OrbitalBodyEditor : Editor
 
         if (GUILayout.Button("Circular Orbit"))
         {
-            body.InitializeOrbit(0);
+            body.InitializeOrbit(time);
             ApplyChange(body);
         }
         
