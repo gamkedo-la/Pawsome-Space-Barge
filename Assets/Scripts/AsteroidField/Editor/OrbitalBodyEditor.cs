@@ -10,11 +10,7 @@ public class OrbitalBodyEditor : Editor
     {
         serializedObject.Update();
 
-        GUILayout.Label("Planet Centric Inertial Coordinates", EditorStyles.boldLabel);
-
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("centerOfMass"), new GUIContent("Planet"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("positionPci"), new GUIContent("Position"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("velocityPci"), new GUIContent("Velocity"));
+        DrawDefaultInspector();
 
         EditorGUILayout.Separator();
 

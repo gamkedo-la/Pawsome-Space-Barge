@@ -1,15 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Serializable mostly to make it appear in the inspector
 [Serializable]
-public class OrbitalElements
+public struct OrbitalElements
 {
     public float semiMajorAxis;
     public float eccentricity;
     public float nu;
     public float T;
     public float omega;
+    public float rp;
+    public float ra;
 
     private const float mu = 1218470;
 
@@ -148,7 +149,10 @@ public class OrbitalElements
         // It might be clearer if I watch some more lectures on the subject :)
         omega = Mathf.Repeat(Mathf.Atan2(position.y, position.x) - nu, Mathf.PI * 2);
 
-        var ea = 2 * Mathf.Atan(Mathf.Sqrt((1 - eccentricity) / (1 + eccentricity)) * Mathf.Tan(nu / 2));
+        rp = semiMajorAxis * (1 - eccentricity);
+        ra = semiMajorAxis * (1 + eccentricity);
+
+        var ea = 2 * Mathf.Atan(Mathf.Sqrt(rp / ra) * Mathf.Tan(nu / 2));
         var n = Mathf.Sqrt(mu / Mathf.Pow(semiMajorAxis, 3));
 
         T = time - (ea - eccentricity * Mathf.Sin(ea)) / n;

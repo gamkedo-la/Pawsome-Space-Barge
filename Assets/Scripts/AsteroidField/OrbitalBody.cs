@@ -2,15 +2,19 @@
 
 public class OrbitalBody : MonoBehaviour
 {
-    [SerializeField] private Vector3 positionPci;
-
-    [SerializeField] private Vector3 velocityPci;
-
-    [SerializeField] private OrbitalElements orbitalElements = new();
-
-    [Header("Orbit fast track")] public float timeOffset;
-
+    [Header("Limits")] 
+    [SerializeField] private float minimumOrbitalRadius = 2000f;
+    [SerializeField] private float maximumOrbitalRadius = 7000f;
+    
+    [Header("Planet Centric Inertial Coordinates")]
     [SerializeField] private Transform centerOfMass;
+    [SerializeField] private Vector3 positionPci;
+    [SerializeField] private Vector3 velocityPci;
+    
+    [Header("Orbit fast track")] 
+    [SerializeField] private float timeOffset;
+
+    [SerializeField] [HideInInspector] private OrbitalElements orbitalElements = new();
 
     private bool orbitCached;
     private Vector3[] orbitCache;
@@ -62,7 +66,14 @@ public class OrbitalBody : MonoBehaviour
 
     public void AddDeltaV(float time, Vector3 deltaV)
     {
+        var oldOrbitalElements = orbitalElements;
         orbitalElements.SetOrbit(time + timeOffset, positionPci, velocityPci + deltaV);
+        if (orbitalElements.ra > maximumOrbitalRadius || orbitalElements.rp < minimumOrbitalRadius)
+        {
+            orbitalElements = oldOrbitalElements;
+            Debug.LogWarning("Orbit radius limits exceeded - delta-v change ignored.");
+            return;
+        }
         orbitCached = false;
     }
 
