@@ -5535,10 +5535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7ecbe8b9ce43d4aca7b7c2cd776b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: -804042988204194425, guid: c52061cc98a94874c91cd4600ed2f41f, type: 3}
-  - {fileID: 7465688983847526862, guid: 372742460a0c3594d909a1d24d671ab9, type: 3}
-  - {fileID: -6725757200669536370, guid: e03e9861941c25e46ac084a5284ac6a5, type: 3}
+  asteroidFactory: {fileID: 11400000, guid: 618a2a861fc731547920e0fb3ba9ffd4, type: 2}
 --- !u!1 &787281840
 GameObject:
   m_ObjectHideFlags: 0
@@ -5817,10 +5814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7ecbe8b9ce43d4aca7b7c2cd776b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: -804042988204194425, guid: c52061cc98a94874c91cd4600ed2f41f, type: 3}
-  - {fileID: 7465688983847526862, guid: 372742460a0c3594d909a1d24d671ab9, type: 3}
-  - {fileID: -6725757200669536370, guid: e03e9861941c25e46ac084a5284ac6a5, type: 3}
+  asteroidFactory: {fileID: 11400000, guid: 618a2a861fc731547920e0fb3ba9ffd4, type: 2}
 --- !u!199 &1141971317
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -11611,10 +11605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7ecbe8b9ce43d4aca7b7c2cd776b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: -804042988204194425, guid: c52061cc98a94874c91cd4600ed2f41f, type: 3}
-  - {fileID: 7465688983847526862, guid: 372742460a0c3594d909a1d24d671ab9, type: 3}
-  - {fileID: -6725757200669536370, guid: e03e9861941c25e46ac084a5284ac6a5, type: 3}
+  asteroidFactory: {fileID: 11400000, guid: 618a2a861fc731547920e0fb3ba9ffd4, type: 2}
 --- !u!199 &2011980346
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -16665,16 +16656,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1691e05d52b14635b59139864c63225c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimumOrbitalRadius: 2000
+  maximumOrbitalRadius: 7000
+  centerOfMass: {fileID: 2063537652}
   positionPci: {x: 0.000047699523, y: -4000, z: 0}
   velocityPci: {x: 17.453295, y: 0.00000020812845, z: 0}
+  timeOffset: 0
   orbitalElements:
     semiMajorAxis: 4000
     eccentricity: 0.000000024043985
     nu: 0
     T: 0
     omega: 4.712389
-  timeOffset: 0
-  centerOfMass: {fileID: 2063537652}
+    rp: 0
+    ra: 0
 --- !u!1 &6748815869950646564
 GameObject:
   m_ObjectHideFlags: 0

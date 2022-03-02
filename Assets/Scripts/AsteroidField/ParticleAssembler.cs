@@ -5,8 +5,7 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(ParticleSystem))]
 public class ParticleAssembler : MonoBehaviour
 {
-    [FormerlySerializedAs("asteroidPrefabs")] 
-    public ParticleDuality[] prefabs;
+    [SerializeField] private RandomPrefabFactory asteroidFactory;
     
     private ParticleSystem ps;
     private List<ParticleSystem.Particle> particles = new();
@@ -36,7 +35,14 @@ public class ParticleAssembler : MonoBehaviour
     {
         foreach (var particle in list)
         {
-            var pd = Instantiate(prefabs[Random.Range(0, prefabs.Length)], transform);
+            var randomPrefab = asteroidFactory.GetRandomPrefab();
+            var obj = Instantiate(randomPrefab, transform);
+            var pd = obj.GetComponent<ParticleDuality>();
+            if (pd == null)
+            {
+                Debug.LogWarning($"In {asteroidFactory.name}, prefab {randomPrefab.name} is missing ParticleDuality component");
+                pd = obj.AddComponent<ParticleDuality>();
+            }
             pd.CreateFromParticle(ps, particle);
         }
     }
