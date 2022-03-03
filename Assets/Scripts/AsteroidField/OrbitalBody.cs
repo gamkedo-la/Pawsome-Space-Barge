@@ -19,6 +19,7 @@ public class OrbitalBody : MonoBehaviour
     private bool orbitCached;
     private Vector3[] orbitCache;
 
+    public Transform CenterOfMass => centerOfMass;
     public Vector3 PositionPci => positionPci;
     public Vector3 Position => positionPci + centerOfMass.position;
     public Vector3 Velocity => velocityPci;
