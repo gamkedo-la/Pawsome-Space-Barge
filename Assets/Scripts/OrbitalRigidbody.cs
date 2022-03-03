@@ -10,6 +10,7 @@ public class OrbitalRigidbody : MonoBehaviour
 
 
     // *************************************** THIS LIFTS-RIGHT-OUT
+    public float orbitalDot;
     public Vector3 orbitalVelocity;
     public float orbitalVMag;
     public Vector3 previousOrbitalPosition;
@@ -18,7 +19,7 @@ public class OrbitalRigidbody : MonoBehaviour
     public float bargeDistance2Planet;
 
     public GameObject correctedBarge;
-    // private Rigidbody2D bargeCollider;
+    private Rigidbody2D bargeCollider;
 
     private OrbitalState orbitalState;
     private enum OrbitalState
@@ -27,6 +28,8 @@ public class OrbitalRigidbody : MonoBehaviour
         Stable,
         Ascending
     }
+
+    public float scale = 1f;
     // *************************************** END OF LIFTS-RIGHT-OUT
 
 
@@ -38,9 +41,9 @@ public class OrbitalRigidbody : MonoBehaviour
 
         // *************************************** THIS LIFTS-RIGHT-OUT
         correctedBarge.transform.position = orbitalBody.Position;
-        // bargeCollider = correctedBarge.GetComponent<Rigidbody2D>();
+        bargeCollider = correctedBarge.GetComponent<Rigidbody2D>();
 
-        // orbitalVelocity = Vector3.Dot(orbitalBody.Velocity, orbitalBody.PositionPci);
+        orbitalDot = Vector3.Dot(orbitalBody.Velocity, orbitalBody.PositionPci.normalized);
         orbitalVelocity = orbitalBody.Velocity;
         orbitalVMag = orbitalVelocity.magnitude;
 
@@ -67,6 +70,7 @@ public class OrbitalRigidbody : MonoBehaviour
 
         orbitalVelocity = orbitalBody.Velocity;
         orbitalVMag = orbitalVelocity.magnitude;
+        orbitalDot = Vector3.Dot(orbitalBody.Velocity, orbitalBody.PositionPci.normalized);
 
         // magnitude threshold (17.45329) for stable orbit in middle ring
         if (orbitalVMag < 17.4f && orbitalState != OrbitalState.Descending)
@@ -87,9 +91,29 @@ public class OrbitalRigidbody : MonoBehaviour
             orbitalState = OrbitalState.Stable;
         }
 
+        // if (orbitalState == OrbitalState.Descending)
+        // {
+
+        //     correctedBarge.transform.position = new Vector3(0, -Mathf.Abs(tempOrbitalDistance), 0) + orbitalVelocity;
+        // }
+
         // apply corrected position
         // correctedBarge.transform.position = correctedOrbitalPosition;
-        correctedBarge.transform.position = new Vector3(0, -Mathf.Abs(tempOrbitalDistance), 0);
+        // correctedBarge.transform.position = new Vector3(0, -Mathf.Abs(tempOrbitalDistance), 0);
+
+
+        // correctedBarge.transform.position = new Vector3(correctedBarge.transform.position.x, -Mathf.Abs(tempOrbitalDistance), correctedBarge.transform.position.z);
+
+        Quaternion q = Quaternion.AngleAxis(((orbitalVMag * scale)) * Time.deltaTime, Vector3.forward);
+        bargeCollider.MovePosition(q * (bargeCollider.transform.position - AsteroidField.Instance.planet) + AsteroidField.Instance.planet);
+        bargeCollider.MoveRotation(bargeCollider.transform.rotation * q);
+
+
+
+        // bargeCollider.velocity = orbitalBody.Velocity * scale;
+        // correctedBarge.transform.position = new Vector3(0, -Mathf.Abs(tempOrbitalDistance), 0);
+        // correctedBarge.transform.RotateAround(orbitalBody.CenterOfMass.position, Vector3.forward, 5); //orbitalVMag * scale);
+        // correctedBarge.transform.LookAt(orbitalBody.CenterOfMass); //, Vector3.forward);
 
         // update inspector properties
         previousOrbitalPosition = orbitalBody.Position;
