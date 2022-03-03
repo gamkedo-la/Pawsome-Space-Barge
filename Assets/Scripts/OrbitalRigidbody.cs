@@ -8,7 +8,7 @@ public class OrbitalRigidbody : MonoBehaviour
 
     private const float MaxAllowedDeltaV = 0.2f;
     public Vector3 orbitalVelocity;
-    // public Vector3 diff;
+    public float orbitalVMag;
     public Vector3 previousOrbitalPosition;
     public Vector3 previousBargePosition;
     public float orbitalDistance2Planet;
@@ -16,6 +16,14 @@ public class OrbitalRigidbody : MonoBehaviour
 
     public GameObject correctedBarge;
     // private Rigidbody2D bargeCollider;
+
+    private OrbitalState orbitalState;
+    private enum OrbitalState
+    {
+        Descending,
+        Stable,
+        Ascending
+    }
 
     private void Awake()
     {
@@ -27,6 +35,7 @@ public class OrbitalRigidbody : MonoBehaviour
 
         // orbitalVelocity = Vector3.Dot(orbitalBody.Velocity, orbitalBody.PositionPci);
         orbitalVelocity = orbitalBody.Velocity;
+        orbitalVMag = orbitalVelocity.magnitude;
 
         previousOrbitalPosition = orbitalBody.Position;
         previousBargePosition = correctedBarge.transform.position;
@@ -47,24 +56,27 @@ public class OrbitalRigidbody : MonoBehaviour
         var tempOrbitalDistance = Vector3.Distance(tempOrbitalPos, orbitalBody.CenterOfMass.position);
         var diff = tempOrbitalPos - previousOrbitalPosition;
 
-        // populate orbitalVelocity number in inspector:
-        // this doesn't indicate what I thought it would
         orbitalVelocity = orbitalBody.Velocity;
+        orbitalVMag = orbitalVelocity.magnitude;
 
-
-        // check distance to planet
-        if (tempOrbitalDistance < orbitalDistance2Planet)
+        // magnitude threshold (17.45329) for stable orbit in middle ring
+        if (orbitalVMag < 17.4f && orbitalState != OrbitalState.Descending)
         {
-            // if decreasing, barge slower than asteroids, motion should be mirrored on the normal from the planet to barge
-            var correctedBargeNormal = correctedBarge.transform.position - orbitalBody.CenterOfMass.position;
-            diff = Vector3.Reflect(diff.normalized, correctedBargeNormal.normalized);
-
-            // reverse rotation? I think...
-            tempOrbitalRot *= -1;
+            Debug.Log("Descending Orbit");
+            orbitalState = OrbitalState.Descending;
+            // barge.velocity = 17.4f - orbitalVelocity.magnitude
         }
-
-        // correct position
-        var correctedOrbitalPosition = previousBargePosition + diff;
+        else if (orbitalVMag > 17.5f && orbitalState != OrbitalState.Ascending)
+        {
+            Debug.Log("Ascending Orbit.");
+            orbitalState = OrbitalState.Ascending;
+            // barge.velocity = orbitalVelocity.magnitude - 17.4f
+        }
+        else if (orbitalVMag <= 17.5f && orbitalVMag >= 17.4f && orbitalState != OrbitalState.Stable)
+        {
+            Debug.Log("Stable Orbit");
+            orbitalState = OrbitalState.Stable;
+        }
 
         // apply corrected position
         // correctedBarge.transform.position = correctedOrbitalPosition;
