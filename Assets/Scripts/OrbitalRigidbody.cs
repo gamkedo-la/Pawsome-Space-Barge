@@ -7,6 +7,9 @@ public class OrbitalRigidbody : MonoBehaviour
     private OrbitalBody orbitalBody;
 
     private const float MaxAllowedDeltaV = 0.2f;
+
+
+    // *************************************** THIS LIFTS-RIGHT-OUT
     public Vector3 orbitalVelocity;
     public float orbitalVMag;
     public Vector3 previousOrbitalPosition;
@@ -24,12 +27,16 @@ public class OrbitalRigidbody : MonoBehaviour
         Stable,
         Ascending
     }
+    // *************************************** END OF LIFTS-RIGHT-OUT
+
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         orbitalBody = GetComponent<OrbitalBody>();
 
+
+        // *************************************** THIS LIFTS-RIGHT-OUT
         correctedBarge.transform.position = orbitalBody.Position;
         // bargeCollider = correctedBarge.GetComponent<Rigidbody2D>();
 
@@ -42,6 +49,7 @@ public class OrbitalRigidbody : MonoBehaviour
 
         orbitalDistance2Planet = Vector3.Distance(orbitalBody.Position, orbitalBody.CenterOfMass.position);
         bargeDistance2Planet = Vector3.Distance(correctedBarge.transform.position, orbitalBody.CenterOfMass.position);
+        // *************************************** END OF LIFTS-RIGHT-OUT
     }
 
     private void FixedUpdate()
@@ -50,6 +58,7 @@ public class OrbitalRigidbody : MonoBehaviour
         rb2d.velocity = orbitalBody.Velocity;
 
 
+        // *************************************** THIS LIFTS-RIGHT-OUT
         // gather data
         var tempOrbitalPos = orbitalBody.Position;
         var tempOrbitalRot = orbitalBody.ProgradeRotation;
@@ -82,19 +91,20 @@ public class OrbitalRigidbody : MonoBehaviour
         // correctedBarge.transform.position = correctedOrbitalPosition;
         correctedBarge.transform.position = new Vector3(0, -Mathf.Abs(tempOrbitalDistance), 0);
 
-
         // update inspector properties
         previousOrbitalPosition = orbitalBody.Position;
         previousBargePosition = correctedBarge.transform.position;
         orbitalDistance2Planet = tempOrbitalDistance;
         bargeDistance2Planet = Vector3.Distance(correctedBarge.transform.position, orbitalBody.CenterOfMass.position);
 
-
         // // move barge to corrected location
         // // !! really messes with orbital physics !!
         // rb2d.MovePosition(tempOrbitalPos);
         // rb2d.rotation = tempOrbitalRot;
         // // OR
+        // *************************************** END OF LIFTS-RIGHT-OUT
+
+
         rb2d.MovePosition(orbitalBody.Position);
         rb2d.rotation = orbitalBody.ProgradeRotation;
     }
