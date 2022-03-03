@@ -3,7 +3,32 @@ guid: 4672b98371bd51c429af6c4c41aa0e4b
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: barge_antenna
+    second: {fileID: 2100000, guid: 7fcbab9c95f6c054081c158d48fe1f7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: barge_antenna_light
+    second: {fileID: 2100000, guid: f6700959d35920742b52179220708475, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: barge_comms
+    second: {fileID: 2100000, guid: 8940565b7d29ddd45bccd6164cd2db18, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: barge_fenders
+    second: {fileID: 2100000, guid: 42169fada34cdd446b5f9fa25f754c3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: barge_hull
+    second: {fileID: 2100000, guid: 7dcaef91389b7e144950fd6de8ef3761, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
