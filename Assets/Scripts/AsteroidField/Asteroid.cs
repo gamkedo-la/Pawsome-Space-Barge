@@ -65,29 +65,6 @@ public class Asteroid : MonoBehaviour
         // Quaternion q = Quaternion.AngleAxis(((AsteroidField.Instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
         // rb2d.MovePosition(q * (rb2d.transform.position - AsteroidField.Instance.planet) + AsteroidField.Instance.planet);
         // rb2d.MoveRotation(rb2d.transform.rotation * q);
-
-
-        // // // this works too, modifying velocity instead... tug still cannot interact
-        // Quaternion q = Quaternion.AngleAxis(((AsteroidField.Instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
-        // Vector2 newPosition = q * (rb2d.transform.position - AsteroidField.Instance.planet) + AsteroidField.Instance.planet;
-        // Vector2 temp = newPosition - rb2d.position;
-        // rb2d.velocity = temp * Mathf.Abs(AsteroidField.Instance.fieldSpeed);
-
-
-        // // With RigidBody2D.AddForce, rather wonky
-        // Quaternion q = Quaternion.AngleAxis(((AsteroidField.Instance.fieldSpeed / 100f) + speed) * Time.deltaTime, Vector3.forward);
-        // Vector2 newPosition = q * (rb2d.transform.position - AsteroidField.Instance.planet) + AsteroidField.Instance.planet;
-        // Vector2 temp = newPosition - rb2d.position;
-        // rb2d.AddForce(temp * Mathf.Abs(AsteroidField.Instance.fieldSpeed*100f));
-        // rb2d.MoveRotation(rb2d.transform.rotation * q);
-
-
-        // // I have not yet tried this:
-        // // https://forum.unity.com/threads/orbital-physics-maintaining-a-circular-orbit.403077/
-        // float r = Vector3.Distance(star.Position, planet.Position);
-        // float totalForce = -(Constants.G * star.Mass * planet.Mass) / (r * r);
-        // Vector3 force = (planet.Position - star.Position).normalized * totalForce;
-        // planet.GetComponent<Rigidbody>().AddForce(force);
     }
 
 
@@ -129,15 +106,6 @@ public class Asteroid : MonoBehaviour
             {
                 newPos.x = -newPos.x;
             }
-            /*
-                // which side to spawn on
-                newPos.x = (rb2d.position.x > 0) ?
-                Random.Range(-AsteroidField.Instance.fieldBounds.bounds.extents.x, -AsteroidField.Instance.fieldBounds.bounds.extents.x + 50) :
-                Random.Range(AsteroidField.Instance.fieldBounds.bounds.extents.x, AsteroidField.Instance.fieldBounds.bounds.extents.x - 50);
-
-                // y axis spawn
-                newPos.y = Random.Range(-AsteroidField.Instance.fieldBounds.bounds.extents.y + 15, AsteroidField.Instance.fieldBounds.bounds.extents.y - 15);
-            */
 
             // WARNING
             // the OverlapCircle() check locks up the engine if the LayerMask is not properly set
@@ -182,7 +150,7 @@ public class Asteroid : MonoBehaviour
             }
             else
             {
-                //
+                // nothing
             }
         }
     }
