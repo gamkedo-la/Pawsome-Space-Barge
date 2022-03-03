@@ -36,7 +36,7 @@ public class ParticleAssembler : MonoBehaviour
         foreach (var particle in list)
         {
             var randomPrefab = asteroidFactory.GetRandomPrefab();
-            var obj = Instantiate(randomPrefab, transform);
+            var obj = Instantiate(randomPrefab, particle.position, Quaternion.identity, transform);
             var pd = obj.GetComponent<ParticleDuality>();
             if (pd == null)
             {
