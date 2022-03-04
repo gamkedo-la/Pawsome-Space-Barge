@@ -12,6 +12,7 @@ TagManager:
   - Sun
   - Boundary
   - Barge
+  - Minimap Marker
   layers:
   - Default
   - TransparentFX

@@ -10682,7 +10682,7 @@ GameObject:
   - component: {fileID: 1149785555}
   m_Layer: 8
   m_Name: Minimap Orbit Indicator
-  m_TagString: Untagged
+  m_TagString: Minimap Marker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11446,7 +11446,7 @@ GameObject:
   - component: {fileID: 1729433130}
   m_Layer: 8
   m_Name: minimap marker
-  m_TagString: Untagged
+  m_TagString: Minimap Marker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
