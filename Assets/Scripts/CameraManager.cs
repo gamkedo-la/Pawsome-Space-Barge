@@ -45,6 +45,20 @@ public class CameraManager : MonoBehaviour
 
         cameraMode = initialCameraMode;
         SetActiveCameras();
+
+        var minimapBits = GameObject.FindGameObjectsWithTag("Minimap Marker");
+
+        foreach (GameObject thing in minimapBits)
+        {
+            try
+            {
+                thing.GetComponent<MeshRenderer>().enabled = true;
+            }
+            catch
+            {
+                //
+            }
+        }
     }
 
     public void PlayerJoined(PlayerInput pi)
