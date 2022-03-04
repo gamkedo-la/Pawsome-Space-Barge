@@ -16746,17 +16746,17 @@ MonoBehaviour:
   minimumOrbitalRadius: 2000
   maximumOrbitalRadius: 8000
   centerOfMass: {fileID: 2063537652}
-  positionPci: {x: 0.000081089165, y: -6799.998, z: 0}
-  velocityPci: {x: 43.930428, y: -0.0015334879, z: 0}
+  positionPci: {x: 0.000080254445, y: -6730, z: 0}
+  velocityPci: {x: 42.550034, y: 0.0000005074041, z: 0}
   timeOffset: 0
   orbitalElements:
-    semiMajorAxis: 7367.4585
-    eccentricity: 0.077022575
-    nu: 0.00048828125
-    T: -0.07558113
-    omega: 4.7119007
-    rp: 6799.9995
-    ra: 6864.6377
+    semiMajorAxis: 6730.0005
+    eccentricity: 0.00000009417228
+    nu: 0
+    T: 0
+    omega: 4.712389
+    rp: 6730
+    ra: 6730.001
     speedMultiplier: 10
 --- !u!1 &6748815869950646564
 GameObject:
