@@ -53,11 +53,6 @@ public class OrbitalBody : MonoBehaviour
         {
             centerOfMass = GameObject.FindGameObjectWithTag("Planet").transform;
         }
-
-        if (orbitalElements.speedMultiplier == 0)
-        {
-            orbitalElements.speedMultiplier = 1;
-        }
     }
 
     public void InitializeOrbit(float time)

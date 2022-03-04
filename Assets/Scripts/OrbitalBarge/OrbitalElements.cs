@@ -13,7 +13,18 @@ public struct OrbitalElements
     public float ra;
     public float speedMultiplier;
 
-    public float Mu => 1218470*speedMultiplier;
+    public float Mu
+    {
+        get
+        {
+            if (speedMultiplier <= 0)
+            {
+                speedMultiplier = 0.0001f;
+            }
+
+            return 1218470*speedMultiplier;
+        }
+    }
 
     // https://elainecoe.github.io/orbital-mechanics-calculator/scripts/calculator.js
     // https://space.stackexchange.com/questions/19322/converting-orbital-elements-to-cartesian-state-vectors
