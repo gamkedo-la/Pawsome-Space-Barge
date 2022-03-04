@@ -16744,19 +16744,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumOrbitalRadius: 2000
-  maximumOrbitalRadius: 7000
+  maximumOrbitalRadius: 8000
   centerOfMass: {fileID: 2063537652}
-  positionPci: {x: 0.00008108919, y: -6800, z: 0}
-  velocityPci: {x: 42.33046, y: 0.0000005047857, z: 0}
+  positionPci: {x: 0.000081089165, y: -6799.998, z: 0}
+  velocityPci: {x: 43.930428, y: -0.0015334879, z: 0}
   timeOffset: 0
   orbitalElements:
-    semiMajorAxis: 6800.0005
-    eccentricity: 0.000000084153946
-    nu: 0
-    T: 0
-    omega: 4.712389
-    rp: 6800
-    ra: 6800
+    semiMajorAxis: 7367.4585
+    eccentricity: 0.077022575
+    nu: 0.00048828125
+    T: -0.07558113
+    omega: 4.7119007
+    rp: 6799.9995
+    ra: 6864.6377
     speedMultiplier: 10
 --- !u!1 &6748815869950646564
 GameObject:
