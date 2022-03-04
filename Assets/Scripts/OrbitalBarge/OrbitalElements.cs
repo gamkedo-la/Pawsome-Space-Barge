@@ -11,8 +11,9 @@ public struct OrbitalElements
     public float omega;
     public float rp;
     public float ra;
+    public float speedMultiplier;
 
-    private const float mu = 1218470;
+    public float Mu => 1218470*speedMultiplier;
 
     // https://elainecoe.github.io/orbital-mechanics-calculator/scripts/calculator.js
     // https://space.stackexchange.com/questions/19322/converting-orbital-elements-to-cartesian-state-vectors
@@ -24,14 +25,14 @@ public struct OrbitalElements
 
     public (Vector3, Vector3) ToCartesian(float t)
     {
-        var meanAnomaly = Mathf.Sqrt(mu / (semiMajorAxis * semiMajorAxis * semiMajorAxis)) * (t - T);
+        var meanAnomaly = Mathf.Sqrt(Mu / (semiMajorAxis * semiMajorAxis * semiMajorAxis)) * (t - T);
         meanAnomaly = Mathf.Repeat(meanAnomaly, 2 * Mathf.PI);
         var eccentricAnomaly = SolveEccentricAnomaly(meanAnomaly);
         var trueAnomaly = 2 * Mathf.Atan2(Mathf.Sqrt(1 + eccentricity) * Mathf.Sin(eccentricAnomaly / 2),
             Mathf.Sqrt(1 - eccentricity) * Mathf.Cos(eccentricAnomaly / 2));
         var r = semiMajorAxis * (1 - eccentricity * Mathf.Cos(eccentricAnomaly));
         var p = semiMajorAxis * (1 - eccentricity * eccentricity);
-        var h = Mathf.Sqrt(mu * p);
+        var h = Mathf.Sqrt(Mu * p);
 
         const float cosOmega = 1;
         const float sinOmega = 0;
@@ -97,7 +98,7 @@ public struct OrbitalElements
     /// </summary>
     public void SetCircularOrbit(float time, Vector3 position)
     {
-        var velocity = Vector3.Cross(position, Vector3.forward).normalized * Mathf.Sqrt(mu / position.magnitude);
+        var velocity = Vector3.Cross(position, Vector3.forward).normalized * Mathf.Sqrt(Mu / position.magnitude);
 
         SetOrbit(time, position, velocity);
     }
@@ -112,11 +113,11 @@ public struct OrbitalElements
 
         var rDotV = Vector3.Dot(position, velocity);
 
-        var ev = 1 / mu * ((vSquared - mu / r) * position - rDotV * velocity);
+        var ev = 1 / Mu * ((vSquared - Mu / r) * position - rDotV * velocity);
         var e = ev.magnitude;
 
-        var specE = vSquared / 2 - mu / r;
-        var a = -mu / (2 * specE);
+        var specE = vSquared / 2 - Mu / r;
+        var a = -Mu / (2 * specE);
 
         if (e is < 0 or >= 1)
         {
@@ -153,7 +154,7 @@ public struct OrbitalElements
         ra = semiMajorAxis * (1 + eccentricity);
 
         var ea = 2 * Mathf.Atan(Mathf.Sqrt(rp / ra) * Mathf.Tan(nu / 2));
-        var n = Mathf.Sqrt(mu / Mathf.Pow(semiMajorAxis, 3));
+        var n = Mathf.Sqrt(Mu / Mathf.Pow(semiMajorAxis, 3));
 
         T = time - (ea - eccentricity * Mathf.Sin(ea)) / n;
     }
@@ -161,6 +162,6 @@ public struct OrbitalElements
     public override string ToString()
     {
         return
-            $"a: {semiMajorAxis}, e: {eccentricity}, ν: {nu * Mathf.Rad2Deg}, ω: {omega * Mathf.Rad2Deg}, {nameof(T)}: {T}, μ: {mu}";
+            $"a: {semiMajorAxis}, e: {eccentricity}, ν: {nu * Mathf.Rad2Deg}, ω: {omega * Mathf.Rad2Deg}, {nameof(T)}: {T}, μ: {Mu}";
     }
 }

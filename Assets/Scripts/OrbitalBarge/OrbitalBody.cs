@@ -45,6 +45,7 @@ public class OrbitalBody : MonoBehaviour
     }
 
     public OrbitalElements OrbitalElements => orbitalElements;
+    public Vector3 GravitationalForce { get; private set; }
 
     private void Awake()
     {
@@ -52,12 +53,17 @@ public class OrbitalBody : MonoBehaviour
         {
             centerOfMass = GameObject.FindGameObjectWithTag("Planet").transform;
         }
+
+        if (orbitalElements.speedMultiplier == 0)
+        {
+            orbitalElements.speedMultiplier = 1;
+        }
     }
 
     public void InitializeOrbit(float time)
     {
         orbitalElements.SetCircularOrbit(time + timeOffset, transform.position - centerOfMass.position);
-        UpdatePositionAndVelocityAtTime(0);
+        UpdatePositionAndVelocityAtTime(time);
     }
 
     public void Recalculate(float time)
@@ -78,12 +84,18 @@ public class OrbitalBody : MonoBehaviour
         orbitCached = false;
     }
 
+    public void SetOrbit(float time, Vector3 worldPosition, Vector3 worldVelocity)
+    {
+        orbitalElements.SetOrbit(time + timeOffset, worldPosition - centerOfMass.position, worldVelocity);
+    }
+
     private void UpdatePositionAndVelocityAtTime(float time)
     {
         (positionPci, velocityPci) = orbitalElements.ToCartesian(time);
 
         Prograde = velocityPci.normalized;
         Zenith = positionPci.normalized;
+        GravitationalForce = OrbitalElements.Mu / positionPci.sqrMagnitude * Nadir;
     }
 
     public Vector3[] GetOrbitWorldPositions(int numberOfPoints)

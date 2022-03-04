@@ -40,6 +40,11 @@ public class OrbitalElementsPropertyDrawer : PropertyDrawer
         EditorGUILayout.PropertyField(property.FindPropertyRelative("ra"), GUIContent.none, fieldWidth);
         
         EditorGUILayout.EndHorizontal();
+        
+        EditorGUILayout.Separator();
+        
+        EditorGUILayout.PropertyField(property.FindPropertyRelative("speedMultiplier"));
+        
 
         EditorGUI.EndProperty();
     }

@@ -11749,7 +11749,7 @@ Camera:
   far clip plane: 100000
   field of view: 45
   orthographic: 1
-  orthographic size: 5000
+  orthographic size: 7000
   m_Depth: 100
   m_CullingMask:
     serializedVersion: 2
@@ -16761,6 +16761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82d552af585c41c08e50f85341285a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  method: 1
 --- !u!50 &126204426785436132
 Rigidbody2D:
   serializedVersion: 4
@@ -16769,13 +16770,13 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4481398954072391343}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 25000
-  m_LinearDrag: 1
-  m_AngularDrag: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 11e737ff7027416b0b95f9ab2397af34, type: 2}
   m_Interpolate: 1
@@ -16868,16 +16869,17 @@ MonoBehaviour:
   maximumOrbitalRadius: 7000
   centerOfMass: {fileID: 2063537652}
   positionPci: {x: 0.00008108919, y: -6800, z: 0}
-  velocityPci: {x: 13.386066, y: 0.00000015962725, z: 0}
+  velocityPci: {x: 42.33046, y: 0.0000005047857, z: 0}
   timeOffset: 0
   orbitalElements:
-    semiMajorAxis: 6800
-    eccentricity: 0.000000016029324
+    semiMajorAxis: 6800.0005
+    eccentricity: 0.000000084153946
     nu: 0
     T: 0
     omega: 4.712389
     rp: 0
     ra: 0
+    speedMultiplier: 10
 --- !u!1 &6748815869950646564
 GameObject:
   m_ObjectHideFlags: 0
