@@ -181,67 +181,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 24.670166, y: 1095.2803}
   m_EdgeRadius: 0
---- !u!1001 &134571645
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3920154883608981213, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
-      propertyPath: m_Name
-      value: Demo Asteroids (low density)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3920154883608981213, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3920154883608981214, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3920154883608981214, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3920154883608981214, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3920154883608981214, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3920154883608981214, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3920154883608981214, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3920154883608981214, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3920154883608981214, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3920154883608981214, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3920154883608981214, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3920154883608981214, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bc67ce9f49496b1c89490833372f68d7, type: 3}
 --- !u!1 &207041445
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +735,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &617957302
 Rigidbody2D:
@@ -867,7 +806,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &771071385
 ParticleSystemRenderer:
@@ -10850,7 +10789,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1149785554
 GameObject:
@@ -10997,7 +10936,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1187131670
 GameObject:
@@ -16724,7 +16663,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &2063537648
 GameObject:
@@ -16822,15 +16761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82d552af585c41c08e50f85341285a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbitalDot: 0
-  orbitalVelocity: {x: 0, y: 0, z: 0}
-  orbitalVMag: 0
-  previousOrbitalPosition: {x: 0, y: 0, z: 0}
-  previousBargePosition: {x: 0, y: 0, z: 0}
-  orbitalDistance2Planet: 0
-  bargeDistance2Planet: 0
-  correctedBarge: {fileID: 617957297}
-  scale: 1
 --- !u!50 &126204426785436132
 Rigidbody2D:
   serializedVersion: 4
@@ -16860,7 +16790,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4481398954072391343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4000, z: 0}
+  m_LocalPosition: {x: 0, y: -6800, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16871,7 +16801,7 @@ Transform:
   - {fileID: 533416005}
   - {fileID: 1729433128}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2203802382118693518
 MonoBehaviour:
@@ -16901,7 +16831,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4481398954072391343
 GameObject:
@@ -16937,12 +16867,12 @@ MonoBehaviour:
   minimumOrbitalRadius: 2000
   maximumOrbitalRadius: 7000
   centerOfMass: {fileID: 2063537652}
-  positionPci: {x: 0.000047699523, y: -4000, z: 0}
-  velocityPci: {x: 17.453295, y: 0.00000020812845, z: 0}
+  positionPci: {x: 0.00008108919, y: -6800, z: 0}
+  velocityPci: {x: 13.386066, y: 0.00000015962725, z: 0}
   timeOffset: 0
   orbitalElements:
-    semiMajorAxis: 4000
-    eccentricity: 0.000000024043985
+    semiMajorAxis: 6800
+    eccentricity: 0.000000016029324
     nu: 0
     T: 0
     omega: 4.712389
