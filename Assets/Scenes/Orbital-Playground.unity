@@ -16901,7 +16901,7 @@ GameObject:
   - component: {fileID: 8870666834117475441}
   - component: {fileID: 8870666834117475446}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: BargeCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
