@@ -6,6 +6,8 @@ public class OrbitalRigidbody : MonoBehaviour
 {
     [SerializeField] private UpdateMethod method = UpdateMethod.FollowOrbit;
     [SerializeField] private float playerMultiplier = 2f;
+    [SerializeField] private int maxContacts = 5;
+    private ContactPoint2D[] contactArray;
 
     private Rigidbody2D rb2d;
     private OrbitalBody orbitalBody;
@@ -20,6 +22,7 @@ public class OrbitalRigidbody : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         orbitalBody = GetComponent<OrbitalBody>();
         rb2d.isKinematic = method != UpdateMethod.Forces;
+        contactArray = new ContactPoint2D[maxContacts];
     }
 
     private void Start()
@@ -60,11 +63,26 @@ public class OrbitalRigidbody : MonoBehaviour
     {
         // Delta-V transferred from a collision = the impulse along the contact normal / the mass of this body
         float ourMass = rb2d.mass;
-        ContactPoint2D contact = col.GetContact(0);
 
-        float scale = (col.gameObject.CompareTag("Player")) ? playerMultiplier : 1f;
+        var contactNum = col.GetContacts(contactArray);
 
-        Vector2 deltaV = contact.normalImpulse * scale / ourMass * contact.normal;
+        float impulse = 0;
+        Vector2 normal = new Vector2(0,0);
+
+        for (int i = 0; i < contactArray.Length; i++)
+        {
+            if (contactArray[i].collider == null) { break; }
+
+            var newImpulse = contactArray[i].collider.CompareTag("Player")
+                                ? contactArray[i].normalImpulse * playerMultiplier
+                                : contactArray[i].normalImpulse;
+                
+            impulse += newImpulse;
+            normal += contactArray[i].normal;
+            
+        }
+
+        Vector2 deltaV = impulse / ourMass * normal.normalized;
 
         float deltaVMagnitude = deltaV.magnitude;
 
