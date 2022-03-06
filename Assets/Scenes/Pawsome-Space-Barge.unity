@@ -17332,15 +17332,15 @@ MonoBehaviour:
   minimumOrbitalRadius: 1500
   maximumOrbitalRadius: 10000
   centerOfMass: {fileID: 2063537652}
-  positionPci: {x: 0.122026555, y: -6729.998, z: 0}
-  velocityPci: {x: 25.750158, y: 0.031248542, z: 0}
+  positionPci: {x: 0.000080254445, y: -6730, z: 0}
+  velocityPci: {x: 42.550034, y: 0.0000005074041, z: 0}
   timeOffset: 0
   orbitalElements:
-    semiMajorAxis: 4119.32
-    eccentricity: 0.6337651
-    nu: 3.1422834
-    T: 237.76672
-    omega: 1.5701237
+    semiMajorAxis: 6730.0005
+    eccentricity: 0.00000009417228
+    nu: 0
+    T: 0
+    omega: 4.712389
     rp: 6730
     ra: 6730.001
     speedMultiplier: 10
