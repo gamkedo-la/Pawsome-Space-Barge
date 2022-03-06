@@ -69,10 +69,8 @@ public class OrbitalRigidbody : MonoBehaviour
         float impulse = 0;
         Vector2 normal = new Vector2(0,0);
 
-        for (int i = 0; i < contactArray.Length; i++)
+        for (int i = 0; i < contactNum; i++)
         {
-            if (contactArray[i].collider == null) { break; }
-
             var newImpulse = contactArray[i].collider.CompareTag("Player")
                                 ? contactArray[i].normalImpulse * playerMultiplier
                                 : contactArray[i].normalImpulse;
