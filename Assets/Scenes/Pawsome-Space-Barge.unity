@@ -17223,7 +17223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   method: 1
-  playerMultiplier: 2
+  playerMultiplier: 3
+  maxContacts: 5
 --- !u!50 &126204426785436132
 Rigidbody2D:
   serializedVersion: 4
@@ -17328,18 +17329,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1691e05d52b14635b59139864c63225c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimumOrbitalRadius: 2000
-  maximumOrbitalRadius: 8000
+  minimumOrbitalRadius: 1500
+  maximumOrbitalRadius: 10000
   centerOfMass: {fileID: 2063537652}
-  positionPci: {x: 0.000080254445, y: -6730, z: 0}
-  velocityPci: {x: 42.550034, y: 0.0000005074041, z: 0}
+  positionPci: {x: 0.122026555, y: -6729.998, z: 0}
+  velocityPci: {x: 25.750158, y: 0.031248542, z: 0}
   timeOffset: 0
   orbitalElements:
-    semiMajorAxis: 6730.0005
-    eccentricity: 0.00000009417228
-    nu: 0
-    T: 0
-    omega: 4.712389
+    semiMajorAxis: 4119.32
+    eccentricity: 0.6337651
+    nu: 3.1422834
+    T: 237.76672
+    omega: 1.5701237
     rp: 6730
     ra: 6730.001
     speedMultiplier: 10
