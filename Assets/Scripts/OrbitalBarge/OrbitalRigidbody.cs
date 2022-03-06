@@ -4,8 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(OrbitalBody), typeof(Rigidbody2D))]
 public class OrbitalRigidbody : MonoBehaviour
 {
-    public UpdateMethod method = UpdateMethod.FollowOrbit;
-    
+    [SerializeField] private UpdateMethod method = UpdateMethod.FollowOrbit;
+    [SerializeField] private float playerMultiplier = 2f;
+
     private Rigidbody2D rb2d;
     private OrbitalBody orbitalBody;
 
@@ -55,24 +56,35 @@ public class OrbitalRigidbody : MonoBehaviour
         rb2d.rotation = orbitalBody.ProgradeRotation;
     }
 
+    private Vector2 GetDeltaV(Collision2D col)
+    {
+        // Delta-V transferred from a collision = the impulse along the contact normal / the mass of this body
+        float ourMass = rb2d.mass;
+        ContactPoint2D contact = col.GetContact(0);
+
+        float scale = (col.gameObject.CompareTag("Player")) ? playerMultiplier : 1f;
+
+        Vector2 deltaV = contact.normalImpulse * scale / ourMass * contact.normal;
+
+        float deltaVMagnitude = deltaV.magnitude;
+
+        if (deltaVMagnitude > MaxAllowedDeltaV)
+        {
+            Debug.LogWarning($"Δv: {deltaV}, |Δv|: {deltaV.magnitude}. LIMIT ENFORCED.");
+            deltaV = deltaV * MaxAllowedDeltaV / deltaVMagnitude;
+        }
+
+        return deltaV;
+    }
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (method == UpdateMethod.Forces)
         {
             return;
         }
-        // Delta-V transferred from a collision = the impulse along the contact normal / the mass of this body
-        var ourMass = rb2d.mass;
-        var contact = col.GetContact(0);
-        var deltaV = contact.normalImpulse / ourMass * contact.normal;
-        var deltaVMagnitude = deltaV.magnitude;
-        if (deltaVMagnitude > MaxAllowedDeltaV)
-        {
-            Debug.LogWarning($"[ENTER] Δv: {deltaV}, |Δv|: {deltaV.magnitude}. LIMIT ENFORCED.");
-            deltaV = deltaV * MaxAllowedDeltaV / deltaVMagnitude;
-        }
 
-        orbitalBody.AddDeltaV(CurrentTime, deltaV);
+        orbitalBody.AddDeltaV(CurrentTime, GetDeltaV(col));
     }
 
     private void OnCollisionStay2D(Collision2D col)
@@ -81,18 +93,8 @@ public class OrbitalRigidbody : MonoBehaviour
         {
             return;
         }
-        
-        var ourMass = rb2d.mass;
-        var contact = col.GetContact(0);
-        var deltaV = contact.normalImpulse / ourMass * contact.normal;
-        var deltaVMagnitude = deltaV.magnitude;
-        if (deltaVMagnitude > MaxAllowedDeltaV)
-        {
-            Debug.LogWarning($"[STAY]  Δv: {deltaV}, |Δv|: {deltaV.magnitude}. LIMIT ENFORCED.");
-            deltaV = deltaV * MaxAllowedDeltaV / deltaVMagnitude;
-        }
 
-        orbitalBody.AddDeltaV(CurrentTime, deltaV);
+        orbitalBody.AddDeltaV(CurrentTime, GetDeltaV(col));
     }
 
     [Serializable]
