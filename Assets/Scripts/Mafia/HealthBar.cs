@@ -23,10 +23,11 @@ namespace Mafia
 
         private void Awake()
         {
-            // Remove this component if the mission type isn't Mafia
+            // Disable this display if the mission type isn't Mafia
             if (missionType.Value != (int)MissionType.Mafia)
             {
-                Destroy(this);
+                gameObject.SetActive(false);
+                return;
             }
 
             originalRect = bar.rectTransform.rect;

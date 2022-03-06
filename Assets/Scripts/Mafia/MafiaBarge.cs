@@ -25,6 +25,7 @@ namespace Mafia
             if (missionType.Value != (int)MissionType.Mafia)
             {
                 Destroy(this);
+                return;
             }
 
             bargeHealth.MaxValue = maxHealth;
