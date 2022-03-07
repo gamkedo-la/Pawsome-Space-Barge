@@ -5,6 +5,12 @@ using UnityEngine;
 public class OrbitalBodyEditor : Editor
 {
     private float deltaV = 0.1f;
+    private OrbitalBody body;
+
+    private void OnEnable()
+    {
+        body = (OrbitalBody) target;
+    }
 
     public override void OnInspectorGUI()
     {
@@ -26,7 +32,7 @@ public class OrbitalBodyEditor : Editor
         
         EditorGUI.BeginChangeCheck();
         
-        var body = (OrbitalBody) target;
+        // var body = (OrbitalBody) target;
 
         EditorGUILayout.BeginHorizontal();
 
@@ -85,6 +91,8 @@ public class OrbitalBodyEditor : Editor
         orbitalElements.FindPropertyRelative("nu").floatValue = body.OrbitalElements.nu;
         orbitalElements.FindPropertyRelative("T").floatValue = body.OrbitalElements.T;
         orbitalElements.FindPropertyRelative("omega").floatValue = body.OrbitalElements.omega;
+        // orbitalElements.FindPropertyRelative("rp").floatValue = body.OrbitalElements.rp;
+        // orbitalElements.FindPropertyRelative("ra").floatValue = body.OrbitalElements.ra;
 
         serializedObject.FindProperty("positionPci").vector3Value = body.PositionPci;
         serializedObject.FindProperty("velocityPci").vector3Value = body.Velocity;
@@ -92,7 +100,7 @@ public class OrbitalBodyEditor : Editor
 
     private void OnSceneGUI()
     {
-        var body = (OrbitalBody) target;
+        // var body = (OrbitalBody) target;
         var points = body.GetOrbitWorldPositions(0);
         if (points == null)
         {
