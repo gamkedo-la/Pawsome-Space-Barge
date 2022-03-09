@@ -19,6 +19,9 @@ namespace Mafia
         [Range(0, 1)]
         public float impactSensitivityPlayer = 0f;
 
+        [Tooltip("Cargo model prefab")]
+        public GameObject cargoPrefab;
+
         private void Awake()
         {
             // Remove this component if the mission type isn't Mafia
@@ -31,6 +34,8 @@ namespace Mafia
             bargeHealth.MaxValue = maxHealth;
             bargeHealth.MinValue = 0;
             bargeHealth.Value = maxHealth;
+
+            Instantiate(cargoPrefab, transform);
         }
 
         private void OnCollisionEnter2D(Collision2D col)
