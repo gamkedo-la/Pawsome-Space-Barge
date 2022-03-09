@@ -12372,7 +12372,8 @@ GameObject:
   - component: {fileID: 1990164128}
   - component: {fileID: 1990164127}
   - component: {fileID: 1990164126}
-  - component: {fileID: 1990164125}
+  - component: {fileID: 1990164143}
+  - component: {fileID: 1990164142}
   m_Layer: 0
   m_Name: TutorialFlowchart
   m_TagString: Untagged
@@ -12536,7 +12537,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1990164129}
   selectedCommands:
-  - {fileID: 1990164125}
+  - {fileID: 1990164142}
   variables:
   - {fileID: 1990164120}
   - {fileID: 1990164119}
@@ -12565,30 +12566,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1990164125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990164116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 19
-  indentLevel: 0
-  targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 1990164132}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 0
 --- !u!114 &1990164126
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12615,7 +12595,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1990164127
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12693,9 +12673,10 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 1990164128}
-  - {fileID: 1990164125}
   - {fileID: 1990164127}
   - {fileID: 1990164126}
+  - {fileID: 1990164143}
+  - {fileID: 1990164142}
   suppressAllAutoSelections: 0
 --- !u!114 &1990164130
 MonoBehaviour:
@@ -13011,6 +12992,56 @@ MonoBehaviour:
   - {fileID: 1990164136}
   - {fileID: 1990164130}
   suppressAllAutoSelections: 0
+--- !u!114 &1990164142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990164116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 21
+  indentLevel: 0
+  text: We're in with the mafia aren't we?
+  description: 
+  targetBlock: {fileID: 1990164132}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+  hideThisOption:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+--- !u!114 &1990164143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990164116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 20
+  indentLevel: 0
+  text: Do I need to know specifics?
+  description: 
+  targetBlock: {fileID: 1990164132}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+  hideThisOption:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
 --- !u!1 &2011980344
 GameObject:
   m_ObjectHideFlags: 0
