@@ -30,8 +30,6 @@ public class OrbitalBodyEditor : Editor
 
         deltaV = EditorGUILayout.FloatField(new GUIContent("Δv [m/s]"), deltaV);
         
-        EditorGUI.BeginChangeCheck();
-        
         // var body = (OrbitalBody) target;
 
         EditorGUILayout.BeginHorizontal();
