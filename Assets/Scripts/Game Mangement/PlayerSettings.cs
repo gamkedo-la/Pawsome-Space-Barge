@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerSettings : ScriptableObject
 {
     // first run?
-    private bool firstRun = true;
+    public bool firstRun = true;
 
     // dialog switches
     public bool mafiaMad { get; set; }
@@ -21,6 +21,7 @@ public class PlayerSettings : ScriptableObject
 
     public void Reset()
     {
+        firstRun = true;
         mafiaMad = false;
         playerSelectBarge = false;
         tooEasy = false;
