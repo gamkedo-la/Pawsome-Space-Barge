@@ -40,22 +40,28 @@ public class GameManagement : MonoBehaviour
 
     void Start()
     {
-        if (settings.firstRun == true)
-        {
-            tutorial.SendFungusMessage("start");
-            settings.firstRun = false;
-        }
+        //
     }
 
 
     void Update()
     {
-        
+        if (settings.firstRun == true)
+        {
+            StartDialog(tutorial);
+            settings.firstRun = false;
+        }
     }
 
 
     public void DialogDone(Flowchart chart)
     {
         Debug.Log("Dialog Done");
+    }
+
+
+    private void StartDialog(Flowchart dialog)
+    {
+        dialog.SendFungusMessage("start");
     }
 }
