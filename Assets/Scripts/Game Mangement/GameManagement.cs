@@ -5,32 +5,57 @@ using Fungus;
 
 public class GameManagement : MonoBehaviour
 {
-    [SerializeField] private Flowchart tutorial;
+    // Singleton
+    [HideInInspector] public static GameManagement Instance;
 
+    // using Fungus for non-game UI
+    [SerializeField] private Flowchart title;
+    [SerializeField] private Flowchart tutorial;
+    [SerializeField] private Flowchart mission;
+    [SerializeField] private Flowchart restart;
+    [SerializeField] private Flowchart ending;
+
+    // player settings + saved data
     [SerializeField] private PlayerSettings settings;
+
 
     private void Awake()
     {
+        // setup singleton
+        if (Instance != null && Instance != this) {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+
+        // initialize player settings if not present
         if (settings == null)
         {
-            settings = new PlayerSettings();
+            settings = ScriptableObject.CreateInstance<PlayerSettings>();
         }
     }
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        if (tutorial != null)
+        if (settings.firstRun == true)
         {
-            var dialog = GameObject.Instantiate(tutorial, Vector3.zero, Quaternion.identity);
-            dialog.SendFungusMessage("start");
-            // dialog.ExecuteBlock("Tutorial Start");
+            tutorial.SendFungusMessage("start");
+            settings.firstRun = false;
         }
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         
+    }
+
+
+    public void DialogDone(Flowchart chart)
+    {
+        Debug.Log("Dialog Done");
     }
 }
