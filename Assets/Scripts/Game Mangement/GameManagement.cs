@@ -57,11 +57,13 @@ public class GameManagement : MonoBehaviour
     public void DialogDone(Flowchart chart)
     {
         Debug.Log("Dialog Done");
+        Time.timeScale = 1;
     }
 
 
     private void StartDialog(Flowchart dialog)
     {
+        Time.timeScale = 0;
         dialog.SendFungusMessage("start");
     }
 }

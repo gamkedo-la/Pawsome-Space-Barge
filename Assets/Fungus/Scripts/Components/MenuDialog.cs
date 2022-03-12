@@ -138,7 +138,7 @@ namespace Fungus
                     timeoutSlider.value = t;
                 }
 
-                elapsedTime += Time.deltaTime;
+                elapsedTime += Time.unscaledDeltaTime;
 
                 yield return null;
             }
@@ -373,7 +373,7 @@ namespace Fungus
                     timeoutSlider.value = t;
                 }
 
-                elapsedTime += Time.deltaTime;
+                elapsedTime += Time.unscaledDeltaTime;
 
                 yield return null;
             }
