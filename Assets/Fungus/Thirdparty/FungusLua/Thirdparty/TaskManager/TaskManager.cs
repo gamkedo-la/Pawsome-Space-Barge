@@ -34,7 +34,7 @@
 ///
 /// IEnumerator TaskKiller(float delay, Task t)
 /// {
-///     yield return new WaitForSeconds(delay);
+///     yield return new WaitForSecondsRealtime(delay);
 ///     t.Stop();
 /// }
 ///

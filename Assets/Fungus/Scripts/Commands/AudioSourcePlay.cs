@@ -65,7 +65,7 @@ namespace Fungus
 
         protected IEnumerator WaitForClipLength()
         {
-            yield return new WaitForSeconds(audioSource.Value.clip.length);
+            yield return new WaitForSecondsRealtime(audioSource.Value.clip.length);
             Continue();
         }
 

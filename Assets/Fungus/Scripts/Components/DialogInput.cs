@@ -139,7 +139,7 @@ namespace Fungus
 
             if (ignoreClickTimer > 0f)
             {
-                ignoreClickTimer = Mathf.Max (ignoreClickTimer - Time.deltaTime, 0f);
+                ignoreClickTimer = Mathf.Max (ignoreClickTimer - Time.unscaledDeltaTime, 0f);
             }
 
             if (ignoreMenuClicks)

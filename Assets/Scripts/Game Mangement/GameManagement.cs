@@ -18,6 +18,9 @@ public class GameManagement : MonoBehaviour
     // player settings + saved data
     [SerializeField] private PlayerSettings settings;
 
+    // misc
+    [SerializeField] public bool pauseOnDialog = false;
+
 
     private void Awake()
     {
@@ -48,7 +51,7 @@ public class GameManagement : MonoBehaviour
     {
         if (settings.firstRun == true)
         {
-            StartDialog(tutorial);
+            StartDialog(tutorial, pauseOnDialog ? true : false );
             settings.firstRun = false;
         }
     }
@@ -57,11 +60,13 @@ public class GameManagement : MonoBehaviour
     public void DialogDone(Flowchart chart)
     {
         Debug.Log("Dialog Done");
+        Time.timeScale = 1;
     }
 
 
-    private void StartDialog(Flowchart dialog)
+    private void StartDialog(Flowchart dialog, bool pause=false)
     {
+        if (pause) { Time.timeScale = 0; }
         dialog.SendFungusMessage("start");
     }
 }
