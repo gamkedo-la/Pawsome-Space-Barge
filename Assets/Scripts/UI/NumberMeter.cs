@@ -12,6 +12,9 @@ namespace UI
         [Header("Appearance")] 
         [Range(0.001f, 1)] 
         public float numberAnimationSpeed = 0.2f;
+
+        [Tooltip("C# number formatting string")]
+        public string format = "0";
         
         [Header("Connection")]
         public TMP_Text numberDisplay;
@@ -29,7 +32,7 @@ namespace UI
         private void UpdateHealthNumber()
         {
             displayedNumber = Mathf.Lerp(displayedNumber, variable.Value, numberAnimationSpeed);
-            numberDisplay.text = Mathf.RoundToInt(displayedNumber).ToString();
+            numberDisplay.text = displayedNumber.ToString(format);
         }
     }
 }
