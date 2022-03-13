@@ -12,6 +12,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: gold
+    second: {fileID: 2100000, guid: b39d834934b89334f93e35ed01cfb3df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metalpaint
+    second: {fileID: 2100000, guid: ad1bf54211f985d4bb2199933ecdc0c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: oxidizedsteel
     second: {fileID: 2100000, guid: ef1fa126a7a50d44b8ca5634bb94bae6, type: 2}
   - first:
