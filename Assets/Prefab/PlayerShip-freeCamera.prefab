@@ -15078,6 +15078,46 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b260ff16-b9d4-40f7-ae70-ffab5b75f34b
     m_ActionName: Gameplay/Toggle View[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b35821f1-c7c2-49d1-8394-d210f2bb3fcd
+    m_ActionName: UI/Navigate[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/rightStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows/rightStick/right,/XInputControllerWindows/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: baab0a3f-2899-48ae-a5e0-b236f5576fe4
+    m_ActionName: UI/Submit[/Keyboard/enter,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 89d77236-6a36-4bf0-97eb-31372e9d17d8
+    m_ActionName: UI/Cancel[/Keyboard/escape,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 00176290-a0ac-4356-89cf-73cbf3d0269c
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0b58cf4e-bcc3-48d7-b4f9-0215a4c83af7
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 24739390-bed6-4cb5-a656-014dae17f6ed
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 320d2aca-3e07-49d0-9de9-a6ddad4a623f
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9d5a66a0-61c5-43c6-8657-88f0db3406f6
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8fe3a842-a08d-4210-962d-53a08a503895
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1403a22d-58c8-4a95-9cc4-903c79f9fc82
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -15100,6 +15140,7 @@ MonoBehaviour:
   decelerationCoefficient: 4
   maxSpeed: 75
   enforceBoundary: 0
+  collision_FX_Prefab: {fileID: 3624308772938280755, guid: 35bbbc8af206d8a4692e02220e9b6207, type: 3}
   rearLeftThruster: {fileID: 6168574696401668428}
   rearRightThruster: {fileID: 5876401595062667565}
   frontLeftThruster: {fileID: 2359675508760712820}

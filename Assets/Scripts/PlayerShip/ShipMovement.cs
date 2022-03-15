@@ -27,6 +27,10 @@ public class ShipMovement : MonoBehaviour
     [Tooltip("Disable for free flight!")]
     [SerializeField] private bool enforceBoundary = true;
 
+    [Tooltip("Select a prefab to spawn when you hit an asteroid!")]
+    [SerializeField] private GameObject collision_FX_Prefab;
+
+
     /// <summary> Player boundary collider. </summary>
     [HideInInspector] private BoxCollider2D playerBoundary;
 
@@ -214,6 +218,13 @@ public class ShipMovement : MonoBehaviour
         if (other.gameObject.tag == "Asteroid" && other.relativeVelocity.magnitude > 5)
         {
             SoundManager.Instance.PlaySound("Ping", 0.5f);
+            
+            if (this.collision_FX_Prefab) {
+                Debug.Log("Spawning collision FX prefab!");
+                Instantiate(this.collision_FX_Prefab,
+                    other.GetContact(0).point,//this.transform.position,
+                    this.transform.rotation); 
+            }
         }
     }
 }
