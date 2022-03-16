@@ -18483,13 +18483,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minimumOrbitalRadius: 1500
   maximumOrbitalRadius: 10000
-  centerOfMass: {fileID: 2063537652}
-  positionPci: {x: 0.00008025445, y: -6730.0005, z: 0}
-  velocityPci: {x: 42.55003, y: 0.000000507404, z: 0}
-  timeOffset: 0
+  positionPci: {x: 0, y: -6730, z: 0}
+  velocityPci: {x: -42.550034, y: 0, z: 0}
   orbitalElements:
     semiMajorAxis: 6730.0005
-    eccentricity: 0.000000035554258
+    eccentricity: 0.00000009417228
     nu: 0
     T: 0
     omega: 4.712389

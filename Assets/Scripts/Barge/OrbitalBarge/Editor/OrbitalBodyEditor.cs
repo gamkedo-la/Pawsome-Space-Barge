@@ -1,22 +1,35 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(OrbitalBody))]
 public class OrbitalBodyEditor : Editor
 {
     private float deltaV = 0.1f;
-    private OrbitalBody body;
-
-    private void OnEnable()
-    {
-        body = (OrbitalBody) target;
-    }
+    private float deltaT = 60;
 
     public override void OnInspectorGUI()
     {
+        var body = (OrbitalBody) target;
+        var time = Application.isPlaying ? Time.fixedTime : 0;
+        
         serializedObject.Update();
 
+        if (serializedObject.FindProperty("positionPci").vector3Value != body.transform.position)
+        {
+            serializedObject.FindProperty("positionPci").vector3Value = body.transform.position;
+            serializedObject.ApplyModifiedPropertiesWithoutUndo();
+            body.SetOrbit(time);
+        }
+        
+        EditorGUI.BeginChangeCheck();
+
         DrawDefaultInspector();
+        
+        if (EditorGUI.EndChangeCheck())
+        {
+            body.SetOrbit(time);
+        }
 
         EditorGUILayout.Separator();
 
@@ -24,48 +37,52 @@ public class OrbitalBodyEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("orbitalElements"));
 
         EditorGUILayout.Separator();
-
         
         GUILayout.Label("Spaceship control", EditorStyles.boldLabel);
 
         deltaV = EditorGUILayout.FloatField(new GUIContent("Δv [m/s]"), deltaV);
-        
-        // var body = (OrbitalBody) target;
 
         EditorGUILayout.BeginHorizontal();
 
-        var time = Application.isPlaying ? Time.fixedTime : 0;
         if (GUILayout.Button("- [Retrograde]"))
         {
-            body.AddDeltaV(time, deltaV * body.Retrograde);
-            body.Recalculate(time);
-            ApplyChange(body);
+            AddDeltaV(deltaV * body.Retrograde);
         }
 
         if (GUILayout.Button("+ [Prograde]"))
         {
-            body.AddDeltaV(time, deltaV * body.Prograde);
-            body.Recalculate(time);
-            ApplyChange(body);
+            AddDeltaV(deltaV * body.Prograde);
         }
 
         if (GUILayout.Button("- [Nadir]"))
         {
-            body.AddDeltaV(time, deltaV * body.Nadir);
-            body.Recalculate(time);
-            ApplyChange(body);
+            AddDeltaV(deltaV * body.Nadir);
         }
 
         if (GUILayout.Button("+ [Zenith]"))
         {
-            body.AddDeltaV(time, deltaV * body.Zenith);
-            body.Recalculate(time);
-            ApplyChange(body);
+            AddDeltaV(deltaV * body.Zenith);
         }
 
         EditorGUILayout.EndHorizontal();
         
         EditorGUILayout.Separator();
+
+        deltaT = EditorGUILayout.FloatField(new GUIContent("Δt [s]"), deltaT);
+
+        EditorGUILayout.BeginHorizontal();
+
+        if (GUILayout.Button($"Rewind {deltaT} seconds"))
+        {
+            SetPositionAtTime(time-deltaT);
+        }
+
+        if (GUILayout.Button($"Forward {deltaT} seconds"))
+        {
+            SetPositionAtTime(time+deltaT);
+        }
+        
+        EditorGUILayout.EndHorizontal();
         
         GUILayout.Label("Orbit control", EditorStyles.boldLabel);
 
@@ -73,32 +90,36 @@ public class OrbitalBodyEditor : Editor
 
         if (GUILayout.Button("Circular Orbit"))
         {
-            body.InitializeOrbit(time);
-            ApplyChange(body);
+            var position = serializedObject.FindProperty("positionPci").vector3Value;
+            var mu = body.OrbitalElements.Mu;
+            var velocity = Vector3.Cross(position, Vector3.forward).normalized * Mathf.Sqrt(mu / position.magnitude);
+            serializedObject.FindProperty("velocityPci").vector3Value = velocity;
         }
         
         EditorGUILayout.EndHorizontal();
-        serializedObject.ApplyModifiedProperties();
+        if (serializedObject.ApplyModifiedProperties())
+        {
+            body.SetOrbit(time);
+        }
     }
 
-    private void ApplyChange(OrbitalBody body)
+    private void AddDeltaV(Vector3 dV)
     {
-        var orbitalElements = serializedObject.FindProperty("orbitalElements");
-        orbitalElements.FindPropertyRelative("semiMajorAxis").floatValue = body.OrbitalElements.semiMajorAxis;
-        orbitalElements.FindPropertyRelative("eccentricity").floatValue = body.OrbitalElements.eccentricity;
-        orbitalElements.FindPropertyRelative("nu").floatValue = body.OrbitalElements.nu;
-        orbitalElements.FindPropertyRelative("T").floatValue = body.OrbitalElements.T;
-        orbitalElements.FindPropertyRelative("omega").floatValue = body.OrbitalElements.omega;
-        // orbitalElements.FindPropertyRelative("rp").floatValue = body.OrbitalElements.rp;
-        // orbitalElements.FindPropertyRelative("ra").floatValue = body.OrbitalElements.ra;
+        serializedObject.FindProperty("velocityPci").vector3Value += dV;
+    }
 
-        serializedObject.FindProperty("positionPci").vector3Value = body.PositionPci;
-        serializedObject.FindProperty("velocityPci").vector3Value = body.Velocity;
+    private void SetPositionAtTime(float t)
+    {
+        var body = (OrbitalBody) target;
+        var (pos, vel) = body.OrbitalElements.ToCartesian(t);
+        serializedObject.FindProperty("positionPci").vector3Value = pos;
+        serializedObject.FindProperty("velocityPci").vector3Value = vel;
+        body.transform.position = pos;
     }
 
     private void OnSceneGUI()
     {
-        // var body = (OrbitalBody) target;
+        var body = (OrbitalBody) target;
         var points = body.GetOrbitWorldPositions(0);
         if (points == null)
         {
