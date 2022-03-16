@@ -62,6 +62,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DustEnd: 0.044
+    - _DustMinOpacity: 0.01
     - _DustStart: 0.002
     - _GlossMapScale: 1
     - _Glossiness: 0.5

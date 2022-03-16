@@ -6,6 +6,7 @@
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _DustStart ("Dust Minimum Opacity Depth", Range(0,1)) = 0.0
         _DustEnd ("Dust Maximum Opacity Depth", Range(0,1)) = 0.5
+        _DustMinOpacity ("Minimum Opacity", Range(0,1)) = 0
     }
     SubShader
     {
@@ -22,6 +23,8 @@
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
 
+        #pragma shader_feature _ _PLAY_MODE
+
         sampler2D _MainTex;
 
         struct Input
@@ -33,6 +36,7 @@
         fixed4 _Color;
         float _DustStart;
         float _DustEnd;
+        float _DustMinOpacity;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -57,7 +61,14 @@
                 float depth = Linear01Depth(normScreenPos.z);
             #endif
 
-            o.Alpha = c.a * saturate(1.0 - (_DustEnd - depth)/(_DustEnd - _DustStart));
+            
+            #if defined(_PLAY_MODE)
+                float dustFactor = lerp(_DustMinOpacity, 1, saturate(1.0 - (_DustEnd - depth)/(_DustEnd - _DustStart))); 
+            #else
+                float dustFactor = 1;
+            #endif
+
+            o.Alpha = c.a * dustFactor;
         }
 
         ENDCG
