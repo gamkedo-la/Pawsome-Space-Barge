@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: KittyPurry
   nameColor: {r: 0.8962264, g: 0.2494215, b: 0.84241194, a: 1}
-  soundEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: 59114a951617e9c4ebb556bb68ee15ad, type: 3}
   portraits:
   - {fileID: 21300000, guid: 7ccfb0a2b38399b4c8c78ce56ffc6b18, type: 3}
   portraitsFace: 0
