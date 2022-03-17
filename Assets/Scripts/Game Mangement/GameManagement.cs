@@ -60,6 +60,7 @@ public class GameManagement : MonoBehaviour
     public void DialogDone(Flowchart chart)
     {
         Debug.Log("Dialog Done");
+        chart.gameObject.SetActive(false);
         Time.timeScale = 1;
     }
 
@@ -67,6 +68,7 @@ public class GameManagement : MonoBehaviour
     private void StartDialog(Flowchart dialog, bool pause=false)
     {
         if (pause) { Time.timeScale = 0; }
+        dialog.gameObject.SetActive(true);
         dialog.SendFungusMessage("start");
     }
 }
