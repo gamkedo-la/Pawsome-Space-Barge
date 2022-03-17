@@ -18784,6 +18784,7 @@ GameObject:
   - component: {fileID: 126204426785436131}
   - component: {fileID: 4674204150618889738}
   - component: {fileID: 4674204150618889739}
+  - component: {fileID: 4674204150618889740}
   m_Layer: 0
   m_Name: Orbital Barge
   m_TagString: Barge
@@ -18852,6 +18853,19 @@ MonoBehaviour:
   impactSensitivity: 1
   impactSensitivityPlayer: 0
   cargoPrefab: {fileID: 6358292129606726481, guid: d05c05ab16ec0004588cb8f229fed0d3, type: 3}
+--- !u!114 &4674204150618889740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4481398954072391343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6db30737b7b294aac5238468791a80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collision_FX_Prefab: {fileID: 3624308772938280755, guid: 35bbbc8af206d8a4692e02220e9b6207, type: 3}
 --- !u!223 &5705355823695362751
 Canvas:
   m_ObjectHideFlags: 0
