@@ -59,7 +59,6 @@ public class GameManagement : MonoBehaviour
 
     public void DialogDone(Flowchart chart)
     {
-        Debug.Log("Dialog Done");
         chart.gameObject.SetActive(false);
         Time.timeScale = 1;
     }
