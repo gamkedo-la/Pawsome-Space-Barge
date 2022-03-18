@@ -74,7 +74,7 @@ public class BargeCollision : MonoBehaviour
             {
                 var temp = Withdraw();
                 temp.transform.position = contact.point;
-                temp.transform.rotation = Quaternion.FromToRotation(Vector3.forward, contact.normal);
+                temp.transform.rotation = Quaternion.FromToRotation(transform.right, contact.normal);
                 temp.SetActive(true);
             }
             catch
