@@ -52,10 +52,19 @@ public class OrbitalRigidbody : MonoBehaviour
         rb2d.rotation = orbitalBody.ProgradeRotation;
     }
 
+    private Vector2 previousPosition;
+
     private void FollowOrbit()
     {
-        rb2d.velocity = orbitalBody.Velocity;
-        rb2d.MovePosition(orbitalBody.Position);
+        // check for bad values, hope skipping a frame doesn't make it worse :)
+        if (
+            float.IsNaN(orbitalBody.Velocity.x) || float.IsNaN(orbitalBody.Velocity.y)
+            || float.IsNaN(orbitalBody.Position.x) || float.IsNaN(orbitalBody.Position.y)
+        )
+        { return; }
+
+        rb2d.velocity = orbitalBody.Velocity;    // recieves { NaN, NaN }
+        rb2d.MovePosition(orbitalBody.Position); // recieves { NaN, NaN }
         rb2d.rotation = orbitalBody.ProgradeRotation;
     }
 
