@@ -13,19 +13,30 @@ public class BargeCollision : MonoBehaviour
     [SerializeField] private int collisionMagnitude = 5;
 
     private List<GameObject> effectPool;
+    private Queue<GameObject> activePool;
 
 
     private void Start()
     {
         // initialize and fill pool
-        effectPool = new List<GameObject>();
+        // effectPool = new List<GameObject>();
+
+        // GameObject temp;
+
+        // for (int i = 0; i < poolSize; i++) {
+        //     temp = Instantiate(collision_FX_Prefab, gameObject.transform);
+        //     temp.SetActive(false);
+        //     effectPool.Add(temp);
+        // }
+
+        activePool = new Queue<GameObject>(poolSize);
 
         GameObject temp;
 
         for (int i = 0; i < poolSize; i++) {
             temp = Instantiate(collision_FX_Prefab, gameObject.transform);
             temp.SetActive(false);
-            effectPool.Add(temp);
+            activePool.Enqueue(temp);
         }
     }
 
@@ -38,24 +49,25 @@ public class BargeCollision : MonoBehaviour
     /// <returns>Pooled object or null.</returns>
     private GameObject Withdraw()
     {
-        GameObject pooledObject = null;
+        GameObject pooledObject = activePool.Dequeue();
 
-        // look for disabled objects
-        for (int i = 0; i < effectPool.Count; i++)
+        // if pooled object active
+        if (pooledObject.activeInHierarchy)
         {
-            if (!effectPool[i].activeInHierarchy)
-            {
-                pooledObject = effectPool[i];
-            }
+            // disable object
+            pooledObject.SetActive(false);
         }
 
-        // all pooled objects active
-        if (pooledObject == null)
-        {
-            // instantiate a new one?
-        }
+        // add to back of Queue
+        activePool.Enqueue(pooledObject);
 
         return pooledObject;
+    }
+
+    public void ReturnEffect(GameObject effect)
+    {
+        // disable parent object to "return" to pool
+        effect.SetActive(false);
     }
 
 
@@ -79,7 +91,7 @@ public class BargeCollision : MonoBehaviour
             }
             catch
             {
-                Debug.Log("Collision fx pool empty.");
+                Debug.Log("Collision fx pool error.");
             }
             
         }
