@@ -19102,8 +19102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collision_FX_Prefab: {fileID: 3624308772938280755, guid: 35bbbc8af206d8a4692e02220e9b6207, type: 3}
-  poolSize: 5
-  collisionMagnitude: 5
+  poolSize: 6
+  collisionMagnitude: 7
 --- !u!223 &5705355823695362751
 Canvas:
   m_ObjectHideFlags: 0
