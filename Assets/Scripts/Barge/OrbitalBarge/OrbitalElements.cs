@@ -155,7 +155,7 @@ public struct OrbitalElements
         #if UNITY_EDITOR
         if (float.IsNaN(rDotV) || float.IsNaN(e) || float.IsNaN(specE) || float.IsNaN(a))
         {
-            Debug.LogError($"NaN in OrbitalElements({this}).SetOrbit({time}, {position}, {velocity}) part 1. Variables: r: {r}, ̄v²: {vSquared}, ̄r·̄v: {rDotV}, ē: {ev}, |ē|: {e}, E: {specE}, a: {a}");
+            Debug.LogError($"NaN in OrbitalElements({this}).SetOrbit({time}, {position}, {velocity}) part 1. Variables: r: {r}, v̄²: {vSquared}, r̄·v̄: {rDotV}, ē: {ev}, |ē|: {e}, E: {specE}, a: {a}");
             Debug.Break();
         }
         #endif
@@ -178,12 +178,20 @@ public struct OrbitalElements
         nu = 0f;
         if (eccentricity > 1e-3)
         {
-            var arg = Vector3.Dot(position, ev) / (r * eccentricity);
+            var posDotE = Vector3.Dot(position, ev);
+            var arg = Mathf.Clamp(posDotE / (r * eccentricity), -1, 1);
             nu = Mathf.Acos(arg);
             if (rDotV < 0)
             {
                 nu = Mathf.PI * 2 - nu;
             }
+            #if UNITY_EDITOR
+            if (float.IsNaN(arg) || float.IsNaN(nu))
+            {
+                Debug.LogError($"NaN in OrbitalElements({this}).SetOrbit({time}, {position}, {velocity}) part 2. Variables: r: {r}, v̄²: {vSquared}, r̄·v̄: {rDotV}, ē: {ev}, |ē|: {e}, E: {specE}, a: {a}, r̄·ē: {posDotE}, arg: {arg}");
+                Debug.Break();
+            }
+            #endif
         }
 
         // omega is how much we are offset from periapsis at the time of observation
@@ -203,7 +211,7 @@ public struct OrbitalElements
         if (float.IsNaN(nu) || float.IsNaN(omega) || float.IsNaN(rp) || float.IsNaN(ra) || float.IsNaN(ea) ||
             float.IsNaN(n) || float.IsNaN(T))
         {
-            Debug.LogError($"NaN in OrbitalElements({this}).SetOrbit({time}, {position}, {velocity}) part 2. Variables: r: {r}, ̄v²: {vSquared}, ̄r·̄v: {rDotV}, ē: {ev}, |ē|: {e}, E: {specE}, a: {a}, ea: {ea}, n: {n}");
+            Debug.LogError($"NaN in OrbitalElements({this}).SetOrbit({time}, {position}, {velocity}) part 3. Variables: r: {r}, v̄²: {vSquared}, r̄·v̄: {rDotV}, ē: {ev}, |ē|: {e}, E: {specE}, a: {a}, ea: {ea}, n: {n}");
             Debug.Break();
         }
         #endif
