@@ -93,11 +93,11 @@ public class OrbitalRigidbody : MonoBehaviour
 
         float deltaVMagnitude = deltaV.magnitude;
 
-        if (deltaVMagnitude > MaxAllowedDeltaV)
-        {
-            Debug.LogWarning($"Δv: {deltaV}, |Δv|: {deltaV.magnitude}. LIMIT ENFORCED.");
-            deltaV = deltaV * MaxAllowedDeltaV / deltaVMagnitude;
-        }
+        // if (deltaVMagnitude > MaxAllowedDeltaV)
+        // {
+        //     Debug.LogWarning($"Δv: {deltaV}, |Δv|: {deltaV.magnitude}. LIMIT ENFORCED.");
+        //     deltaV = deltaV * MaxAllowedDeltaV / deltaVMagnitude;
+        // }
 
         return deltaV;
     }
