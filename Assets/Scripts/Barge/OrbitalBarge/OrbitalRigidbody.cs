@@ -52,8 +52,6 @@ public class OrbitalRigidbody : MonoBehaviour
         rb2d.rotation = orbitalBody.ProgradeRotation;
     }
 
-    private Vector2 previousPosition;
-
     private void FollowOrbit()
     {
         // check for bad values, hope skipping a frame doesn't make it worse :)
