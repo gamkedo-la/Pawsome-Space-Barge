@@ -51,12 +51,13 @@ public struct OrbitalElements
         
         var herp = h * eccentricity / (r * p);
         
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         if (float.IsNaN(lat) || float.IsNaN(r) || float.IsNaN(h) || float.IsNaN(herp))
         {
             Debug.LogError($"NaN in OrbitalElements({this}).ToCartesian({t}). Variables: ma: {meanAnomaly}, ea: {eccentricAnomaly}, ta: {trueAnomaly}, r: {r}, p: {p}, h: {h}, lat: {lat}, herp: {herp}");
+            Debug.Break();
         }
-#endif
+        #endif
         
         var cosLat = Mathf.Cos(lat);
         var sinLat = Mathf.Sin(lat);
@@ -91,13 +92,14 @@ public struct OrbitalElements
             var r = semiMajorAxis * (1 - eccentricity * Mathf.Cos(eccentricAnomaly));
             var lat = trueAnomaly + omega;
 
-#if UNITY_EDITOR
+            #if UNITY_EDITOR
             if (float.IsNaN(lat) || float.IsNaN(r))
             {
                 Debug.LogError($"NaN in OrbitalElements({this}).GetOrbitCoordinates(). Variables: ma: {meanAnomaly}, ea: {eccentricAnomaly}, ta: {trueAnomaly}, r: {r}, lat: {lat}");
+                Debug.Break();
                 break;
             }
-#endif
+            #endif
 
             points[i] = r * new Vector3(Mathf.Cos(lat), Mathf.Sin(lat), 0);
         }
@@ -149,6 +151,14 @@ public struct OrbitalElements
 
         var specE = vSquared / 2 - Mu / r;
         var a = -Mu / (2 * specE);
+        
+        #if UNITY_EDITOR
+        if (float.IsNaN(rDotV) || float.IsNaN(e) || float.IsNaN(specE) || float.IsNaN(a))
+        {
+            Debug.LogError($"NaN in OrbitalElements({this}).SetOrbit({time}, {position}, {velocity}) part 1. Variables: r: {r}, ̄v²: {vSquared}, ̄r·̄v: {rDotV}, ē: {ev}, |ē|: {e}, E: {specE}, a: {a}");
+            Debug.Break();
+        }
+        #endif
 
         if (e is < 0 or >= 1)
         {
@@ -188,6 +198,15 @@ public struct OrbitalElements
         var n = Mathf.Sqrt(Mu / Mathf.Pow(semiMajorAxis, 3));
 
         T = time - (ea - eccentricity * Mathf.Sin(ea)) / n;
+        
+        #if UNITY_EDITOR
+        if (float.IsNaN(nu) || float.IsNaN(omega) || float.IsNaN(rp) || float.IsNaN(ra) || float.IsNaN(ea) ||
+            float.IsNaN(n) || float.IsNaN(T))
+        {
+            Debug.LogError($"NaN in OrbitalElements({this}).SetOrbit({time}, {position}, {velocity}) part 2. Variables: r: {r}, ̄v²: {vSquared}, ̄r·̄v: {rDotV}, ē: {ev}, |ē|: {e}, E: {specE}, a: {a}, ea: {ea}, n: {n}");
+            Debug.Break();
+        }
+        #endif
     }
 
     public override string ToString()
