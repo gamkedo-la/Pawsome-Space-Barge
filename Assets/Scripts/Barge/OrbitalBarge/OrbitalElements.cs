@@ -51,6 +51,7 @@ public struct OrbitalElements
         var cosLat = Mathf.Cos(lat);
         var sinLat = Mathf.Sin(lat);
 
+        // creates { NaN, NaN } vector...
         var pos = r * new Vector3(
             cosOmega * cosLat - sinOmega * sinLat,
             sinOmega * cosLat + cosOmega * sinLat,
@@ -58,13 +59,16 @@ public struct OrbitalElements
         );
 
         var herp = h * eccentricity / (r * p);
+
+        // creates { NaN, NaN } vector...
         var vel = new Vector3(
             pos.x * herp * Mathf.Sin(trueAnomaly) -
             h / r * (cosOmega * sinLat + sinOmega * cosLat),
             pos.y * herp * Mathf.Sin(trueAnomaly) - h / r * (sinOmega * sinLat - cosOmega * cosLat),
             0
         );
-        return (pos, vel);
+
+        return (pos, vel); // returns the  { NaN, NaN } vectors...
     }
 
     public void GetOrbitCoordinates(Vector3[] points)

@@ -76,6 +76,7 @@ public class OrbitalBody : MonoBehaviour
 
     private void UpdatePositionAndVelocityAtTime(float time)
     {
+        // recieves { NaN, NaN } from OrbitalElements.cs
         (positionPci, velocityPci) = orbitalElements.ToCartesian(time);
     }
 
