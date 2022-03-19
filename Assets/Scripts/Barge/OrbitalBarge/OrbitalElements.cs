@@ -49,10 +49,12 @@ public struct OrbitalElements
         const float sinOmega = 0;
         var lat = trueAnomaly + omega;
         
+        var herp = h * eccentricity / (r * p);
+        
 #if UNITY_EDITOR
-        if (float.IsNaN(lat) || float.IsNaN(r))
+        if (float.IsNaN(lat) || float.IsNaN(r) || float.IsNaN(h) || float.IsNaN(herp))
         {
-            Debug.LogError($"NaN in OrbitalElements({this}).ToCartesian({t}). Variables: ma: {meanAnomaly}, ea: {eccentricAnomaly}, ta: {trueAnomaly}, r: {r}, p: {p}, h: {h}, lat: {lat}");
+            Debug.LogError($"NaN in OrbitalElements({this}).ToCartesian({t}). Variables: ma: {meanAnomaly}, ea: {eccentricAnomaly}, ta: {trueAnomaly}, r: {r}, p: {p}, h: {h}, lat: {lat}, herp: {herp}");
         }
 #endif
         
@@ -65,8 +67,6 @@ public struct OrbitalElements
             sinOmega * cosLat + cosOmega * sinLat,
             0
         );
-
-        var herp = h * eccentricity / (r * p);
 
         // creates { NaN, NaN } vector...
         var vel = new Vector3(
@@ -90,6 +90,14 @@ public struct OrbitalElements
                 Mathf.Sqrt(1 - eccentricity) * Mathf.Cos(eccentricAnomaly / 2));
             var r = semiMajorAxis * (1 - eccentricity * Mathf.Cos(eccentricAnomaly));
             var lat = trueAnomaly + omega;
+
+#if UNITY_EDITOR
+            if (float.IsNaN(lat) || float.IsNaN(r))
+            {
+                Debug.LogError($"NaN in OrbitalElements({this}).GetOrbitCoordinates(). Variables: ma: {meanAnomaly}, ea: {eccentricAnomaly}, ta: {trueAnomaly}, r: {r}, lat: {lat}");
+                break;
+            }
+#endif
 
             points[i] = r * new Vector3(Mathf.Cos(lat), Mathf.Sin(lat), 0);
         }
