@@ -18,21 +18,11 @@ public class BargeCollision : MonoBehaviour
 
     private void Start()
     {
-        // initialize and fill pool
-        // effectPool = new List<GameObject>();
-
-        // GameObject temp;
-
-        // for (int i = 0; i < poolSize; i++) {
-        //     temp = Instantiate(collision_FX_Prefab, gameObject.transform);
-        //     temp.SetActive(false);
-        //     effectPool.Add(temp);
-        // }
-
         activePool = new Queue<GameObject>(poolSize);
 
         GameObject temp;
 
+        // fill pool
         for (int i = 0; i < poolSize; i++) {
             temp = Instantiate(collision_FX_Prefab, gameObject.transform);
             temp.SetActive(false);
