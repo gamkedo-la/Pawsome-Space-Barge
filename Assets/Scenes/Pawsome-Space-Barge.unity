@@ -207,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 207041446}
   - component: {fileID: 207041447}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ambient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 427374654}
   - component: {fileID: 427374655}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ambient (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5854,7 +5854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 787281842}
   - component: {fileID: 787281841}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sun
   m_TagString: Sun
   m_Icon: {fileID: 0}
@@ -11637,7 +11637,7 @@ GameObject:
   - component: {fileID: 1220058682}
   - component: {fileID: 1220058681}
   - component: {fileID: 1220058683}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: The Sun Itself
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17926,7 +17926,7 @@ GameObject:
   - component: {fileID: 2040250458}
   - component: {fileID: 2040250460}
   - component: {fileID: 2040250459}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: The Sun Side 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
