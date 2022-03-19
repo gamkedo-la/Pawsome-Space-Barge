@@ -48,6 +48,14 @@ public struct OrbitalElements
         const float cosOmega = 1;
         const float sinOmega = 0;
         var lat = trueAnomaly + omega;
+        
+#if UNITY_EDITOR
+        if (float.IsNaN(lat) || float.IsNaN(r))
+        {
+            Debug.LogError($"NaN in OrbitalElements({this}).ToCartesian({t}). Variables: ma: {meanAnomaly}, ea: {eccentricAnomaly}, ta: {trueAnomaly}, r: {r}, p: {p}, h: {h}, lat: {lat}");
+        }
+#endif
+        
         var cosLat = Mathf.Cos(lat);
         var sinLat = Mathf.Sin(lat);
 
@@ -177,6 +185,6 @@ public struct OrbitalElements
     public override string ToString()
     {
         return
-            $"a: {semiMajorAxis}, e: {eccentricity}, ν: {nu * Mathf.Rad2Deg}, ω: {omega * Mathf.Rad2Deg}, {nameof(T)}: {T}, μ: {Mu}";
+            $"a: {semiMajorAxis}, e: {eccentricity}, ν: {nu * Mathf.Rad2Deg}, ω: {omega * Mathf.Rad2Deg}, T: {T}, μ: {Mu}, rp: {rp}, ra: {ra}, sx: {speedMultiplier}";
     }
 }
