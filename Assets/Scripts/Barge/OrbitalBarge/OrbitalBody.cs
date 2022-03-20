@@ -63,6 +63,10 @@ public class OrbitalBody : MonoBehaviour
         if (orbitalElements.ra > maximumOrbitalRadius || orbitalElements.rp < minimumOrbitalRadius)
         {
             orbitalElements = oldOrbitalElements;
+            // TODO: trigger gameplay context warning
+            // "That's all the power it's got, it is just a barge!"
+            // "Any lower and you'll hit the surface.!
+
             Debug.LogWarning("Orbit radius limits exceeded - delta-v change ignored.");
             return;
         }
