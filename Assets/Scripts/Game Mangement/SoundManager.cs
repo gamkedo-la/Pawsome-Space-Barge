@@ -12,6 +12,8 @@ public class SoundManager : MonoBehaviour
 {
     [HideInInspector] public static SoundManager Instance;
     [SerializeField] private bool ambientSound = true;
+    [SerializeField][Range(0,1)] private float ambientVolume = 1;
+    [SerializeField] private string defaultAmbientSound;
     [SerializeField] private bool soundEffects = true;
     private AudioSource ambient, effects;
 
@@ -42,7 +44,7 @@ public class SoundManager : MonoBehaviour
 
         InitializeAudioSources();
 
-        SetAmbientSound("DarkLoops");
+        SetAmbientSound(defaultAmbientSound);
     }
 
 
@@ -63,13 +65,16 @@ public class SoundManager : MonoBehaviour
     /// <summary> Turn ambient sounds on or off as bool toggled. </summary>
     private void UpdateAmbient()
     {
-        if (ambientSound && !ambient.isPlaying)
+        if (ambientSound)
         {
-            ambient.loop = true;
-            ambient.volume = 1;
-            ambient.Play();
+            ambient.volume = ambientVolume;
+            if (!ambient.isPlaying)
+            {
+                ambient.loop = true;
+                ambient.Play();
+            }
         }
-        else if (!ambientSound)
+        else
         {
             ambient.Stop();
         }
