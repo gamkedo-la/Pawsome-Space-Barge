@@ -5679,16 +5679,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787281840}
-  m_LocalRotation: {x: 0.40163884, y: -0.47693637, z: 0.5115545, w: 0.5912106}
+  m_LocalRotation: {x: 0.48455745, y: -0.3924114, z: 0.614093, w: 0.48384625}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1515627916}
-  - {fileID: 1220058680}
   m_Father: {fileID: 1110421750}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 74.337, y: -34.525, z: 55.223}
+  m_LocalEulerAnglesHint: {x: 71.963, y: 44.079, z: 136.289}
 --- !u!114 &841765828
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11400,13 +11399,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220058679}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1985, y: 605, z: -39766}
-  m_LocalScale: {x: 5000, y: 5000, z: 5000}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1000, y: 1000, z: 1000}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2040250458}
-  m_Father: {fileID: 787281842}
-  m_RootOrder: 1
+  m_Father: {fileID: 1515627916}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1220058681
 MeshRenderer:
@@ -11662,10 +11661,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515627915}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4662, y: 568, z: -39149}
+  m_LocalPosition: {x: 4600, y: 570, z: -39150}
   m_LocalScale: {x: 1.925, y: 1.9249985, z: 1.9249994}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1220058680}
   m_Father: {fileID: 787281842}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11678,11 +11678,11 @@ Light:
   m_GameObject: {fileID: 1515627915}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 1
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.86470526, b: 0.759434, a: 1}
-  m_Intensity: 2
-  m_Range: 30000
+  m_Intensity: 7
+  m_Range: 60000
   m_SpotAngle: 50
   m_InnerSpotAngle: 5
   m_CookieSize: 10
@@ -11693,7 +11693,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 10
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
