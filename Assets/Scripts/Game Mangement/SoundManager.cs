@@ -85,7 +85,31 @@ public class SoundManager : MonoBehaviour
     /// <param name="track">Music track to loop.</param>
     public void SetAmbientSound(string track)
     {
-        ambient.clip = audioLookup[track];
+        var nextClip = audioLookup[string.IsNullOrEmpty(track) ? defaultAmbientSound : track];
+        if (nextClip == ambient.clip) return;
+        
+        if (ambient.isPlaying)
+        {
+            StartCoroutine(SwitchAmbientTracks(nextClip));
+        }
+        else
+        {
+            ambient.clip = nextClip;
+        }
+    }
+
+    private IEnumerator SwitchAmbientTracks(AudioClip nextClip)
+    {
+        var originalVolume = ambientVolume;
+        while (ambientVolume > 0)
+        {
+            ambientVolume = Mathf.Max(0f, ambientVolume - 0.4f * Time.deltaTime);
+            yield return null;
+        }
+
+        ambient.Stop();
+        ambient.clip = nextClip;
+        ambientVolume = originalVolume;
     }
 
 
