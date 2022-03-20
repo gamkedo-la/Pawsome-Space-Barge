@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private bool ambientSound = true;
     [SerializeField][Range(0,1)] private float ambientVolume = 1;
     [SerializeField] private string defaultAmbientSound;
+    [SerializeField] private float crossFadeSpeed = 0.2f;
     [SerializeField] private bool soundEffects = true;
     private AudioSource ambient, effects;
 
@@ -103,13 +104,18 @@ public class SoundManager : MonoBehaviour
         var originalVolume = ambientVolume;
         while (ambientVolume > 0)
         {
-            ambientVolume = Mathf.Max(0f, ambientVolume - 0.4f * Time.deltaTime);
+            ambientVolume = Mathf.Max(0f, ambientVolume - crossFadeSpeed * Time.deltaTime);
             yield return null;
         }
 
         ambient.Stop();
         ambient.clip = nextClip;
-        ambientVolume = originalVolume;
+        
+        while (ambientVolume < originalVolume)
+        {
+            ambientVolume = Mathf.Min(originalVolume, ambientVolume + crossFadeSpeed * Time.deltaTime);
+            yield return null;
+        }
     }
 
 

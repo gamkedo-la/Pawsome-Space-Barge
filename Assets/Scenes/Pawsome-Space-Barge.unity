@@ -11741,6 +11741,7 @@ MonoBehaviour:
   ambientSound: 1
   ambientVolume: 0.2
   defaultAmbientSound: Slow Space
+  crossFadeSpeed: 0.4
   soundEffects: 1
   audioClips:
   - <name>k__BackingField: DarkLoops
