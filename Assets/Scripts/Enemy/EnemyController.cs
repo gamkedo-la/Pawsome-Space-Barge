@@ -10,7 +10,15 @@ public class EnemyController : MonoBehaviour
     [SerializeField] [Min(0)] [Tooltip("Thruster force")]
     private float thrusterForce = 500;
 
+    [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
+    float asteroidStunTime = 5f;
+
+    [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
+    float playerStunTime = 7f;
+
     private Rigidbody2D rb2d;
+
+    private float timer = 0;
 
 
     private void Awake()
@@ -19,15 +27,43 @@ public class EnemyController : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+    }
+
+
     public void MoveForward()
     {
-        rb2d.AddForce(transform.right * thrusterForce, ForceMode2D.Force);
+        if (timer <= 0)
+        {
+            rb2d.AddForce(transform.right * thrusterForce, ForceMode2D.Force);
+        }
     }
 
 
     public void TurnTowardsTarget(float headingChange)
     {
-        headingChange = Mathf.Clamp(headingChange, -turningSpeed * Time.fixedDeltaTime, turningSpeed * Time.fixedDeltaTime);
-        rb2d.rotation += headingChange;
+        if (timer <= 0)
+        {
+            headingChange = Mathf.Clamp(headingChange, -turningSpeed * Time.fixedDeltaTime, turningSpeed * Time.fixedDeltaTime);
+            rb2d.rotation += headingChange;
+        }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Asteroid"))
+        {
+            timer = asteroidStunTime;
+        }
+        if (other.gameObject.CompareTag("Player"))
+        {
+            timer = playerStunTime;
+        }
     }
 }
