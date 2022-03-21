@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 273451634}
   - component: {fileID: 273451636}
   - component: {fileID: 273451635}
+  - component: {fileID: 273451637}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -377,8 +378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a34538cf4245c08e792d14eae72d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turningSpeed: 90
-  thrusterForce: 500
 --- !u!50 &273451636
 Rigidbody2D:
   serializedVersion: 4
@@ -400,6 +399,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &273451637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273451631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41666804cadc21569aeff26dbe7fe6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turningSpeed: 90
+  thrusterForce: 500
+  asteroidStunTime: 5
+  playerStunTime: 7
 --- !u!1 &370990066
 GameObject:
   m_ObjectHideFlags: 0
@@ -17658,7 +17673,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4481398954072391343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6600, z: 0}
+  m_LocalPosition: {x: 0, y: -6750, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19208,16 +19223,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minimumOrbitalRadius: 1000
   maximumOrbitalRadius: 10000
-  positionPci: {x: 0, y: -6600, z: 0}
-  velocityPci: {x: -42.96704, y: 0, z: 0}
+  positionPci: {x: 0, y: -6750, z: 0}
+  velocityPci: {x: -42.486946, y: 0, z: 0}
   orbitalElements:
-    semiMajorAxis: 6599.9995
-    eccentricity: 0.00000002204032
+    semiMajorAxis: 6749.9995
+    eccentricity: 0.000000064117295
     nu: 0
     T: 0
     omega: 4.712389
-    rp: 6599.9995
-    ra: 6599.9995
+    rp: 6749.999
+    ra: 6750
     speedMultiplier: 10
 --- !u!114 &4674204150618889738
 MonoBehaviour:
