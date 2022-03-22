@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyEngineSystem : MonoBehaviour
 {
     [SerializeField] [Min(0)] [Tooltip("Turning speed, degrees per second")]
     private float turningSpeed = 90;

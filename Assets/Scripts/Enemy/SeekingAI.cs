@@ -4,13 +4,13 @@
 public class SeekingAI : MonoBehaviour
 {
     private EnemyAIStateMachine enemyAI;
-    private EnemyController controller;
+    private EnemyEngineSystem controller;
 
 
     private void Awake()
     {
         enemyAI = GetComponent<EnemyAIStateMachine>();
-        controller = GetComponent<EnemyController>();
+        controller = GetComponent<EnemyEngineSystem>();
 
         // Turn off by default
         enabled = false;
