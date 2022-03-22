@@ -11,10 +11,10 @@ public class EnemyEngineSystem : MonoBehaviour
     private float thrusterForce = 500;
 
     [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
-    float asteroidStunTime = 5f;
+    float asteroidStunTime = 0f;
 
     [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
-    float playerStunTime = 7f;
+    float playerStunTime = 3f;
 
     private Rigidbody2D rb2d;
 
@@ -57,13 +57,16 @@ public class EnemyEngineSystem : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Asteroid"))
+        if (timer <= 0)
         {
-            timer = asteroidStunTime;
-        }
-        if (other.gameObject.CompareTag("Player"))
-        {
-            timer = playerStunTime;
+            if (other.gameObject.CompareTag("Asteroid"))
+            {
+                timer = asteroidStunTime;
+            }
+            if (other.gameObject.CompareTag("Player"))
+            {
+                timer = playerStunTime;
+            }
         }
     }
 }
