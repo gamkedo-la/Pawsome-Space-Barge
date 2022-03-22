@@ -16,10 +16,35 @@ public class EnemyNavigationSystem : MonoBehaviour
     [Tooltip("Required time to complete a scan for the barge")]
     [SerializeField] [Min(0.1f)] private float scanInterval = 3f;
 
+    [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
+    float asteroidStunTime = 7f;
+
+    [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
+    float playerStunTime = 0f;
+
+    private Rigidbody2D rb2d;
+
+    private float timer = 0;
+
+
+    private void Awake()
+    {
+        rb2d = GetComponent<Rigidbody2D>();
+    }
+
 
     void Start()
     {
         StartCoroutine(ScanForBarge());
+    }
+
+
+    private void Update()
+    {
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
     }
 
 
@@ -37,9 +62,28 @@ public class EnemyNavigationSystem : MonoBehaviour
             barge = GameObject.FindGameObjectWithTag("Barge");
             if (barge == null) continue;
             
-            if (Vector3.Distance(transform.position, barge.transform.position) > bargeDetectionRange)
+            if (
+                Vector3.Distance(transform.position, barge.transform.position) > bargeDetectionRange
+                || timer > 0
+            )
             {
                 barge = null;
+            }
+        }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (timer <= 0)
+        {
+            if (other.gameObject.CompareTag("Asteroid"))
+            {
+                timer = asteroidStunTime;
+            }
+            if (other.gameObject.CompareTag("Player"))
+            {
+                timer = playerStunTime;
             }
         }
     }
