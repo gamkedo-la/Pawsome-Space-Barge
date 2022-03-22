@@ -4,13 +4,11 @@
 public class SeekingAI : MonoBehaviour
 {
     private EnemyAIStateMachine enemyAI;
-    private EnemyEngineSystem controller;
 
 
     private void Awake()
     {
         enemyAI = GetComponent<EnemyAIStateMachine>();
-        controller = GetComponent<EnemyEngineSystem>();
 
         // Turn off by default
         enabled = false;
@@ -18,19 +16,19 @@ public class SeekingAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (enemyAI.Barge == null) return;
+        if (enemyAI.Navigation.Barge == null) return;
 
-        var target = enemyAI.Barge.transform.position;
+        var target = enemyAI.Navigation.Barge.transform.position;
         var headingToTarget = (target - transform.position).normalized;
 
         var headingDifference = Vector3.SignedAngle(transform.right, headingToTarget, Vector3.forward);
         if (Mathf.Abs(headingDifference) > 15f)
         {
-            controller.TurnTowardsTarget(headingDifference);
+            enemyAI.Engines.TurnTowardsTarget(headingDifference);
             return;
         }
 
-        controller.TurnTowardsTarget(headingDifference);
-        controller.MoveForward();
+        enemyAI.Engines.TurnTowardsTarget(headingDifference);
+        enemyAI.Engines.MoveForward();
     }
 }

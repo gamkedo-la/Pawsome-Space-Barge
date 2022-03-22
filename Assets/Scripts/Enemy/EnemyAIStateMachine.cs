@@ -6,12 +6,6 @@ using UnityEngine.Events;
 public class EnemyAIStateMachine : MonoBehaviour
 {
     [SerializeField] private EnemyType enemyType;
-    [Tooltip("Maximum range at which the barge can be detected")]
-    [SerializeField][Min(0f)] private float bargeDetectionRange = 500f;
-    [Tooltip("Maximum range at which the barge can be boarded/pushed")]
-    [SerializeField] [Min(0f)] private float bargeContactRange = 20f;
-    [Tooltip("Required time to complete a scan for the barge")]
-    [SerializeField] [Min(0.1f)] private float scanningTime = 1f;
 
     [Header("Events")] 
     [SerializeField] private UnityEvent onIdleEnter;
@@ -22,18 +16,28 @@ public class EnemyAIStateMachine : MonoBehaviour
     [SerializeField] private UnityEvent onContactExit;
     
     private Animator animator;
-    private GameObject barge;
-    
+
+    private EnemyEngineSystem engines;
+    public EnemyEngineSystem Engines => engines;
+    private EnemyNavigationSystem navigation;
+    public EnemyNavigationSystem Navigation => navigation;
+
+
     private static readonly int EnemyTypeParameter = Animator.StringToHash("EnemyType");
     private static readonly int BargeDetectedParameter = Animator.StringToHash("BargeDetected");
     private static readonly int BargeContactParameter = Animator.StringToHash("BargeContact");
 
-    public GameObject Barge => barge;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        engines = GetComponent<EnemyEngineSystem>();
+        navigation = GetComponent<EnemyNavigationSystem>();
+    }
+
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        StartCoroutine(ScanForBarge());
         animator.SetInteger(EnemyTypeParameter, (int)enemyType);
         animator.SetBool(BargeDetectedParameter, false);
         animator.SetBool(BargeContactParameter, false);
@@ -41,29 +45,10 @@ public class EnemyAIStateMachine : MonoBehaviour
 
     private void Update()
     {
-        animator.SetBool(BargeDetectedParameter, barge != null);
-        animator.SetBool(BargeContactParameter, IsBargeContact());
+        animator.SetBool(BargeDetectedParameter, navigation.Barge != null);
+        animator.SetBool(BargeContactParameter, navigation.IsBargeContact());
     }
 
-    private bool IsBargeContact()
-    {
-        return barge != null && Vector3.Distance(transform.position, barge.transform.position) <= bargeContactRange;
-    }
-
-    private IEnumerator ScanForBarge()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(scanningTime);
-            barge = GameObject.FindGameObjectWithTag("Barge");
-            if (barge == null) continue;
-            
-            if (Vector3.Distance(transform.position, barge.transform.position) > bargeDetectionRange)
-            {
-                barge = null;
-            }
-        }
-    }
 
     public void OnStateEnter(EnemyAIState state)
     {
@@ -83,6 +68,7 @@ public class EnemyAIStateMachine : MonoBehaviour
                 break;
         }
     }
+
 
     public void OnStateExit(EnemyAIState state)
     {
