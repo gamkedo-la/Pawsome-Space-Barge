@@ -25,6 +25,7 @@ public class EnemyNavigationSystem : MonoBehaviour
     private Rigidbody2D rb2d;
 
     private float timer = 0;
+    public bool Status => timer <= 0;
 
 
     private void Awake()

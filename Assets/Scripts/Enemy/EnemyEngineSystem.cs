@@ -20,6 +20,8 @@ public class EnemyEngineSystem : MonoBehaviour
 
     private float timer = 0;
 
+    public bool Status => timer <= 0;
+
 
     private void Awake()
     {
