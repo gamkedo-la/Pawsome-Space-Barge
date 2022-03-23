@@ -19,8 +19,8 @@ public class EnemyAIStateMachine : MonoBehaviour
 
     private EnemyEngineSystem engines;
     public EnemyEngineSystem Engines => engines;
-    private EnemyNavigationSystem navigation;
-    public EnemyNavigationSystem Navigation => navigation;
+    private EnemyTargetingSystem targeting;
+    public EnemyTargetingSystem Targeting => targeting;
 
 
     private static readonly int EnemyTypeParameter = Animator.StringToHash("EnemyType");
@@ -32,7 +32,7 @@ public class EnemyAIStateMachine : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         engines = GetComponent<EnemyEngineSystem>();
-        navigation = GetComponent<EnemyNavigationSystem>();
+        targeting = GetComponent<EnemyTargetingSystem>();
     }
 
 
@@ -45,8 +45,8 @@ public class EnemyAIStateMachine : MonoBehaviour
 
     private void Update()
     {
-        animator.SetBool(BargeDetectedParameter, navigation.Barge != null);
-        animator.SetBool(BargeContactParameter, navigation.IsBargeContact());
+        animator.SetBool(BargeDetectedParameter, targeting.Barge != null);
+        animator.SetBool(BargeContactParameter, targeting.IsBargeContact());
     }
 
 

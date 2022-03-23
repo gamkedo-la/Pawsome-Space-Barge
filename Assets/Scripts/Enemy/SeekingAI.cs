@@ -16,9 +16,9 @@ public class SeekingAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (enemyAI.Navigation.Barge == null) return;
+        if (enemyAI.Targeting.Barge == null) return;
 
-        var target = enemyAI.Navigation.Barge.transform.position;
+        var target = enemyAI.Targeting.Barge.transform.position;
         var headingToTarget = (target - transform.position).normalized;
 
         var headingDifference = Vector3.SignedAngle(transform.right, headingToTarget, Vector3.forward);

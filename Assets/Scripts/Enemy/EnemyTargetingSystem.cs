@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyNavigationSystem : MonoBehaviour
+public class EnemyTargetingSystem : MonoBehaviour
 {
     private GameObject barge;
     public GameObject Barge => barge;
