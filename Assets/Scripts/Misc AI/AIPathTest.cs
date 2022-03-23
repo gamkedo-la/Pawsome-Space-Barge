@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class AIPathTest : MonoBehaviour
 {
+    public GameObject ship;
     public Transform path;
-    public float turnSpeed;
+
+    [Range(0,1)]
+    public float steeringThreshold = 0.15f;
     private List<Transform> nodes;
 
     private int currentNode = 0;
 
-    private EnemyEngineSystem engines;
+    private EngineSystemTest engines;
+    public float newSteer = 0, velocitySteer = 0, headingDifference = 0, thing = 0;
 
 
     private void Awake()
     {
-        engines = GetComponent<EnemyEngineSystem>();
+        engines = GetComponent<EngineSystemTest>();
+        Application.targetFrameRate = 60;
     }
 
 
@@ -29,6 +34,7 @@ public class AIPathTest : MonoBehaviour
             if (node != path.transform)
             {
                 nodes.Add(node);
+                Debug.Log($"Added node waypoint: {node.gameObject.transform.position}");
             }
         }
     }
@@ -36,6 +42,8 @@ public class AIPathTest : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.DrawLine(nodes[currentNode].position, transform.position, Color.red);
+
         if (Vector3.Distance(transform.position, nodes[currentNode].position) < 30)
         {
             currentNode++;
@@ -44,29 +52,33 @@ public class AIPathTest : MonoBehaviour
                 currentNode = 0;
             }
         }
-        ApplySteer();
+
+        Vector3 target = nodes[currentNode].position;
+
+        ApplySteer(target);
     }
 
 
-    private void ApplySteer()
+    private void ApplySteer(Vector3 target)
     {
-        // Vector3 relativeVector = transform.InverseTransformPoint(nodes[currentNode].position);
-        // float newSteer = (relativeVector.x / relativeVector.magnitude) * turnSpeed;
+        Vector3 velocity = new Vector3(engines.Velocity.x, engines.Velocity.y, 0);
+        Debug.DrawLine(transform.position, transform.position + velocity, Color.magenta);
 
+        Vector3 relativeVector = transform.InverseTransformPoint(target);
+        newSteer = relativeVector.x / relativeVector.magnitude;
 
-        // if (enemyAI.Navigation.Barge == null) return;
+        Vector3 velocityVector = transform.InverseTransformPoint(transform.position + velocity);
+        velocitySteer = velocityVector.magnitude == 0 ? 0 : velocityVector.x / velocityVector.magnitude;
 
-        var target = nodes[currentNode].position;
-        var headingToTarget = (target - transform.position).normalized;
+        engines.TurnTowardsTarget(newSteer - velocitySteer);
 
-        var headingDifference = Vector3.SignedAngle(transform.right, headingToTarget, Vector3.forward);
-        if (Mathf.Abs(headingDifference) > 15f)
-        {
-            engines.TurnTowardsTarget(headingDifference);
-            return;
-        }
+        // thing = Vector3.Angle(target + transform.position, -transform.up + transform.position);
 
-        engines.TurnTowardsTarget(headingDifference);
-        engines.MoveForward();
+        // Debug.DrawLine(transform.position, transform.InverseTransformDirection(-transform.up) * 15f, Color.yellow);
+
+        // if (newSteer < steeringThreshold && newSteer > -steeringThreshold)
+        // {
+        engines.MoveForward(relativeVector.magnitude);
+        // }
     }
 }
