@@ -21,6 +21,8 @@ public class EnemyAIStateMachine : MonoBehaviour
     public EnemyEngineSystem Engines => engines;
     private EnemyTargetingSystem targeting;
     public EnemyTargetingSystem Targeting => targeting;
+    private EnemyNavigationSystem navigation;
+    public EnemyNavigationSystem Navigation => navigation;
 
 
     private static readonly int EnemyTypeParameter = Animator.StringToHash("EnemyType");
@@ -33,6 +35,7 @@ public class EnemyAIStateMachine : MonoBehaviour
         animator = GetComponent<Animator>();
         engines = GetComponent<EnemyEngineSystem>();
         targeting = GetComponent<EnemyTargetingSystem>();
+        navigation = GetComponent<EnemyNavigationSystem>();
     }
 
 
