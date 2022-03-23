@@ -217,7 +217,7 @@ public class ShipMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Asteroid" && other.relativeVelocity.magnitude > 5)
         {
-            SoundManager.Instance.PlaySound("Ping", 0.5f);
+            SoundManager.Instance.PlaySound("bump sound", 0.5f);
             
             // if (this.collision_FX_Prefab) {
             //     Debug.Log("Spawning collision FX prefab!");
