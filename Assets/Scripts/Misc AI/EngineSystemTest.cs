@@ -16,6 +16,8 @@ public class EngineSystemTest : MonoBehaviour
     [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
     float playerStunTime = 3f;
 
+    [SerializeField] float maxSpeed = 75;
+
     private Rigidbody2D rb2d;
 
     private float timer = 0;
@@ -46,6 +48,8 @@ public class EngineSystemTest : MonoBehaviour
         {
             rb2d.AddForce(-transform.up * thrust, ForceMode2D.Force);
         }
+
+        rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, maxSpeed);
     }
 
 
