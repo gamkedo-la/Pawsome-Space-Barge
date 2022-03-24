@@ -20,7 +20,7 @@ public class PoliceLight : MonoBehaviour
     {
         material = GetComponent<MeshRenderer>().material;
         intensity = material.GetColor(EmissionColor).maxColorComponent;
-        Debug.Log("Intensity: " + intensity);
+        // Debug.Log("Intensity: " + intensity);
     }
 
     private void Update()
