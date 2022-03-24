@@ -7,6 +7,7 @@ public class AIPathTest : MonoBehaviour
     [SerializeField] [Tooltip("Path of nodes to follow")]
     public GameObject path;
     public float positionThreshold = 30;
+    public float maxSteer = 5;
 
     private List<Transform> nodes;
 
@@ -76,6 +77,7 @@ public class AIPathTest : MonoBehaviour
         // turn down relativeVector weight as target approaches
         // increase as target further away
         float steeringWeight = engines.Velocity.magnitude == 0 ? 0 : relativeVector.magnitude / engines.Velocity.magnitude;
+        steeringWeight = Mathf.Clamp(steeringWeight, 0f, maxSteer);
 
 
         engines.TurnTowardsTarget((newSteer * steeringWeight) - velocitySteer);
