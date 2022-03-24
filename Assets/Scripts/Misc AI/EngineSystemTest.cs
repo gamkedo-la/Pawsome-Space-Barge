@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class EngineSystemTest : MonoBehaviour
 {
-    [SerializeField] [Min(0)] [Tooltip("Turning speed, degrees per second")]
-    private float turningSpeed = 90;
+    [SerializeField] [Min(1)] [Tooltip("Turning speed, degrees per second.")]
+    private float turningSpeed = 75;
 
-    // [SerializeField] [Min(0)] [Tooltip("Thruster force")]
-    const float thrusterForce = 500;
+    [SerializeField] [Range(1, 200)] [Tooltip("Maximum enemy velocity.")]
+    private float maxSpeed = 100;
+
+    [SerializeField] [Min(0)] [Tooltip("Thruster force.")]
+    private float thrusterForce = 500;
 
     [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
-    float asteroidStunTime = 0f;
+    private float asteroidStunTime = 0f;
 
     [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
-    float playerStunTime = 3f;
-
-    [SerializeField] float maxSpeed = 75;
+    private float playerStunTime = 3f;
 
     private Rigidbody2D rb2d;
 
@@ -42,11 +43,11 @@ public class EngineSystemTest : MonoBehaviour
     }
 
 
-    public void MoveForward(float thrust=thrusterForce)
+    public void MoveForward(float thrust)
     {
         if (timer <= 0)
         {
-            rb2d.AddForce(-transform.up * thrust, ForceMode2D.Force);
+            rb2d.AddForce(-transform.up * thrusterForce * thrust, ForceMode2D.Force);
         }
 
         rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, maxSpeed);
@@ -57,7 +58,7 @@ public class EngineSystemTest : MonoBehaviour
     {
         if (timer <= 0)
         {
-            rb2d.rotation += headingChange;
+            rb2d.rotation += headingChange * turningSpeed * Time.fixedDeltaTime;
         }
     }
 
