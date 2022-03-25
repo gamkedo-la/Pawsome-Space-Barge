@@ -9,6 +9,7 @@ public class EngineSystemTest : MonoBehaviour
 
     [SerializeField] [Range(1, 200)] [Tooltip("Maximum enemy velocity.")]
     private float maxSpeed = 100;
+    public float minSpeed = 25;
 
     [SerializeField] [Min(0)] [Tooltip("Thruster force.")]
     private float thrusterForce = 500;
@@ -18,6 +19,9 @@ public class EngineSystemTest : MonoBehaviour
 
     [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
     private float playerStunTime = 3f;
+
+    [SerializeField] [Range(0,10)] [Tooltip("Tug braking coefficient, more => faster.")]
+    private float decelerationCoefficient = 4;
 
     private Rigidbody2D rb2d;
 
@@ -47,10 +51,24 @@ public class EngineSystemTest : MonoBehaviour
     {
         if (timer <= 0)
         {
-            rb2d.AddForce(-transform.up * thrusterForce * thrust, ForceMode2D.Force);
-        }
+            if (thrust >= 0)
+            {
+                rb2d.AddForce(transform.right * thrusterForce * thrust, ForceMode2D.Force);
 
-        rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, maxSpeed);
+                rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, maxSpeed);
+            }
+            else
+            {
+                // rb2d.velocity -= rb2d.velocity.normalized * decelerationCoefficient * Time.fixedDeltaTime;
+                rb2d.velocity -= rb2d.velocity.normalized * decelerationCoefficient;
+
+                if (rb2d.velocity.magnitude < minSpeed)
+                {
+                    rb2d.velocity = rb2d.velocity.normalized * minSpeed;
+                }
+            }
+            
+        }
     }
 
 
