@@ -624,7 +624,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: {fileID: 1928720432}
   positionThreshold: 20
-  nodes: []
 --- !u!114 &273451640
 MonoBehaviour:
   m_ObjectHideFlags: 0

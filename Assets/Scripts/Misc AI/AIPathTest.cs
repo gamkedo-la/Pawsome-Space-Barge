@@ -46,12 +46,13 @@ public class AIPathTest : MonoBehaviour
         if (Vector2.Distance(transform.position, nodes[currentNode].position) < positionThreshold)
         {
             currentNode++;
-            nextNode = currentNode + 1;
 
             if (currentNode >= nodes.Count)
             {
                 currentNode = 0;
             }
+
+            nextNode = currentNode + 1;
 
             if (nextNode >= nodes.Count)
             {
