@@ -447,7 +447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: {fileID: 1928720432}
   positionThreshold: 10
-  maxSteer: 5
+  maxSteer: 20
 --- !u!114 &273451640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,7 +462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turningSpeed: 75
   maxSpeed: 100
-  thrusterForce: 500
+  thrusterForce: 1000
   asteroidStunTime: 0
   playerStunTime: 0
 --- !u!1001 &283065191

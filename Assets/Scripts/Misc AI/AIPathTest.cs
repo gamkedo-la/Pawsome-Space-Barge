@@ -5,9 +5,13 @@ using UnityEngine;
 public class AIPathTest : MonoBehaviour
 {
     [SerializeField] [Tooltip("Path of nodes to follow")]
-    public GameObject path;
-    public float positionThreshold = 30;
-    public float maxSteer = 5;
+    private GameObject path;
+
+    [SerializeField] [Tooltip("How close is close enough?")]
+    private float positionThreshold = 30;
+
+    [SerializeField] [Range(0, 50)] [Tooltip("Maximum steering multiplier.")]
+    private float maxSteer = 5;
 
     private List<Transform> nodes;
 
