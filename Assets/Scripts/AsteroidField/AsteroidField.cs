@@ -1,6 +1,3 @@
-// Practice commit - will remove
-// Cosmo is best boi!
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
