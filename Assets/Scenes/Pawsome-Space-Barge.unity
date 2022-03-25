@@ -16594,7 +16594,7 @@ MonoBehaviour:
     <file>k__BackingField: {fileID: 8300000, guid: 9052ce32673fc6e4cbc7d810fdf0cce3, type: 3}
   - <name>k__BackingField: Space Chase
     <file>k__BackingField: {fileID: 8300000, guid: 71636a2ae5a918d4b97b0133471518fc, type: 3}
-  - <name>k__BackingField: bump sound
+  - <name>k__BackingField: Bump Sound
     <file>k__BackingField: {fileID: 8300000, guid: 2661e6c0e2343d543b748ded2114cdc3, type: 3}
 --- !u!114 &1635844463
 MonoBehaviour:
