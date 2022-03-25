@@ -1,3 +1,6 @@
+// Practice commit - will remove
+// Cosmo is best boi!
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -79,7 +82,7 @@ public class AsteroidField : MonoBehaviour
         }
     }
 
-    
+
     /// <summary> Returns a random speed suitable to an asteroid in this particular orbit </summary>
     public float RandomSpeed(Vector3 position)
     {
@@ -90,12 +93,12 @@ public class AsteroidField : MonoBehaviour
         //
         // But that looks kinda weird, because the ring graphics is on a fixed speed, so I'll leave this commented
         // out for now.
-        
+
         // var zeroRadius = planet.magnitude;
         // var maxRadius = (fieldBounds.bounds.extents.y) + zeroRadius;
         // var asteroidRadius = (position - planet).magnitude;
-        // return (maxRadius - asteroidRadius) * 0 * 
-        //        orbitalSpeedVariance / 100f; 
+        // return (maxRadius - asteroidRadius) * 0 *
+        //        orbitalSpeedVariance / 100f;
         return Random.Range(-orbitalSpeedVariance, orbitalSpeedVariance);
     }
 
@@ -109,7 +112,7 @@ public class AsteroidField : MonoBehaviour
         return new Vector2(Random.Range(min.x, max.x), Random.Range(min.y, max.y));
     }
 
-    
+
     /// <summary> Selects a random debris field item, influenced by probability weighting. </summary>
     /// <returns>AsteroidDebrisData</returns>
     public AsteroidDebrisData RandomDebris()
