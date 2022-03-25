@@ -10,12 +10,9 @@ public class AIPathTest : MonoBehaviour
     [SerializeField] [Tooltip("How close is close enough?")]
     private float positionThreshold = 30;
 
-    [SerializeField] [Range(0, 50)] [Tooltip("Maximum steering multiplier.")]
-    private float maxSteer = 5;
-
     private List<Transform> nodes;
 
-    private int currentNode = 0;
+    private int currentNode = 0, nextNode = 1;
 
     private EngineSystemTest engines;
 
@@ -45,54 +42,87 @@ public class AIPathTest : MonoBehaviour
 
     private void FixedUpdate()
     {
-#if UNITY_EDITOR
-        // draw debug visualization
-        Debug.DrawLine(nodes[currentNode].position, transform.position, Color.red);
-        Debug.DrawLine(transform.position, transform.position + (Vector3)engines.Velocity, Color.magenta);
-#endif
         // if close enough switch node target
         if (Vector2.Distance(transform.position, nodes[currentNode].position) < positionThreshold)
         {
             currentNode++;
+            nextNode = currentNode + 1;
+
             if (currentNode >= nodes.Count)
             {
                 currentNode = 0;
+            }
+
+            if (nextNode >= nodes.Count)
+            {
+                nextNode = 0;
             }
         }
 
         // define target and sent to steering function
         Vector2 target = nodes[currentNode].position;
+        Vector2 nextTarget = nodes[nextNode].position;
 
-        ApplySteer(target);
+#if UNITY_EDITOR
+        // draw debug visualization
+        Debug.DrawLine(target, transform.position, Color.red);
+        Debug.DrawLine(transform.position, transform.position + (Vector3)engines.Velocity, Color.magenta);
+        Debug.DrawLine(nextTarget, transform.position, Color.green);
+#endif
+
+        ApplySteer(target, nextTarget);
     }
 
 
-    private void ApplySteer(Vector2 target)
+    private void ApplySteer(Vector2 target, Vector2 nextTarget)
     {
         // vector to target
         Vector2 relativeVector = transform.InverseTransformPoint(target);
-        float newSteer = relativeVector.x / relativeVector.magnitude;
+        float newSteer = relativeVector.y / relativeVector.magnitude;
+
+        // vector to next target
+        Vector2 nextTargetVector = transform.InverseTransformPoint(nextTarget);
+        float nextTargetSteer = nextTargetVector.y / nextTargetVector.magnitude;
 
         // velocity vector
         Vector2 velocityVector = transform.InverseTransformPoint((Vector2)transform.position + engines.Velocity);
-        float velocitySteer = velocityVector.magnitude == 0 ? 0 : velocityVector.x / velocityVector.magnitude;
+        float velocitySteer = velocityVector.magnitude == 0 ? 0 : velocityVector.y / velocityVector.magnitude;
 
         // steering weighting
         // turn down relativeVector weight as target approaches
         // increase as target further away
-        float steeringWeight = engines.Velocity.magnitude == 0 ? 0 : relativeVector.magnitude / engines.Velocity.magnitude;
-        steeringWeight = Mathf.Clamp(steeringWeight, 0f, maxSteer);
+        if (Vector2.Distance(transform.position, nodes[currentNode].position) < velocityVector.magnitude)
+        {
+            float totalMag = relativeVector.magnitude + velocityVector.magnitude + nextTargetVector.magnitude;
+            float steeringWeight = relativeVector.magnitude / totalMag;
+            float velocityWeight = velocityVector.magnitude / totalMag;
+            float nextTargetWeight = nextTargetVector.magnitude / totalMag;
 
+            engines.TurnTowardsTarget((newSteer * steeringWeight) + (nextTargetSteer * nextTargetWeight) - (velocitySteer * velocityWeight));
+        }
+        else
+        {
+            float totalMag = relativeVector.magnitude + velocityVector.magnitude;
+            float steeringWeight = relativeVector.magnitude / totalMag;
+            float velocityWeight = velocityVector.magnitude / totalMag;
 
-        engines.TurnTowardsTarget((newSteer * steeringWeight) - velocitySteer);
+            engines.TurnTowardsTarget((newSteer * steeringWeight) - (velocitySteer * velocityWeight));
+        }
+        
+
 
         // calculate desired heading
         Vector2 headingToTarget = (target - (Vector2)transform.position).normalized;
-        float headingDifference = Mathf.Abs(Vector3.SignedAngle(-transform.up, headingToTarget, Vector3.forward));
+        float headingDifference = Mathf.Abs(Vector3.SignedAngle(transform.right, headingToTarget, Vector3.forward));
 
         // scale thrust
         // when facing away from target thrust is 0
         float thrustWeight = Mathf.Abs((headingDifference/180) - 1);
+
+        if (engines.Velocity.magnitude / relativeVector.magnitude > 1)
+        {
+            thrustWeight *= -1;
+        }
 
 
         engines.MoveForward(thrustWeight);
