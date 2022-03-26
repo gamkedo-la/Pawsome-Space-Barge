@@ -5066,7 +5066,7 @@ GameObject:
   - component: {fileID: 3716827569439174967}
   - component: {fileID: 3716827569439174966}
   - component: {fileID: 1997685034449814611}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerShip
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5325,7 +5325,6 @@ MonoBehaviour:
   decelerationCoefficient: 4
   maxSpeed: 75
   enforceBoundary: 0
-  collision_FX_Prefab: {fileID: 3624308772938280755, guid: 35bbbc8af206d8a4692e02220e9b6207, type: 3}
   rearLeftThruster: {fileID: 873941775012930959}
   rearRightThruster: {fileID: 591906093513762286}
   frontLeftThruster: {fileID: 8720291825281546935}

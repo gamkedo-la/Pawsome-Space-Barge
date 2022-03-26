@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class AIPathTest : MonoBehaviour
 {
+    [SerializeField][Tooltip("Track the barge?")]
+    private bool trackBarge = false;
+
+    private Vector2 previousBargePosition;
+
+    [SerializeField] [Tooltip("Barge")]
+    private Transform barge;
+
     [SerializeField] [Tooltip("Path of nodes to follow")]
     private GameObject path;
 
@@ -16,60 +24,145 @@ public class AIPathTest : MonoBehaviour
 
     private EngineSystemTest engines;
 
+    [Header("Sensors")]
+    public int layerMask;
+    public float sensorLength = 20;
+    public float frontSensorPosition = 9f;
+    public float frontSideSensorPosition = 5f;
+
+    private Vector2 frontSensorStart;
+    private Vector2 leftSensorStart;
+    private Vector2 rightSensorStart;
+
 
     private void Awake()
     {
         engines = GetComponent<EngineSystemTest>();
         Application.targetFrameRate = 60;
+        layerMask = LayerMask.GetMask("Obstacle");
     }
 
 
     private void Start()
     {
-        Transform[] pathTransforms = path.GetComponentsInChildren<Transform>();
-        nodes = new List<Transform>();
-
-        foreach (Transform node in pathTransforms)
+        if (!trackBarge)
         {
-            if (node != path.transform)
+            Transform[] pathTransforms = path.GetComponentsInChildren<Transform>();
+            nodes = new List<Transform>();
+
+            foreach (Transform node in pathTransforms)
             {
-                nodes.Add(node);
-                Debug.Log($"Added node waypoint: {node.gameObject.transform.position}");
+                if (node != path.transform || pathTransforms.Length == 1)
+                {
+                    nodes.Add(node);
+                    Debug.Log($"Added node waypoint: {node.gameObject.transform.position}");
+                }
             }
         }
+        else
+        {
+            previousBargePosition = barge.position;
+        }
+    }
+
+
+    private void Sensors()
+    {
+        RaycastHit2D hit;
+        Vector2 sensorStartPos = transform.position;
+
+        // front centre sensor
+        frontSensorStart = sensorStartPos + (Vector2)transform.right * frontSensorPosition;
+        hit = Physics2D.Raycast(frontSensorStart, transform.right, sensorLength, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(frontSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)transform.right * sensorLength, Color.white);
+        }
+
+        // front left sensor
+        leftSensorStart = frontSensorStart + (Vector2)transform.up * frontSideSensorPosition;
+        hit = Physics2D.Raycast(leftSensorStart, transform.right, sensorLength, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(leftSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)transform.right * sensorLength, Color.white);
+        }
+
+        // front left angled sensor
+        //
+
+        // front right sensor
+        rightSensorStart = frontSensorStart - (Vector2)transform.up * frontSideSensorPosition;
+        hit = Physics2D.Raycast(rightSensorStart, transform.right, sensorLength, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(rightSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)transform.right * sensorLength, Color.white);
+        }
+
+
+        // front right angled sensor
+        //
     }
 
 
     private void FixedUpdate()
     {
-        // if close enough switch node target
-        if (Vector2.Distance(transform.position, nodes[currentNode].position) < positionThreshold)
+        Vector2 target = Vector2.zero, nextTarget = Vector2.zero;
+
+        Sensors();
+
+        if (!trackBarge)
         {
-            currentNode++;
-
-            if (currentNode >= nodes.Count)
+            // if close enough switch node target
+            if (Vector2.Distance(transform.position, nodes[currentNode].position) < positionThreshold)
             {
-                currentNode = 0;
+                currentNode++;
+
+                if (currentNode >= nodes.Count)
+                {
+                    currentNode = 0;
+                }
+
+                nextNode = currentNode + 1;
+
+                if (nextNode >= nodes.Count)
+                {
+                    nextNode = 0;
+                }
             }
 
-            nextNode = currentNode + 1;
+            // define target and sent to steering function
+            target = nodes[currentNode].position;
+            nextTarget = nodes[nextNode].position;
+        }
+        else
+        {
+            target = barge.position;
 
-            if (nextNode >= nodes.Count)
-            {
-                nextNode = 0;
-            }
+            Vector2 bargeVelocity = previousBargePosition - (Vector2)barge.position;
+
+            nextTarget = (Vector2)barge.position - bargeVelocity * 100;
+
+            previousBargePosition = barge.position;
         }
 
-        // define target and sent to steering function
-        Vector2 target = nodes[currentNode].position;
-        Vector2 nextTarget = nodes[nextNode].position;
-
-#if UNITY_EDITOR
-        // draw debug visualization
-        Debug.DrawLine(target, transform.position, Color.red);
-        Debug.DrawLine(transform.position, transform.position + (Vector3)engines.Velocity, Color.magenta);
-        Debug.DrawLine(nextTarget, transform.position, Color.green);
-#endif
+        #if UNITY_EDITOR
+            // draw debug visualization
+            // Debug.DrawLine(target, transform.position, Color.red);
+            // Debug.DrawLine(transform.position, transform.position + (Vector3)engines.Velocity, Color.magenta);
+            // Debug.DrawLine(nextTarget, transform.position, Color.green);
+        #endif
 
         ApplySteer(target, nextTarget);
     }
@@ -102,7 +195,7 @@ public class AIPathTest : MonoBehaviour
         float nextTargetSteer = 0;
 
         // if close to current target, calculate values
-        if (Vector2.Distance(transform.position, nodes[currentNode].position) < vectors[1].magnitude)
+        if (Vector2.Distance(transform.position, target) < vectors[1].magnitude)
         {
             // vector to next target
             vectors[2] = transform.InverseTransformPoint(nextTarget);
