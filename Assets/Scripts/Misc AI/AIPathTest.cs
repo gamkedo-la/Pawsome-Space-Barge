@@ -159,9 +159,9 @@ public class AIPathTest : MonoBehaviour
 
         #if UNITY_EDITOR
             // draw debug visualization
-            // Debug.DrawLine(target, transform.position, Color.red);
-            // Debug.DrawLine(transform.position, transform.position + (Vector3)engines.Velocity, Color.magenta);
-            // Debug.DrawLine(nextTarget, transform.position, Color.green);
+            Debug.DrawLine(target, transform.position, Color.cyan);
+            Debug.DrawLine(transform.position, transform.position + (Vector3)engines.Velocity, Color.magenta);
+            Debug.DrawLine(nextTarget, transform.position, Color.green);
         #endif
 
         ApplySteer(target, nextTarget);
