@@ -75,42 +75,47 @@ public class AIPathTest : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Steers towards target. Considers heading, velocity drift, and next waypoint location.
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="nextTarget"></param>
     private void ApplySteer(Vector2 target, Vector2 nextTarget)
     {
-        // vector to target
-        Vector2 relativeVector = transform.InverseTransformPoint(target);
-        float newSteer = relativeVector.y / relativeVector.magnitude;
+        // steering vectors array
+        Vector2[] vectors = new Vector2[3];
 
-        // vector to next target
-        Vector2 nextTargetVector = transform.InverseTransformPoint(nextTarget);
-        float nextTargetSteer = nextTargetVector.y / nextTargetVector.magnitude;
 
-        // velocity vector
-        Vector2 velocityVector = transform.InverseTransformPoint((Vector2)transform.position + engines.Velocity);
-        float velocitySteer = velocityVector.magnitude == 0 ? 0 : velocityVector.y / velocityVector.magnitude;
+        // vectors[0] -> vector to target
+        vectors[0] = transform.InverseTransformPoint(target);
+        float newSteer = vectors[0].y / vectors[0].magnitude;
 
-        // steering weighting
-        // turn down relativeVector weight as target approaches
-        // increase as target further away
-        if (Vector2.Distance(transform.position, nodes[currentNode].position) < velocityVector.magnitude)
+
+        // vectors[1] -> velocity vector
+        vectors[1] = transform.InverseTransformPoint((Vector2)transform.position + engines.Velocity);
+        float velocitySteer = vectors[1].magnitude == 0 ? 0 : vectors[1].y / vectors[1].magnitude;
+
+
+        // vectors[2] -> vector to next target
+        // zero parameters
+        vectors[2] = Vector2.zero;
+        float nextTargetSteer = 0;
+
+        // if close to current target, calculate values
+        if (Vector2.Distance(transform.position, nodes[currentNode].position) < vectors[1].magnitude)
         {
-            float totalMag = relativeVector.magnitude + velocityVector.magnitude + nextTargetVector.magnitude;
-            float steeringWeight = relativeVector.magnitude / totalMag;
-            float velocityWeight = velocityVector.magnitude / totalMag;
-            float nextTargetWeight = nextTargetVector.magnitude / totalMag;
-
-            engines.TurnTowardsTarget((newSteer * steeringWeight) + (nextTargetSteer * nextTargetWeight) - (velocitySteer * velocityWeight));
+            // vector to next target
+            vectors[2] = transform.InverseTransformPoint(nextTarget);
+            nextTargetSteer = vectors[2].y / vectors[2].magnitude;
         }
-        else
-        {
-            float totalMag = relativeVector.magnitude + velocityVector.magnitude;
-            float steeringWeight = relativeVector.magnitude / totalMag;
-            float velocityWeight = velocityVector.magnitude / totalMag;
 
-            engines.TurnTowardsTarget((newSteer * steeringWeight) - (velocitySteer * velocityWeight));
-        }
+
+        // get vector weights
+        float[] vectorWeights = WeightVectors(vectors);
+
+        // apply steering
+        engines.TurnTowardsTarget((newSteer * vectorWeights[0]) - (velocitySteer * vectorWeights[1]) + (nextTargetSteer * vectorWeights[2]));
         
-
 
         // calculate desired heading
         Vector2 headingToTarget = (target - (Vector2)transform.position).normalized;
@@ -120,12 +125,41 @@ public class AIPathTest : MonoBehaviour
         // when facing away from target thrust is 0
         float thrustWeight = Mathf.Abs((headingDifference/180) - 1);
 
-        if (engines.Velocity.magnitude / relativeVector.magnitude > 1)
+        // if close to target, slow down
+        if (engines.Velocity.magnitude / vectors[0].magnitude > 1)
         {
             thrustWeight *= -1;
         }
 
 
+        // apply thrust
         engines.MoveForward(thrustWeight);
+    }
+
+
+    /// <summary>
+    /// Weights vectors by magnitude, returns float values.
+    /// [0] -> vector to target,
+    /// [1] -> velocity vector,
+    /// [2] -> vector to next target
+    /// </summary>
+    /// <param name="vectors"></param>
+    /// <returns></returns>
+    private float[] WeightVectors(Vector2[] vectors)
+    {
+        float[] vectorWeights = new float[vectors.Length];
+        float totalWeight = 0;
+
+        foreach (Vector2 vector in vectors)
+        {
+            totalWeight += vector.magnitude;
+        } 
+
+        for (int i = 0; i < vectors.Length; i++)
+        {
+            vectorWeights[i] = vectors[i].magnitude / totalWeight;
+        }
+
+        return vectorWeights;
     }
 }
