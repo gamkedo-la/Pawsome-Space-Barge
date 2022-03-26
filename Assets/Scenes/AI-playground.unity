@@ -623,7 +623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b15ec0bf34d1849a4ea80176d443a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackBarge: 0
+  trackBarge: 1
   barge: {fileID: 2066133851900518385}
   path: {fileID: 1928720432}
   positionThreshold: 30
@@ -27356,7 +27356,7 @@ GameObject:
   - component: {fileID: 4674204150618889738}
   - component: {fileID: 4674204150618889739}
   - component: {fileID: 4674204150618889740}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Orbital Barge
   m_TagString: Barge
   m_Icon: {fileID: 0}
@@ -34251,7 +34251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8870666834117475441}
   - component: {fileID: 8870666834117475446}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BargeCollider
   m_TagString: Barge
   m_Icon: {fileID: 0}
