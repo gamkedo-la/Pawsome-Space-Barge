@@ -411,7 +411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273451631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -227, y: -5335, z: 0}
+  m_LocalPosition: {x: -989, y: -5317, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -623,14 +623,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b15ec0bf34d1849a4ea80176d443a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackBarge: 1
+  trackBarge: 0
   barge: {fileID: 2066133851900518385}
   path: {fileID: 1928720432}
   positionThreshold: 30
   layerMask: 0
-  sensorLength: 300
+  sensorLength: 100
   frontSensorPosition: 9
   frontSideSensorPosition: 5
+  frontSensorAngle: 30
 --- !u!114 &273451640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13925,7 +13926,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1138344732
 GameObject:
@@ -25771,7 +25772,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 467632323136225968, guid: e1cfd97312dbf0c90839939ae3f8f57e, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 467632323136225968, guid: e1cfd97312dbf0c90839939ae3f8f57e, type: 3}
       propertyPath: m_LocalPosition.x

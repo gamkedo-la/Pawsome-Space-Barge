@@ -29,10 +29,7 @@ public class AIPathTest : MonoBehaviour
     public float sensorLength = 20;
     public float frontSensorPosition = 9f;
     public float frontSideSensorPosition = 5f;
-
-    private Vector2 frontSensorStart;
-    private Vector2 leftSensorStart;
-    private Vector2 rightSensorStart;
+    public float frontSensorAngle = 20f;
 
 
     private void Awake()
@@ -70,9 +67,15 @@ public class AIPathTest : MonoBehaviour
     {
         RaycastHit2D hit;
         Vector2 sensorStartPos = transform.position;
+        Vector2 frontSensorStart = sensorStartPos + (Vector2)transform.right * frontSensorPosition;
+        Vector2 leftSensorStart = frontSensorStart + (Vector2)transform.up * frontSideSensorPosition;
+        Vector2 rightSensorStart = frontSensorStart - (Vector2)transform.up * frontSideSensorPosition;
+
+        Quaternion angle;
+
+
 
         // front centre sensor
-        frontSensorStart = sensorStartPos + (Vector2)transform.right * frontSensorPosition;
         hit = Physics2D.Raycast(frontSensorStart, transform.right, sensorLength, layerMask);
         if (hit)
         {
@@ -83,8 +86,9 @@ public class AIPathTest : MonoBehaviour
             Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)transform.right * sensorLength, Color.white);
         }
 
+
+
         // front left sensor
-        leftSensorStart = frontSensorStart + (Vector2)transform.up * frontSideSensorPosition;
         hit = Physics2D.Raycast(leftSensorStart, transform.right, sensorLength, layerMask);
         if (hit)
         {
@@ -95,11 +99,45 @@ public class AIPathTest : MonoBehaviour
             Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)transform.right * sensorLength, Color.white);
         }
 
+        // front left half angled sensor
+        angle = Quaternion.AngleAxis(frontSensorAngle*0.5f, transform.forward);
+        hit = Physics2D.Raycast(leftSensorStart, angle * transform.right, sensorLength*0.75f, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(leftSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * transform.right) * (sensorLength*0.75f), Color.white);
+        }
+
         // front left angled sensor
-        //
+        angle = Quaternion.AngleAxis(frontSensorAngle, transform.forward);
+        hit = Physics2D.Raycast(leftSensorStart, angle * transform.right, sensorLength*0.5f, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(leftSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * transform.right) * (sensorLength*0.5f), Color.white);
+        }
+
+        // front left 1.5-angled sensor
+        angle = Quaternion.AngleAxis(frontSensorAngle*1.5f, transform.forward);
+        hit = Physics2D.Raycast(leftSensorStart, angle * transform.right, sensorLength*0.25f, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(leftSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * transform.right) * (sensorLength*0.25f), Color.white);
+        }
+
+
 
         // front right sensor
-        rightSensorStart = frontSensorStart - (Vector2)transform.up * frontSideSensorPosition;
         hit = Physics2D.Raycast(rightSensorStart, transform.right, sensorLength, layerMask);
         if (hit)
         {
@@ -110,9 +148,41 @@ public class AIPathTest : MonoBehaviour
             Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)transform.right * sensorLength, Color.white);
         }
 
+        // front right half angled sensor
+        angle = Quaternion.AngleAxis(-frontSensorAngle/2, transform.forward);
+        hit = Physics2D.Raycast(rightSensorStart, angle * transform.right, sensorLength*0.75f, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(rightSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * transform.right) * (sensorLength*0.75f), Color.white);
+        }
 
         // front right angled sensor
-        //
+        angle = Quaternion.AngleAxis(-frontSensorAngle, transform.forward);
+        hit = Physics2D.Raycast(rightSensorStart, angle * transform.right, sensorLength*0.5f, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(rightSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * transform.right) * (sensorLength*0.5f), Color.white);
+        }
+
+        // front right 1.5-angled sensor
+        angle = Quaternion.AngleAxis(-frontSensorAngle*1.5f, transform.forward);
+        hit = Physics2D.Raycast(rightSensorStart, angle * transform.right, sensorLength*0.25f, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(rightSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * transform.right) * (sensorLength*0.25f), Color.white);
+        }
     }
 
 
