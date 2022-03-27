@@ -59,7 +59,6 @@ public class EngineSystemTest : MonoBehaviour
             }
             else
             {
-                // rb2d.velocity -= rb2d.velocity.normalized * decelerationCoefficient * Time.fixedDeltaTime;
                 rb2d.velocity -= rb2d.velocity.normalized * decelerationCoefficient;
 
                 if (rb2d.velocity.magnitude < minSpeed)
