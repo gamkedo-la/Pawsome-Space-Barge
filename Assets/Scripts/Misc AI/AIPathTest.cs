@@ -201,7 +201,10 @@ public class AIPathTest : MonoBehaviour
     }
 
 
-    /// <summary> Executes desired sensor method. See: scanType</summary>
+    /// <summary>
+    /// Executes desired sensor method. See: scanType
+    /// Checks forward sensors, then checks choosen scan type.
+    /// </summary>
     private void Sensors()
     {
         // sensor locations
@@ -210,11 +213,15 @@ public class AIPathTest : MonoBehaviour
         Vector2 leftSensorStart = frontSensorStart + (Vector2)transform.up * frontSideSensorOffset;
         Vector2 rightSensorStart = frontSensorStart - (Vector2)transform.up * frontSideSensorOffset;
 
+        // we always need forward sensors
+        ForwardSensors(frontSensorStart, leftSensorStart, rightSensorStart);
+
+        // supplementary sensor types
         switch (scanType)
         {
             case ScanType.Whiskers:
                 {
-                    WhiskerScan(frontSensorStart, leftSensorStart, rightSensorStart);
+                    WhiskerScan(leftSensorStart, rightSensorStart);
                 }
                 break;
             case ScanType.Radar:
@@ -228,6 +235,51 @@ public class AIPathTest : MonoBehaviour
             default:
                 Debug.Log("Scan mode not implemented");
                 break;
+        }
+    }
+
+
+    /// <summary>
+    /// Front pointing sensors.
+    /// </summary>
+    /// <param name="frontSensorStart"></param>
+    /// <param name="leftSensorStart"></param>
+    /// <param name="rightSensorStart"></param>
+    private void ForwardSensors(Vector2 frontSensorStart, Vector2 leftSensorStart, Vector2 rightSensorStart)
+    {
+        RaycastHit2D hit;
+
+        // front centre sensor
+        hit = Physics2D.Raycast(frontSensorStart, transform.right, sensorLength, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(frontSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)transform.right * sensorLength, Color.white);
+        }
+
+        // front left sensor
+        hit = Physics2D.Raycast(leftSensorStart, transform.right, sensorLength, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(leftSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)transform.right * sensorLength, Color.white);
+        }
+
+        // front right sensor
+        hit = Physics2D.Raycast(rightSensorStart, transform.right, sensorLength, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(rightSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)transform.right * sensorLength, Color.white);
         }
     }
 
@@ -258,25 +310,14 @@ public class AIPathTest : MonoBehaviour
     /// <param name="frontSensorStart"></param>
     /// <param name="leftSensorStart"></param>
     /// <param name="rightSensorStart"></param>
-    private void WhiskerScan(Vector2 frontSensorStart, Vector2 leftSensorStart, Vector2 rightSensorStart)
+    private void WhiskerScan(Vector2 leftSensorStart, Vector2 rightSensorStart)
     {
         RaycastHit2D hit;
         Quaternion angle;
 
-        // front centre sensor
-        hit = Physics2D.Raycast(frontSensorStart, transform.right, sensorLength, layerMask);
-        if (hit)
-        {
-            Debug.DrawLine(frontSensorStart, hit.point, Color.red);
-        }
-        else
-        {
-            Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)transform.right * sensorLength, Color.white);
-        }
-
 
         // left sensors
-        for (int i = 0; i < whiskersCount; i++)
+        for (int i = 1; i <= whiskersCount; i++)
         {
             angle = Quaternion.AngleAxis(whiskerAngle * i, transform.forward);
             float length = ((float)whiskersCount - i) / (float)whiskersCount;
@@ -293,7 +334,7 @@ public class AIPathTest : MonoBehaviour
 
 
         // right sensors
-        for (int i = 0; i < whiskersCount; i++)
+        for (int i = 1; i <= whiskersCount; i++)
         {
             angle = Quaternion.AngleAxis(-whiskerAngle * i, transform.forward);
             float length = ((float)whiskersCount - i) / (float)whiskersCount;
