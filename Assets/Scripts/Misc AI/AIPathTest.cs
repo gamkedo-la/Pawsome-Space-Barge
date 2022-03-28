@@ -2,13 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Implements system from tutorial series by EYEmaginary:
+/// https://youtube.com/playlist?list=PLB9LefPJI-5wH5VdLFPkWfnPjeI6OSys1
+/// 
+/// Moddified to account for spaceship drift in a space flight context,
+/// and connections to other in game scripts.
+/// 
+/// Also includes extra things I tried along the way.
+/// </summary>
 public class AIPathTest : MonoBehaviour
 {
     // engine script reference
     private EngineSystemTest engines;
 
     /// <summary> Known / planned scan modes. </summary>
-    private enum ScanType { Whiskers, Radar, CircleCast, Network }
+    private enum ScanType { Whiskers, Radar, Tutorial, CircleCast, Network }
 
 
     [Tooltip("How close is close enough?")]
@@ -49,7 +58,7 @@ public class AIPathTest : MonoBehaviour
     [SerializeField] private float whiskerAngle = 15;
 
     [Tooltip("Arc in degrees to scan for obstacles,\nin degrees, centered on ship forward.")]
-    [SerializeField][Range(0,360)] private float radarScanRadius = 180;
+    [SerializeField][Range(1,360)] private float radarScanRadius = 180;
 
     /// <summary> Returns scan radius normalized between -1 and 1 </summary>
     private float ScanRadius => 1 - radarScanRadius/180;
@@ -214,7 +223,10 @@ public class AIPathTest : MonoBehaviour
         Vector2 rightSensorStart = frontSensorStart - (Vector2)transform.up * frontSideSensorOffset;
 
         // we always need forward sensors
-        ForwardSensors(frontSensorStart, leftSensorStart, rightSensorStart);
+        if (scanType != ScanType.Tutorial)
+        {
+            ForwardSensors(frontSensorStart, leftSensorStart, rightSensorStart);
+        }
 
         // supplementary sensor types
         switch (scanType)
@@ -224,9 +236,16 @@ public class AIPathTest : MonoBehaviour
                     WhiskerScan(leftSensorStart, rightSensorStart);
                 }
                 break;
+
             case ScanType.Radar:
                 {
                     RadarScan(frontSensorStart);
+                }
+                break;
+
+            case ScanType.Tutorial:
+                {
+                    TutorialSensors(frontSensorStart, leftSensorStart, rightSensorStart);
                 }
                 break;
 
@@ -285,7 +304,9 @@ public class AIPathTest : MonoBehaviour
 
 
     /// <summary>
+    /// ScanType.Radar
     /// Scans a radius in front of ship for obstacles.
+    /// Can scan from 1 to 360 degrees.
     /// </summary>
     /// <param name="frontSensorStart"></param>
     private void RadarScan(Vector2 frontSensorStart)
@@ -305,6 +326,7 @@ public class AIPathTest : MonoBehaviour
 
 
     /// <summary>
+    /// ScanType.Whiskers
     /// 'Whiskers' scanning method.
     /// </summary>
     /// <param name="frontSensorStart"></param>
@@ -347,6 +369,78 @@ public class AIPathTest : MonoBehaviour
             {
                 Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * transform.right) * (sensorLength*length), Color.white);
             }
+        }
+    }
+
+
+    /// <summary>
+    /// ScanType.Tutorial
+    /// Sensors as used in tutorial video.
+    /// See: https://youtu.be/PiYffouHvuk
+    /// </summary>
+    /// <param name="frontSensorStart"></param>
+    /// <param name="leftSensorStart"></param>
+    /// <param name="rightSensorStart"></param>
+    private void TutorialSensors(Vector2 frontSensorStart, Vector2 leftSensorStart, Vector2 rightSensorStart)
+    {
+        RaycastHit2D hit;
+        Quaternion angle;
+
+        // front centre sensor
+        hit = Physics2D.Raycast(frontSensorStart, transform.right, sensorLength, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(frontSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)transform.right * sensorLength, Color.white);
+        }
+
+        // front left sensor
+        hit = Physics2D.Raycast(leftSensorStart, transform.right, sensorLength, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(leftSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)transform.right * sensorLength, Color.white);
+        }
+
+        // left whisker sensor
+        angle = Quaternion.AngleAxis(whiskerAngle, transform.forward);
+        hit = Physics2D.Raycast(leftSensorStart, angle * transform.right, sensorLength, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(leftSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * transform.right) * (sensorLength), Color.white);
+        }
+
+        // front right sensor
+        hit = Physics2D.Raycast(rightSensorStart, transform.right, sensorLength, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(rightSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)transform.right * sensorLength, Color.white);
+        }
+
+        // right whisker sensor
+        angle = Quaternion.AngleAxis(-whiskerAngle, transform.forward);
+        hit = Physics2D.Raycast(rightSensorStart, angle * transform.right, sensorLength, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(rightSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * transform.right) * (sensorLength), Color.white);
         }
     }
 
