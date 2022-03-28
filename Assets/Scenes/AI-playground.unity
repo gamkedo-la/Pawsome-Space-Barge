@@ -630,14 +630,13 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 1024
-  scanType: 0
+  scanType: 1
   sensorLength: 100
   frontSensorPositionOffset: 9
   frontSideSensorOffset: 5
-  frontSensorAngle: 30
   whiskersCount: 4
   whiskerAngle: 15
-  radarScanRadius: 180
+  radarScanRadius: 90
 --- !u!114 &273451640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,7 +652,7 @@ MonoBehaviour:
   turningSpeed: 300
   maxSpeed: 100
   minSpeed: 25
-  thrusterForce: 0
+  thrusterForce: 1000
   asteroidStunTime: 0
   playerStunTime: 0
   decelerationCoefficient: 1
