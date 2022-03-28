@@ -275,7 +275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &173486922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,14 +388,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 273451632}
+  - component: {fileID: 273451639}
+  - component: {fileID: 273451640}
   - component: {fileID: 273451633}
   - component: {fileID: 273451634}
   - component: {fileID: 273451636}
   - component: {fileID: 273451635}
   - component: {fileID: 273451637}
   - component: {fileID: 273451638}
-  - component: {fileID: 273451639}
-  - component: {fileID: 273451640}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -623,15 +623,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b15ec0bf34d1849a4ea80176d443a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypointThreshold: 30
   trackBarge: 0
   barge: {fileID: 2066133851900518385}
   path: {fileID: 1928720432}
-  positionThreshold: 30
-  layerMask: 0
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  scanType: 0
   sensorLength: 100
-  frontSensorPosition: 9
-  frontSideSensorPosition: 5
+  frontSensorPositionOffset: 9
+  frontSideSensorOffset: 5
   frontSensorAngle: 30
+  whiskersCount: 4
+  whiskerAngle: 15
+  radarScanRadius: 180
 --- !u!114 &273451640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +653,7 @@ MonoBehaviour:
   turningSpeed: 300
   maxSpeed: 100
   minSpeed: 25
-  thrusterForce: 1000
+  thrusterForce: 0
   asteroidStunTime: 0
   playerStunTime: 0
   decelerationCoefficient: 1

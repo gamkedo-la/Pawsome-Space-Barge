@@ -4,39 +4,62 @@ using UnityEngine;
 
 public class AIPathTest : MonoBehaviour
 {
-    [SerializeField][Tooltip("Track the barge?")]
-    private bool trackBarge = false;
+    // engine script reference
+    private EngineSystemTest engines;
+
+    /// <summary> Known / planned scan modes. </summary>
+    private enum ScanType { Whiskers, Radar, CircleCast, Network }
+
+
+    [Tooltip("How close is close enough?")]
+    [SerializeField] private float waypointThreshold = 30;
+
+
+    [Header("Barge Tracking Settings")]
+    [Tooltip("Track the barge?")]
+    [SerializeField] private bool trackBarge = false;
 
     private Vector2 previousBargePosition;
 
-    [SerializeField] [Tooltip("Barge")]
-    private Transform barge;
+    [Tooltip("Barge object to track.")]
+    [SerializeField] private Transform barge;
 
-    [SerializeField] [Tooltip("Path of nodes to follow")]
-    private GameObject path;
 
-    [SerializeField] [Tooltip("How close is close enough?")]
-    private float positionThreshold = 30;
-
+    [Header("Path Follow Settings")]
+    [Tooltip("Path of nodes to follow")]
+    [SerializeField] private GameObject path;
     private List<Transform> nodes;
-
     private int currentNode = 0, nextNode = 1;
 
-    private EngineSystemTest engines;
 
     [Header("Sensors")]
-    public int layerMask;
-    public float sensorLength = 20;
-    public float frontSensorPosition = 9f;
-    public float frontSideSensorPosition = 5f;
-    public float frontSensorAngle = 20f;
+    [Tooltip("Raycast layer.")]
+    [SerializeField] public LayerMask collisionMask;
+    private int layerMask;
+
+
+    [Tooltip("Scanning method.")]
+    [SerializeField] private ScanType scanType = ScanType.Whiskers;
+
+    [Tooltip(" How far to scan from ship.")]
+    [SerializeField] private float sensorLength = 100;
+    [SerializeField] private float frontSensorPositionOffset = 9f;
+    [SerializeField] private float frontSideSensorOffset = 5f;
+    [SerializeField] private int whiskersCount = 4;
+    [SerializeField] private float whiskerAngle = 15;
+
+    [Tooltip("Arc in degrees to scan for obstacles,\nin degrees, centered on ship forward.")]
+    [SerializeField][Range(0,360)] private float radarScanRadius = 180;
+
+    /// <summary> Returns scan radius normalized between -1 and 1 </summary>
+    private float ScanRadius => 1 - radarScanRadius/180;
 
 
     private void Awake()
     {
         engines = GetComponent<EngineSystemTest>();
         Application.targetFrameRate = 60;
-        layerMask = LayerMask.GetMask("Obstacle");
+        layerMask = collisionMask.value;
     }
 
 
@@ -63,139 +86,17 @@ public class AIPathTest : MonoBehaviour
     }
 
 
-    private void Sensors()
-    {
-        RaycastHit2D hit;
-        Vector2 sensorStartPos = transform.position;
-        Vector2 frontSensorStart = sensorStartPos + (Vector2)transform.right * frontSensorPosition;
-        Vector2 leftSensorStart = frontSensorStart + (Vector2)transform.up * frontSideSensorPosition;
-        Vector2 rightSensorStart = frontSensorStart - (Vector2)transform.up * frontSideSensorPosition;
-
-        Quaternion angle;
-
-
-
-        // front centre sensor
-        hit = Physics2D.Raycast(frontSensorStart, transform.right, sensorLength, layerMask);
-        if (hit)
-        {
-            Debug.DrawLine(frontSensorStart, hit.point, Color.red);
-        }
-        else
-        {
-            Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)transform.right * sensorLength, Color.white);
-        }
-
-
-
-        // front left sensor
-        hit = Physics2D.Raycast(leftSensorStart, transform.right, sensorLength, layerMask);
-        if (hit)
-        {
-            Debug.DrawLine(leftSensorStart, hit.point, Color.red);
-        }
-        else
-        {
-            Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)transform.right * sensorLength, Color.white);
-        }
-
-        // front left half angled sensor
-        angle = Quaternion.AngleAxis(frontSensorAngle*0.5f, transform.forward);
-        hit = Physics2D.Raycast(leftSensorStart, angle * transform.right, sensorLength*0.75f, layerMask);
-        if (hit)
-        {
-            Debug.DrawLine(leftSensorStart, hit.point, Color.red);
-        }
-        else
-        {
-            Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * transform.right) * (sensorLength*0.75f), Color.white);
-        }
-
-        // front left angled sensor
-        angle = Quaternion.AngleAxis(frontSensorAngle, transform.forward);
-        hit = Physics2D.Raycast(leftSensorStart, angle * transform.right, sensorLength*0.5f, layerMask);
-        if (hit)
-        {
-            Debug.DrawLine(leftSensorStart, hit.point, Color.red);
-        }
-        else
-        {
-            Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * transform.right) * (sensorLength*0.5f), Color.white);
-        }
-
-        // front left 1.5-angled sensor
-        angle = Quaternion.AngleAxis(frontSensorAngle*1.5f, transform.forward);
-        hit = Physics2D.Raycast(leftSensorStart, angle * transform.right, sensorLength*0.25f, layerMask);
-        if (hit)
-        {
-            Debug.DrawLine(leftSensorStart, hit.point, Color.red);
-        }
-        else
-        {
-            Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * transform.right) * (sensorLength*0.25f), Color.white);
-        }
-
-
-
-        // front right sensor
-        hit = Physics2D.Raycast(rightSensorStart, transform.right, sensorLength, layerMask);
-        if (hit)
-        {
-            Debug.DrawLine(rightSensorStart, hit.point, Color.red);
-        }
-        else
-        {
-            Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)transform.right * sensorLength, Color.white);
-        }
-
-        // front right half angled sensor
-        angle = Quaternion.AngleAxis(-frontSensorAngle/2, transform.forward);
-        hit = Physics2D.Raycast(rightSensorStart, angle * transform.right, sensorLength*0.75f, layerMask);
-        if (hit)
-        {
-            Debug.DrawLine(rightSensorStart, hit.point, Color.red);
-        }
-        else
-        {
-            Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * transform.right) * (sensorLength*0.75f), Color.white);
-        }
-
-        // front right angled sensor
-        angle = Quaternion.AngleAxis(-frontSensorAngle, transform.forward);
-        hit = Physics2D.Raycast(rightSensorStart, angle * transform.right, sensorLength*0.5f, layerMask);
-        if (hit)
-        {
-            Debug.DrawLine(rightSensorStart, hit.point, Color.red);
-        }
-        else
-        {
-            Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * transform.right) * (sensorLength*0.5f), Color.white);
-        }
-
-        // front right 1.5-angled sensor
-        angle = Quaternion.AngleAxis(-frontSensorAngle*1.5f, transform.forward);
-        hit = Physics2D.Raycast(rightSensorStart, angle * transform.right, sensorLength*0.25f, layerMask);
-        if (hit)
-        {
-            Debug.DrawLine(rightSensorStart, hit.point, Color.red);
-        }
-        else
-        {
-            Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * transform.right) * (sensorLength*0.25f), Color.white);
-        }
-    }
-
-
     private void FixedUpdate()
     {
-        Vector2 target = Vector2.zero, nextTarget = Vector2.zero;
+        Vector2 target = Vector2.zero;
+        Vector2 nextTarget = Vector2.zero;
 
         Sensors();
 
         if (!trackBarge)
         {
             // if close enough switch node target
-            if (Vector2.Distance(transform.position, nodes[currentNode].position) < positionThreshold)
+            if (Vector2.Distance(transform.position, nodes[currentNode].position) < waypointThreshold)
             {
                 currentNode++;
 
@@ -212,7 +113,7 @@ public class AIPathTest : MonoBehaviour
                 }
             }
 
-            // define target and sent to steering function
+            // define targets
             target = nodes[currentNode].position;
             nextTarget = nodes[nextNode].position;
         }
@@ -297,6 +198,115 @@ public class AIPathTest : MonoBehaviour
 
         // apply thrust
         engines.MoveForward(thrustWeight);
+    }
+
+
+    /// <summary> Executes desired sensor method. See: scanType</summary>
+    private void Sensors()
+    {
+        // sensor locations
+        Vector2 sensorStartPos = transform.position;
+        Vector2 frontSensorStart = sensorStartPos + (Vector2)transform.right * frontSensorPositionOffset;
+        Vector2 leftSensorStart = frontSensorStart + (Vector2)transform.up * frontSideSensorOffset;
+        Vector2 rightSensorStart = frontSensorStart - (Vector2)transform.up * frontSideSensorOffset;
+
+        switch (scanType)
+        {
+            case ScanType.Whiskers:
+                {
+                    WhiskerScan(frontSensorStart, leftSensorStart, rightSensorStart);
+                }
+                break;
+            case ScanType.Radar:
+                {
+                    RadarScan(frontSensorStart);
+                }
+                break;
+
+            case ScanType.CircleCast:
+            case ScanType.Network:
+            default:
+                Debug.Log("Scan mode not implemented");
+                break;
+        }
+    }
+
+
+    /// <summary>
+    /// Scans a radius in front of ship for obstacles.
+    /// </summary>
+    /// <param name="frontSensorStart"></param>
+    private void RadarScan(Vector2 frontSensorStart)
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(frontSensorStart, sensorLength *2, layerMask);
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Vector2 toTarget = (hits[i].transform.position - transform.position).normalized;
+            float dot = Vector2.Dot(transform.right.normalized, toTarget);
+            if (dot > ScanRadius)
+            {
+                Debug.DrawLine(frontSensorStart, hits[i].ClosestPoint(transform.position) , Color.red);
+            }
+        }
+    }
+
+
+    /// <summary>
+    /// 'Whiskers' scanning method.
+    /// </summary>
+    /// <param name="frontSensorStart"></param>
+    /// <param name="leftSensorStart"></param>
+    /// <param name="rightSensorStart"></param>
+    private void WhiskerScan(Vector2 frontSensorStart, Vector2 leftSensorStart, Vector2 rightSensorStart)
+    {
+        RaycastHit2D hit;
+        Quaternion angle;
+
+        // front centre sensor
+        hit = Physics2D.Raycast(frontSensorStart, transform.right, sensorLength, layerMask);
+        if (hit)
+        {
+            Debug.DrawLine(frontSensorStart, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)transform.right * sensorLength, Color.white);
+        }
+
+
+        // left sensors
+        for (int i = 0; i < whiskersCount; i++)
+        {
+            angle = Quaternion.AngleAxis(whiskerAngle * i, transform.forward);
+            float length = ((float)whiskersCount - i) / (float)whiskersCount;
+            hit = Physics2D.Raycast(leftSensorStart, angle * transform.right, sensorLength*length, layerMask);
+            if (hit)
+            {
+                Debug.DrawLine(leftSensorStart, hit.point, Color.red);
+            }
+            else
+            {
+                Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * transform.right) * (sensorLength*length), Color.white);
+            }
+        }
+
+
+        // right sensors
+        for (int i = 0; i < whiskersCount; i++)
+        {
+            angle = Quaternion.AngleAxis(-whiskerAngle * i, transform.forward);
+            float length = ((float)whiskersCount - i) / (float)whiskersCount;
+            hit = Physics2D.Raycast(rightSensorStart, angle * transform.right, sensorLength*length, layerMask);
+            if (hit)
+            {
+                Debug.DrawLine(rightSensorStart, hit.point, Color.red);
+            }
+            else
+            {
+                Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * transform.right) * (sensorLength*length), Color.white);
+            }
+        }
     }
 
 
