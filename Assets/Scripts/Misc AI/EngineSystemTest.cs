@@ -73,6 +73,7 @@ public class EngineSystemTest : MonoBehaviour
 
     public void TurnTowardsTarget(float headingChange)
     {
+        // TODO: dampen this rotation, tis too erractic and twitchy
         if (timer <= 0)
         {
             rb2d.rotation += headingChange * turningSpeed * Time.fixedDeltaTime;
