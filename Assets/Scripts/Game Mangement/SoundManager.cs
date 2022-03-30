@@ -150,6 +150,10 @@ public class SoundManager : MonoBehaviour
     public void AdjustThrusterDirection(float pan)
     {
         shipThrusters.panStereo = pan;
+        if (pan is < -.1f or > .1f )
+            shipThrusters.pitch = 1;
+        else
+            shipThrusters.pitch = 1.07f;
     }
     
     /// <summary> STOP PLAYING A Sound ON 2ND LAYER. </summary>
