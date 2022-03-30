@@ -92,6 +92,11 @@ public class EnemyTargetingSystem : MonoBehaviour
             timer -= Time.deltaTime;
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, bargeDetectionRange);
+    }
     
     
     public (Vector2, Vector2) AquireTarget()
