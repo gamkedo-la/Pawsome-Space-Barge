@@ -16,7 +16,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private string defaultAmbientSound;
     [SerializeField] private float crossFadeSpeed = 0.2f;
     [SerializeField] private bool soundEffects = true;
-    private AudioSource ambient, effects;
+    private AudioSource ambient, effects, shipThrusters;
 
     [Tooltip("Dictionary of game sounds.")]
     [SerializeField] private List<AudioClipStruct<string, AudioClip>> audioClips
@@ -54,6 +54,7 @@ public class SoundManager : MonoBehaviour
     {
         ambient = this.gameObject.AddComponent<AudioSource>();
         effects = this.gameObject.AddComponent<AudioSource>();
+        shipThrusters = this.gameObject.AddComponent<AudioSource>();
     }
 
 
@@ -128,6 +129,43 @@ public class SoundManager : MonoBehaviour
         {
             effects.PlayOneShot(audioLookup[sound], volume);
         }
+    }
+
+    /// <summary> Play A Sound ON TOP OF OTHERS. </summary>
+    /// <param name="sound">Which sound to play.</param>
+    /// <param name="volume">How loud? [0-1]</param>
+    public void PlayShipThrusters(string sound, float volume)
+    {
+        if (!shipThrusters.isPlaying && soundEffects)
+        {
+            shipThrusters.loop = true;
+            shipThrusters.PlayOneShot(audioLookup[sound], volume);
+        }
+    }
+    
+    
+    /// <summary> Play A Sound ON TOP OF OTHERS. </summary>
+    /// <param name="sound">Which sound to play.</param>
+    /// <param name="volume">How loud? [0-1]</param>
+    public void AdjustThrusterDirection(float pan)
+    {
+        shipThrusters.panStereo = pan;
+    }
+    
+    /// <summary> STOP PLAYING A Sound ON 2ND LAYER. </summary>
+    /// <param name="sound">Which sound to stop playing.</param>
+    public void StopEffects()
+    {
+        effects.Stop();
+        effects.loop = false;
+    }    
+    
+    /// <summary> STOP PLAYING A Sound ON 2ND LAYER. </summary>
+    /// <param name="sound">Which sound to stop playing.</param>
+    public void StopThrusters()
+    {
+        shipThrusters.Stop();
+        shipThrusters.loop = false;
     }
 }
 
