@@ -252,7 +252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154838556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1165, y: -5752, z: 0}
+  m_LocalPosition: {x: -788, y: -5682, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -442,7 +442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273451631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1356, y: -5580, z: 0}
+  m_LocalPosition: {x: -1265, y: -5357, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -608,7 +608,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &273451637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,18 +659,18 @@ MonoBehaviour:
   avoidanceMaximum: -Infinity
   collisionCount: 0
   waypointThreshold: 100
-  trackBarge: 1
+  trackBarge: 0
   barge: {fileID: 2066133851900518385}
   path: {fileID: 173486921}
   collisionMask:
     serializedVersion: 2
     m_Bits: 1088
-  scanType: 1
+  scanType: 0
   sensorLength: 100
   frontSensorPositionOffset: 9
-  frontSideSensorOffset: 5
+  frontSideSensorOffset: 6
   whiskersCount: 4
-  whiskerAngle: 13
+  whiskerAngle: 12
   radarScanRadius: 90
   velocityScan: 1
 --- !u!114 &273451640
@@ -692,6 +692,7 @@ MonoBehaviour:
   asteroidStunTime: 0
   playerStunTime: 0
   decelerationCoefficient: 5
+  heading: 0
 --- !u!1001 &283065191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8353,7 +8354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700274471}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -393, y: -5296, z: 0}
+  m_LocalPosition: {x: -362, y: -6251, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13299,7 +13300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861440593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -588, y: -6487, z: 0}
+  m_LocalPosition: {x: -931, y: -6152, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13330,7 +13331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914543840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24, y: -6323, z: 0}
+  m_LocalPosition: {x: -370, y: -5681, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13503,7 +13504,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977540966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 880, y: -5483, z: 0}
+  m_LocalPosition: {x: -713, y: -6403, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19448,7 +19449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451828514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: -5794, z: 0}
+  m_LocalPosition: {x: -51, y: -6404, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -30,11 +30,13 @@ public class EngineSystemTest : MonoBehaviour
     public bool Status => timer <= 0;
 
     public Vector2 Velocity => rb2d.velocity;
+    public float heading;
 
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        heading = rb2d.rotation;
     }
 
 
@@ -78,11 +80,18 @@ public class EngineSystemTest : MonoBehaviour
 
     public void TurnTowardsTarget(float headingChange)
     {
-        // TODO: dampen this rotation, tis too erractic and twitchy
+        heading = ClampAngle( heading += headingChange * turningSpeed * Time.fixedDeltaTime );
+
+        // TODO: dampen this rotation
         if (timer <= 0)
         {
-            rb2d.rotation += headingChange * turningSpeed * Time.fixedDeltaTime;
+            rb2d.MoveRotation( heading );
         }
+    }
+
+    private float ClampAngle(float angle)
+    {
+        return (angle % 360) + (angle < 0 ? 360 : 0);
     }
 
 
