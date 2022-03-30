@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3915359098760404501
+--- !u!1 &2925028900334608144
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,14 +8,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3915359098760404490}
-  - component: {fileID: 3915359098760404491}
-  - component: {fileID: 3915359098760404488}
-  - component: {fileID: 3915359098760404494}
-  - component: {fileID: 3915359098760404489}
-  - component: {fileID: 3915359098760404495}
-  - component: {fileID: 3915359098760404492}
-  - component: {fileID: 4764931629360979805}
+  - component: {fileID: 2925028900334608143}
+  - component: {fileID: 2925028900334608141}
+  - component: {fileID: 2925028900334608138}
+  - component: {fileID: 2925028900334608137}
+  - component: {fileID: 2925028900334608136}
+  - component: {fileID: 2925028900334608140}
+  - component: {fileID: 2925028900334608139}
+  - component: {fileID: 2925028900334608142}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -23,50 +23,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3915359098760404490
+--- !u!4 &2925028900334608143
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3915359098760404501}
+  m_GameObject: {fileID: 2925028900334608144}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1277, y: -6600, z: 0}
+  m_LocalPosition: {x: 2175.2, y: -6328, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5146416195345936265}
-  - {fileID: 3915359099991391106}
+  - {fileID: 6461067126725570188}
+  - {fileID: 2925028901783829127}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &3915359098760404491
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3915359098760404501}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7728d103699a4ff45bdf7462c0c93da2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3915359098760404488
+--- !u!114 &2925028900334608141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3915359098760404501}
+  m_GameObject: {fileID: 2925028900334608144}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf7ad85813df4c7f8943e8239025da58, type: 3}
@@ -76,7 +56,7 @@ MonoBehaviour:
   onIdleEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2989754412126972117}
+      - m_Target: {fileID: 4016174984584702416}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -103,7 +83,7 @@ MonoBehaviour:
   onIdleExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2989754412126972117}
+      - m_Target: {fileID: 4016174984584702416}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -118,7 +98,7 @@ MonoBehaviour:
   onSeekEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3915359098760404489}
+      - m_Target: {fileID: 2925028900334608140}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -145,7 +125,7 @@ MonoBehaviour:
   onSeekExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3915359098760404489}
+      - m_Target: {fileID: 2925028900334608140}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -163,14 +143,94 @@ MonoBehaviour:
   onContactExit:
     m_PersistentCalls:
       m_Calls: []
---- !u!50 &3915359098760404494
+--- !u!114 &2925028900334608138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925028900334608144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41666804cadc21569aeff26dbe7fe6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turningSpeed: 300
+  maxSpeed: 100
+  minSpeed: 25
+  thrusterForce: 1000
+  asteroidStunTime: 0
+  playerStunTime: 0
+  decelerationCoefficient: 8
+--- !u!114 &2925028900334608137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925028900334608144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc8c9dc961818562ad86d045f97d36e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bargeDetectionRange: 2000
+  bargeContactRange: 20
+  scanInterval: 3
+  asteroidStunTime: 0
+  playerStunTime: 0
+  waypointThreshold: 30
+  trackBarge: 1
+  barge: {fileID: 0}
+  path: {fileID: 0}
+--- !u!114 &2925028900334608136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925028900334608144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3c2a70d537be08b3a9a2904a4a4dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  scanType: 0
+  sensorLength: 100
+  frontSensorForeAftOffset: 9
+  sideSensorForeAftOffset: 0
+  sideSensorWidthOffset: 5
+  whiskersCount: 7
+  whiskerAngle: 15
+  radarScanRadius: 180
+  velocityScan: 1
+  avoidanceAccumulator: 0
+  avoidanceMinimum: Infinity
+  avoidanceMaximum: -Infinity
+  collisionCount: 0
+--- !u!114 &2925028900334608140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925028900334608144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a34538cf4245c08e792d14eae72d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &2925028900334608139
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3915359098760404501}
+  m_GameObject: {fileID: 2925028900334608144}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -183,65 +243,28 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!114 &3915359098760404489
-MonoBehaviour:
+  m_Constraints: 0
+--- !u!95 &2925028900334608142
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3915359098760404501}
+  m_GameObject: {fileID: 2925028900334608144}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8a34538cf4245c08e792d14eae72d28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3915359098760404495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3915359098760404501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41666804cadc21569aeff26dbe7fe6d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turningSpeed: 90
-  thrusterForce: 500
-  asteroidStunTime: 5
-  playerStunTime: 7
---- !u!114 &3915359098760404492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3915359098760404501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abc8c9dc961818562ad86d045f97d36e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bargeDetectionRange: 700
-  bargeContactRange: 20
-  scanInterval: 3
-  asteroidStunTime: 7
-  playerStunTime: 0
---- !u!114 &4764931629360979805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3915359098760404501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46f3c2a70d537be08b3a9a2904a4a4dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &3915359099991391117
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7728d103699a4ff45bdf7462c0c93da2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &2925028901783829128
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,8 +272,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3915359099991391106}
-  - component: {fileID: 3915359099991391107}
+  - component: {fileID: 2925028901783829127}
+  - component: {fileID: 2925028901783829126}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -258,28 +281,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3915359099991391106
+--- !u!4 &2925028901783829127
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3915359099991391117}
+  m_GameObject: {fileID: 2925028901783829128}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3915359098760404490}
+  m_Father: {fileID: 2925028900334608143}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!70 &3915359099991391107
+--- !u!70 &2925028901783829126
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3915359099991391117}
+  m_GameObject: {fileID: 2925028901783829128}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -289,12 +312,12 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.4}
   m_Size: {x: 8.39, y: 17.79}
   m_Direction: 0
---- !u!1001 &3915359099154663035
+--- !u!1001 &2925028901014079358
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 3915359098760404490}
+    m_TransformParent: {fileID: 2925028900334608143}
     m_Modifications:
     - target: {fileID: 2246059912373808814, guid: 67ab6fb2eb8f4ac4b81c6e2a92ac8fb1, type: 3}
       propertyPath: m_Name
@@ -350,13 +373,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67ab6fb2eb8f4ac4b81c6e2a92ac8fb1, type: 3}
---- !u!1 &2989754412126972117 stripped
+--- !u!1 &4016174984584702416 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2246059912373808814, guid: 67ab6fb2eb8f4ac4b81c6e2a92ac8fb1, type: 3}
-  m_PrefabInstance: {fileID: 3915359099154663035}
+  m_PrefabInstance: {fileID: 2925028901014079358}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5146416195345936265 stripped
+--- !u!4 &6461067126725570188 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8159845330672445938, guid: 67ab6fb2eb8f4ac4b81c6e2a92ac8fb1, type: 3}
-  m_PrefabInstance: {fileID: 3915359099154663035}
+  m_PrefabInstance: {fileID: 2925028901014079358}
   m_PrefabAsset: {fileID: 0}
