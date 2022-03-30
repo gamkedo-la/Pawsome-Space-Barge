@@ -16,19 +16,17 @@ public class SeekingAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (enemyAI.Targeting.Barge == null) return;
+        Vector2 target, nextTarget;
 
-        var target = enemyAI.Targeting.Barge.transform.position;
-        var headingToTarget = (target - transform.position).normalized;
+        (target, nextTarget) = enemyAI.Targeting.AquireTarget();
 
-        var headingDifference = Vector3.SignedAngle(transform.right, headingToTarget, Vector3.forward);
-        if (Mathf.Abs(headingDifference) > 15f)
+        if (target != Vector2.zero && nextTarget != Vector2.zero)
         {
-            enemyAI.Engines.TurnTowardsTarget(headingDifference);
-            return;
+            enemyAI.Navigation.ApplySteer(target, nextTarget);
         }
-
-        enemyAI.Engines.TurnTowardsTarget(headingDifference);
-        enemyAI.Engines.MoveForward();
+        else
+        {
+            // something else
+        }
     }
 }

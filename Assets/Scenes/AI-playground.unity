@@ -622,9 +622,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turningSpeed: 90
+  maxSpeed: 100
+  minSpeed: 25
   thrusterForce: 500
   asteroidStunTime: 0
   playerStunTime: 0
+  decelerationCoefficient: 4
 --- !u!114 &273451638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,6 +645,10 @@ MonoBehaviour:
   scanInterval: 3
   asteroidStunTime: 0
   playerStunTime: 0
+  waypointThreshold: 30
+  trackBarge: 1
+  barge: {fileID: 0}
+  path: {fileID: 0}
 --- !u!114 &273451639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,7 +671,7 @@ MonoBehaviour:
   path: {fileID: 173486921}
   collisionMask:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 1024
   scanType: 0
   sensorLength: 80
   frontSensorForeAftOffset: 9

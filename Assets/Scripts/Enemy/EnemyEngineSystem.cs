@@ -7,6 +7,10 @@ public class EnemyEngineSystem : MonoBehaviour
     [SerializeField] [Min(0)] [Tooltip("Turning speed, degrees per second")]
     private float turningSpeed = 90;
 
+    [SerializeField] [Range(1, 200)] [Tooltip("Maximum enemy velocity.")]
+    private float maxSpeed = 100;
+    public float minSpeed = 25;
+
     [SerializeField] [Min(0)] [Tooltip("Thruster force")]
     private float thrusterForce = 500;
 
@@ -16,16 +20,25 @@ public class EnemyEngineSystem : MonoBehaviour
     [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
     float playerStunTime = 3f;
 
+    [SerializeField] [Range(0,10)] [Tooltip("Tug braking coefficient, more => faster.")]
+    private float decelerationCoefficient = 4;
+
     private Rigidbody2D rb2d;
+    public int rb2dID => rb2d.GetInstanceID();
 
     private float timer = 0;
 
     public bool Status => timer <= 0;
 
+    public Vector2 Velocity => rb2d.velocity;
+    private float heading;
+    // public float Heading => heading;
+
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        heading = rb2d.rotation;
     }
 
 
@@ -38,22 +51,49 @@ public class EnemyEngineSystem : MonoBehaviour
     }
 
 
-    public void MoveForward()
+    public void MoveForward(float thrust)
     {
         if (timer <= 0)
         {
-            rb2d.AddForce(transform.right * thrusterForce, ForceMode2D.Force);
+            if (thrust >= 0)
+            {
+                rb2d.AddForce(transform.right * thrusterForce * thrust, ForceMode2D.Force);
+
+                rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, maxSpeed);
+            }
+            else
+            {
+                ApplyBrakes();
+            }
+            
+        }
+    }
+
+    public void ApplyBrakes()
+    {
+        rb2d.velocity -= rb2d.velocity.normalized * decelerationCoefficient;
+
+        if (rb2d.velocity.magnitude < minSpeed)
+        {
+            rb2d.velocity = rb2d.velocity.normalized * minSpeed;
         }
     }
 
 
     public void TurnTowardsTarget(float headingChange)
     {
+        heading = ClampAngle( rb2d.rotation + headingChange * turningSpeed * Time.fixedDeltaTime );
+
+        // TODO: dampen this rotation
         if (timer <= 0)
         {
-            headingChange = Mathf.Clamp(headingChange, -turningSpeed * Time.fixedDeltaTime, turningSpeed * Time.fixedDeltaTime);
-            rb2d.rotation += headingChange;
+            rb2d.MoveRotation( heading );
         }
+    }
+
+    private float ClampAngle(float angle)
+    {
+        return (angle % 360) + (angle < 0 ? 360 : 0);
     }
 
 

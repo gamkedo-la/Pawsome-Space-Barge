@@ -211,12 +211,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 273451632}
-  - component: {fileID: 273451633}
-  - component: {fileID: 273451634}
-  - component: {fileID: 273451636}
-  - component: {fileID: 273451635}
   - component: {fileID: 273451637}
   - component: {fileID: 273451638}
+  - component: {fileID: 273451639}
+  - component: {fileID: 273451634}
+  - component: {fileID: 273451635}
+  - component: {fileID: 273451636}
+  - component: {fileID: 273451633}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -232,7 +233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273451631}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1277, y: -6600, z: 0}
+  m_LocalPosition: {x: 2175.2, y: -6328, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -396,7 +397,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &273451637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,10 +410,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41666804cadc21569aeff26dbe7fe6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turningSpeed: 90
-  thrusterForce: 500
-  asteroidStunTime: 5
-  playerStunTime: 7
+  turningSpeed: 300
+  maxSpeed: 100
+  minSpeed: 25
+  thrusterForce: 1000
+  asteroidStunTime: 0
+  playerStunTime: 0
+  decelerationCoefficient: 8
 --- !u!114 &273451638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,11 +429,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc8c9dc961818562ad86d045f97d36e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bargeDetectionRange: 700
+  bargeDetectionRange: 1000
   bargeContactRange: 20
   scanInterval: 3
-  asteroidStunTime: 7
+  asteroidStunTime: 0
   playerStunTime: 0
+  waypointThreshold: 30
+  trackBarge: 1
+  barge: {fileID: 0}
+  path: {fileID: 0}
+--- !u!114 &273451639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273451631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3c2a70d537be08b3a9a2904a4a4dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  scanType: 0
+  sensorLength: 100
+  frontSensorForeAftOffset: 9
+  sideSensorForeAftOffset: 0
+  sideSensorWidthOffset: 5
+  whiskersCount: 7
+  whiskerAngle: 15
+  radarScanRadius: 180
+  velocityScan: 1
+  avoidanceAccumulator: 0
+  avoidanceMinimum: Infinity
+  avoidanceMaximum: -Infinity
+  collisionCount: 0
 --- !u!1 &370990066
 GameObject:
   m_ObjectHideFlags: 0
@@ -16782,7 +16818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1729433128
 Transform:
   m_ObjectHideFlags: 0
@@ -22504,7 +22540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4481398954072391343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6750, z: 0}
+  m_LocalPosition: {x: 0, y: -6203, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24055,16 +24091,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minimumOrbitalRadius: 1000
   maximumOrbitalRadius: 10000
-  positionPci: {x: 0, y: -6750, z: 0}
-  velocityPci: {x: -42.486946, y: 0, z: 0}
+  positionPci: {x: 0, y: -6203, z: 0}
+  velocityPci: {x: -44.32069, y: 0, z: 0}
   orbitalElements:
-    semiMajorAxis: 6749.9995
-    eccentricity: 0.000000064117295
+    semiMajorAxis: 6202.9995
+    eccentricity: 0.000000053928655
     nu: 0
     T: 0
     omega: 4.712389
-    rp: 6749.999
-    ra: 6750
+    rp: 6202.999
+    ra: 6203
     speedMultiplier: 10
 --- !u!114 &4674204150618889738
 MonoBehaviour:
@@ -30929,7 +30965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8870666834117475441}
   - component: {fileID: 8870666834117475446}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BargeCollider
   m_TagString: Barge
   m_Icon: {fileID: 0}
