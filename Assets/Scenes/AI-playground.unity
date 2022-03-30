@@ -252,7 +252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154838556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 606, y: -5393, z: 0}
+  m_LocalPosition: {x: 1165, y: -5752, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -306,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &173486922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +403,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 258350143}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28, y: -5565, z: 0}
+  m_LocalPosition: {x: -23, y: -5439, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -442,7 +442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273451631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 678, y: -5341, z: 0}
+  m_LocalPosition: {x: 1356, y: -5580, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -661,16 +661,16 @@ MonoBehaviour:
   waypointThreshold: 100
   trackBarge: 1
   barge: {fileID: 2066133851900518385}
-  path: {fileID: 421715876}
+  path: {fileID: 173486921}
   collisionMask:
     serializedVersion: 2
     m_Bits: 1088
-  scanType: 0
+  scanType: 1
   sensorLength: 100
   frontSensorPositionOffset: 9
   frontSideSensorOffset: 5
   whiskersCount: 4
-  whiskerAngle: 12
+  whiskerAngle: 13
   radarScanRadius: 90
   velocityScan: 1
 --- !u!114 &273451640
@@ -691,7 +691,7 @@ MonoBehaviour:
   thrusterForce: 1000
   asteroidStunTime: 0
   playerStunTime: 0
-  decelerationCoefficient: 2
+  decelerationCoefficient: 5
 --- !u!1001 &283065191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3135,7 +3135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &421715877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8353,7 +8353,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700274471}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -349, y: -6296, z: 0}
+  m_LocalPosition: {x: -393, y: -5296, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13299,7 +13299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861440593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -822, y: -5771, z: 0}
+  m_LocalPosition: {x: -588, y: -6487, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13330,7 +13330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914543840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 625, y: -5796, z: 0}
+  m_LocalPosition: {x: -24, y: -6323, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13503,7 +13503,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977540966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 332, y: -5574, z: 0}
+  m_LocalPosition: {x: 880, y: -5483, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19448,7 +19448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451828514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 158, y: -5251, z: 0}
+  m_LocalPosition: {x: 6, y: -5794, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20489,7 +20489,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863237728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -739, y: -5317, z: 0}
+  m_LocalPosition: {x: -1051, y: -5462, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34371,7 +34371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8870666834117475441}
   - component: {fileID: 8870666834117475446}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BargeCollider
   m_TagString: Barge
   m_Icon: {fileID: 0}

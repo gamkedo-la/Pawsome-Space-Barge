@@ -23,7 +23,7 @@ public class AIPathTest : MonoBehaviour
 
 
     /// <summary> Known / planned scan modes. </summary>
-    private enum ScanType { Whiskers, Radar, Tutorial, CircleCast, Network }
+    private enum ScanType { Whiskers, ForwardPlus, Radar, Tutorial, CircleCast, Network }
 
     [Header("Waypoint Threshold")]
     [Tooltip("How close is close enough?")]
@@ -227,26 +227,25 @@ public class AIPathTest : MonoBehaviour
         // obstacle avoidance steering amount
         float avoidSteering = 0;
 
-        // we always need forward sensors don't we?
-        if (scanType != ScanType.Tutorial)
-        {
-            // calculating the forward sensors then adding the whisker steer produces the best results
-            // probably because of the stronger steering effect ¯\_(ツ)_/¯
-            avoidSteering += ForwardSensors(frontSensorStart, leftSensorStart, rightSensorStart);
-        }
-
-        // supplementary sensor types
+        // sensor type switch
         switch (scanType)
         {
             case ScanType.Whiskers:
                 {
-                    // avoidSteering += WhiskerScan(leftSensorStart, rightSensorStart);
+                    avoidSteering += WhiskerScan(leftSensorStart, rightSensorStart);
+                }
+                break;
+
+            case ScanType.ForwardPlus:
+                {
+                    avoidSteering += ForwardPlus(frontSensorStart, leftSensorStart, rightSensorStart);
                 }
                 break;
 
             case ScanType.Radar:
                 {
-                    RadarScan(frontSensorStart);
+                    // not actually implemented
+                    avoidSteering += RadarScan(frontSensorStart);
                 }
                 break;
 
@@ -281,24 +280,32 @@ public class AIPathTest : MonoBehaviour
 
 
     /// <summary>
-    /// Front pointing sensors.
+    /// Front pointing sensors, plus whiskers to side of detection side.
     /// </summary>
     /// <param name="frontSensorStart"></param>
     /// <param name="leftSensorStart"></param>
     /// <param name="rightSensorStart"></param>
-    private float ForwardSensors(Vector2 frontSensorStart, Vector2 leftSensorStart, Vector2 rightSensorStart)
+    private float ForwardPlus(Vector2 frontSensorStart, Vector2 leftSensorStart, Vector2 rightSensorStart)
     {
         RaycastHit2D leftHit, rightHit;
 
         float avoidSteering = 0;
+        bool applyBrakes = false;
 
         // front left sensor
         leftHit = Physics2D.Raycast(leftSensorStart, heading, sensorLength, layerMask);
         if (leftHit)
         {
+            if (leftHit.transform.gameObject.CompareTag("Barge")) { return 0; }
+
             Debug.DrawLine(leftSensorStart, leftHit.point, Color.red);
             avoidSteering -= 1f;
-            avoidSteering += WhiskerScanLeft(leftSensorStart);
+            avoidSteering += WhiskerScanLeft(leftSensorStart)/4;
+
+            if (leftHit.distance < engines.Velocity.magnitude)
+            {
+                applyBrakes = true;
+            }
         }
         else
         {
@@ -309,9 +316,16 @@ public class AIPathTest : MonoBehaviour
         rightHit = Physics2D.Raycast(rightSensorStart, heading, sensorLength, layerMask);
         if (rightHit)
         {
+            if (rightHit.transform.gameObject.CompareTag("Barge")) { return 0; }
+
             Debug.DrawLine(rightSensorStart, rightHit.point, Color.red);
             avoidSteering += 1f;
-            avoidSteering += WhiskerScanRight(rightSensorStart);
+            avoidSteering += WhiskerScanRight(rightSensorStart)/4;
+
+            if (rightHit.distance < engines.Velocity.magnitude)
+            {
+                applyBrakes = true;
+            }
         }
         else
         {
@@ -321,7 +335,13 @@ public class AIPathTest : MonoBehaviour
         // TODO this seems wrong but does the trick, 
         if (leftHit && rightHit)
         {
-            avoidSteering += WhiskerScan(leftSensorStart, rightSensorStart)/2;
+            avoidSteering += WhiskerScanLeft(leftSensorStart, true)/4;
+            avoidSteering += WhiskerScanRight(rightSensorStart, true)/4;
+        }
+
+        if (applyBrakes)
+        {
+            engines.ApplyBrakes();
         }
 
         return avoidSteering;
@@ -334,9 +354,10 @@ public class AIPathTest : MonoBehaviour
     /// Can scan from 1 to 360 degrees.
     /// </summary>
     /// <param name="frontSensorStart"></param>
-    private void RadarScan(Vector2 frontSensorStart)
+    private float RadarScan(Vector2 frontSensorStart)
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(frontSensorStart, sensorLength *2, layerMask);
+        float avoidSteering = 0;
 
         for (int i = 0; i < hits.Length; i++)
         {
@@ -350,11 +371,13 @@ public class AIPathTest : MonoBehaviour
                 // avoidSteering involves the dot product, distance to object, and ship velocity?
             }
         }
+
+        return avoidSteering;
     }
 
 
     /// <summary>
-    /// ScanType.Whiskers [default]
+    /// ScanType.Whiskers
     /// 'Whiskers' scanning method.
     /// </summary>
     /// <param name="frontSensorStart"></param>
@@ -366,22 +389,30 @@ public class AIPathTest : MonoBehaviour
         Quaternion angle;
 
         float avoidSteering = 0;
+        bool applyBrakes = false;
 
         // left sensors
         for (int i = 0; i <= whiskersCount; i++)
         {
-            angle = Quaternion.AngleAxis(whiskerAngle * (i + 1), transform.forward);
-            float length = ((float)whiskersCount - i) / (float)whiskersCount * 1.5f;
+            angle = Quaternion.AngleAxis(whiskerAngle * i, transform.forward);
+            float length = ((float)whiskersCount - i) / (float)whiskersCount;
             hit = Physics2D.Raycast(leftSensorStart, angle * heading, sensorLength*length, layerMask);
             if (hit)
             {
+                if (hit.transform.gameObject.CompareTag("Barge")) { return 0; }
+
                 Debug.DrawLine(leftSensorStart, hit.point, Color.red);
                 avoidSteering -= (1f * length) / whiskersCount;
-                // break;
+
+                if (hit.distance < engines.Velocity.magnitude)
+                {
+                    applyBrakes = true;
+                }
             }
             else
             {
                 Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * heading) * (sensorLength*length), Color.white);
+                break;
             }
         }
 
@@ -389,31 +420,44 @@ public class AIPathTest : MonoBehaviour
         // right sensors
         for (int i = 0; i <= whiskersCount; i++)
         {
-            angle = Quaternion.AngleAxis(-whiskerAngle * (i + 1), transform.forward);
-            float length = ((float)whiskersCount - i) / (float)whiskersCount * 1.5f;
+            angle = Quaternion.AngleAxis(-whiskerAngle * i, transform.forward);
+            float length = ((float)whiskersCount - i) / (float)whiskersCount;
             hit = Physics2D.Raycast(rightSensorStart, angle * heading, sensorLength*length, layerMask);
             if (hit)
             {
+                if (hit.transform.gameObject.CompareTag("Barge")) { return 0; }
+
                 Debug.DrawLine(rightSensorStart, hit.point, Color.red);
                 avoidSteering += (1f * length) / whiskersCount;
-                // break;
+
+                if (hit.distance < engines.Velocity.magnitude)
+                {
+                    applyBrakes = true;
+                }
             }
             else
             {
                 Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * heading) * (sensorLength*length), Color.white);
+                break;
             }
+        }
+
+        if (applyBrakes)
+        {
+            engines.ApplyBrakes();
         }
 
         return avoidSteering;
     }
 
 
-    private float WhiskerScanRight(Vector2 rightSensorStart)
+    private float WhiskerScanRight(Vector2 rightSensorStart, bool fullScan=false)
     {
         RaycastHit2D hit;
         Quaternion angle;
 
         float avoidSteering = 0;
+        bool applyBrakes = false;
 
         // right sensors
         for (int i = 0; i <= whiskersCount; i++)
@@ -423,26 +467,38 @@ public class AIPathTest : MonoBehaviour
             hit = Physics2D.Raycast(rightSensorStart, angle * heading, sensorLength*length, layerMask);
             if (hit)
             {
+                if (hit.transform.gameObject.CompareTag("Barge")) { return 0; }
+
                 Debug.DrawLine(rightSensorStart, hit.point, Color.red);
                 avoidSteering += (1f * length) / whiskersCount;
-                break;
+
+                if (hit.distance < engines.Velocity.magnitude)
+                {
+                    applyBrakes = true;
+                }
             }
             else
             {
                 Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * heading) * (sensorLength*length), Color.white);
+                if (!fullScan) { break; }
             }
         }
 
-        return avoidSteering / 2;
+        if (applyBrakes)
+        {
+            engines.ApplyBrakes();
+        }
+
+        return avoidSteering;
     }
 
-
-    private float WhiskerScanLeft(Vector2 leftSensorStart)
+    private float WhiskerScanLeft(Vector2 leftSensorStart, bool fullScan=false)
     {
         RaycastHit2D hit;
         Quaternion angle;
 
         float avoidSteering = 0;
+        bool applyBrakes = false;
 
         // left sensors
         for (int i = 0; i <= whiskersCount; i++)
@@ -452,17 +508,29 @@ public class AIPathTest : MonoBehaviour
             hit = Physics2D.Raycast(leftSensorStart, angle * heading, sensorLength*length, layerMask);
             if (hit)
             {
+                if (hit.transform.gameObject.CompareTag("Barge")) { return 0; }
+
                 Debug.DrawLine(leftSensorStart, hit.point, Color.red);
                 avoidSteering -= (1f * length) / whiskersCount;
-                break;
+
+                if (hit.distance < engines.Velocity.magnitude)
+                {
+                    applyBrakes = true;
+                }
             }
             else
             {
                 Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * heading) * (sensorLength*length), Color.white);
+                if (!fullScan) { break; }
             }
         }
 
-        return avoidSteering / 2;
+        if (applyBrakes)
+        {
+            engines.ApplyBrakes();
+        }
+
+        return avoidSteering;
     }
 
 
@@ -571,7 +639,10 @@ public class AIPathTest : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        collisionCount++;
-        Debug.Log(collisionCount);
+        if (other.gameObject.CompareTag("Asteroid"))
+        {
+            collisionCount++;
+            Debug.Log(collisionCount);
+        }
     }
 }
