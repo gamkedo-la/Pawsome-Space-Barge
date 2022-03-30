@@ -24,6 +24,7 @@ public class EngineSystemTest : MonoBehaviour
     private float decelerationCoefficient = 4;
 
     private Rigidbody2D rb2d;
+    public int rb2dID => rb2d.GetInstanceID();
 
     private float timer = 0;
 
@@ -80,7 +81,7 @@ public class EngineSystemTest : MonoBehaviour
 
     public void TurnTowardsTarget(float headingChange)
     {
-        heading = ClampAngle( heading += headingChange * turningSpeed * Time.fixedDeltaTime );
+        heading = ClampAngle( rb2d.rotation + headingChange * turningSpeed * Time.fixedDeltaTime );
 
         // TODO: dampen this rotation
         if (timer <= 0)
