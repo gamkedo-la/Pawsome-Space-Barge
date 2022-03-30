@@ -221,7 +221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88812540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 870, y: -5490, z: 0}
+  m_LocalPosition: {x: 621, y: -6248, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -666,11 +666,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1088
   scanType: 0
-  sensorLength: 100
-  frontSensorPositionOffset: 9
-  frontSideSensorOffset: 6
-  whiskersCount: 4
-  whiskerAngle: 12
+  sensorLength: 80
+  frontSensorForeAftOffset: 9
+  sideSensorForeAftOffset: 0
+  sideSensorWidthOffset: 5
+  whiskersCount: 7
+  whiskerAngle: 15
   radarScanRadius: 90
   velocityScan: 1
 --- !u!114 &273451640
@@ -685,13 +686,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4d6d412c32b764ebc916245fdb6cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turningSpeed: 200
+  turningSpeed: 300
   maxSpeed: 100
   minSpeed: 25
   thrusterForce: 1000
   asteroidStunTime: 0
   playerStunTime: 0
-  decelerationCoefficient: 5
+  decelerationCoefficient: 8
   heading: 0
 --- !u!1001 &283065191
 PrefabInstance:
@@ -3136,7 +3137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &421715877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19605,7 +19606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604545942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 85, y: -6371, z: 0}
+  m_LocalPosition: {x: -1235, y: -5581, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20513,7 +20514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1928720433
 Transform:
   m_ObjectHideFlags: 0
