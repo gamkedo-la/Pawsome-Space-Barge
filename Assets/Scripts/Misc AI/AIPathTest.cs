@@ -69,6 +69,9 @@ public class AIPathTest : MonoBehaviour
     /// <summary> Returns scan radius normalized between -1 and 1 </summary>
     private float ScanRadius => 1 - radarScanRadius/180;
 
+    [SerializeField] private bool velocityScan = true;
+    private Vector2 heading => velocityScan ? engines.Velocity.normalized : transform.right;
+
 
     private void Awake()
     {
@@ -186,7 +189,7 @@ public class AIPathTest : MonoBehaviour
         float[] vectorWeights = WeightVectors(vectors);
 
         // apply steering
-        engines.TurnTowardsTarget((newSteer * vectorWeights[0] + sensorSteer) - (velocitySteer * vectorWeights[1]) + (nextTargetSteer * vectorWeights[2]));
+        engines.TurnTowardsTarget((newSteer * vectorWeights[0]) - (velocitySteer * vectorWeights[1]) + (nextTargetSteer * vectorWeights[2]) + sensorSteer);
         
 
         // calculate desired heading
@@ -237,7 +240,7 @@ public class AIPathTest : MonoBehaviour
         {
             case ScanType.Whiskers:
                 {
-                    avoidSteering += WhiskerScan(leftSensorStart, rightSensorStart);
+                    // avoidSteering += WhiskerScan(leftSensorStart, rightSensorStart);
                 }
                 break;
 
@@ -290,27 +293,29 @@ public class AIPathTest : MonoBehaviour
         float avoidSteering = 0;
 
         // front left sensor
-        leftHit = Physics2D.Raycast(leftSensorStart, transform.right, sensorLength, layerMask);
+        leftHit = Physics2D.Raycast(leftSensorStart, heading, sensorLength, layerMask);
         if (leftHit)
         {
             Debug.DrawLine(leftSensorStart, leftHit.point, Color.red);
             avoidSteering -= 1f;
+            avoidSteering += WhiskerScanLeft(leftSensorStart);
         }
         else
         {
-            Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)transform.right * sensorLength, Color.white);
+            Debug.DrawLine(leftSensorStart, leftSensorStart + heading * sensorLength, Color.white);
         }
 
         // front right sensor
-        rightHit = Physics2D.Raycast(rightSensorStart, transform.right, sensorLength, layerMask);
+        rightHit = Physics2D.Raycast(rightSensorStart, heading, sensorLength, layerMask);
         if (rightHit)
         {
             Debug.DrawLine(rightSensorStart, rightHit.point, Color.red);
             avoidSteering += 1f;
+            avoidSteering += WhiskerScanRight(rightSensorStart);
         }
         else
         {
-            Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)transform.right * sensorLength, Color.white);
+            Debug.DrawLine(rightSensorStart, rightSensorStart + heading * sensorLength, Color.white);
         }
 
         // TODO this seems wrong but does the trick, 
@@ -362,34 +367,60 @@ public class AIPathTest : MonoBehaviour
 
         float avoidSteering = 0;
 
-
-        // The loops here start at 1 so as to not create a forward ray, only the angled 'whiskers'
-
         // left sensors
-        for (int i = 1; i <= whiskersCount; i++)
+        for (int i = 0; i <= whiskersCount; i++)
         {
-            angle = Quaternion.AngleAxis(whiskerAngle * i, transform.forward);
-            float length = ((float)whiskersCount - i) / (float)whiskersCount;
-            hit = Physics2D.Raycast(leftSensorStart, angle * transform.right, sensorLength*length, layerMask);
+            angle = Quaternion.AngleAxis(whiskerAngle * (i + 1), transform.forward);
+            float length = ((float)whiskersCount - i) / (float)whiskersCount * 1.5f;
+            hit = Physics2D.Raycast(leftSensorStart, angle * heading, sensorLength*length, layerMask);
             if (hit)
             {
                 Debug.DrawLine(leftSensorStart, hit.point, Color.red);
                 avoidSteering -= (1f * length) / whiskersCount;
-                break;
+                // break;
             }
             else
             {
-                Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * transform.right) * (sensorLength*length), Color.white);
+                Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * heading) * (sensorLength*length), Color.white);
             }
         }
 
 
         // right sensors
-        for (int i = 1; i <= whiskersCount; i++)
+        for (int i = 0; i <= whiskersCount; i++)
         {
-            angle = Quaternion.AngleAxis(-whiskerAngle * i, transform.forward);
-            float length = ((float)whiskersCount - i) / (float)whiskersCount;
-            hit = Physics2D.Raycast(rightSensorStart, angle * transform.right, sensorLength*length, layerMask);
+            angle = Quaternion.AngleAxis(-whiskerAngle * (i + 1), transform.forward);
+            float length = ((float)whiskersCount - i) / (float)whiskersCount * 1.5f;
+            hit = Physics2D.Raycast(rightSensorStart, angle * heading, sensorLength*length, layerMask);
+            if (hit)
+            {
+                Debug.DrawLine(rightSensorStart, hit.point, Color.red);
+                avoidSteering += (1f * length) / whiskersCount;
+                // break;
+            }
+            else
+            {
+                Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * heading) * (sensorLength*length), Color.white);
+            }
+        }
+
+        return avoidSteering;
+    }
+
+
+    private float WhiskerScanRight(Vector2 rightSensorStart)
+    {
+        RaycastHit2D hit;
+        Quaternion angle;
+
+        float avoidSteering = 0;
+
+        // right sensors
+        for (int i = 0; i <= whiskersCount; i++)
+        {
+            angle = Quaternion.AngleAxis(-whiskerAngle * (i + 1), transform.forward);
+            float length = ((float)whiskersCount - i) / (float)whiskersCount * 0.75f;
+            hit = Physics2D.Raycast(rightSensorStart, angle * heading, sensorLength*length, layerMask);
             if (hit)
             {
                 Debug.DrawLine(rightSensorStart, hit.point, Color.red);
@@ -398,11 +429,40 @@ public class AIPathTest : MonoBehaviour
             }
             else
             {
-                Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * transform.right) * (sensorLength*length), Color.white);
+                Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * heading) * (sensorLength*length), Color.white);
             }
         }
 
-        return avoidSteering;
+        return avoidSteering / 2;
+    }
+
+
+    private float WhiskerScanLeft(Vector2 leftSensorStart)
+    {
+        RaycastHit2D hit;
+        Quaternion angle;
+
+        float avoidSteering = 0;
+
+        // left sensors
+        for (int i = 0; i <= whiskersCount; i++)
+        {
+            angle = Quaternion.AngleAxis(whiskerAngle * (i + 1), transform.forward);
+            float length = ((float)whiskersCount - i) / (float)whiskersCount * 0.75f;
+            hit = Physics2D.Raycast(leftSensorStart, angle * heading, sensorLength*length, layerMask);
+            if (hit)
+            {
+                Debug.DrawLine(leftSensorStart, hit.point, Color.red);
+                avoidSteering -= (1f * length) / whiskersCount;
+                break;
+            }
+            else
+            {
+                Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * heading) * (sensorLength*length), Color.white);
+            }
+        }
+
+        return avoidSteering / 2;
     }
 
 

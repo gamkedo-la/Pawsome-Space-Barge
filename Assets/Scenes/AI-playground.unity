@@ -221,7 +221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88812540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 770, y: -6089, z: 0}
+  m_LocalPosition: {x: 870, y: -5490, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -306,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &173486922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,7 +442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273451631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -989, y: -5317, z: 0}
+  m_LocalPosition: {x: 678, y: -5341, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -659,19 +659,20 @@ MonoBehaviour:
   avoidanceMaximum: -Infinity
   collisionCount: 0
   waypointThreshold: 100
-  trackBarge: 0
+  trackBarge: 1
   barge: {fileID: 2066133851900518385}
-  path: {fileID: 173486921}
+  path: {fileID: 421715876}
   collisionMask:
     serializedVersion: 2
     m_Bits: 1088
   scanType: 0
   sensorLength: 100
   frontSensorPositionOffset: 9
-  frontSideSensorOffset: 4
-  whiskersCount: 6
-  whiskerAngle: 15
+  frontSideSensorOffset: 5
+  whiskersCount: 4
+  whiskerAngle: 12
   radarScanRadius: 90
+  velocityScan: 1
 --- !u!114 &273451640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,7 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4d6d412c32b764ebc916245fdb6cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turningSpeed: 300
+  turningSpeed: 200
   maxSpeed: 100
   minSpeed: 25
   thrusterForce: 1000
@@ -3134,7 +3135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &421715877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19603,7 +19604,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604545942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -923, y: -6069, z: 0}
+  m_LocalPosition: {x: 85, y: -6371, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
