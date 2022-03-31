@@ -1,49 +1,74 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Obstacle avoidance system.
+/// Waypoint navigation and obstacle avoidance system.
 /// </summary>
 [RequireComponent(typeof(EnemyAIStateMachine))]
 public class EnemyNavigationSystem : MonoBehaviour
 {
-    private EnemyAIStateMachine enemyAI;
-
     /// <summary> Known / planned scan modes. </summary>
     private enum ScanType { Whiskers, ForwardPlus, Radar, Tutorial, CircleCast, Network }
 
-    [Header("Sensors")]
-    [Tooltip("Raycast layer.")]
-    [SerializeField] public LayerMask collisionMask;
+    private EnemyAIStateMachine enemyAI;
     private int layerMask;
 
 
-    [Tooltip("Scanning method.")]
-    [SerializeField] private ScanType scanType = ScanType.Whiskers;
 
-    [Tooltip(" How far to scan from ship.")]
-    [SerializeField] private float sensorLength = 100;
-    [SerializeField] private float frontSensorForeAftOffset = 9f;
-    [SerializeField] private float sideSensorForeAftOffset = 0;
-    [SerializeField] private float sideSensorWidthOffset = 4f;
-    [SerializeField] private int whiskersCount = 6;
-    [SerializeField] private float whiskerAngle = 15;
+    [Header("Sensors")]
+    [SerializeField][Tooltip("Raycast layer.")]
+    public LayerMask collisionMask;
 
+    [SerializeField][Tooltip("Scan based towards velocity target")]
+    private bool velocityScan = true;
+
+    [SerializeField][Tooltip("Scanning method.")]
+    private ScanType scanType = ScanType.Whiskers;
+
+    [SerializeField][Tooltip("How far to scan from ship?")]
+    private float sensorLength = 100;
+
+    [SerializeField][Tooltip("Fore / Aft offset for front sensor, from ship center.")]
+    private float frontSensorForeAftOffset = 9f;
+
+    [SerializeField][Tooltip("Fore / Aft offset for side sensors, from ship center.")]
+     private float sideSensorForeAftOffset = 0;
+
+    [SerializeField][Tooltip("Left / Right offset for side sensors, from ship center.")]
+     private float sideSensorWidthOffset = 4f;
+
+
+
+    [Header("Whisker Scan Settings")]
+    [SerializeField][Tooltip("How many whiskers to iterate through.")]
+     private int whiskersCount = 6;
+
+    [SerializeField][Tooltip("Angle between whiskers.")]
+     private float whiskerAngle = 15;
+
+
+
+    [Header("Radar Scan Settings")]
     [Tooltip("Arc in degrees to scan for obstacles,\nin degrees, centered on ship forward.")]
-    [SerializeField][Range(1,360)] private float radarScanRadius = 180;
+    [SerializeField][Range(1,360)] private float radarScanWidth = 180;
 
-    /// <summary> Returns scan radius normalized between -1 and 1 </summary>
-    private float ScanRadius => 1 - radarScanRadius/180;
 
-    [SerializeField] private bool velocityScan = true;
-    private Vector2 heading => velocityScan ? enemyAI.Engines.Velocity.normalized : transform.right;
 
     [Header("Debug Data")]
     public float avoidanceAccumulator = 0;
     public float avoidanceMinimum = float.PositiveInfinity;
     public float avoidanceMaximum = float.NegativeInfinity;
     public int collisionCount = 0;
+
+
+
+
+    // *********************** Accessors ***********************
+    /// <summary> Returns scan radius normalized between -1 and 1 </summary>
+    private float RadarScanWidth => 1 - radarScanWidth/180;
+
+    /// <summary> Returns direction determined by velocityScan bool. </summary>
+    private Vector2 heading => velocityScan ? enemyAI.Engines.Velocity.normalized : transform.right;
+
 
 
     private void Awake()
@@ -54,7 +79,8 @@ public class EnemyNavigationSystem : MonoBehaviour
 
 
     /// <summary>
-    /// Steers towards target. Considers heading, velocity drift, and next waypoint location.
+    /// Steers towards target.
+    /// Considers heading, velocity drift, target, next waypoint, and queries obstacle avoidance 
     /// </summary>
     /// <param name="target"></param>
     /// <param name="nextTarget"></param>
@@ -94,7 +120,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         float[] vectorWeights = WeightVectors(vectors);
 
         // apply steering
-        enemyAI.Engines.TurnTowardsTarget((newSteer * vectorWeights[0]) - (velocitySteer * vectorWeights[1]) + (nextTargetSteer * vectorWeights[2]) + sensorSteer);
+        enemyAI.Engines.RotateShip((newSteer * vectorWeights[0]) - (velocitySteer * vectorWeights[1]) + (nextTargetSteer * vectorWeights[2]) + sensorSteer);
         
 
         // calculate desired heading
@@ -113,7 +139,7 @@ public class EnemyNavigationSystem : MonoBehaviour
 
 
         // apply thrust
-        enemyAI.Engines.MoveForward(thrustWeight + Mathf.Abs(sensorSteer));
+        enemyAI.Engines.ApplyThrust(thrustWeight);
     }
 
 
@@ -154,8 +180,11 @@ public class EnemyNavigationSystem : MonoBehaviour
 
             case ScanType.Radar:
                 {
-                    // not actually implemented
+                    // not actually implemented... but a pretty debug
                     avoidSteering += RadarScan(frontSensorStart);
+
+                    // so:
+                    avoidSteering += WhiskerScan(frontSensorStart, leftSensorStart, rightSensorStart);
                 }
                 break;
 
@@ -190,7 +219,7 @@ public class EnemyNavigationSystem : MonoBehaviour
 
 
     /// <summary>
-    /// Front pointing sensors, plus whiskers to side of detection side.
+    /// Front pointing sensors, plus whiskers to side when hit detected.
     /// </summary>
     /// <param name="frontSensorStart"></param>
     /// <param name="leftSensorStart"></param>
@@ -251,6 +280,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         // TODO this seems wrong but does the trick, 
         if (leftHit && rightHit)
         {
+            // panic and scan all whiskers in hope of resolution
             avoidSteering += WhiskerScanLeft(leftSensorStart, true)/4;
             avoidSteering += WhiskerScanRight(rightSensorStart, true)/4;
         }
@@ -279,7 +309,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         {
             Vector2 toTarget = (hits[i].transform.position - transform.position).normalized;
             float dot = Vector2.Dot(transform.right.normalized, toTarget);
-            if (dot > ScanRadius)
+            if (dot > RadarScanWidth)
             {
                 Debug.DrawLine(frontSensorStart, hits[i].ClosestPoint(transform.position) , Color.red);
 
@@ -293,8 +323,12 @@ public class EnemyNavigationSystem : MonoBehaviour
 
 
     /// <summary>
-    /// ScanType.Whiskers
-    /// 'Whiskers' scanning method.
+    /// ScanType.Whiskers [default]
+    /// Scans through whiskers starting with front pointing ones.
+    /// When a hit is detected the whiskers are iterated through
+    /// on that side until no whiskers hit an obstacle.
+    /// 
+    /// Produces steering that turns away from congested areas.
     /// </summary>
     /// <param name="frontSensorStart"></param>
     /// <param name="leftSensorStart"></param>
@@ -404,6 +438,14 @@ public class EnemyNavigationSystem : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Scans through right side whiskers.
+    /// If 'fullScan' all whiskers are scanned,
+    /// else the scan stops when no hit detected.
+    /// </summary>
+    /// <param name="rightSensorStart"></param>
+    /// <param name="fullScan"></param>
+    /// <returns></returns>
     private float WhiskerScanRight(Vector2 rightSensorStart, bool fullScan=false)
     {
         RaycastHit2D hit;
@@ -448,6 +490,15 @@ public class EnemyNavigationSystem : MonoBehaviour
         return avoidSteering;
     }
 
+
+    /// <summary>
+    /// Scans through left side whiskers.
+    /// If 'fullScan' all whiskers are scanned,
+    /// else the scan stops when no hit detected.
+    /// </summary>
+    /// <param name="leftSensorStart"></param>
+    /// <param name="fullScan"></param>
+    /// <returns></returns>
     private float WhiskerScanLeft(Vector2 leftSensorStart, bool fullScan=false)
     {
         RaycastHit2D hit;
@@ -497,6 +548,8 @@ public class EnemyNavigationSystem : MonoBehaviour
     /// ScanType.Tutorial
     /// Sensors as used in tutorial video.
     /// See: https://youtu.be/PiYffouHvuk
+    /// 
+    /// Not really playable, but in fairness the tutorial is guiding a car not a spaceship.
     /// </summary>
     /// <param name="frontSensorStart"></param>
     /// <param name="leftSensorStart"></param>

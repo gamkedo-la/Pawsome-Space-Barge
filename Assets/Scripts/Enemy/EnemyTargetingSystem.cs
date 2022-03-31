@@ -4,27 +4,36 @@ using UnityEngine;
 
 public class EnemyTargetingSystem : MonoBehaviour
 {
-    [Tooltip("Maximum range at which the barge can be detected")]
-    [SerializeField][Min(0f)] private float bargeDetectionRange = 500f;
-
-    [Tooltip("Maximum range at which the barge can be boarded/pushed")]
-    [SerializeField] [Min(0f)] private float bargeContactRange = 20f;
-
-    [Tooltip("Required time to complete a scan for the barge")]
-    [SerializeField] [Min(0.1f)] private float scanInterval = 3f;
-
-    [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
-    float asteroidStunTime = 7f;
-
-    [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
-    float playerStunTime = 0f;
-
+    private List<Transform> nodes;
+    private int currentNode = 0, nextNode = 1;
     private float stunTimer = 0;
-    public bool Status => stunTimer <= 0;
-
-
+    private Vector2 previousBargePosition;
     private Vector2 target = Vector2.zero;
     private Vector2 nextTarget = Vector2.zero;
+    private bool targetLocked = false;
+    private GameObject barge;
+
+
+
+    [Header("Barge Detection Settings")]
+    [SerializeField][Tooltip("Track the barge?")]
+    private bool trackBarge = true;
+
+    [SerializeField][Tooltip("Maximum range at which the barge can be detected")]
+    [Min(0f)] private float bargeDetectionRange = 500f;
+
+    [SerializeField][Tooltip("Maximum range at which the barge can be boarded/pushed")]
+    [Min(0f)] private float bargeContactRange = 20f;
+
+    [SerializeField][Tooltip("Required time to complete a scan for the barge")]
+    [Min(0.1f)] private float scanInterval = 3f;
+
+
+
+    [Header("Path Follow Settings")]
+    [SerializeField][Tooltip("Path of nodes to follow")]
+    private GameObject path;
+
 
 
     [Header("Waypoint Threshold")]
@@ -32,23 +41,23 @@ public class EnemyTargetingSystem : MonoBehaviour
     [SerializeField] private float waypointThreshold = 30;
 
 
-    [Header("Barge Tracking Settings")]
-    [Tooltip("Track the barge?")]
-    [SerializeField] private bool trackBarge = true;
 
-    private Vector2 previousBargePosition;
+    [Header("Stun Timer Settings")]
+    [SerializeField][Tooltip("Stun time, in seconds.")]
+    [Min(0)] private float asteroidStunTime = 7f;
 
-    [Tooltip("Barge object to track.")]
-    [SerializeField] private GameObject barge;
-    private bool targetLocked = false;
+    [SerializeField][Tooltip("Stun time, in seconds.")]
+    [Min(0)] private float playerStunTime = 0f;
+
+
+
+    // *********************** Accessors ***********************
+    /// <summary> Targeting system status check. </summary>
+    public bool Online => stunTimer <= 0;
+
+    /// <summary> Target lock check. </summary>
     public bool TargetLocked => targetLocked;
 
-
-    [Header("Path Follow Settings")]
-    [Tooltip("Path of nodes to follow")]
-    [SerializeField] private GameObject path;
-    private List<Transform> nodes;
-    private int currentNode = 0, nextNode = 1;
 
 
     private void Awake()
@@ -76,6 +85,7 @@ public class EnemyTargetingSystem : MonoBehaviour
             }
         }
 
+        // begin barge range check
         StartCoroutine(ScanForBarge());
     }
 
@@ -100,28 +110,9 @@ public class EnemyTargetingSystem : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        // draw detection radius
         Gizmos.DrawWireSphere(transform.position, bargeDetectionRange);
     }
-    
-    // This logic feels error prone so I split it.
-    // Do we need a generic method for this?
-
-    // public (Vector2, Vector2) AquireTarget()
-    // {
-    //     target = Vector2.zero;
-    //     nextTarget = Vector2.zero;
-
-    //     if ( (!trackBarge && path != null) || ( trackBarge && stunTimer <= 0 ))
-    //     {
-    //         (target, nextTarget) = TrackPath();
-    //     }
-    //     else if (stunTimer <= 0)
-    //     {
-    //         (target, nextTarget) = TrackBarge();
-    //     }
-
-    //     return (target, nextTarget);
-    // }
 
 
     // TODO:
@@ -136,6 +127,12 @@ public class EnemyTargetingSystem : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Tracks path waypoints.
+    /// Returns targets for current waypoint on path and next waypoint on path.
+    /// Probably does not need to give the next target... but that'd be a refactor task.
+    /// </summary>
+    /// <returns>(target, nextTarget)</returns>
     public (Vector2, Vector2) TrackPath()
     {
         target = Vector2.zero;
@@ -167,6 +164,12 @@ public class EnemyTargetingSystem : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Tracks barge.
+    /// Returns targets for current barge position and
+    /// future barge position based on previous position.
+    /// </summary>
+    /// <returns>(target, nextTarget)</returns>
     public (Vector2, Vector2) TrackBarge()
     {
         target = Vector2.zero;
@@ -194,18 +197,32 @@ public class EnemyTargetingSystem : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Returns true if barge is in contact range.
+    /// </summary>
+    /// <returns></returns>
     public bool IsBargeContact()
     {
         return Vector3.Distance(transform.position, barge.transform.position) <= bargeContactRange;
     }
 
 
+    /// <summary>
+    /// Returns true if barge is in detection range.
+    /// </summary>
+    /// <returns></returns>
     private bool IsBargeInRange()
     {
         return Vector3.Distance(transform.position, barge.transform.position) <= bargeDetectionRange;
     }
 
 
+    /// <summary>
+    /// Periodically checks distance to barge.
+    /// 
+    /// Toggles targetLocked; true if barge is in detection range.
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator ScanForBarge()
     {
         while (true)
