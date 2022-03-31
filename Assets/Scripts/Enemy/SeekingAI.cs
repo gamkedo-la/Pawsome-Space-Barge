@@ -15,6 +15,20 @@ public class SeekingAI : MonoBehaviour
         enabled = false;
     }
 
+    private void OnEnable()
+    {
+        // setup systems
+
+        // engines
+        enemyAI.Engines.Braking = 8;
+        enemyAI.Engines.MaxSpeed = 80;
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("PatrolAI disabled.");
+    }
+
     private void FixedUpdate()
     {
         // query targeting system

@@ -15,6 +15,22 @@ public class PatrolAI : MonoBehaviour
         enabled = false;
     }
 
+
+    /// <summary>
+    /// Can be used to setup system for current state.
+    /// </summary>
+    private void OnEnable()
+    {
+        // engines
+        enemyAI.Engines.Braking = 0;
+        enemyAI.Engines.MaxSpeed = 100;
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("PatrolAI disabled.");
+    }
+
     private void FixedUpdate()
     {
         // TODO:
