@@ -20,10 +20,10 @@ public class EnemyTargetingSystem : MonoBehaviour
     private bool trackBarge = true;
 
     [SerializeField][Tooltip("Maximum range at which the barge can be detected")]
-    [Min(0f)] private float bargeDetectionRange = 500f;
+    [Min(0f)] private float bargeDetectionRange = 2000f;
 
     [SerializeField][Tooltip("Maximum range at which the barge can be boarded/pushed")]
-    [Min(0f)] private float bargeContactRange = 20f;
+    [Min(0f)] private float bargeContactRange = 50f;
 
     [SerializeField][Tooltip("Required time to complete a scan for the barge")]
     [Min(0.1f)] private float scanInterval = 3f;

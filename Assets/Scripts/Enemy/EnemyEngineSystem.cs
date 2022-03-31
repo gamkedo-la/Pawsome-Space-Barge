@@ -16,7 +16,7 @@ public class EnemyEngineSystem : MonoBehaviour
 
     [Header("Velocity Settings")]
     [SerializeField] [Min(0)] [Tooltip("Turning speed, degrees per second")]
-    private float turningSpeed = 90;
+    private float turningSpeed = 300;
 
     [SerializeField] [Range(1, 200)] [Tooltip("Maximum enemy velocity.")]
     private float maxSpeed = 100;
@@ -25,10 +25,10 @@ public class EnemyEngineSystem : MonoBehaviour
     private float minSpeed = 25;
 
     [SerializeField] [Min(0)] [Tooltip("Thruster force")]
-    private float thrusterForce = 500;
+    private float thrusterForce = 1000;
 
     [SerializeField] [Range(0,10)] [Tooltip("Tug braking coefficient, more => faster.")]
-    private float decelerationCoefficient = 4;
+    private float decelerationCoefficient = 1;
 
 
 

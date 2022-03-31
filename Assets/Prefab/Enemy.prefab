@@ -81,6 +81,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3966224891069599133}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onIdleExit:
     m_PersistentCalls:
       m_Calls:
@@ -95,6 +107,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 3966224891069599133}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   onSeekEnter:
     m_PersistentCalls:
@@ -160,9 +184,9 @@ MonoBehaviour:
   maxSpeed: 100
   minSpeed: 25
   thrusterForce: 1000
+  decelerationCoefficient: 1
   asteroidStunTime: 0
-  playerStunTime: 0
-  decelerationCoefficient: 8
+  playerStunTime: 3
 --- !u!114 &2925028900334608137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,16 +199,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc8c9dc961818562ad86d045f97d36e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bargeDetectionRange: 2000
-  bargeContactRange: 20
-  scanInterval: 3
-  asteroidStunTime: 0
-  playerStunTime: 0
-  waypointThreshold: 30
   trackBarge: 1
-  barge: {fileID: 0}
-  targetLocked: 0
+  bargeDetectionRange: 2000
+  bargeContactRange: 50
+  scanInterval: 3
   path: {fileID: 0}
+  waypointThreshold: 30
+  asteroidStunTime: 7
+  playerStunTime: 0
 --- !u!114 &2925028900334608136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +222,7 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 1024
+  velocityScan: 1
   scanType: 0
   sensorLength: 100
   frontSensorForeAftOffset: 9
@@ -207,8 +230,7 @@ MonoBehaviour:
   sideSensorWidthOffset: 5
   whiskersCount: 7
   whiskerAngle: 15
-  radarScanRadius: 180
-  velocityScan: 1
+  radarScanWidth: 180
   avoidanceAccumulator: 0
   avoidanceMinimum: Infinity
   avoidanceMaximum: -Infinity
