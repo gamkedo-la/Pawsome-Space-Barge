@@ -37,7 +37,7 @@ public class SeekingAI : MonoBehaviour
         // instruct navigation system
         if (target != Vector2.zero)
         {
-            enemyAI.Navigation.ApplySteer(target);
+            enemyAI.Navigation.NavigateToTarget(target);
         }
         else
         {

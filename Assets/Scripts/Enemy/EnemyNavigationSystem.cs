@@ -84,7 +84,7 @@ public class EnemyNavigationSystem : MonoBehaviour
     /// </summary>
     /// <param name="target"></param>
     /// <param name="nextTarget"></param>
-    public void ApplySteer(Vector2 target)
+    public void NavigateToTarget(Vector2 target)
     {
         float sensorSteer = Sensors();
 
