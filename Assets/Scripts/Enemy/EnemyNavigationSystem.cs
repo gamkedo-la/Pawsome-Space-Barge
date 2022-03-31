@@ -54,10 +54,10 @@ public class EnemyNavigationSystem : MonoBehaviour
 
 
     [Header("Debug Data")]
-    public float avoidanceAccumulator = 0;
-    public float avoidanceMinimum = float.PositiveInfinity;
-    public float avoidanceMaximum = float.NegativeInfinity;
-    public int collisionCount = 0;
+    [ReadOnly] public float avoidanceAccumulator = 0;
+    [ReadOnly] public float avoidanceMinimum = float.PositiveInfinity;
+    [ReadOnly] public float avoidanceMaximum = float.NegativeInfinity;
+    [ReadOnly] public int collisionCount = 0;
 
 
 
