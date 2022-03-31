@@ -4,7 +4,7 @@ using UnityEngine;
 public class PatrolAI : MonoBehaviour
 {
     private EnemyAIStateMachine enemyAI;
-    private Vector2 target, nextTarget;
+    private Vector2 target;
 
 
     private void Awake()
@@ -38,12 +38,12 @@ public class PatrolAI : MonoBehaviour
         // should then only update targeting when close to target waypoint
 
         // query targeting system
-        (target, nextTarget) = enemyAI.Targeting.TrackPath();
+        target = enemyAI.Targeting.TrackPath();
 
         // instruct navigation system
-        if (target != Vector2.zero && nextTarget != Vector2.zero)
+        if (target != Vector2.zero)
         {
-            enemyAI.Navigation.ApplySteer(target, nextTarget);
+            enemyAI.Navigation.ApplySteer(target);
         }
         else
         {

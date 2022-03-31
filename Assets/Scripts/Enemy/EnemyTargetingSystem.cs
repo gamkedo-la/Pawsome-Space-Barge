@@ -133,7 +133,7 @@ public class EnemyTargetingSystem : MonoBehaviour
     /// Probably does not need to give the next target... but that'd be a refactor task.
     /// </summary>
     /// <returns>(target, nextTarget)</returns>
-    public (Vector2, Vector2) TrackPath()
+    public (Vector2, Vector2) TrackPathTwoTarget()
     {
         target = Vector2.zero;
         nextTarget = Vector2.zero;
@@ -170,7 +170,7 @@ public class EnemyTargetingSystem : MonoBehaviour
     /// future barge position based on previous position.
     /// </summary>
     /// <returns>(target, nextTarget)</returns>
-    public (Vector2, Vector2) TrackBarge()
+    public (Vector2, Vector2) TrackBargeTwoTarget()
     {
         target = Vector2.zero;
         nextTarget = Vector2.zero;
@@ -194,6 +194,56 @@ public class EnemyTargetingSystem : MonoBehaviour
             
 
         return (target, nextTarget);
+    }
+
+
+    /// <summary>
+    /// Tracks path waypoints.
+    /// Returns target for current waypoint on path.
+    /// </summary>
+    /// <returns></returns>
+    public Vector2 TrackPath()
+    {
+        target = Vector2.zero;
+        
+        // if close enough switch node target
+        if (Vector2.Distance(transform.position, nodes[currentNode].position) < waypointThreshold)
+        {
+            currentNode++;
+
+            if (currentNode >= nodes.Count)
+            {
+                currentNode = 0;
+            }
+        }
+
+        // define target
+        target = nodes[currentNode].position;
+
+        return target;
+    }
+
+
+    /// <summary>
+    /// Tracks barge.
+    /// Returns target for current barge position.
+    /// </summary>
+    /// <returns></returns>
+    public Vector2 TrackBarge()
+    {
+        target = Vector2.zero;
+
+        if (previousBargePosition == null)
+        {
+            previousBargePosition = barge.transform.position;    
+        }
+
+        if (stunTimer <= 0)
+        {
+            target = barge.transform.position;
+        }
+
+        return target;
     }
 
 

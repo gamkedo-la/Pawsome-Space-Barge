@@ -4,7 +4,7 @@
 public class SeekingAI : MonoBehaviour
 {
     private EnemyAIStateMachine enemyAI;
-    private Vector2 target, nextTarget;
+    private Vector2 target;
 
 
     private void Awake()
@@ -32,12 +32,12 @@ public class SeekingAI : MonoBehaviour
     private void FixedUpdate()
     {
         // query targeting system
-        (target, nextTarget) = enemyAI.Targeting.TrackBarge();
+        target = enemyAI.Targeting.TrackBarge();
 
         // instruct navigation system
-        if (target != Vector2.zero && nextTarget != Vector2.zero)
+        if (target != Vector2.zero)
         {
-            enemyAI.Navigation.ApplySteer(target, nextTarget);
+            enemyAI.Navigation.ApplySteer(target);
         }
         else
         {

@@ -80,7 +80,57 @@ public class EnemyNavigationSystem : MonoBehaviour
 
     /// <summary>
     /// Steers towards target.
-    /// Considers heading, velocity drift, target, next waypoint, and queries obstacle avoidance 
+    /// Considers heading, velocity drift, single target, and queries obstacle avoidance.
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="nextTarget"></param>
+    public void ApplySteer(Vector2 target)
+    {
+        float sensorSteer = Sensors();
+
+        // steering vectors array
+        Vector2[] vectors = new Vector2[2];
+
+        // vectors[0] -> vector to target
+        vectors[0] = transform.InverseTransformPoint(target);
+        float newSteer = vectors[0].y / vectors[0].magnitude;
+
+        // vectors[1] -> velocity vector
+        vectors[1] = transform.InverseTransformPoint((Vector2)transform.position + enemyAI.Engines.Velocity);
+        float velocitySteer = vectors[1].magnitude == 0 ? 0 : vectors[1].y / vectors[1].magnitude;
+
+        // get vector weights
+        float[] vectorWeights = WeightVectors(vectors);
+
+        // apply steering
+        enemyAI.Engines.RotateShip((newSteer * vectorWeights[0]) - (velocitySteer * vectorWeights[1]) + sensorSteer);
+        
+
+        // calculate desired heading
+        Vector2 headingToTarget = (target - (Vector2)transform.position).normalized;
+        float headingDifference = Mathf.Abs(Vector3.SignedAngle(transform.right, headingToTarget, Vector3.forward));
+
+        // scale thrust
+        // when facing away from target thrust is 0
+        float thrustWeight = Mathf.Abs((headingDifference/180) - 1);
+
+        // if close to target, slow down
+        if (enemyAI.Engines.Velocity.magnitude / vectors[0].magnitude > 1)
+        {
+            thrustWeight *= -1;
+        }
+
+
+        // apply thrust
+        enemyAI.Engines.ApplyThrust(thrustWeight);
+    }
+
+
+    /// <summary>
+    /// Steers towards target.
+    /// Considers heading, velocity drift, target, next waypoint, and queries obstacle avoidance.
+    /// 
+    /// CURRENTLY UNUSED - USE SINGLE TARGET SIGNATURE VERSION
     /// </summary>
     /// <param name="target"></param>
     /// <param name="nextTarget"></param>
