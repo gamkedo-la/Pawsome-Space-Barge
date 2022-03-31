@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(EnemyTargetingSystem), typeof(EnemyEngineSystem), typeof(EnemyNavigationSystem))]
 public class EnemyAIStateMachine : MonoBehaviour
 {
     [SerializeField] private EnemyType enemyType;

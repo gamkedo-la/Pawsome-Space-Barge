@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent( typeof(Rigidbody2D) )]
 public class EnemyEngineSystem : MonoBehaviour
 {
     [SerializeField] [Min(0)] [Tooltip("Turning speed, degrees per second")]
@@ -32,7 +33,7 @@ public class EnemyEngineSystem : MonoBehaviour
 
     public Vector2 Velocity => rb2d.velocity;
     private float heading;
-    // public float Heading => heading;
+    public float Heading => heading;
 
 
     private void Awake()

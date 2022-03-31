@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Obstacle avoidance system.
 /// </summary>
+[RequireComponent(typeof(EnemyAIStateMachine))]
 public class EnemyNavigationSystem : MonoBehaviour
 {
     private EnemyAIStateMachine enemyAI;

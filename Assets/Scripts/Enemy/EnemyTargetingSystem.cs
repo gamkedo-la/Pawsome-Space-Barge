@@ -19,8 +19,6 @@ public class EnemyTargetingSystem : MonoBehaviour
     [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
     float playerStunTime = 0f;
 
-    private Rigidbody2D rb2d;
-
     private float stunTimer = 0;
     public bool Status => stunTimer <= 0;
 
@@ -55,7 +53,6 @@ public class EnemyTargetingSystem : MonoBehaviour
 
     private void Awake()
     {
-        rb2d = GetComponent<Rigidbody2D>();
         barge = GameObject.FindGameObjectWithTag("Barge");
 
         if (!trackBarge && path == null) trackBarge = true;
