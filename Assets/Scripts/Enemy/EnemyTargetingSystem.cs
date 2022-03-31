@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class EnemyTargetingSystem : MonoBehaviour
 {
+    private GameObject barge;
     private List<Transform> nodes;
     private int currentNode = 0, nextNode = 1;
-    private float stunTimer = 0;
-    private Vector2 previousBargePosition;
-    private Vector2 target = Vector2.zero;
-    private Vector2 nextTarget = Vector2.zero;
-    private bool targetLocked = false;
-    private GameObject barge;
+
+    [ReadOnly][SerializeField] private float stunTimer = 0;
+    [ReadOnly][SerializeField] private Vector2 previousBargePosition;
+    [ReadOnly][SerializeField] private Vector2 target = Vector2.zero;
+    [ReadOnly][SerializeField] private Vector2 nextTarget = Vector2.zero;
+    [ReadOnly][SerializeField] private bool targetLocked = false;
 
 
 

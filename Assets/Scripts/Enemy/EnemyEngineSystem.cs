@@ -9,7 +9,11 @@ public class EnemyEngineSystem : MonoBehaviour
 {
     // private properties
     private Rigidbody2D rb2d;
+
+    [ReadOnly][SerializeField]
     private float heading;
+
+    [ReadOnly][SerializeField]
     private float stunTimer = 0;
 
 

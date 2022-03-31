@@ -10,7 +10,8 @@ public class EnemyNavigationSystem : MonoBehaviour
     private enum ScanType { Whiskers, ForwardPlus, Radar, Tutorial, CircleCast, Network }
 
     private EnemyAIStateMachine enemyAI;
-    private int layerMask;
+
+    [ReadOnly][SerializeField] private int layerMask;
 
 
 
