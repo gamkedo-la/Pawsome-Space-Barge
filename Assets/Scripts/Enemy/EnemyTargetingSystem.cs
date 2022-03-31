@@ -21,14 +21,12 @@ public class EnemyTargetingSystem : MonoBehaviour
 
     private Rigidbody2D rb2d;
 
-    private float timer = 0;
-    public bool Status => timer <= 0;
+    private float stunTimer = 0;
+    public bool Status => stunTimer <= 0;
 
 
     private Vector2 target = Vector2.zero;
-    public Vector2 Target => target;
     private Vector2 nextTarget = Vector2.zero;
-    public Vector2 NextTarget => nextTarget;
 
 
     [Header("Waypoint Threshold")]
@@ -44,7 +42,8 @@ public class EnemyTargetingSystem : MonoBehaviour
 
     [Tooltip("Barge object to track.")]
     [SerializeField] private GameObject barge;
-    public GameObject Barge => barge;
+    private bool targetLocked = false;
+    public bool TargetLocked => targetLocked;
 
 
     [Header("Path Follow Settings")]
@@ -57,6 +56,7 @@ public class EnemyTargetingSystem : MonoBehaviour
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        barge = GameObject.FindGameObjectWithTag("Barge");
 
         if (!trackBarge && path == null) trackBarge = true;
     }
@@ -79,17 +79,25 @@ public class EnemyTargetingSystem : MonoBehaviour
             }
         }
 
-        // previousBargePosition = barge.transform.position;
-
         StartCoroutine(ScanForBarge());
     }
 
 
     private void Update()
     {
-        if (timer > 0)
+        if (stunTimer > 0)
         {
-            timer -= Time.deltaTime;
+            stunTimer -= Time.deltaTime;
+
+            if (stunTimer <= 0)
+            {
+                // check barge position
+                // set bool for animator if out-of-range
+                if ( !IsBargeInRange() )
+                {
+                    targetLocked = false;
+                }
+            }
         }
     }
 
@@ -98,43 +106,82 @@ public class EnemyTargetingSystem : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, bargeDetectionRange);
     }
     
-    
-    public (Vector2, Vector2) AquireTarget()
+    // This logic feels error prone so I split it.
+    // Do we need a generic method for this?
+
+    // public (Vector2, Vector2) AquireTarget()
+    // {
+    //     target = Vector2.zero;
+    //     nextTarget = Vector2.zero;
+
+    //     if ( (!trackBarge && path != null) || ( trackBarge && stunTimer <= 0 ))
+    //     {
+    //         (target, nextTarget) = TrackPath();
+    //     }
+    //     else if (stunTimer <= 0)
+    //     {
+    //         (target, nextTarget) = TrackBarge();
+    //     }
+
+    //     return (target, nextTarget);
+    // }
+
+
+    // TODO:
+    // should return nearest point on nearest path
+    // to be called when entering patrol state
+    public (Vector2, Vector2) NearestPathPoint(Vector2 loctaion)
     {
         target = Vector2.zero;
         nextTarget = Vector2.zero;
 
-        if (!trackBarge && path != null)
+        return (target, nextTarget);
+    }
+
+
+    public (Vector2, Vector2) TrackPath()
+    {
+        target = Vector2.zero;
+        nextTarget = Vector2.zero;
+        
+        // if close enough switch node target
+        if (Vector2.Distance(transform.position, nodes[currentNode].position) < waypointThreshold)
         {
-            // if close enough switch node target
-            if (Vector2.Distance(transform.position, nodes[currentNode].position) < waypointThreshold)
+            currentNode++;
+
+            if (currentNode >= nodes.Count)
             {
-                currentNode++;
-
-                if (currentNode >= nodes.Count)
-                {
-                    currentNode = 0;
-                }
-
-                nextNode = currentNode + 1;
-
-                if (nextNode >= nodes.Count)
-                {
-                    nextNode = 0;
-                }
+                currentNode = 0;
             }
 
-            // define targets
-            target = nodes[currentNode].position;
-            nextTarget = nodes[nextNode].position;
+            nextNode = currentNode + 1;
+
+            if (nextNode >= nodes.Count)
+            {
+                nextNode = 0;
+            }
         }
-        else if (barge != null)
-        {
-            if (previousBargePosition == null)
-            {
-                previousBargePosition = barge.transform.position;    
-            }
 
+        // define targets
+        target = nodes[currentNode].position;
+        nextTarget = nodes[nextNode].position;
+
+        return (target, nextTarget);
+    }
+
+
+    public (Vector2, Vector2) TrackBarge()
+    {
+        target = Vector2.zero;
+        nextTarget = Vector2.zero;
+
+        if (previousBargePosition == null)
+        {
+            previousBargePosition = barge.transform.position;    
+        }
+
+        if (stunTimer <= 0)
+        {
             target = barge.transform.position;
 
             Vector2 bargeVelocity = previousBargePosition - (Vector2)barge.transform.position;
@@ -144,13 +191,21 @@ public class EnemyTargetingSystem : MonoBehaviour
             previousBargePosition = barge.transform.position;
         }
 
+            
+
         return (target, nextTarget);
     }
 
 
     public bool IsBargeContact()
     {
-        return barge != null && Vector3.Distance(transform.position, barge.transform.position) <= bargeContactRange;
+        return Vector3.Distance(transform.position, barge.transform.position) <= bargeContactRange;
+    }
+
+
+    private bool IsBargeInRange()
+    {
+        return Vector3.Distance(transform.position, barge.transform.position) <= bargeDetectionRange;
     }
 
 
@@ -159,15 +214,14 @@ public class EnemyTargetingSystem : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(scanInterval);
-            barge = GameObject.FindGameObjectWithTag("Barge");
-            if (barge == null) continue;
             
-            if (
-                Vector3.Distance(transform.position, barge.transform.position) > bargeDetectionRange
-                || timer > 0
-            )
+            if ( IsBargeInRange() )
             {
-                barge = null;
+                targetLocked = true;
+            }
+            else
+            {
+                targetLocked = false;
             }
         }
     }
@@ -175,15 +229,15 @@ public class EnemyTargetingSystem : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (timer <= 0)
+        if (stunTimer <= 0)
         {
             if (other.gameObject.CompareTag("Asteroid"))
             {
-                timer = asteroidStunTime;
+                stunTimer = asteroidStunTime;
             }
             if (other.gameObject.CompareTag("Player"))
             {
-                timer = playerStunTime;
+                stunTimer = playerStunTime;
             }
         }
     }

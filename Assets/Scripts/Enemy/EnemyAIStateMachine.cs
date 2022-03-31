@@ -48,7 +48,7 @@ public class EnemyAIStateMachine : MonoBehaviour
 
     private void Update()
     {
-        animator.SetBool(BargeDetectedParameter, targeting.Barge != null);
+        animator.SetBool(BargeDetectedParameter, targeting.TargetLocked);
         animator.SetBool(BargeContactParameter, targeting.IsBargeContact());
     }
 

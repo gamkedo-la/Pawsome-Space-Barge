@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 [RequireComponent(typeof(EnemyAIStateMachine))]
-public class SeekingAI : MonoBehaviour
+public class PatrolAI : MonoBehaviour
 {
     private EnemyAIStateMachine enemyAI;
     private Vector2 target, nextTarget;
@@ -17,8 +17,12 @@ public class SeekingAI : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // TODO:
+        // should search for nearest waypoint on any orbital path on script enable
+        // should then only update targeting when close to target waypoint
+
         // query targeting system
-        (target, nextTarget) = enemyAI.Targeting.TrackBarge();
+        (target, nextTarget) = enemyAI.Targeting.TrackPath();
 
         // instruct navigation system
         if (target != Vector2.zero && nextTarget != Vector2.zero)
@@ -27,7 +31,7 @@ public class SeekingAI : MonoBehaviour
         }
         else
         {
-            // something else
+            // something else?
         }
     }
 }
