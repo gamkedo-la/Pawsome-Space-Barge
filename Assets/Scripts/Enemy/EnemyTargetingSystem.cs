@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyTargetingSystem : MonoBehaviour
 {
+    private EnemyAIStateMachine enemyAI;
+    private AlertEvent callForHelp;
     private GameObject barge;
     private int layerMask;
     private List<List<Transform>> orbitalPathsNodes;
@@ -27,9 +29,6 @@ public class EnemyTargetingSystem : MonoBehaviour
 
     [SerializeField][Tooltip("Required time to complete a scan for the barge")]
     [Min(0.1f)] private float scanInterval = 3f;
-
-    [SerializeField][Tooltip("Event asset for alert send/recieve.")]
-    public AlertEvent callForHelp;
 
 
 
@@ -80,7 +79,9 @@ public class EnemyTargetingSystem : MonoBehaviour
 
     private void Awake()
     {
+        enemyAI = GetComponent<EnemyAIStateMachine>();
         barge = GameObject.FindGameObjectWithTag("Barge");
+        layerMask = LayerMask.GetMask("Waypoints");
     }
 
 
@@ -108,7 +109,8 @@ public class EnemyTargetingSystem : MonoBehaviour
             orbitalPathsNodes.Add(tempList);
         }
 
-        layerMask = LayerMask.GetMask("Waypoints");
+        // setup alert network
+        callForHelp = enemyAI.EventNetwork.alertEvent;
 
         // begin barge range check
         StartCoroutine(ScanForBarge());

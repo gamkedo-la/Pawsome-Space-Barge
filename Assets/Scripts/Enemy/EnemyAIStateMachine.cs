@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class EnemyAIStateMachine : MonoBehaviour
 {
     [SerializeField] private EnemyType enemyType;
+    public EnemyType Type => enemyType;
 
     [Header("Events")] 
     [SerializeField] private UnityEvent onIdleEnter;
@@ -24,6 +25,8 @@ public class EnemyAIStateMachine : MonoBehaviour
     public EnemyTargetingSystem Targeting => targeting;
     private EnemyNavigationSystem navigation;
     public EnemyNavigationSystem Navigation => navigation;
+    private AlertEventListener eventNetwork;
+    public AlertEventListener EventNetwork => eventNetwork;
 
 
     private static readonly int EnemyTypeParameter = Animator.StringToHash("EnemyType");
@@ -37,6 +40,7 @@ public class EnemyAIStateMachine : MonoBehaviour
         engines = GetComponent<EnemyEngineSystem>();
         targeting = GetComponent<EnemyTargetingSystem>();
         navigation = GetComponent<EnemyNavigationSystem>();
+        eventNetwork = GetComponent<AlertEventListener>();
     }
 
 

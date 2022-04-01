@@ -18852,6 +18852,8 @@ MonoBehaviour:
   restart: {fileID: 0}
   ending: {fileID: 0}
   settings: {fileID: 11400000, guid: 8dff29eced539db7ca374a4db3cbb6a3, type: 2}
+  policeEvent: {fileID: 11400000, guid: 14144eca98c44312a94d9cd12b48b522, type: 2}
+  pirateEvent: {fileID: 11400000, guid: 141ada0ad4ce1ad20989b62d3aedff19, type: 2}
   pauseOnDialog: 1
 --- !u!114 &1635844464
 MonoBehaviour:
@@ -26458,10 +26460,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2925028900334608137, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-      propertyPath: callForHelp
-      value: 
-      objectReference: {fileID: 11400000, guid: 14144eca98c44312a94d9cd12b48b522, type: 2}
     - target: {fileID: 2925028900334608141, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: onIdleEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -26520,50 +26518,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
---- !u!1 &2925028900071183744 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2925028900334608144, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-  m_PrefabInstance: {fileID: 2925028900071183743}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2925028900071183745 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2925028900334608137, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-  m_PrefabInstance: {fileID: 2925028900071183743}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2925028900071183744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abc8c9dc961818562ad86d045f97d36e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2925028900071183746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2925028900071183744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ca04409ff3b74af1a547e5398fe6f63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alertEvent: {fileID: 11400000, guid: 14144eca98c44312a94d9cd12b48b522, type: 2}
-  onEventTriggered:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2925028900071183745}
-        m_TargetAssemblyTypeName: EnemyTargetingSystem, Assembly-CSharp
-        m_MethodName: recieveAlert
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &3110628107975019655
 GameObject:
   m_ObjectHideFlags: 0

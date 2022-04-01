@@ -11,11 +11,18 @@ using UnityEngine;
 /// </summary>
 public class AlertEventListener : MonoBehaviour
 {
-    // [ReadOnly][SerializeField]
+    private EnemyAIStateMachine enemyAI;
+
+    [ReadOnly][SerializeField]
     public AlertEvent alertEvent;
 
-    // [ReadOnly][SerializeField]
     public Vector2Event onEventTriggered;
+
+    private void Awake()
+    {
+        enemyAI = GetComponent<EnemyAIStateMachine>();
+        alertEvent = GameManagement.Instance.GetAlertNetwork(enemyAI.Type);
+    }
 
     private void OnEnable()
     {
