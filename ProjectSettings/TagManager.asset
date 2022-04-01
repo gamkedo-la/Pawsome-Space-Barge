@@ -14,6 +14,7 @@ TagManager:
   - Barge
   - Minimap Marker
   - Dialog
+  - OrbitalPath
   layers:
   - Default
   - TransparentFX

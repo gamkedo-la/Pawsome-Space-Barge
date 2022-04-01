@@ -485,6 +485,41 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1 &207217907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 207217908}
+  m_Layer: 0
+  m_Name: Space Traffic Control
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &207217908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207217907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1316027101}
+  - {fileID: 1307688177}
+  - {fileID: 1317126949}
+  - {fileID: 569380979}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &211023659
 GameObject:
   m_ObjectHideFlags: 0
@@ -6158,7 +6193,7 @@ GameObject:
   - component: {fileID: 569380978}
   m_Layer: 0
   m_Name: Inner Orbit Path
-  m_TagString: Untagged
+  m_TagString: OrbitalPath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6183,7 +6218,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569380977}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 0
@@ -6204,8 +6239,8 @@ Transform:
   - {fileID: 2102993873}
   - {fileID: 1827291057}
   - {fileID: 1935716996}
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 207217908}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &592497139
 GameObject:
@@ -17752,7 +17787,7 @@ GameObject:
   - component: {fileID: 1307688176}
   m_Layer: 0
   m_Name: 3rd Orbit Path
-  m_TagString: Untagged
+  m_TagString: OrbitalPath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17777,7 +17812,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307688175}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.73, y: 0.73, z: 0.73}
   m_ConstrainProportionsScale: 1
@@ -17798,8 +17833,8 @@ Transform:
   - {fileID: 339559619}
   - {fileID: 1630247382}
   - {fileID: 1401145153}
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 207217908}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1316027099
 GameObject:
@@ -17813,7 +17848,7 @@ GameObject:
   - component: {fileID: 1316027100}
   m_Layer: 0
   m_Name: Outer Orbit Path
-  m_TagString: Untagged
+  m_TagString: OrbitalPath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17838,7 +17873,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316027099}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17859,8 +17894,8 @@ Transform:
   - {fileID: 795557439}
   - {fileID: 740963612}
   - {fileID: 1975373132}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 207217908}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1317126947
 GameObject:
@@ -17874,7 +17909,7 @@ GameObject:
   - component: {fileID: 1317126948}
   m_Layer: 0
   m_Name: 2nd Orbit Path
-  m_TagString: Untagged
+  m_TagString: OrbitalPath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17899,7 +17934,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317126947}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.515, y: 0.515, z: 0.515}
   m_ConstrainProportionsScale: 0
@@ -17920,8 +17955,8 @@ Transform:
   - {fileID: 1237997219}
   - {fileID: 2035783860}
   - {fileID: 113196786}
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 207217908}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1329400456
 GameObject:
@@ -26423,38 +26458,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2925028900334608136, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-      propertyPath: sensorLength
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 2925028900334608136, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-      propertyPath: steeringGain
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2925028900334608136, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-      propertyPath: steeringDecay
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2925028900334608136, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-      propertyPath: sideSensorWidthOffset
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2925028900334608136, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-      propertyPath: sideSensorForeAftOffset
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2925028900334608137, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-      propertyPath: path
-      value: 
-      objectReference: {fileID: 1316027099}
-    - target: {fileID: 2925028900334608137, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-      propertyPath: mask.m_Bits
-      value: 2048
-      objectReference: {fileID: 0}
-    - target: {fileID: 2925028900334608137, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-      propertyPath: paths.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608137, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: paths.Array.data[0]
       value: 
@@ -26471,10 +26474,6 @@ PrefabInstance:
       propertyPath: paths.Array.data[3]
       value: 
       objectReference: {fileID: 1316027099}
-    - target: {fileID: 2925028900334608138, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-      propertyPath: turningSpeed
-      value: 250
-      objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608141, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: onIdleEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
