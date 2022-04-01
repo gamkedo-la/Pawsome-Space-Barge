@@ -28,6 +28,9 @@ public class EnemyTargetingSystem : MonoBehaviour
     [SerializeField][Tooltip("Required time to complete a scan for the barge")]
     [Min(0.1f)] private float scanInterval = 3f;
 
+    [SerializeField][Tooltip("Event asset for alert send/recieve.")]
+    public AlertEvent callForHelp;
+
 
 
     [Header("Waypoint Settings")]
@@ -51,6 +54,27 @@ public class EnemyTargetingSystem : MonoBehaviour
 
     /// <summary> Target lock check. </summary>
     public bool TargetLocked => targetLocked;
+
+
+
+    /// <summary>
+    /// Example reciever method.
+    /// </summary>
+    /// <param name="position"></param>
+    public void recieveAlert(Vector2 position)
+    {
+        Debug.Log(position.ToString());
+    }
+
+
+    /// <summary>
+    /// Example notification broadcast.
+    /// </summary>
+    /// <param name="position"></param>
+    public void sendAlert(Vector2 position)
+    {
+        callForHelp.TriggerEvent(position);
+    }
 
 
 
@@ -88,6 +112,9 @@ public class EnemyTargetingSystem : MonoBehaviour
 
         // begin barge range check
         StartCoroutine(ScanForBarge());
+
+        // event system test
+        sendAlert(transform.position);
     }
 
 
