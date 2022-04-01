@@ -29,10 +29,12 @@ public class PatrolAI : MonoBehaviour
         target = enemyAI.Targeting.NearestPathPoint(transform.position);
     }
 
+
     private void OnDisable()
     {
         Debug.Log("PatrolAI disabled.");
     }
+
 
     private void FixedUpdate()
     {

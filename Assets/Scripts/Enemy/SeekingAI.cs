@@ -15,19 +15,23 @@ public class SeekingAI : MonoBehaviour
         enabled = false;
     }
 
+
+    /// <summary>
+    /// Can be used to setup system for current state.
+    /// </summary>
     private void OnEnable()
     {
-        // setup systems
-
         // engines
         enemyAI.Engines.Braking = 8;
         enemyAI.Engines.MaxSpeed = 80;
     }
 
+
     private void OnDisable()
     {
         Debug.Log("SeekingAI disabled.");
     }
+
 
     private void FixedUpdate()
     {
