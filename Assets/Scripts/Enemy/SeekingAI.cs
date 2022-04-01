@@ -26,7 +26,7 @@ public class SeekingAI : MonoBehaviour
 
     private void OnDisable()
     {
-        Debug.Log("PatrolAI disabled.");
+        Debug.Log("SeekingAI disabled.");
     }
 
     private void FixedUpdate()
