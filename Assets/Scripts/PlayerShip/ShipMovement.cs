@@ -165,7 +165,7 @@ public class ShipMovement : MonoBehaviour
                 rearRightThruster.On(rotationInput);
                 frontLeftThruster.On(rotationInput);
                 frontRightThruster.Off();
-                SoundManager.Instance.PlayShipThrusters("Thrusters", 2f);
+                SoundManager.Instance.PlayShipThrusters("Thrusters", 1f);
                 SoundManager.Instance.AdjustThrusterDirection(-.5f);
                 return;
             case < 0:
@@ -173,7 +173,7 @@ public class ShipMovement : MonoBehaviour
                 rearRightThruster.Off();
                 frontLeftThruster.Off();
                 frontRightThruster.On(rotationInput);
-                SoundManager.Instance.PlayShipThrusters("Thrusters", 2f);
+                SoundManager.Instance.PlayShipThrusters("Thrusters", 1f);
                 SoundManager.Instance.AdjustThrusterDirection(.5f);
                 return;
         }
@@ -185,7 +185,7 @@ public class ShipMovement : MonoBehaviour
                 rearRightThruster.On(thrustInput);
                 frontLeftThruster.Off();
                 frontRightThruster.Off();
-                SoundManager.Instance.PlayShipThrusters("Thrusters", 2f);
+                SoundManager.Instance.PlayShipThrusters("Thrusters", 1.5f);
                 SoundManager.Instance.AdjustThrusterDirection(0f);
                 break;
             case < 0:
@@ -193,7 +193,7 @@ public class ShipMovement : MonoBehaviour
                 rearRightThruster.On(thrustInput);
                 frontLeftThruster.On(thrustInput);
                 frontRightThruster.On(thrustInput);
-                SoundManager.Instance.PlayShipThrusters("Thrusters", 2f);
+                SoundManager.Instance.PlayShipThrusters("Thrusters", .8f);
                 SoundManager.Instance.AdjustThrusterDirection(0f);
                 break;
             default:

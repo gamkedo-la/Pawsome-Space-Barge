@@ -138,20 +138,22 @@ public class SoundManager : MonoBehaviour
     {
         if (!shipThrusters.isPlaying && soundEffects)
         {
+            shipThrusters.PlayOneShot(audioLookup[sound]);
             shipThrusters.loop = true;
-            shipThrusters.PlayOneShot(audioLookup[sound], volume);
         }
+        shipThrusters.volume = volume;
     }
-    
-    
+
+
     /// <summary> Play A Sound ON TOP OF OTHERS. </summary>
     /// <param name="sound">Which sound to play.</param>
     /// <param name="volume">How loud? [0-1]</param>
+    /// <param name="pan">setting for panStereo</param>
     public void AdjustThrusterDirection(float pan)
     {
         shipThrusters.panStereo = pan;
         if (pan is < -.1f or > .1f )
-            shipThrusters.pitch = 1;
+            shipThrusters.pitch = 1.0f;
         else
             shipThrusters.pitch = 1.07f;
     }
