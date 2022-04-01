@@ -24,6 +24,9 @@ public class PatrolAI : MonoBehaviour
         // engines
         enemyAI.Engines.Braking = 0;
         enemyAI.Engines.MaxSpeed = 100;
+
+        // find nearest patrol waypoint
+        target = enemyAI.Targeting.NearestPathPoint(transform.position);
     }
 
     private void OnDisable()
@@ -33,10 +36,6 @@ public class PatrolAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // TODO:
-        // should search for nearest waypoint on any orbital path on script enable
-        // should then only update targeting when close to target waypoint
-
         // query targeting system
         target = enemyAI.Targeting.TrackPath();
 

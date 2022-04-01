@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyTargetingSystem : MonoBehaviour
 {
     private GameObject barge;
-    private List<Transform> nodes;
-    private int currentNode = 0, nextNode = 1;
+    private int layerMask;
+    private List<List<Transform>> orbitalPathsNodes;
+    private int currentPath, currentNode, nextNode;
 
     [ReadOnly][SerializeField] private float stunTimer = 0;
     [ReadOnly][SerializeField] private Vector2 previousBargePosition;
@@ -17,8 +18,6 @@ public class EnemyTargetingSystem : MonoBehaviour
 
 
     [Header("Barge Detection Settings")]
-    [SerializeField][Tooltip("Track the barge?")]
-    private bool trackBarge = true;
 
     [SerializeField][Tooltip("Maximum range at which the barge can be detected")]
     [Min(0f)] private float bargeDetectionRange = 2000f;
@@ -31,15 +30,12 @@ public class EnemyTargetingSystem : MonoBehaviour
 
 
 
-    [Header("Path Follow Settings")]
-    [SerializeField][Tooltip("Path of nodes to follow")]
-    private GameObject path;
+    [Header("Waypoint Settings")]
+    [SerializeField][Tooltip("Orbit paths for enemyAI")]
+    private GameObject[] paths;
 
-
-
-    [Header("Waypoint Threshold")]
-    [Tooltip("How close is close enough?")]
-    [SerializeField] private float waypointThreshold = 30;
+    [SerializeField][Tooltip("How close is close enough?")]
+    private float waypointThreshold = 30;
 
 
 
@@ -64,27 +60,32 @@ public class EnemyTargetingSystem : MonoBehaviour
     private void Awake()
     {
         barge = GameObject.FindGameObjectWithTag("Barge");
-
-        if (!trackBarge && path == null) trackBarge = true;
     }
 
 
-    void Start()
+    private void Start()
     {
-        if (path != null)
+        orbitalPathsNodes = new List<List<Transform>>();
+
+        for (int x = 0; x < paths.Length; x++)
         {
-            Transform[] pathTransforms = path.GetComponentsInChildren<Transform>();
-            nodes = new List<Transform>();
+            Transform[] pathTransforms = paths[x].GetComponentsInChildren<Transform>();
+
+            var tempList = new List<Transform>();
 
             foreach (Transform node in pathTransforms)
             {
-                if (node != path.transform || pathTransforms.Length == 1)
+                if (node != paths[x].transform)
                 {
-                    nodes.Add(node);
+                    tempList.Add(node);
                     Debug.Log($"Added node waypoint: {node.gameObject.transform.position}");
                 }
             }
+
+            orbitalPathsNodes.Add(tempList);
         }
+
+        layerMask = LayerMask.GetMask("Waypoints");
 
         // begin barge range check
         StartCoroutine(ScanForBarge());
@@ -116,85 +117,65 @@ public class EnemyTargetingSystem : MonoBehaviour
     }
 
 
-    // TODO:
-    // should return nearest point on nearest path
-    // to be called when entering patrol state
-    public (Vector2, Vector2) NearestPathPoint(Vector2 loctaion)
-    {
-        target = Vector2.zero;
-        nextTarget = Vector2.zero;
-
-        return (target, nextTarget);
-    }
-
-
     /// <summary>
-    /// Tracks path waypoints.
-    /// Returns targets for current waypoint on path and next waypoint on path.
-    /// Probably does not need to give the next target... but that'd be a refactor task.
+    /// Return nearest point on nearest path.
+    /// Send ship to next node to maintain counter-clockwise patrol.
     /// </summary>
-    /// <returns>(target, nextTarget)</returns>
-    public (Vector2, Vector2) TrackPathTwoTarget()
+    /// <param name="loctaion"></param>
+    /// <returns></returns>
+    public Vector2 NearestPathPoint(Vector2 loctaion)
     {
         target = Vector2.zero;
-        nextTarget = Vector2.zero;
-        
-        // if close enough switch node target
-        if (Vector2.Distance(transform.position, nodes[currentNode].position) < waypointThreshold)
+
+        // collider check for waypoints
+        Collider2D[] hits;
+        hits = Physics2D.OverlapCircleAll(transform.position, 2000f, layerMask);
+
+        GameObject closestWaypoint = null;
+        float closestDistance = Mathf.Infinity;
+
+        // search for closest hit
+        foreach (Collider2D waypoint in hits)
         {
-            currentNode++;
-
-            if (currentNode >= nodes.Count)
+            Vector3 directionToTarget = waypoint.transform.position - transform.position;
+            float distanceSqr = directionToTarget.sqrMagnitude;
+            if (distanceSqr < closestDistance)
             {
-                currentNode = 0;
-            }
-
-            nextNode = currentNode + 1;
-
-            if (nextNode >= nodes.Count)
-            {
-                nextNode = 0;
+                closestDistance = distanceSqr;
+                closestWaypoint = waypoint.gameObject;
             }
         }
 
-        // define targets
-        target = nodes[currentNode].position;
-        nextTarget = nodes[nextNode].position;
-
-        return (target, nextTarget);
-    }
-
-
-    /// <summary>
-    /// Tracks barge.
-    /// Returns targets for current barge position and
-    /// future barge position based on previous position.
-    /// </summary>
-    /// <returns>(target, nextTarget)</returns>
-    public (Vector2, Vector2) TrackBargeTwoTarget()
-    {
-        target = Vector2.zero;
-        nextTarget = Vector2.zero;
-
-        if (previousBargePosition == null)
+        // which path?
+        foreach (var thing in orbitalPathsNodes)
         {
-            previousBargePosition = barge.transform.position;    
+            if (thing.Exists(e => e.transform == closestWaypoint.transform))
+            {
+                currentPath = orbitalPathsNodes.IndexOf(thing);
+                Debug.Log($"current path: { currentPath }");
+            }
         }
 
-        if (stunTimer <= 0)
-        {
-            target = barge.transform.position;
+        // find index in path
+        currentNode = orbitalPathsNodes[currentPath].IndexOf(closestWaypoint.transform);
 
-            Vector2 bargeVelocity = previousBargePosition - (Vector2)barge.transform.position;
+        // get index of next node
+        int nextNode = currentNode >= orbitalPathsNodes[currentPath].Count - 1 ? 0 : currentNode + 1;
 
-            nextTarget = (Vector2)barge.transform.position - bargeVelocity * 100;
+        // check dot product, head to next waypoint counter clockwise
+        Vector2 vectorToNextWaypoint =
+            orbitalPathsNodes[currentPath][nextNode].position - orbitalPathsNodes[currentPath][currentNode].position;
+        Vector2 vectorToShip =
+            transform.position - orbitalPathsNodes[currentPath][currentNode].position;
 
-            previousBargePosition = barge.transform.position;
-        }
+        float dot = Vector2.Dot(vectorToNextWaypoint, vectorToShip);
 
-            
+        if (dot >= 0) { currentNode = nextNode; }
 
-        return (target, nextTarget);
+        // finally set target
+        target = orbitalPathsNodes[currentPath][currentNode].transform.position;
+
+        return target;
     }
 
 
@@ -208,18 +189,18 @@ public class EnemyTargetingSystem : MonoBehaviour
         target = Vector2.zero;
         
         // if close enough switch node target
-        if (Vector2.Distance(transform.position, nodes[currentNode].position) < waypointThreshold)
+        if (Vector2.Distance(transform.position, orbitalPathsNodes[currentPath][currentNode].transform.position) < waypointThreshold)
         {
             currentNode++;
 
-            if (currentNode >= nodes.Count)
+            if (currentNode >= orbitalPathsNodes[currentPath].Count)
             {
                 currentNode = 0;
             }
         }
 
         // define target
-        target = nodes[currentNode].position;
+        target = orbitalPathsNodes[currentPath][currentNode].position;
 
         return target;
     }
@@ -233,11 +214,6 @@ public class EnemyTargetingSystem : MonoBehaviour
     public Vector2 TrackBarge()
     {
         target = Vector2.zero;
-
-        if (previousBargePosition == null)
-        {
-            previousBargePosition = barge.transform.position;    
-        }
 
         if (stunTimer <= 0)
         {
@@ -306,4 +282,77 @@ public class EnemyTargetingSystem : MonoBehaviour
             }
         }
     }
+
+
+
+    // ******************************** CRUFT ********************************
+
+    // /// <summary>
+    // /// Tracks path waypoints.
+    // /// Returns targets for current waypoint on path and next waypoint on path.
+    // /// Probably does not need to give the next target... but that'd be a refactor task.
+    // /// </summary>
+    // /// <returns>(target, nextTarget)</returns>
+    // public (Vector2, Vector2) TrackPathTwoTarget()
+    // {
+    //     target = Vector2.zero;
+    //     nextTarget = Vector2.zero;
+        
+    //     // if close enough switch node target
+    //     if (Vector2.Distance(transform.position, nodes[currentNode].position) < waypointThreshold)
+    //     {
+    //         currentNode++;
+
+    //         if (currentNode >= nodes.Count)
+    //         {
+    //             currentNode = 0;
+    //         }
+
+    //         nextNode = currentNode + 1;
+
+    //         if (nextNode >= nodes.Count)
+    //         {
+    //             nextNode = 0;
+    //         }
+    //     }
+
+    //     // define targets
+    //     target = nodes[currentNode].position;
+    //     nextTarget = nodes[nextNode].position;
+
+    //     return (target, nextTarget);
+    // }
+
+
+    // /// <summary>
+    // /// Tracks barge.
+    // /// Returns targets for current barge position and
+    // /// future barge position based on previous position.
+    // /// </summary>
+    // /// <returns>(target, nextTarget)</returns>
+    // public (Vector2, Vector2) TrackBargeTwoTarget()
+    // {
+    //     target = Vector2.zero;
+    //     nextTarget = Vector2.zero;
+
+    //     if (previousBargePosition == null)
+    //     {
+    //         previousBargePosition = barge.transform.position;    
+    //     }
+
+    //     if (stunTimer <= 0)
+    //     {
+    //         target = barge.transform.position;
+
+    //         Vector2 bargeVelocity = previousBargePosition - (Vector2)barge.transform.position;
+
+    //         nextTarget = (Vector2)barge.transform.position - bargeVelocity * 100;
+
+    //         previousBargePosition = barge.transform.position;
+    //     }
+
+            
+
+    //     return (target, nextTarget);
+    // }
 }
