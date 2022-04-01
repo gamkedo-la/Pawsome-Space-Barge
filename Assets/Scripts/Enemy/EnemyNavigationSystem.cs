@@ -27,7 +27,7 @@ public class EnemyNavigationSystem : MonoBehaviour
 
     [SerializeField][Tooltip("How far to scan from ship?")]
     private float sensorLength = 100;
-    private float SensorLength => velocityScan ? enemyAI.Engines.Velocity.magnitude * 1.5f : SensorLength;
+    private float SensorLength => velocityScan ? enemyAI.Engines.Velocity.magnitude * 1.5f : sensorLength;
 
     [SerializeField][Tooltip("Steering gain factor (%)")]
     [Range(0,1)] private float steeringGain = 0.5f;
@@ -211,12 +211,14 @@ public class EnemyNavigationSystem : MonoBehaviour
         Vector2 sensorStartPos = transform.position;
 
         //front sensor
-        Vector2 frontSensorStart = sensorStartPos + (Vector2)transform.right * frontSensorForeAftOffset;
+        Vector2 frontSensorStart = sensorStartPos + heading * frontSensorForeAftOffset;
 
         // side sensors
-        Vector2 sideSensorOffset = sensorStartPos + (Vector2)transform.right * sideSensorForeAftOffset;
-        Vector2 leftSensorStart = sideSensorOffset + (Vector2)transform.up * sideSensorWidthOffset;
-        Vector2 rightSensorStart = sideSensorOffset - (Vector2)transform.up * sideSensorWidthOffset;
+        Vector2 sideSensorOffset = sensorStartPos + heading * sideSensorForeAftOffset;
+
+        Vector2 shipLeft = Quaternion.AngleAxis(90, Vector3.forward) * heading;
+        Vector2 leftSensorStart = sideSensorOffset + shipLeft * sideSensorWidthOffset;
+        Vector2 rightSensorStart = sideSensorOffset - shipLeft * sideSensorWidthOffset;
 
         // obstacle avoidance steering amount
         float avoidSteering = 0;
