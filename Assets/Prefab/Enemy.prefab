@@ -180,7 +180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41666804cadc21569aeff26dbe7fe6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turningSpeed: 300
+  heading: 0
+  stunTimer: 0
+  turningSpeed: 250
   maxSpeed: 100
   minSpeed: 25
   thrusterForce: 1000
@@ -199,11 +201,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc8c9dc961818562ad86d045f97d36e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackBarge: 1
+  stunTimer: 0
+  previousBargePosition: {x: 0, y: 0}
+  target: {x: 0, y: 0}
+  nextTarget: {x: 0, y: 0}
+  targetLocked: 0
   bargeDetectionRange: 2000
   bargeContactRange: 50
   scanInterval: 3
-  path: {fileID: 0}
+  paths:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   waypointThreshold: 30
   asteroidStunTime: 7
   playerStunTime: 0
@@ -219,15 +229,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f3c2a70d537be08b3a9a2904a4a4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask: 0
   collisionMask:
     serializedVersion: 2
     m_Bits: 1024
   velocityScan: 1
   scanType: 0
-  sensorLength: 100
+  sensorLength: 80
+  steeringGain: 0.1
+  steeringDecay: 0.1
   frontSensorForeAftOffset: 9
-  sideSensorForeAftOffset: 0
-  sideSensorWidthOffset: 5
+  sideSensorForeAftOffset: -4
+  sideSensorWidthOffset: 10
   whiskersCount: 7
   whiskerAngle: 15
   radarScanWidth: 180
