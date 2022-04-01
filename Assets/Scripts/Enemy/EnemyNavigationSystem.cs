@@ -27,6 +27,7 @@ public class EnemyNavigationSystem : MonoBehaviour
 
     [SerializeField][Tooltip("How far to scan from ship?")]
     private float sensorLength = 100;
+    private float SensorLength => velocityScan ? enemyAI.Engines.Velocity.magnitude * 1.5f : SensorLength;
 
     [SerializeField][Tooltip("Steering gain factor (%)")]
     [Range(0,1)] private float steeringGain = 0.5f;
@@ -289,7 +290,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         bool applyBrakes = false;
 
         // front left sensor
-        leftHit = Physics2D.Raycast(leftSensorStart, heading, sensorLength, layerMask);
+        leftHit = Physics2D.Raycast(leftSensorStart, heading, SensorLength, layerMask);
         if (leftHit)
         {
             if (leftHit.transform.gameObject.CompareTag("Barge")) { return 0; }
@@ -308,11 +309,11 @@ public class EnemyNavigationSystem : MonoBehaviour
         }
         else
         {
-            Debug.DrawLine(leftSensorStart, leftSensorStart + heading * sensorLength, Color.white);
+            Debug.DrawLine(leftSensorStart, leftSensorStart + heading * SensorLength, Color.white);
         }
 
         // front right sensor
-        rightHit = Physics2D.Raycast(rightSensorStart, heading, sensorLength, layerMask);
+        rightHit = Physics2D.Raycast(rightSensorStart, heading, SensorLength, layerMask);
         if (rightHit)
         {
             if (rightHit.transform.gameObject.CompareTag("Barge")) { return 0; }
@@ -331,7 +332,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         }
         else
         {
-            Debug.DrawLine(rightSensorStart, rightSensorStart + heading * sensorLength, Color.white);
+            Debug.DrawLine(rightSensorStart, rightSensorStart + heading * SensorLength, Color.white);
         }
 
         // TODO this seems wrong but does the trick, 
@@ -359,7 +360,7 @@ public class EnemyNavigationSystem : MonoBehaviour
     /// <param name="frontSensorStart"></param>
     private float RadarScan(Vector2 frontSensorStart)
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(frontSensorStart, sensorLength *2, layerMask);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(frontSensorStart, SensorLength *2, layerMask);
         float avoidSteering = 0;
 
         for (int i = 0; i < hits.Length; i++)
@@ -405,7 +406,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         {
             angle = Quaternion.AngleAxis(whiskerAngle * i, transform.forward);
             float length = ((float)whiskersCount - i) / (float)whiskersCount;
-            hit = Physics2D.Raycast(leftSensorStart, angle * heading, sensorLength*length, layerMask);
+            hit = Physics2D.Raycast(leftSensorStart, angle * heading, SensorLength*length, layerMask);
             if (hit)
             {
                 if (hit.transform.gameObject.CompareTag("Barge")) { return 0; }
@@ -425,7 +426,7 @@ public class EnemyNavigationSystem : MonoBehaviour
             }
             else
             {
-                Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * heading) * (sensorLength*length), Color.white);
+                Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * heading) * (SensorLength*length), Color.white);
                 break;
             }
         }
@@ -436,7 +437,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         {
             angle = Quaternion.AngleAxis(-whiskerAngle * i, transform.forward);
             float length = ((float)whiskersCount - i) / (float)whiskersCount;
-            hit = Physics2D.Raycast(rightSensorStart, angle * heading, sensorLength*length, layerMask);
+            hit = Physics2D.Raycast(rightSensorStart, angle * heading, SensorLength*length, layerMask);
             if (hit)
             {
                 if (hit.transform.gameObject.CompareTag("Barge")) { return 0; }
@@ -456,7 +457,7 @@ public class EnemyNavigationSystem : MonoBehaviour
             }
             else
             {
-                Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * heading) * (sensorLength*length), Color.white);
+                Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * heading) * (SensorLength*length), Color.white);
                 break;
             }
         }
@@ -464,7 +465,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         // cast a center ray if both sides hit and steering is undetermined
         if (leftHit && rightHit && avoidSteering == 0)
         {
-            hit = Physics2D.Raycast(frontSensorStart, heading, sensorLength, layerMask);
+            hit = Physics2D.Raycast(frontSensorStart, heading, SensorLength, layerMask);
             if (hit)
             {
                 if (hit.transform.gameObject.CompareTag("Barge")) { return 0; }
@@ -482,7 +483,7 @@ public class EnemyNavigationSystem : MonoBehaviour
             }
             else
             {
-                Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)(heading) * (sensorLength), Color.white);
+                Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)(heading) * (SensorLength), Color.white);
             }
         }
 
@@ -516,7 +517,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         {
             angle = Quaternion.AngleAxis(-whiskerAngle * (i + 1), transform.forward);
             float length = ((float)whiskersCount - i) / (float)whiskersCount * 0.75f;
-            hit = Physics2D.Raycast(rightSensorStart, angle * heading, sensorLength*length, layerMask);
+            hit = Physics2D.Raycast(rightSensorStart, angle * heading, SensorLength*length, layerMask);
             if (hit)
             {
                 if (hit.transform.gameObject.CompareTag("Barge")) { return 0; }
@@ -534,7 +535,7 @@ public class EnemyNavigationSystem : MonoBehaviour
             }
             else
             {
-                Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * heading) * (sensorLength*length), Color.white);
+                Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * heading) * (SensorLength*length), Color.white);
                 if (!fullScan) { break; }
             }
         }
@@ -569,7 +570,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         {
             angle = Quaternion.AngleAxis(whiskerAngle * (i + 1), transform.forward);
             float length = ((float)whiskersCount - i) / (float)whiskersCount * 0.75f;
-            hit = Physics2D.Raycast(leftSensorStart, angle * heading, sensorLength*length, layerMask);
+            hit = Physics2D.Raycast(leftSensorStart, angle * heading, SensorLength*length, layerMask);
             if (hit)
             {
                 if (hit.transform.gameObject.CompareTag("Barge")) { return 0; }
@@ -587,7 +588,7 @@ public class EnemyNavigationSystem : MonoBehaviour
             }
             else
             {
-                Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * heading) * (sensorLength*length), Color.white);
+                Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * heading) * (SensorLength*length), Color.white);
                 if (!fullScan) { break; }
             }
         }
@@ -620,7 +621,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         float avoidSteering = 0;
 
         // front right sensor
-        hit = Physics2D.Raycast(rightSensorStart, transform.right, sensorLength, layerMask);
+        hit = Physics2D.Raycast(rightSensorStart, transform.right, SensorLength, layerMask);
         if (hit)
         {
             Debug.DrawLine(rightSensorStart, hit.point, Color.red);
@@ -630,7 +631,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         {
             // right whisker sensor
             angle = Quaternion.AngleAxis(-whiskerAngle, transform.forward);
-            hit = Physics2D.Raycast(rightSensorStart, angle * transform.right, sensorLength, layerMask);
+            hit = Physics2D.Raycast(rightSensorStart, angle * transform.right, SensorLength, layerMask);
             if (hit)
             {
                 Debug.DrawLine(rightSensorStart, hit.point, Color.red);
@@ -639,7 +640,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         }
 
         // front left sensor
-        hit = Physics2D.Raycast(leftSensorStart, transform.right, sensorLength, layerMask);
+        hit = Physics2D.Raycast(leftSensorStart, transform.right, SensorLength, layerMask);
         if (hit)
         {
             Debug.DrawLine(leftSensorStart, hit.point, Color.red);
@@ -649,7 +650,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         {
             // left whisker sensor
             angle = Quaternion.AngleAxis(whiskerAngle, transform.forward);
-            hit = Physics2D.Raycast(leftSensorStart, angle * transform.right, sensorLength, layerMask);
+            hit = Physics2D.Raycast(leftSensorStart, angle * transform.right, SensorLength, layerMask);
             if (hit)
             {
                 Debug.DrawLine(leftSensorStart, hit.point, Color.red);
@@ -660,7 +661,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         if (avoidSteering == 0)
         {
             // front centre sensor
-            hit = Physics2D.Raycast(frontSensorStart, transform.right, sensorLength, layerMask);
+            hit = Physics2D.Raycast(frontSensorStart, transform.right, SensorLength, layerMask);
             if (hit)
             {
                 Debug.DrawLine(frontSensorStart, hit.point, Color.red);
