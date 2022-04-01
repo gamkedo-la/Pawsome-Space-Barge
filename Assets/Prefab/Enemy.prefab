@@ -209,11 +209,6 @@ MonoBehaviour:
   bargeDetectionRange: 2000
   bargeContactRange: 50
   scanInterval: 3
-  paths:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   waypointThreshold: 30
   asteroidStunTime: 7
   playerStunTime: 0
