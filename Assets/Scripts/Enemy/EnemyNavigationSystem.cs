@@ -475,7 +475,7 @@ public class EnemyNavigationSystem : MonoBehaviour
                 if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
                 {
                     Debug.DrawLine(frontSensorStart, hit.point, Color.red);
-                    avoidSteering = hit.normal.normalized.x;
+                    avoidSteering = hit.normal.y;
 
                     if (hit.distance < enemyAI.Engines.Velocity.magnitude)
                     {
