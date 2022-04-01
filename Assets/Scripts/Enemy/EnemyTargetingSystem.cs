@@ -31,9 +31,6 @@ public class EnemyTargetingSystem : MonoBehaviour
 
 
     [Header("Waypoint Settings")]
-    [SerializeField][Tooltip("Orbit paths for enemyAI")]
-    private GameObject[] paths;
-
     [SerializeField][Tooltip("How close is close enough?")]
     private float waypointThreshold = 30;
 
@@ -67,15 +64,17 @@ public class EnemyTargetingSystem : MonoBehaviour
     {
         orbitalPathsNodes = new List<List<Transform>>();
 
-        for (int x = 0; x < paths.Length; x++)
+        GameObject[] existingOrbitalPaths = GameObject.FindGameObjectsWithTag("OrbitalPath");
+
+        for (int x = 0; x < existingOrbitalPaths.Length; x++)
         {
-            Transform[] pathTransforms = paths[x].GetComponentsInChildren<Transform>();
+            Transform[] pathTransforms = existingOrbitalPaths[x].GetComponentsInChildren<Transform>();
 
             var tempList = new List<Transform>();
 
             foreach (Transform node in pathTransforms)
             {
-                if (node != paths[x].transform)
+                if (node != existingOrbitalPaths[x].transform)
                 {
                     tempList.Add(node);
                     Debug.Log($"Added node waypoint: {node.gameObject.transform.position}");
