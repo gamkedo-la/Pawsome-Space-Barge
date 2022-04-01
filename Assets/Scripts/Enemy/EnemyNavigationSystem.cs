@@ -28,6 +28,12 @@ public class EnemyNavigationSystem : MonoBehaviour
     [SerializeField][Tooltip("How far to scan from ship?")]
     private float sensorLength = 100;
 
+    [SerializeField][Tooltip("Steering gain factor (%)")]
+    [Range(0,1)] private float steeringGain = 0.5f;
+
+    [SerializeField][Tooltip("Steering decay factor (% / timeStep)")]
+    [Range(0,1)] private float steeringDecay = 0.1f;
+
     [SerializeField][Tooltip("Fore / Aft offset for front sensor, from ship center.")]
     private float frontSensorForeAftOffset = 9f;
 
@@ -255,11 +261,11 @@ public class EnemyNavigationSystem : MonoBehaviour
 
         if (avoidSteering == 0)
         {
-            avoidanceAccumulator = 0;
+            avoidanceAccumulator -= avoidanceAccumulator * steeringDecay;
         }
         else
         {
-            avoidanceAccumulator += avoidSteering;
+            avoidanceAccumulator += avoidSteering * steeringGain;
         }
 
         if (avoidanceAccumulator > avoidanceMaximum) { avoidanceMaximum = avoidanceAccumulator; }
