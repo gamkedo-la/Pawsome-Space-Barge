@@ -462,26 +462,28 @@ public class EnemyNavigationSystem : MonoBehaviour
         hit = Physics2D.Raycast(frontSensorStart, heading, SensorLength, layerMask);
         if (hit)
         {
-            if (hit.transform.gameObject.CompareTag("Barge")) { break; }
 
-            if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
+            if (!hit.transform.gameObject.CompareTag("Barge"))
             {
-                Debug.DrawLine(frontSensorStart, hit.point, Color.red);
-
-                // transform to local space
-                float hitY = transform.InverseTransformDirection(hit.normal).y;
-
-                // get absolute value, division by 0 check, normalize to get signed int
-                var absHitY = Mathf.Abs(hitY);
-                if (absHitY == 0) absHitY = 0.001f;
-                var normalizedHitY = hitY / absHitY;
-
-                // steering force greatest when centered on obstacle
-                avoidSteering += (1 - absHitY) * normalizedHitY;
-
-                if (hit.distance < enemyAI.Engines.Velocity.magnitude)
+                if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
                 {
-                    applyBrakes = true;
+                    Debug.DrawLine(frontSensorStart, hit.point, Color.red);
+
+                    // transform to local space
+                    float hitY = transform.InverseTransformDirection(hit.normal).y;
+
+                    // get absolute value, division by 0 check, normalize to get signed int
+                    var absHitY = Mathf.Abs(hitY);
+                    if (absHitY == 0) absHitY = 0.001f;
+                    var normalizedHitY = hitY / absHitY;
+
+                    // steering force greatest when centered on obstacle
+                    avoidSteering += (1 - absHitY) * normalizedHitY;
+
+                    if (hit.distance < enemyAI.Engines.Velocity.magnitude)
+                    {
+                        applyBrakes = true;
+                    }
                 }
             }
         }

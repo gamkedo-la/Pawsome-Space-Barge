@@ -26460,14 +26460,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2925028900334608137, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-      propertyPath: bargeContactRange
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2925028900334608137, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-      propertyPath: bargeDetectionRange
-      value: 700
-      objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608141, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: onIdleEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
