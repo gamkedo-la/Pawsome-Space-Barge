@@ -295,17 +295,18 @@ public class EnemyNavigationSystem : MonoBehaviour
         leftHit = Physics2D.Raycast(leftSensorStart, heading, SensorLength, layerMask);
         if (leftHit)
         {
-            if (leftHit.transform.gameObject.CompareTag("Barge")) { return 0; }
-
-            if (leftHit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
+            if (leftHit.transform.gameObject.CompareTag("Barge"))
             {
-                Debug.DrawLine(leftSensorStart, leftHit.point, Color.red);
-                avoidSteering -= 1f;
-                avoidSteering += WhiskerScanLeft(leftSensorStart) / 4;
-
-                if (leftHit.distance < enemyAI.Engines.Velocity.magnitude)
+                if (leftHit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
                 {
-                    applyBrakes = true;
+                    Debug.DrawLine(leftSensorStart, leftHit.point, Color.red);
+                    avoidSteering -= 0.5f;
+                    avoidSteering += WhiskerScanLeft(leftSensorStart) / 2;
+
+                    if (leftHit.distance < enemyAI.Engines.Velocity.magnitude)
+                    {
+                        applyBrakes = true;
+                    }
                 }
             }
         }
@@ -318,17 +319,18 @@ public class EnemyNavigationSystem : MonoBehaviour
         rightHit = Physics2D.Raycast(rightSensorStart, heading, SensorLength, layerMask);
         if (rightHit)
         {
-            if (rightHit.transform.gameObject.CompareTag("Barge")) { return 0; }
-
-            if (rightHit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
+            if (rightHit.transform.gameObject.CompareTag("Barge"))
             {
-                Debug.DrawLine(rightSensorStart, rightHit.point, Color.red);
-                avoidSteering += 1f;
-                avoidSteering += WhiskerScanRight(rightSensorStart) / 4;
-
-                if (rightHit.distance < enemyAI.Engines.Velocity.magnitude)
+                if (rightHit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
                 {
-                    applyBrakes = true;
+                    Debug.DrawLine(rightSensorStart, rightHit.point, Color.red);
+                    avoidSteering += 0.5f;
+                    avoidSteering += WhiskerScanRight(rightSensorStart) / 2;
+
+                    if (rightHit.distance < enemyAI.Engines.Velocity.magnitude)
+                    {
+                        applyBrakes = true;
+                    }
                 }
             }
         }
@@ -459,6 +461,23 @@ public class EnemyNavigationSystem : MonoBehaviour
         }
 
         // cast a center ray to check for small obstacles
+        avoidSteering += FrontSensor(frontSensorStart);
+
+        if (applyBrakes)
+        {
+            enemyAI.Engines.ApplyBrakes();
+        }
+
+        return avoidSteering/3;
+    }
+
+
+    private float FrontSensor(Vector2 frontSensorStart)
+    {
+        RaycastHit2D hit;
+
+        float avoidSteering = 0;
+
         hit = Physics2D.Raycast(frontSensorStart, heading, SensorLength, layerMask);
         if (hit)
         {
@@ -479,22 +498,12 @@ public class EnemyNavigationSystem : MonoBehaviour
 
                     // steering force greatest when centered on obstacle
                     avoidSteering += (1 - absHitY) * normalizedHitY;
-
-                    if (hit.distance < enemyAI.Engines.Velocity.magnitude)
-                    {
-                        applyBrakes = true;
-                    }
                 }
             }
         }
         else
         {
             Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)(heading) * (SensorLength), Color.white);
-        }
-
-        if (applyBrakes)
-        {
-            enemyAI.Engines.ApplyBrakes();
         }
 
         return avoidSteering;
@@ -530,7 +539,7 @@ public class EnemyNavigationSystem : MonoBehaviour
                 if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
                 {
                     Debug.DrawLine(rightSensorStart, hit.point, Color.red);
-                    avoidSteering += (1f * length) / whiskersCount;
+                    avoidSteering += (0.5f ) / (i + 1);
 
                     if (hit.distance < enemyAI.Engines.Velocity.magnitude)
                     {
@@ -583,7 +592,7 @@ public class EnemyNavigationSystem : MonoBehaviour
                 if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
                 {
                     Debug.DrawLine(leftSensorStart, hit.point, Color.red);
-                    avoidSteering -= (1f * length) / whiskersCount;
+                    avoidSteering -= (0.5f ) / (i + 1);
 
                     if (hit.distance < enemyAI.Engines.Velocity.magnitude)
                     {
