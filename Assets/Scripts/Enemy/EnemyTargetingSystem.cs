@@ -10,6 +10,7 @@ public class EnemyTargetingSystem : MonoBehaviour
     private int layerMask;
     private List<List<Transform>> orbitalPathsNodes;
     private int currentPath, currentNode, nextNode;
+    private bool bargeContact = false;
 
     [ReadOnly][SerializeField] private float stunTimer = 0;
     [ReadOnly][SerializeField] private Vector2 previousBargePosition;
@@ -254,11 +255,26 @@ public class EnemyTargetingSystem : MonoBehaviour
 
     /// <summary>
     /// Returns true if barge is in contact range.
+    /// Allows margin of error before leaving Contact mode.
     /// </summary>
     /// <returns></returns>
     public bool IsBargeContact()
     {
-        return Vector3.Distance(transform.position, barge.transform.position) <= bargeContactRange;
+        bool inRange = false;
+
+        if (Vector3.Distance(transform.position, barge.transform.position) <= bargeContactRange && !bargeContact)
+        {
+            inRange = true;
+            bargeContact = true;
+        }
+        if (Vector3.Distance(transform.position, barge.transform.position) <= bargeContactRange*2 && bargeContact)
+        {
+            inRange = true;
+        }
+
+        if (!inRange) bargeContact = false;
+
+        return inRange;
     }
 
 
