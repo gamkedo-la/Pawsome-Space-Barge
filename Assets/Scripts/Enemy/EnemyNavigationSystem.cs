@@ -26,32 +26,32 @@ public class EnemyNavigationSystem : MonoBehaviour
     private ScanType scanType = ScanType.Whiskers;
 
     [SerializeField][Tooltip("How far to scan from ship?")]
-    private float sensorLength = 100;
-    private float SensorLength => velocityScan ? enemyAI.Engines.Velocity.magnitude * 1.5f : sensorLength;
+    private float sensorLength = 80;
+    private float SensorLength => velocityScan ? enemyAI.Engines.Velocity.magnitude * 1.25f : sensorLength;
 
     [SerializeField][Tooltip("Steering gain factor (%)")]
-    [Range(0,1)] private float steeringGain = 0.5f;
+    [Range(0,1)] private float steeringGain = 0.05f;
 
     [SerializeField][Tooltip("Steering decay factor (% / timeStep)")]
-    [Range(0,1)] private float steeringDecay = 0.1f;
+    [Range(0,1)] private float steeringDecay = 0.05f;
 
     [SerializeField][Tooltip("Fore / Aft offset for front sensor, from ship center.")]
     private float frontSensorForeAftOffset = 9f;
 
     [SerializeField][Tooltip("Fore / Aft offset for side sensors, from ship center.")]
-     private float sideSensorForeAftOffset = 0;
+     private float sideSensorForeAftOffset = 2;
 
     [SerializeField][Tooltip("Left / Right offset for side sensors, from ship center.")]
-     private float sideSensorWidthOffset = 4f;
+     private float sideSensorWidthOffset = 12f;
 
 
 
     [Header("Whisker Scan Settings")]
     [SerializeField][Tooltip("How many whiskers to iterate through.")]
-     private int whiskersCount = 6;
+     private int whiskersCount = 10;
 
     [SerializeField][Tooltip("Angle between whiskers.")]
-     private float whiskerAngle = 15;
+     private float whiskerAngle = 10;
 
 
 
@@ -396,8 +396,6 @@ public class EnemyNavigationSystem : MonoBehaviour
     private float WhiskerScan(Vector2 frontSensorStart, Vector2 leftSensorStart, Vector2 rightSensorStart)
     {
         RaycastHit2D hit;
-        bool rightHit = false;
-        bool leftHit = false;
         Quaternion angle;
 
         float avoidSteering = 0;
@@ -415,10 +413,8 @@ public class EnemyNavigationSystem : MonoBehaviour
 
                 if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
                 {
-                    if (i == 0) leftHit = true;
-
                     Debug.DrawLine(leftSensorStart, hit.point, Color.red);
-                    avoidSteering -= (1f * length) / whiskersCount;
+                    avoidSteering -= (0.5f ) / (i + 1);
 
                     if (hit.distance < enemyAI.Engines.Velocity.magnitude)
                     {
@@ -446,10 +442,8 @@ public class EnemyNavigationSystem : MonoBehaviour
 
                 if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
                 {
-                    if (i == 0) rightHit = true;
-
                     Debug.DrawLine(rightSensorStart, hit.point, Color.red);
-                    avoidSteering += (1f * length) / whiskersCount;
+                    avoidSteering += (0.5f ) / (i + 1);
 
                     if (hit.distance < enemyAI.Engines.Velocity.magnitude)
                     {
@@ -464,29 +458,36 @@ public class EnemyNavigationSystem : MonoBehaviour
             }
         }
 
-        // cast a center ray if both sides hit and steering is undetermined
-        if (leftHit && rightHit && avoidSteering == 0)
+        // cast a center ray to check for small obstacles
+        hit = Physics2D.Raycast(frontSensorStart, heading, SensorLength, layerMask);
+        if (hit)
         {
-            hit = Physics2D.Raycast(frontSensorStart, heading, SensorLength, layerMask);
-            if (hit)
+            if (hit.transform.gameObject.CompareTag("Barge")) { return 0; }
+
+            if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
             {
-                if (hit.transform.gameObject.CompareTag("Barge")) { return 0; }
+                Debug.DrawLine(frontSensorStart, hit.point, Color.red);
 
-                if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
+                // transform to local space
+                float hitY = transform.InverseTransformDirection(hit.normal).y;
+
+                // get absolute value, division by 0 check, normalize to get signed int
+                var absHitY = Mathf.Abs(hitY);
+                if (absHitY == 0) absHitY = 0.001f;
+                var normalizedHitY = hitY / absHitY;
+
+                // steering force greatest when centered on obstacle
+                avoidSteering += (1 - absHitY) * normalizedHitY;
+
+                if (hit.distance < enemyAI.Engines.Velocity.magnitude)
                 {
-                    Debug.DrawLine(frontSensorStart, hit.point, Color.red);
-                    avoidSteering = hit.normal.y;
-
-                    if (hit.distance < enemyAI.Engines.Velocity.magnitude)
-                    {
-                        applyBrakes = true;
-                    }
+                    applyBrakes = true;
                 }
             }
-            else
-            {
-                Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)(heading) * (SensorLength), Color.white);
-            }
+        }
+        else
+        {
+            Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)(heading) * (SensorLength), Color.white);
         }
 
         if (applyBrakes)
