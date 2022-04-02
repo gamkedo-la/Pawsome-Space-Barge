@@ -232,8 +232,8 @@ MonoBehaviour:
   target: {x: 0, y: 0}
   nextTarget: {x: 0, y: 0}
   targetLocked: 0
-  bargeDetectionRange: 3000
-  bargeContactRange: 50
+  bargeDetectionRange: 700
+  bargeContactRange: 100
   scanInterval: 2
   waypointThreshold: 30
   asteroidStunTime: 7

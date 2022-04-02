@@ -4,7 +4,7 @@ using UnityEngine;
 public class ContactAI : MonoBehaviour
 {
     private EnemyAIStateMachine enemyAI;
-    private Vector2 target;
+    private GameObject target;
 
 
     private void Awake()
@@ -24,6 +24,9 @@ public class ContactAI : MonoBehaviour
         // engines
         enemyAI.Engines.Braking = 5;
         enemyAI.Engines.MaxSpeed = 80;
+
+        // lock target
+        target = GameObject.FindGameObjectWithTag("Barge");
     }
 
 
@@ -35,17 +38,8 @@ public class ContactAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // query targeting system
-        target = enemyAI.Targeting.TrackBarge();
+        enemyAI.Navigation.NavigateToTarget(target.transform.position);
 
-        // instruct navigation system
-        if (target != Vector2.zero)
-        {
-            enemyAI.Navigation.NavigateToTarget(target);
-        }
-        else
-        {
-            // something else
-        }
+        // call barge method to reduce value or speed it up here
     }
 }
