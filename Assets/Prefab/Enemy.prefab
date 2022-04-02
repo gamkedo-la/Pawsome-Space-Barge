@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2925028900334608142}
   - component: {fileID: 3966224891069599133}
   - component: {fileID: 2925028900071183746}
+  - component: {fileID: 4844272828913950933}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -165,10 +166,34 @@ MonoBehaviour:
         m_CallState: 2
   onContactEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4844272828913950933}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onContactExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4844272828913950933}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2925028900334608138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,9 +232,9 @@ MonoBehaviour:
   target: {x: 0, y: 0}
   nextTarget: {x: 0, y: 0}
   targetLocked: 0
-  bargeDetectionRange: 2000
+  bargeDetectionRange: 3000
   bargeContactRange: 50
-  scanInterval: 3
+  scanInterval: 2
   waypointThreshold: 30
   asteroidStunTime: 7
   playerStunTime: 0
@@ -232,13 +257,13 @@ MonoBehaviour:
   velocityScan: 1
   scanType: 0
   sensorLength: 80
-  steeringGain: 0.1
-  steeringDecay: 0.1
+  steeringGain: 0.05
+  steeringDecay: 0.05
   frontSensorForeAftOffset: 9
-  sideSensorForeAftOffset: -4
-  sideSensorWidthOffset: 10
-  whiskersCount: 7
-  whiskerAngle: 15
+  sideSensorForeAftOffset: 2
+  sideSensorWidthOffset: 15
+  whiskersCount: 10
+  whiskerAngle: 10
   radarScanWidth: 180
   avoidanceAccumulator: 0
   avoidanceMinimum: Infinity
@@ -337,6 +362,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4844272828913950933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925028900334608144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8455dc09571ce6d0bf5d7dd025f3295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2925028901783829128
 GameObject:
   m_ObjectHideFlags: 0
