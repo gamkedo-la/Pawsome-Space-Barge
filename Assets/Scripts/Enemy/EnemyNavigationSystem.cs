@@ -409,7 +409,7 @@ public class EnemyNavigationSystem : MonoBehaviour
             hit = Physics2D.Raycast(leftSensorStart, angle * heading, SensorLength*length, layerMask);
             if (hit)
             {
-                if (hit.transform.gameObject.CompareTag("Barge")) { return 0; }
+                if (hit.transform.gameObject.CompareTag("Barge")) { break; }
 
                 if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
                 {
@@ -438,7 +438,7 @@ public class EnemyNavigationSystem : MonoBehaviour
             hit = Physics2D.Raycast(rightSensorStart, angle * heading, SensorLength*length, layerMask);
             if (hit)
             {
-                if (hit.transform.gameObject.CompareTag("Barge")) { return 0; }
+                if (hit.transform.gameObject.CompareTag("Barge")) { break; }
 
                 if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
                 {
@@ -462,7 +462,7 @@ public class EnemyNavigationSystem : MonoBehaviour
         hit = Physics2D.Raycast(frontSensorStart, heading, SensorLength, layerMask);
         if (hit)
         {
-            if (hit.transform.gameObject.CompareTag("Barge")) { return 0; }
+            if (hit.transform.gameObject.CompareTag("Barge")) { break; }
 
             if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
             {
