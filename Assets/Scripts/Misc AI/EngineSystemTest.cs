@@ -24,17 +24,20 @@ public class EngineSystemTest : MonoBehaviour
     private float decelerationCoefficient = 4;
 
     private Rigidbody2D rb2d;
+    public int rb2dID => rb2d.GetInstanceID();
 
     private float timer = 0;
 
     public bool Status => timer <= 0;
 
     public Vector2 Velocity => rb2d.velocity;
+    public float heading;
 
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        heading = rb2d.rotation;
     }
 
 
@@ -59,25 +62,37 @@ public class EngineSystemTest : MonoBehaviour
             }
             else
             {
-                // rb2d.velocity -= rb2d.velocity.normalized * decelerationCoefficient * Time.fixedDeltaTime;
-                rb2d.velocity -= rb2d.velocity.normalized * decelerationCoefficient;
-
-                if (rb2d.velocity.magnitude < minSpeed)
-                {
-                    rb2d.velocity = rb2d.velocity.normalized * minSpeed;
-                }
+                ApplyBrakes();
             }
             
+        }
+    }
+
+    public void ApplyBrakes()
+    {
+        rb2d.velocity -= rb2d.velocity.normalized * decelerationCoefficient;
+
+        if (rb2d.velocity.magnitude < minSpeed)
+        {
+            rb2d.velocity = rb2d.velocity.normalized * minSpeed;
         }
     }
 
 
     public void TurnTowardsTarget(float headingChange)
     {
+        heading = ClampAngle( rb2d.rotation + headingChange * turningSpeed * Time.fixedDeltaTime );
+
+        // TODO: dampen this rotation
         if (timer <= 0)
         {
-            rb2d.rotation += headingChange * turningSpeed * Time.fixedDeltaTime;
+            rb2d.MoveRotation( heading );
         }
+    }
+
+    private float ClampAngle(float angle)
+    {
+        return (angle % 360) + (angle < 0 ? 360 : 0);
     }
 
 

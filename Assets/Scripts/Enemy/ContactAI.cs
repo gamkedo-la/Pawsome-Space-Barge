@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 [RequireComponent(typeof(EnemyAIStateMachine))]
-public class SeekingAI : MonoBehaviour
+public class ContactAI : MonoBehaviour
 {
     private EnemyAIStateMachine enemyAI;
-    private Vector2 target;
+    private GameObject target;
 
 
     private void Awake()
@@ -22,30 +22,24 @@ public class SeekingAI : MonoBehaviour
     private void OnEnable()
     {
         // engines
-        enemyAI.Engines.Braking = 8;
+        enemyAI.Engines.Braking = 5;
         enemyAI.Engines.MaxSpeed = 80;
+
+        // lock target
+        target = GameObject.FindGameObjectWithTag("Barge");
     }
 
 
     private void OnDisable()
     {
-        Debug.Log("SeekingAI disabled.");
+        Debug.Log("ContactAI disabled.");
     }
 
 
     private void FixedUpdate()
     {
-        // query targeting system
-        target = enemyAI.Targeting.TrackBarge();
+        enemyAI.Navigation.NavigateToTarget(target.transform.position);
 
-        // instruct navigation system
-        if (target != Vector2.zero)
-        {
-            enemyAI.Navigation.NavigateToTarget(target);
-        }
-        else
-        {
-            // something else
-        }
+        // call barge method to reduce value or speed it up here
     }
 }

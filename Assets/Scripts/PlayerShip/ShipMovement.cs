@@ -24,6 +24,9 @@ public class ShipMovement : MonoBehaviour
     [Range(50,300)]
     [SerializeField] private int maxSpeed = 150;
 
+    [Tooltip("Max speed as percentage of barge speed")]
+    [SerializeField] private bool speedLimitRelativeToBarge;
+
     [Tooltip("Disable for free flight!")]
     [SerializeField] private bool enforceBoundary = true;
 
@@ -52,7 +55,12 @@ public class ShipMovement : MonoBehaviour
     
     [SerializeField] private Thruster frontRightThruster;
 
-
+    private Rigidbody2D bargeRigidbody;
+    
+    private float MaxSpeed => (speedLimitRelativeToBarge && bargeRigidbody != null)
+        ? maxSpeed * bargeRigidbody.velocity.magnitude / 100f
+        : maxSpeed;
+    
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -68,6 +76,7 @@ public class ShipMovement : MonoBehaviour
         if (barge != null)
         {
             transform.Translate(barge.transform.position);
+            bargeRigidbody = barge.GetComponent<Rigidbody2D>();
         }
     }
 
@@ -110,7 +119,7 @@ public class ShipMovement : MonoBehaviour
         }
 
         // enforce maximum speed
-        rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, maxSpeed);
+        rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, MaxSpeed);
 
         // enforce player boundary
         if (enforceBoundary)
@@ -165,12 +174,16 @@ public class ShipMovement : MonoBehaviour
                 rearRightThruster.On(rotationInput);
                 frontLeftThruster.On(rotationInput);
                 frontRightThruster.Off();
+                SoundManager.Instance.PlayShipThrusters("Thrusters", 1f);
+                SoundManager.Instance.AdjustThrusterDirection(-.5f);
                 return;
             case < 0:
                 rearLeftThruster.On(rotationInput);
                 rearRightThruster.Off();
                 frontLeftThruster.Off();
                 frontRightThruster.On(rotationInput);
+                SoundManager.Instance.PlayShipThrusters("Thrusters", 1f);
+                SoundManager.Instance.AdjustThrusterDirection(.5f);
                 return;
         }
         
@@ -181,18 +194,23 @@ public class ShipMovement : MonoBehaviour
                 rearRightThruster.On(thrustInput);
                 frontLeftThruster.Off();
                 frontRightThruster.Off();
+                SoundManager.Instance.PlayShipThrusters("Thrusters", 1.5f);
+                SoundManager.Instance.AdjustThrusterDirection(0f);
                 break;
             case < 0:
                 rearLeftThruster.On(thrustInput);
                 rearRightThruster.On(thrustInput);
                 frontLeftThruster.On(thrustInput);
                 frontRightThruster.On(thrustInput);
+                SoundManager.Instance.PlayShipThrusters("Thrusters", .8f);
+                SoundManager.Instance.AdjustThrusterDirection(0f);
                 break;
             default:
                 rearLeftThruster.Off();
                 rearRightThruster.Off();
                 frontLeftThruster.Off();
                 frontRightThruster.Off();
+                SoundManager.Instance.StopThrusters();
                 break;
         }
     }

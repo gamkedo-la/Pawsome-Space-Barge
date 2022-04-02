@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 [RequireComponent(typeof(EnemyAIStateMachine))]
-public class SeekingAI : MonoBehaviour
+public class PatrolAI : MonoBehaviour
 {
     private EnemyAIStateMachine enemyAI;
     private Vector2 target;
@@ -22,21 +22,24 @@ public class SeekingAI : MonoBehaviour
     private void OnEnable()
     {
         // engines
-        enemyAI.Engines.Braking = 8;
-        enemyAI.Engines.MaxSpeed = 80;
+        enemyAI.Engines.Braking = 0;
+        enemyAI.Engines.MaxSpeed = 100;
+
+        // find nearest patrol waypoint
+        target = enemyAI.Targeting.NearestPathPoint(transform.position);
     }
 
 
     private void OnDisable()
     {
-        Debug.Log("SeekingAI disabled.");
+        Debug.Log("PatrolAI disabled.");
     }
 
 
     private void FixedUpdate()
     {
         // query targeting system
-        target = enemyAI.Targeting.TrackBarge();
+        target = enemyAI.Targeting.TrackPath();
 
         // instruct navigation system
         if (target != Vector2.zero)
@@ -45,7 +48,7 @@ public class SeekingAI : MonoBehaviour
         }
         else
         {
-            // something else
+            // something else?
         }
     }
 }

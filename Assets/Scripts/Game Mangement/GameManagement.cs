@@ -18,6 +18,15 @@ public class GameManagement : MonoBehaviour
     // player settings + saved data
     [SerializeField] private PlayerSettings settings;
 
+    // alert networks
+    [SerializeField] private AlertEvent policeEvent;
+    [SerializeField] private AlertEvent pirateEvent;
+
+    public AlertEvent GetAlertNetwork(EnemyType type)
+    {
+        return type == EnemyType.Police ? policeEvent : pirateEvent;
+    }
+
     // misc
     [SerializeField] public bool pauseOnDialog = false;
 
