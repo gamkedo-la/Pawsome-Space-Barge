@@ -316,7 +316,7 @@ public class EnemyTargetingSystem : MonoBehaviour
     {
         if (stunTimer <= 0)
         {
-            if (other.gameObject.CompareTag("Asteroid"))
+            if (other.gameObject.CompareTag("Asteroid") && !enemyAI.Engines.Online)
             {
                 stunTimer = asteroidStunTime;
             }
