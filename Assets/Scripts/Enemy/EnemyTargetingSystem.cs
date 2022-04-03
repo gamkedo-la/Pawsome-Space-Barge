@@ -103,7 +103,7 @@ public class EnemyTargetingSystem : MonoBehaviour
                 if (node != existingOrbitalPaths[x].transform)
                 {
                     tempList.Add(node);
-                    Debug.Log($"Added node waypoint: {node.gameObject.transform.position}");
+                    // Debug.Log($"Added node waypoint: {node.gameObject.transform.position}");
                 }
             }
 
@@ -181,7 +181,7 @@ public class EnemyTargetingSystem : MonoBehaviour
             if (thing.Exists(e => e.transform == closestWaypoint.transform))
             {
                 currentPath = orbitalPathsNodes.IndexOf(thing);
-                Debug.Log($"current path: { currentPath }");
+                // Debug.Log($"current path: { currentPath }");
             }
         }
 
