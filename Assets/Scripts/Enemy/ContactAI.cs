@@ -6,6 +6,12 @@ public class ContactAI : MonoBehaviour
     private EnemyAIStateMachine enemyAI;
     private GameObject target;
 
+    [SerializeField, Tooltip("Braking factor."), Range(0,10)]
+    private float braking = 5f;
+
+    [SerializeField, Tooltip("Maximum speed."), Range(1, 200)]
+    private float maxSpeed = 80;
+
 
     private void Awake()
     {
@@ -22,8 +28,8 @@ public class ContactAI : MonoBehaviour
     private void OnEnable()
     {
         // engines
-        enemyAI.Engines.Braking = 5;
-        enemyAI.Engines.MaxSpeed = 80;
+        enemyAI.Engines.Braking = braking;
+        enemyAI.Engines.MaxSpeed = maxSpeed;
 
         // lock target
         target = GameObject.FindGameObjectWithTag("Barge");

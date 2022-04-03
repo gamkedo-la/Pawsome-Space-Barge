@@ -6,6 +6,12 @@ public class SeekingAI : MonoBehaviour
     private EnemyAIStateMachine enemyAI;
     private Vector2 target;
 
+    [SerializeField, Tooltip("Braking factor."), Range(0,10)]
+    private float braking = 8;
+
+    [SerializeField, Tooltip("Maximum speed."), Range(1, 200)]
+    private float maxSpeed = 80;
+
 
     private void Awake()
     {
@@ -22,8 +28,8 @@ public class SeekingAI : MonoBehaviour
     private void OnEnable()
     {
         // engines
-        enemyAI.Engines.Braking = 8;
-        enemyAI.Engines.MaxSpeed = 80;
+        enemyAI.Engines.Braking = braking;
+        enemyAI.Engines.MaxSpeed = maxSpeed;
     }
 
 

@@ -6,6 +6,12 @@ public class PatrolAI : MonoBehaviour
     private EnemyAIStateMachine enemyAI;
     private Vector2 target;
 
+    [SerializeField, Tooltip("Braking factor."), Range(0,10)]
+    private float braking = 0.1f;
+
+    [SerializeField, Tooltip("Maximum speed."), Range(1, 200)]
+    private float maxSpeed = 100;
+
 
     private void Awake()
     {
@@ -22,8 +28,8 @@ public class PatrolAI : MonoBehaviour
     private void OnEnable()
     {
         // engines
-        enemyAI.Engines.Braking = 0;
-        enemyAI.Engines.MaxSpeed = 100;
+        enemyAI.Engines.Braking = braking;
+        enemyAI.Engines.MaxSpeed = maxSpeed;
 
         // find nearest patrol waypoint
         target = enemyAI.Targeting.NearestPathPoint(transform.position);
