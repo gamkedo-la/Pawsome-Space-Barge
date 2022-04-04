@@ -32,9 +32,6 @@ public class EnemyNavigationSystem : MonoBehaviour
     [SerializeField][Tooltip("Steering gain factor (%)")]
     [Range(0,1)] private float steeringGain = 0.05f;
 
-    [SerializeField][Tooltip("Steering decay factor (% / timeStep)")]
-    [Range(0,1)] private float steeringDecay = 0.05f;
-
     [SerializeField][Tooltip("Fore / Aft offset for front sensor, from ship center.")]
     private float frontSensorForeAftOffset = 9f;
 
@@ -62,7 +59,6 @@ public class EnemyNavigationSystem : MonoBehaviour
 
 
     [Header("Debug Data")]
-    [ReadOnly] public float avoidanceAccumulator = 0;
     [ReadOnly] public float avoidanceMinimum = float.PositiveInfinity;
     [ReadOnly] public float avoidanceMaximum = float.NegativeInfinity;
     [ReadOnly] public int collisionCount = 0;
@@ -262,19 +258,10 @@ public class EnemyNavigationSystem : MonoBehaviour
                 break;
         }
 
-        if (avoidSteering == 0)
-        {
-            avoidanceAccumulator -= avoidanceAccumulator * steeringDecay;
-        }
-        else
-        {
-            avoidanceAccumulator += avoidSteering * steeringGain;
-        }
+        if (avoidSteering > avoidanceMaximum) { avoidanceMaximum = avoidSteering; }
+        if (avoidSteering < avoidanceMinimum) { avoidanceMinimum = avoidSteering; }
 
-        if (avoidanceAccumulator > avoidanceMaximum) { avoidanceMaximum = avoidanceAccumulator; }
-        if (avoidanceAccumulator < avoidanceMinimum) { avoidanceMinimum = avoidanceAccumulator; }
-
-        return avoidanceAccumulator;
+        return avoidSteering * steeringGain;
     }
 
 
@@ -403,8 +390,10 @@ public class EnemyNavigationSystem : MonoBehaviour
         float avoidSteering = 0;
         bool applyBrakes = false;
 
+        float leftSteer = 0, rightSteer = 0;
+
         // left sensors
-        for (int i = 0; i <= whiskersCount; i++)
+        for (float i = 0; i <= whiskersCount; i++)
         {
             angle = Quaternion.AngleAxis(whiskerAngle * i, transform.forward);
             float length = ((float)whiskersCount - i) / (float)whiskersCount;
@@ -416,7 +405,7 @@ public class EnemyNavigationSystem : MonoBehaviour
                 if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
                 {
                     Debug.DrawLine(leftSensorStart, hit.point, Color.red);
-                    avoidSteering -= (0.125f ) / (i + 1);
+                    leftSteer += 1f / Mathf.Pow(2, i + 1);
 
                     if (hit.distance < enemyAI.Engines.Velocity.magnitude && i < 1)
                     {
@@ -433,7 +422,7 @@ public class EnemyNavigationSystem : MonoBehaviour
 
 
         // right sensors
-        for (int i = 0; i <= whiskersCount; i++)
+        for (float i = 0; i <= whiskersCount; i++)
         {
             angle = Quaternion.AngleAxis(-whiskerAngle * i, transform.forward);
             float length = ((float)whiskersCount - i) / (float)whiskersCount;
@@ -445,7 +434,7 @@ public class EnemyNavigationSystem : MonoBehaviour
                 if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
                 {
                     Debug.DrawLine(rightSensorStart, hit.point, Color.red);
-                    avoidSteering += (0.125f ) / (i + 1);
+                    rightSteer += 1f / Mathf.Pow(2, i + 1);
 
                     if (hit.distance < enemyAI.Engines.Velocity.magnitude && i < 1)
                     {
@@ -460,8 +449,17 @@ public class EnemyNavigationSystem : MonoBehaviour
             }
         }
 
-        // cast a center ray to check for small obstacles
-        avoidSteering += FrontSensor(frontSensorStart) * 0.5f;
+        avoidSteering = FrontCircleAllSensor(frontSensorStart);
+
+        // consider only the greater steering force (ie. the side with more obstacle?)
+        if (Mathf.Abs(leftSteer) > Mathf.Abs(rightSteer))
+        {
+        avoidSteering -= leftSteer;
+        }
+        else if (Mathf.Abs(rightSteer) > Mathf.Abs(leftSteer))
+        {
+        avoidSteering += rightSteer;
+        }
 
         if (applyBrakes)
         {
@@ -472,6 +470,9 @@ public class EnemyNavigationSystem : MonoBehaviour
     }
 
 
+    
+
+
     private float FrontSensor(Vector2 frontSensorStart)
     {
         RaycastHit2D hit;
@@ -479,6 +480,38 @@ public class EnemyNavigationSystem : MonoBehaviour
         float avoidSteering = 0;
 
         hit = Physics2D.Raycast(frontSensorStart, heading, SensorLength, layerMask);
+        if (hit)
+        {
+
+            if (!hit.transform.gameObject.CompareTag("Barge"))
+            {
+                if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
+                {
+                    Debug.DrawLine(frontSensorStart, hit.point, Color.red);
+
+                    // transform to local space
+                    float hitY = transform.InverseTransformDirection(hit.normal).y;
+
+                    avoidSteering += 1 * Mathf.Sign(hitY);
+                }
+            }
+        }
+        else
+        {
+            Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)(heading) * (SensorLength), Color.white);
+        }
+
+        return avoidSteering;
+    }
+
+
+    private float FrontCircleSensor(Vector2 frontSensorStart)
+    {
+        RaycastHit2D hit;
+
+        float avoidSteering = 0;
+
+        hit = Physics2D.CircleCast(frontSensorStart, sideSensorWidthOffset*2f, heading, SensorLength*0.5f, layerMask);
         if (hit)
         {
 
@@ -503,7 +536,56 @@ public class EnemyNavigationSystem : MonoBehaviour
         }
         else
         {
-            Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)(heading) * (SensorLength), Color.white);
+            Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)(heading) * (SensorLength*0.5f), Color.white);
+        }
+
+        return avoidSteering;
+    }
+
+
+    private float FrontCircleAllSensor(Vector2 frontSensorStart)
+    {
+        RaycastHit2D[] hits;
+
+        float avoidSteering = 0;
+
+        float steerMin = 0, steerMax = 0;
+
+        hits = Physics2D.CircleCastAll(frontSensorStart, sideSensorWidthOffset*2f, heading, SensorLength*0.5f, layerMask);
+        if (hits.Length > 0)
+        {
+            foreach (var hit in hits)
+            {
+                if (!hit.transform.gameObject.CompareTag("Barge"))
+                {
+                    if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
+                    {
+                        Debug.DrawLine(frontSensorStart, hit.point, Color.red);
+
+                        // transform to local space
+                        float hitY = transform.InverseTransformDirection(hit.normal).y;
+
+                        float temp = (1 - Mathf.Abs(hitY)) * Mathf.Sign(hitY);
+
+                        if (temp < 0) steerMin += temp;
+                        else          steerMax += temp;
+                    }
+                }
+            }
+        }
+        else
+        {
+            Debug.DrawLine(frontSensorStart, frontSensorStart + (Vector2)(heading) * (SensorLength*0.5f), Color.white);
+        }
+
+        // consider only the greater steering force (ie. the side with more obstacle?)
+        if (Mathf.Abs(steerMax) > Mathf.Abs(steerMin))
+        {
+            avoidSteering = steerMax;
+        }
+        else
+        {
+            avoidSteering = steerMin;
         }
 
         return avoidSteering;
@@ -728,4 +810,170 @@ public class EnemyNavigationSystem : MonoBehaviour
             collisionCount++;
         }
     }
+
+
+    // ************************************************ EXPERIMENTAL ************************************************    
+    public void NavigateToTargetExperimental(Vector2 target)
+    {
+        // steering vectors array
+        Vector2[] vectors = new Vector2[3];
+
+        // vectors[0] -> vector to target
+        vectors[0] = transform.InverseTransformPoint(target);
+        float newSteer = vectors[0].y / vectors[0].magnitude;
+
+        // vectors[1] -> velocity vector
+        vectors[1] = transform.InverseTransformPoint((Vector2)transform.position + enemyAI.Engines.Velocity);
+        float velocitySteer = vectors[1].magnitude == 0 ? 0 : vectors[1].y / vectors[1].magnitude;
+
+        // vectors[2] -> vector to next target
+        vectors[2] = VectorSensors();
+        float sensorSteer = vectors[2].magnitude == 0 ? 0 : vectors[2].y / vectors[2].magnitude;
+
+        // get vector weights
+        float[] vectorWeights = WeightVectors(vectors);
+        
+        // calculate desired heading
+        Vector2 headingToTarget = (target - (Vector2)transform.position).normalized;
+        float headingDifference = Mathf.Abs(Vector3.SignedAngle(transform.right, headingToTarget, Vector3.forward));
+
+        // scale thrust
+        // when facing away from target thrust is 0
+        float thrustWeight = Mathf.Abs((headingDifference/180) - 1);
+
+        // if close to target, slow down
+        if (enemyAI.Engines.Velocity.magnitude / vectors[0].magnitude > 1)
+        {
+            thrustWeight *= -1;
+        }
+
+        // apply steering
+        enemyAI.Engines.RotateShip((newSteer * vectorWeights[0]) - (velocitySteer * vectorWeights[1]) + (sensorSteer * vectorWeights[2]));
+
+        // apply thrust
+        enemyAI.Engines.ApplyThrust(thrustWeight);
+    }
+
+    private Vector2 VectorSensors()
+    {
+        // sensor locations
+        Vector2 sensorStartPos = transform.position;
+
+        //front sensor
+        Vector2 frontSensorStart = sensorStartPos + heading * frontSensorForeAftOffset;
+
+        // side sensors
+        Vector2 sideSensorOffset = sensorStartPos + heading * sideSensorForeAftOffset;
+
+        Vector2 shipLeft = Quaternion.AngleAxis(90, Vector3.forward) * heading;
+        Vector2 leftSensorStart = sideSensorOffset + shipLeft * sideSensorWidthOffset;
+        Vector2 rightSensorStart = sideSensorOffset - shipLeft * sideSensorWidthOffset;
+
+        return VectorWhiskerScan(frontSensorStart, leftSensorStart, rightSensorStart);
+    }
+
+
+    [ReadOnly]public Vector2 avoidSteering = Vector2.zero;
+    [ReadOnly]public int leftHitCount = 0;
+    [ReadOnly]public int rightHitCount = 0;
+    [ReadOnly]public float desiredHeadingDelta = 0;
+    private Vector2 VectorWhiskerScan(Vector2 frontSensorStart, Vector2 leftSensorStart, Vector2 rightSensorStart)
+    {
+        RaycastHit2D hit;
+        Quaternion angle;
+
+        avoidSteering = Vector2.zero;
+        bool applyBrakes = false;
+
+        leftHitCount = 0;
+        rightHitCount = 0;
+
+        // left sensors
+        for (int i = 0; i <= whiskersCount; i++)
+        {
+            angle = Quaternion.AngleAxis(whiskerAngle * i, transform.forward);
+            float length = ((float)whiskersCount - i) / (float)whiskersCount;
+            hit = Physics2D.Raycast(leftSensorStart, angle * heading, SensorLength*length, layerMask);
+            if (hit)
+            {
+                if (hit.transform.gameObject.CompareTag("Barge")) { break; }
+
+                if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
+                {
+                    Debug.DrawLine(leftSensorStart, hit.point, Color.red);
+                    leftHitCount++;
+
+                    if (hit.distance < enemyAI.Engines.Velocity.magnitude)
+                    {
+                        applyBrakes = true;
+                    }
+                }
+            }
+            else
+            {
+                Debug.DrawLine(leftSensorStart, leftSensorStart + (Vector2)(angle * heading) * (SensorLength*length), Color.white);
+                break;
+            }
+        }
+
+
+        // right sensors
+        for (int i = 0; i <= whiskersCount; i++)
+        {
+            angle = Quaternion.AngleAxis(-whiskerAngle * i, transform.forward);
+            float length = ((float)whiskersCount - i) / (float)whiskersCount;
+            hit = Physics2D.Raycast(rightSensorStart, angle * heading, SensorLength*length, layerMask);
+            if (hit)
+            {
+                if (hit.transform.gameObject.CompareTag("Barge")) { break; }
+
+                if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
+                {
+                    Debug.DrawLine(rightSensorStart, hit.point, Color.red);
+                    rightHitCount++;
+
+                    if (hit.distance < enemyAI.Engines.Velocity.magnitude)
+                    {
+                        applyBrakes = true;
+                    }
+                }
+            }
+            else
+            {
+                Debug.DrawLine(rightSensorStart, rightSensorStart + (Vector2)(angle * heading) * (SensorLength*length), Color.white);
+                break;
+            }
+        }
+
+        // cast a center ray to check for small obstacles
+        // float frontSteering = FrontSensor(frontSensorStart);
+
+        if (applyBrakes)
+        {
+            enemyAI.Engines.ApplyBrakes();
+        }
+
+        int leftAbs = Mathf.Abs(leftHitCount);
+        int rightAbs = Mathf.Abs(rightHitCount);
+        float steerCount = 0;
+
+        if (leftAbs > rightAbs)
+        {
+            steerCount = (rightAbs) * -1f;
+        }
+        else
+        {
+            steerCount = leftAbs;
+        }
+
+        desiredHeadingDelta = steerCount * whiskerAngle;
+
+        return Quaternion.AngleAxis(desiredHeadingDelta, Vector3.forward) * heading;
+        
+        // float newAngle = Mathf.Atan2(heading.y, heading.x) + desiredHeadingDelta * Mathf.Deg2Rad;
+        // return new Vector2(Mathf.Cos(newAngle), Mathf.Sin(newAngle));
+
+        // return avoidSteering;
+    }
+    // ************************************************ EXPERIMENTAL ************************************************
 }
