@@ -416,9 +416,9 @@ public class EnemyNavigationSystem : MonoBehaviour
                 if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
                 {
                     Debug.DrawLine(leftSensorStart, hit.point, Color.red);
-                    avoidSteering -= (0.5f ) / (i + 1);
+                    avoidSteering -= (0.125f ) / (i + 1);
 
-                    if (hit.distance < enemyAI.Engines.Velocity.magnitude)
+                    if (hit.distance < enemyAI.Engines.Velocity.magnitude && i < 1)
                     {
                         applyBrakes = true;
                     }
@@ -445,9 +445,9 @@ public class EnemyNavigationSystem : MonoBehaviour
                 if (hit.rigidbody.GetInstanceID() != enemyAI.Engines.rb2dID)
                 {
                     Debug.DrawLine(rightSensorStart, hit.point, Color.red);
-                    avoidSteering += (0.5f ) / (i + 1);
+                    avoidSteering += (0.125f ) / (i + 1);
 
-                    if (hit.distance < enemyAI.Engines.Velocity.magnitude)
+                    if (hit.distance < enemyAI.Engines.Velocity.magnitude && i < 1)
                     {
                         applyBrakes = true;
                     }
@@ -461,14 +461,14 @@ public class EnemyNavigationSystem : MonoBehaviour
         }
 
         // cast a center ray to check for small obstacles
-        avoidSteering += FrontSensor(frontSensorStart);
+        avoidSteering += FrontSensor(frontSensorStart) * 0.5f;
 
         if (applyBrakes)
         {
             enemyAI.Engines.ApplyBrakes();
         }
 
-        return avoidSteering/3;
+        return avoidSteering;
     }
 
 

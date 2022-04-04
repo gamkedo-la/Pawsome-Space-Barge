@@ -26518,12 +26518,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2925028900334608136, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-      propertyPath: sideSensorWidthOffset
-      value: 12
+      propertyPath: steeringGain
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608136, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
-      propertyPath: sideSensorForeAftOffset
-      value: 4
+      propertyPath: steeringDecay
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608141, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: onIdleEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -26539,11 +26539,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608143, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -821
+      value: 767
       objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608143, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6818
+      value: -5318
       objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608143, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: m_LocalPosition.z
