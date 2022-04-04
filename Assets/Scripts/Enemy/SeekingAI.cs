@@ -12,6 +12,9 @@ public class SeekingAI : MonoBehaviour
     [SerializeField, Tooltip("Maximum speed."), Range(1, 200)]
     private float maxSpeed = 80;
 
+    [SerializeField, Tooltip("Use experimental steering?")]
+    private bool experimentalSteering = false;
+
 
     private void Awake()
     {
@@ -47,7 +50,14 @@ public class SeekingAI : MonoBehaviour
         // instruct navigation system
         if (target != Vector2.zero)
         {
-            enemyAI.Navigation.NavigateToTarget(target);
+            if (!experimentalSteering)
+            {
+                enemyAI.Navigation.NavigateToTarget(target);
+            }
+            else
+            {
+                enemyAI.Navigation.NavigateToTargetExperimental(target);
+            }
         }
         else
         {
