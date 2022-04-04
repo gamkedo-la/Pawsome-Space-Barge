@@ -719,4 +719,13 @@ public class EnemyNavigationSystem : MonoBehaviour
 
         return vectorWeights;
     }
+
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Asteroid"))
+        {
+            collisionCount++;
+        }
+    }
 }
