@@ -249,7 +249,19 @@ public class EnemyTargetingSystem : MonoBehaviour
             target = barge.transform.position;
         }
 
-        return target;
+        return AdjustedBarge(target);
+    }
+
+
+    /// <summary>
+    /// Return position adjusted by bargeVelocity.
+    /// Helps AI end up behind barge by aiming for point just behind.
+    /// </summary>
+    /// <param name="position"></param>
+    /// <returns></returns>
+    private Vector2 AdjustedBarge(Vector2 position)
+    {
+        return target - GameManagement.Instance.bargeVelocity;
     }
 
 
@@ -262,12 +274,12 @@ public class EnemyTargetingSystem : MonoBehaviour
     {
         bool inRange = false;
 
-        if (Vector3.Distance(transform.position, barge.transform.position) <= bargeContactRange && !bargeContact)
+        if (Vector3.Distance(transform.position, AdjustedBarge(barge.transform.position)) <= bargeContactRange && !bargeContact)
         {
             inRange = true;
             bargeContact = true;
         }
-        if (Vector3.Distance(transform.position, barge.transform.position) <= bargeContactRange*2 && bargeContact)
+        if (Vector3.Distance(transform.position, AdjustedBarge(barge.transform.position)) <= bargeContactRange*2 && bargeContact)
         {
             inRange = true;
         }
