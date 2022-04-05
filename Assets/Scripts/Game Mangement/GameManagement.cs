@@ -5,32 +5,36 @@ using Fungus;
 
 public class GameManagement : MonoBehaviour
 {
-    // Singleton
     [HideInInspector] public static GameManagement Instance;
+    private GameObject barge;
+    private OrbitalBody bargeOrbitalBody;
 
-    // using Fungus for non-game UI
+
+    [Header("Fungus Flowcharts")]
     [SerializeField] private Flowchart title;
     [SerializeField] private Flowchart tutorial;
     [SerializeField] private Flowchart mission;
     [SerializeField] private Flowchart restart;
     [SerializeField] private Flowchart ending;
+    [SerializeField] private bool pauseOnDialog = false;
 
-    // player settings + saved data
+
+    [Header("Player Settings")]
     [SerializeField] private PlayerSettings settings;
 
-    // alert networks
+
+    [Header("Alert Networks")]
     [SerializeField] private AlertEvent policeEvent;
     [SerializeField] private AlertEvent pirateEvent;
 
-    public AlertEvent GetAlertNetwork(EnemyType type)
-    {
-        return type == EnemyType.Police ? policeEvent : pirateEvent;
-    }
-
-    // misc
-    [SerializeField] public bool pauseOnDialog = false;
 
 
+    // **************************************** Accessors *****************************************
+    public Vector2 bargeVelocity => bargeOrbitalBody.Velocity;
+
+
+
+    // ************************************* Monobehaviours ***************************************
     private void Awake()
     {
         // setup singleton
@@ -52,7 +56,8 @@ public class GameManagement : MonoBehaviour
 
     void Start()
     {
-        //
+        barge = GameObject.FindGameObjectWithTag("Barge");
+        bargeOrbitalBody = barge.GetComponent<OrbitalBody>();
     }
 
 
@@ -66,6 +71,8 @@ public class GameManagement : MonoBehaviour
     }
 
 
+
+    // ***************************************** Dialog *******************************************
     public void DialogDone(Flowchart chart)
     {
         chart.gameObject.SetActive(false);
@@ -78,5 +85,13 @@ public class GameManagement : MonoBehaviour
         if (pause) { Time.timeScale = 0; }
         dialog.gameObject.SetActive(true);
         dialog.SendFungusMessage("start");
+    }
+
+
+
+    // ************************************** Alert Network ***************************************
+    public AlertEvent GetAlertNetwork(EnemyType type)
+    {
+        return type == EnemyType.Police ? policeEvent : pirateEvent;
     }
 }
