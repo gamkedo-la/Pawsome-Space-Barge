@@ -41,9 +41,9 @@ public class OrbitalBody : MonoBehaviour
     public OrbitalElements OrbitalElements => orbitalElements;
     public Vector3 GravitationalForce => OrbitalElements.Mu / positionPci.sqrMagnitude * Nadir;
 
-    private void OnEnable()
+    private void Start()
     {
-        SetOrbit(0, positionPci, velocityPci);
+        SetOrbit(Time.time, positionPci, velocityPci);
     }
 
     public void SetOrbit(float time)

@@ -25,7 +25,7 @@ public class OrbitalRigidbody : MonoBehaviour
         contactArray = new ContactPoint2D[maxContacts];
     }
 
-    private void Start()
+    private void OnEnable()
     {
         orbitalBody.Recalculate(0);
         FollowOrbit();
