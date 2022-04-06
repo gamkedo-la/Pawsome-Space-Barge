@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ProgressBar : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class ProgressBar : MonoBehaviour
 
     [SerializeField] private Slider progressBar;
     [SerializeField] private Button playButton;
+    [SerializeField] private GameObject loadingTextObj;
+    private TextMeshPro loadingText;
 
     private float currentValue;
     private float targetValue;
@@ -22,9 +25,11 @@ public class ProgressBar : MonoBehaviour
     {
         Application.backgroundLoadingPriority = ThreadPriority.Low;
     }
-    // Start is called before the first frame update
-    void Start()
+
+
+    private void Start()
     {
+        loadingText = loadingTextObj.GetComponent<TextMeshPro>();
         progressBar.value = currentValue = targetValue = 0;
 
         loadOperation = SceneManager.LoadSceneAsync(1);
@@ -35,8 +40,8 @@ public class ProgressBar : MonoBehaviour
         playButton.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
         targetValue = loadOperation.progress / 0.9f;
 
@@ -53,6 +58,7 @@ public class ProgressBar : MonoBehaviour
 
     private void LoadComplete()
     {
+        loadingTextObj.SetActive(false);
         playButton.gameObject.SetActive(true);
         playButton.interactable = true;
         Debug.Log("Scene load complete");
