@@ -1374,6 +1374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kitty: {fileID: 2754693412151678608}
+  firstOfficerButton: {fileID: 1748126866}
 --- !u!4 &1495568115
 Transform:
   m_ObjectHideFlags: 0
@@ -2844,7 +2845,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 2754693412151678619}
   selectedCommands:
-  - {fileID: 2754693412151678618}
+  - {fileID: 2754693412151678620}
   variables: []
   description: 
   stepPause: 0
@@ -2888,7 +2889,8 @@ GameObject:
   - component: {fileID: 2754693412151678617}
   - component: {fileID: 2754693412151678616}
   - component: {fileID: 2754693412151678619}
-  - component: {fileID: 2754693412151678618}
+  - component: {fileID: 2754693412151678620}
+  - component: {fileID: 2754693412151678621}
   m_Layer: 0
   m_Name: TitleFlowchart
   m_TagString: Untagged
@@ -2922,6 +2924,7 @@ MonoBehaviour:
   eventHandler: {fileID: 2754693412151678617}
   commandList:
   - {fileID: 2754693412151678616}
+  - {fileID: 2754693412151678621}
   suppressAllAutoSelections: 0
 --- !u!114 &2754693412151678616
 MonoBehaviour:
@@ -2965,31 +2968,6 @@ MonoBehaviour:
   parentBlock: {fileID: 2754693412151678615}
   suppressBlockAutoSelect: 0
   message: start
---- !u!114 &2754693412151678618
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2754693412151678613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 3
-  indentLevel: 0
-  text: Option Text
-  description: 
-  targetBlock: {fileID: 0}
-  hideIfVisited: 0
-  interactable:
-    booleanRef: {fileID: 0}
-    booleanVal: 1
-  setMenuDialog: {fileID: 0}
-  hideThisOption:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
 --- !u!114 &2754693412151678619
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3004,19 +2982,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 620
+    x: 621
     y: 430
-    width: 117
+    width: 70
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 2
-  blockName: New Block1
+  blockName: Exit
   description: 
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 2754693412151678618}
+  - {fileID: 2754693412151678620}
   suppressAllAutoSelections: 0
+--- !u!114 &2754693412151678620
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754693412151678613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 3
+  indentLevel: 0
+  description: Bye Kitty
+  targetObject: {fileID: 1495568113}
+  targetComponentAssemblyName: TitleScreenManager, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: TitleScreenManager
+  targetMethod: ByeKitty
+  targetMethodText: 'ByeKitty (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &2754693412151678621
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754693412151678613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 4
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 2754693412151678619}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
 --- !u!1 &2754693412922645393
 GameObject:
   m_ObjectHideFlags: 0
