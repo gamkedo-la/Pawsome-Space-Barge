@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Title Scene.unity
+    guid: 0aa0ff9d7b4a04d4b98b176e73c7f403
+  - enabled: 1
     path: Assets/Scenes/Pawsome-Space-Barge.unity
     guid: 1e81bf1bf6c752693a682a492d85a2a7
   m_configObjects:

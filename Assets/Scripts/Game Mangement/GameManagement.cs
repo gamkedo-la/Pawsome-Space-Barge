@@ -11,11 +11,11 @@ public class GameManagement : MonoBehaviour
 
 
     [Header("Fungus Flowcharts")]
-    [SerializeField] private Flowchart title;
     [SerializeField] private Flowchart tutorial;
     [SerializeField] private Flowchart mission;
+    [SerializeField] private Flowchart warnings;
     [SerializeField] private Flowchart restart;
-    [SerializeField] private Flowchart ending;
+
     [SerializeField] private bool pauseOnDialog = false;
 
 
