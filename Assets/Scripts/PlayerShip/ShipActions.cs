@@ -3,12 +3,14 @@ using UnityEngine.InputSystem;
 
 public class ShipActions : MonoBehaviour
 {
-    
+    private PlayerInput input;
+
     private CameraManager cameraManager;
 
     private void Awake()
     {
         cameraManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<CameraManager>();
+        input = GetComponent<PlayerInput>();
     }
 
     // toggle view event handler
@@ -20,6 +22,9 @@ public class ShipActions : MonoBehaviour
     // Pause key handler
     public void OnPause(InputAction.CallbackContext context)
     {
-        GameManagement.Instance.OnPause(context);
+        if (input.playerIndex == 0 && context.started)
+        {
+            GameManagement.Instance.OnPause(context);
+        }
     }
 }
