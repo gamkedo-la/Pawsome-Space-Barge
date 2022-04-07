@@ -1,74 +1,56 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using TMPro;
 
 public class ProgressBar : MonoBehaviour
 {
-    private AsyncOperation loadOperation;
-
-    [SerializeField] private Slider progressBar;
-    [SerializeField] private Button playButton;
-    [SerializeField] private GameObject loadingTextObj;
-    private TextMeshPro loadingText;
-
     private float currentValue;
     private float targetValue;
     private bool loadComplete = false;
 
-    [SerializeField, Range(0, 1)] private float progressMultiplier = 0.25f;
 
 
-    private void Awake()
+    [Header("Progress Bar")]
+    [SerializeField, Tooltip("Slider to adjust as progress bar.")]
+    private Slider progressBar;
+
+    [SerializeField, Range(0, 1), Tooltip("Multiplier for bar progress speed.")]
+    private float progressMultiplier = 0.25f;
+
+
+
+    private void OnEnable()
     {
-        Application.backgroundLoadingPriority = ThreadPriority.Low;
-    }
-
-
-    private void Start()
-    {
-        loadingText = loadingTextObj.GetComponent<TextMeshPro>();
         progressBar.value = currentValue = targetValue = 0;
-
-        loadOperation = SceneManager.LoadSceneAsync(1);
-
-        loadOperation.allowSceneActivation = false;
-
-        playButton.interactable = false;
-        playButton.gameObject.SetActive(false);
+        loadComplete = false;
     }
 
 
-    private void Update()
+    public void StartLoading(AsyncOperation operation, System.Action callback)
     {
-        targetValue = loadOperation.progress / 0.9f;
+        StartCoroutine(RunProgressBar(callback, operation));
+    }
 
-        currentValue = Mathf.MoveTowards(currentValue, targetValue, progressMultiplier * Time.deltaTime);
 
-        progressBar.value = currentValue;
-
-        if (!loadComplete && Mathf.Approximately(currentValue, 1))
+    private IEnumerator RunProgressBar(System.Action callback, AsyncOperation operation)
+    {
+        while (!loadComplete)
         {
-            LoadComplete();
+            yield return null;
+
+            targetValue = operation.progress / 0.9f;
+
+            currentValue = Mathf.MoveTowards(currentValue, targetValue, progressMultiplier * Time.deltaTime);
+
+            progressBar.value = currentValue;
+
+            if (Mathf.Approximately(currentValue, 1))
+            {
+                loadComplete = true;
+            }
         }
-    }
 
-
-    private void LoadComplete()
-    {
-        loadingTextObj.SetActive(false);
-        playButton.gameObject.SetActive(true);
-        playButton.interactable = true;
-        Debug.Log("Scene load complete");
-        loadComplete = true;
-    }
-
-
-    public void PlayButtonClicked()
-    {
-        Debug.Log("Play button clicked!");
-        loadOperation.allowSceneActivation = true;
+        callback();
+        yield break;
     }
 }
