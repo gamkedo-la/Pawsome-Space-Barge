@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Fungus;
 
 public class GameManagement : MonoBehaviour
@@ -28,6 +28,10 @@ public class GameManagement : MonoBehaviour
     [Header("Alert Networks")]
     [SerializeField] private AlertEvent policeEvent;
     [SerializeField] private AlertEvent pirateEvent;
+
+
+    [Header("Pause Overlay")]
+    [SerializeField] private GameObject pausePanel;
 
 
 
@@ -117,6 +121,8 @@ public class GameManagement : MonoBehaviour
         }
 
         gamePaused = Time.timeScale > 0 ? false : true;
+
+        pausePanel.SetActive(gamePaused);
     }
 }
 
