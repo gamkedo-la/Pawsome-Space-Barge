@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 using Fungus;
 
@@ -93,5 +94,12 @@ public class GameManagement : MonoBehaviour
     public AlertEvent GetAlertNetwork(EnemyType type)
     {
         return type == EnemyType.Police ? policeEvent : pirateEvent;
+    }
+
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        Debug.Log("Pause button pushed.");
+        Time.timeScale = Time.timeScale == 1 ? 0 : 1;
     }
 }

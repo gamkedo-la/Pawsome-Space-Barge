@@ -16,4 +16,10 @@ public class ShipActions : MonoBehaviour
     {
         cameraManager.ToggleCameraMode();
     }
+
+    // Pause key handler
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        GameManagement.Instance.OnPause(context);
+    }
 }
