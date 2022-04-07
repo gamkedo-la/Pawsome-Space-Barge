@@ -65,6 +65,7 @@ public class GameManagement : MonoBehaviour
     {
         barge = GameObject.FindGameObjectWithTag("Barge");
         bargeOrbitalBody = barge.GetComponent<OrbitalBody>();
+        pausePanel.SetActive(gamePaused);
     }
 
 
