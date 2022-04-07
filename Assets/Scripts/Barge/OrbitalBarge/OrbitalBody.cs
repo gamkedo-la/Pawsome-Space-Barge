@@ -43,7 +43,8 @@ public class OrbitalBody : MonoBehaviour
 
     private void Start()
     {
-        SetOrbit(Time.time, positionPci, velocityPci);
+        // SetOrbit(Time.time, positionPci, velocityPci);
+        AddDeltaV(Time.fixedTime, velocityPci.normalized * 0.1f);
     }
 
     public void SetOrbit(float time)
