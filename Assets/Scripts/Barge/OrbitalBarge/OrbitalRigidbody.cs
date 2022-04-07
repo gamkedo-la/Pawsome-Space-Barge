@@ -78,26 +78,16 @@ public class OrbitalRigidbody : MonoBehaviour
 
         for (int i = 0; i < contactNum; i++)
         {
-            var newImpulse = contactArray[i].collider.CompareTag("Player")
+            var newImpulse = contactArray[i].rigidbody.CompareTag("Player")
                                 ? contactArray[i].normalImpulse * playerMultiplier
                                 : contactArray[i].normalImpulse;
-                
+
             impulse += newImpulse;
             normal += contactArray[i].normal;
             
         }
 
-        Vector2 deltaV = impulse / ourMass * normal.normalized;
-
-        float deltaVMagnitude = deltaV.magnitude;
-
-        // if (deltaVMagnitude > MaxAllowedDeltaV)
-        // {
-        //     Debug.LogWarning($"Δv: {deltaV}, |Δv|: {deltaV.magnitude}. LIMIT ENFORCED.");
-        //     deltaV = deltaV * MaxAllowedDeltaV / deltaVMagnitude;
-        // }
-
-        return deltaV;
+        return (impulse * normal) / ourMass;
     }
 
     private void OnCollisionEnter2D(Collision2D col)
