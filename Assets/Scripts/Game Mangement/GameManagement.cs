@@ -9,6 +9,7 @@ public class GameManagement : MonoBehaviour
     [HideInInspector] public static GameManagement Instance;
     private GameObject barge;
     private OrbitalBody bargeOrbitalBody;
+    private bool gamePaused = false;
 
 
     [Header("Fungus Flowcharts")]
@@ -32,6 +33,7 @@ public class GameManagement : MonoBehaviour
 
     // **************************************** Accessors *****************************************
     public Vector2 bargeVelocity => bargeOrbitalBody.Velocity;
+    public bool GamePaused => gamePaused;
 
 
 
@@ -77,13 +79,13 @@ public class GameManagement : MonoBehaviour
     public void DialogDone(Flowchart chart)
     {
         chart.gameObject.SetActive(false);
-        Time.timeScale = 1;
+        TogglePause(PauseState.Playing);
     }
 
 
     private void StartDialog(Flowchart dialog, bool pause=false)
     {
-        if (pause) { Time.timeScale = 0; }
+        if (pause) { TogglePause(PauseState.Paused); }
         dialog.gameObject.SetActive(true);
         dialog.SendFungusMessage("start");
     }
@@ -100,6 +102,26 @@ public class GameManagement : MonoBehaviour
     public void OnPause(InputAction.CallbackContext context)
     {
         Debug.Log("Pause button pushed.");
-        Time.timeScale = Time.timeScale == 1 ? 0 : 1;
+        TogglePause();
     }
+
+    public void TogglePause(PauseState? enterState=null)
+    {
+        if (enterState != null)
+        {
+            Time.timeScale = (int)enterState;
+        }
+        else
+        {
+            Time.timeScale = Time.timeScale == 1 ? 0 : 1;
+        }
+
+        gamePaused = Time.timeScale > 0 ? false : true;
+    }
+}
+
+public enum PauseState
+{
+    Paused,
+    Playing
 }
