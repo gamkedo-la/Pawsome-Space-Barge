@@ -133,7 +133,7 @@ public class EnemyTargetingSystem : MonoBehaviour
                 // set bool for animator if out-of-range
                 if ( !IsBargeInRange() )
                 {
-                    targetLocked = false;
+                    TargetLost();
                 }
             }
         }
@@ -314,12 +314,38 @@ public class EnemyTargetingSystem : MonoBehaviour
             
             if ( IsBargeInRange() )
             {
-                targetLocked = true;
+                LockTarget();
             }
             else
             {
-                targetLocked = false;
+                TargetLost();
             }
+        }
+    }
+
+
+    /// <summary>
+    /// Locks onto target, notifying appropriate components.
+    /// </summary>
+    private void LockTarget()
+    {
+        if (!targetLocked)
+        {
+            targetLocked = true;
+            GameManagement.Instance.NotifyPursuit(gameObject);
+        }
+    }
+
+
+    /// <summary>
+    /// Removes target lock and notifies appropriate components.
+    /// </summary>
+    private void TargetLost()
+    {
+        if (targetLocked)
+        {
+            targetLocked = false;
+            GameManagement.Instance.CancelPursuit(gameObject);
         }
     }
 
