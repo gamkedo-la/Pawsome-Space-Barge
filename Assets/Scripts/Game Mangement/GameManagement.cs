@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using Fungus;
 
 public class GameManagement : MonoBehaviour
 {
     [HideInInspector] public static GameManagement Instance;
+
     private GameObject barge;
     private OrbitalBody bargeOrbitalBody;
     private bool gamePaused = false;
@@ -16,6 +18,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Flowchart tutorial;
     [SerializeField] private Flowchart mission;
     [SerializeField] private Flowchart warnings;
+    [SerializeField] private Flowchart pauseDialog;
     [SerializeField] private Flowchart restart;
 
     [SerializeField] private bool pauseOnDialog = false;
@@ -32,6 +35,9 @@ public class GameManagement : MonoBehaviour
 
     [Header("Pause Overlay")]
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject mafiaPanel;
+    [SerializeField] private GameObject commercialPanel;
+    [SerializeField] private GameObject minimap;
 
 
 
@@ -65,7 +71,7 @@ public class GameManagement : MonoBehaviour
     {
         barge = GameObject.FindGameObjectWithTag("Barge");
         bargeOrbitalBody = barge.GetComponent<OrbitalBody>();
-        pausePanel.SetActive(gamePaused);
+        pausePanel.SetActive(false);
     }
 
 
@@ -80,37 +86,81 @@ public class GameManagement : MonoBehaviour
 
 
 
-    // ***************************************** Dialog *******************************************
-    public void DialogDone(Flowchart chart)
+    // ************************************** Game Controls ***************************************
+    /// <summary>
+    /// Exits game.
+    /// </summary>
+    public void ExitGame()
     {
-        chart.gameObject.SetActive(false);
-        TogglePause(PauseState.Playing);
+        Application.Quit();
     }
 
 
-    private void StartDialog(Flowchart dialog, bool pause=false)
+    /// <summary>
+    /// Returns to title screen.
+    /// </summary>
+    public void ExitToTitle()
     {
-        if (pause) { TogglePause(PauseState.Paused); }
-        dialog.gameObject.SetActive(true);
-        dialog.SendFungusMessage("start");
+        // TODO
     }
 
 
-
-    // ************************************** Alert Network ***************************************
-    public AlertEvent GetAlertNetwork(EnemyType type)
-    {
-        return type == EnemyType.Police ? policeEvent : pirateEvent;
-    }
-
-
+    /// <summary>
+    /// Secondary handler for OnPause input event. Passed context from ShipActions.cs
+    /// </summary>
+    /// <param name="context"></param>
     public void OnPause(InputAction.CallbackContext context)
     {
         Debug.Log("Pause button pushed.");
-        TogglePause();
+        if (!gamePaused)
+        {
+            PauseGame();
+        }
     }
 
-    public void TogglePause(PauseState? enterState=null)
+
+    /// <summary>
+    /// Pauses game and disables extraneous objects.
+    /// </summary>
+    public void PauseGame()
+    {
+        TogglePause(PauseState.Paused);
+
+        // disable health bars and minimap
+        mafiaPanel.SetActive(false);
+        commercialPanel.SetActive(false);
+        minimap.SetActive(false);
+
+        // enable panel
+        pausePanel.SetActive(true);
+
+        // start pause dialog
+        StartDialog(pauseDialog, false);
+    }
+
+
+    /// <summary>
+    /// Resumes Game from paused state.
+    /// </summary>
+    public void ResumeGame()
+    {
+        // enable health bars and minimap
+        mafiaPanel.SetActive(true);
+        commercialPanel.SetActive(true);
+        minimap.SetActive(true);
+
+        // disable panel and dialog
+        pausePanel.SetActive(false);
+
+        DialogDone(pauseDialog);
+    }
+
+
+    /// <summary>
+    /// Toggles paused state, or sets passed PausedState.
+    /// </summary>
+    /// <param name="enterState"></param>
+    private void TogglePause(PauseState? enterState=null)
     {
         if (enterState != null)
         {
@@ -122,11 +172,51 @@ public class GameManagement : MonoBehaviour
         }
 
         gamePaused = Time.timeScale > 0 ? false : true;
+    }
 
-        pausePanel.SetActive(gamePaused);
+
+
+    // ***************************************** Dialog *******************************************
+    /// <summary>
+    /// Disable dialog object and resumes game if paused.
+    /// </summary>
+    /// <param name="chart"></param>
+    public void DialogDone(Flowchart chart)
+    {
+        chart.gameObject.SetActive(false);
+        if (Time.timeScale == 0) TogglePause(PauseState.Playing);
+    }
+
+
+    /// <summary>
+    /// Starts specified Fungus dialog.
+    /// </summary>
+    /// <param name="dialog"></param>
+    /// <param name="pause"></param>
+    private void StartDialog(Flowchart dialog, bool pause=false)
+    {
+        if (pause) TogglePause(PauseState.Paused);
+        dialog.gameObject.SetActive(true);
+        dialog.SendFungusMessage("start");
+    }
+
+
+
+    // ************************************** Alert Network ***************************************
+    /// <summary>
+    /// Returns correct alert network object for enemy initialization.
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
+    public AlertEvent GetAlertNetwork(EnemyType type)
+    {
+        return type == EnemyType.Police ? policeEvent : pirateEvent;
     }
 }
 
+/// <summary>
+/// Game paused states. Can be passed as value: Time.timeScale = (int)
+/// </summary>
 public enum PauseState
 {
     Paused,
