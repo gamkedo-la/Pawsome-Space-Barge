@@ -8,9 +8,9 @@ using UnityEngine;
 /// It can play a noise and background loop, not much else.
 /// Add audio files in inspector window.
 /// </summary>
-public class SoundManager : MonoBehaviour
+public class SoundManagement : MonoBehaviour
 {
-    [HideInInspector] public static SoundManager Instance;
+    // [HideInInspector] public static SoundManager Instance;
     [SerializeField] private bool ambientSound = true;
     [SerializeField][Range(0,1)] private float ambientVolume = 1;
     [SerializeField] private string defaultAmbientSound;
@@ -27,14 +27,14 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        // setup singleton
-        if (Instance != null && Instance != this) {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
+        // // setup singleton
+        // if (Instance != null && Instance != this) {
+        //     Destroy(this);
+        // }
+        // else
+        // {
+        //     Instance = this;
+        // }
 
         // turn List<> from inspector into usable Dictionary<>
         audioLookup = new Dictionary<string, AudioClip>();
