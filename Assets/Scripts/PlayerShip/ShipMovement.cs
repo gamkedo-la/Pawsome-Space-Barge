@@ -8,6 +8,10 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class ShipMovement : MonoBehaviour
 {
+    private SoundManagement soundManager;
+
+
+
     [Tooltip("Tug rotation speed.")]
     [Range(100,500)]
     [SerializeField] private int rotationSpeed = 300;
@@ -30,9 +34,6 @@ public class ShipMovement : MonoBehaviour
     [Tooltip("Disable for free flight!")]
     [SerializeField] private bool enforceBoundary = true;
 
-    // [Tooltip("Select a prefab to spawn when you hit an asteroid!")]
-    // [SerializeField] private GameObject collision_FX_Prefab;
-
 
     /// <summary> Player boundary collider. </summary>
     [HideInInspector] private BoxCollider2D playerBoundary;
@@ -46,6 +47,8 @@ public class ShipMovement : MonoBehaviour
     /// <summary> Most recent thrust input value. </summary>
     [HideInInspector] private float thrustInput = 0;
 
+
+
     [Header("Thrusters")] 
     [SerializeField] private Thruster rearLeftThruster;
     
@@ -55,12 +58,16 @@ public class ShipMovement : MonoBehaviour
     
     [SerializeField] private Thruster frontRightThruster;
 
+
+
     private Rigidbody2D bargeRigidbody;
     
     private float MaxSpeed => (speedLimitRelativeToBarge && bargeRigidbody != null)
         ? maxSpeed * bargeRigidbody.velocity.magnitude / 100f
         : maxSpeed;
-    
+
+
+
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -69,8 +76,11 @@ public class ShipMovement : MonoBehaviour
         playerBoundary = GameObject.FindGameObjectWithTag("PlayerBoundary").GetComponent<BoxCollider2D>();
     }
 
+
     private void Start()
     {
+        soundManager = GameManagement.Instance.SoundManager;
+
         // Spawn close to the barge, if we find it
         var barge = GameObject.FindGameObjectWithTag("Barge");
         if (barge != null)
@@ -80,10 +90,15 @@ public class ShipMovement : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
-        AdjustThrusters();
+        if (!GameManagement.Instance.GamePaused)
+        {
+            AdjustThrusters();
+        }
     }
+
 
     private void FixedUpdate()
     {
@@ -165,6 +180,7 @@ public class ShipMovement : MonoBehaviour
         }
     }
 
+
     private void AdjustThrusters()
     {
         switch (rotationInput)
@@ -174,16 +190,16 @@ public class ShipMovement : MonoBehaviour
                 rearRightThruster.On(rotationInput);
                 frontLeftThruster.On(rotationInput);
                 frontRightThruster.Off();
-                SoundManager.Instance.PlayShipThrusters("Thrusters", 1f);
-                SoundManager.Instance.AdjustThrusterDirection(-.5f);
+                soundManager.PlayShipThrusters("Thrusters", 1f);
+                soundManager.AdjustThrusterDirection(-.5f);
                 return;
             case < 0:
                 rearLeftThruster.On(rotationInput);
                 rearRightThruster.Off();
                 frontLeftThruster.Off();
                 frontRightThruster.On(rotationInput);
-                SoundManager.Instance.PlayShipThrusters("Thrusters", 1f);
-                SoundManager.Instance.AdjustThrusterDirection(.5f);
+                soundManager.PlayShipThrusters("Thrusters", 1f);
+                soundManager.AdjustThrusterDirection(.5f);
                 return;
         }
         
@@ -194,23 +210,23 @@ public class ShipMovement : MonoBehaviour
                 rearRightThruster.On(thrustInput);
                 frontLeftThruster.Off();
                 frontRightThruster.Off();
-                SoundManager.Instance.PlayShipThrusters("Thrusters", 1.5f);
-                SoundManager.Instance.AdjustThrusterDirection(0f);
+                soundManager.PlayShipThrusters("Thrusters", 1.5f);
+                soundManager.AdjustThrusterDirection(0f);
                 break;
             case < 0:
                 rearLeftThruster.On(thrustInput);
                 rearRightThruster.On(thrustInput);
                 frontLeftThruster.On(thrustInput);
                 frontRightThruster.On(thrustInput);
-                SoundManager.Instance.PlayShipThrusters("Thrusters", .8f);
-                SoundManager.Instance.AdjustThrusterDirection(0f);
+                soundManager.PlayShipThrusters("Thrusters", .8f);
+                soundManager.AdjustThrusterDirection(0f);
                 break;
             default:
                 rearLeftThruster.Off();
                 rearRightThruster.Off();
                 frontLeftThruster.Off();
                 frontRightThruster.Off();
-                SoundManager.Instance.StopThrusters();
+                soundManager.StopThrusters();
                 break;
         }
     }
@@ -235,14 +251,7 @@ public class ShipMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Asteroid" && other.relativeVelocity.magnitude > 5)
         {
-            SoundManager.Instance.PlaySound("Bump Sound", 0.5f);
-            
-            // if (this.collision_FX_Prefab) {
-            //     Debug.Log("Spawning collision FX prefab!");
-            //     Instantiate(this.collision_FX_Prefab,
-            //         other.GetContact(0).point,//this.transform.position,
-            //         this.transform.rotation); 
-            // }
+            soundManager.PlaySound("Bump Sound", 0.5f);
         }
     }
 }

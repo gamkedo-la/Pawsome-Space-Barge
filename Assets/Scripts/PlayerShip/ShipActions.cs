@@ -5,18 +5,15 @@ public class ShipActions : MonoBehaviour
 {
     private PlayerInput input;
 
-    private CameraManager cameraManager;
-
     private void Awake()
     {
-        cameraManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<CameraManager>();
         input = GetComponent<PlayerInput>();
     }
 
     // toggle view event handler
     public void OnToggleView(InputAction.CallbackContext context)
     {
-        cameraManager.ToggleCameraMode();
+        GameManagement.Instance.CameraManager.ToggleCameraMode();
     }
 
     // Pause key handler
