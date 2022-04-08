@@ -13,7 +13,8 @@ public class SoundManagement : MonoBehaviour
     // [HideInInspector] public static SoundManager Instance;
     [SerializeField] private bool ambientSound = true;
     [SerializeField][Range(0,1)] private float ambientVolume = 1;
-    [SerializeField] private string defaultAmbientSound;
+    [SerializeField] private string defaultAmbientSound = "Slow Space";
+    [SerializeField] private string pursuitMusic = "Space Chase";
     [SerializeField] private float crossFadeSpeed = 0.2f;
     [SerializeField] private bool soundEffects = true;
     private AudioSource ambient, effects, shipThrusters;
@@ -83,9 +84,26 @@ public class SoundManagement : MonoBehaviour
     }
 
 
+    public void SetPursuitAmbient()
+    {
+        if (ambient.clip.name != pursuitMusic)
+        {
+            SetAmbientSound(pursuitMusic);
+        }
+    }
+
+    public void CancelPursuitAmbient()
+    {
+        if (ambient.clip.name != pursuitMusic)
+        {
+            SetAmbientSound(defaultAmbientSound);
+        }
+    }
+
+
     /// <summary> Sets ambient AudioClip. </summary>
     /// <param name="track">Music track to loop.</param>
-    public void SetAmbientSound(string track)
+    private void SetAmbientSound(string track)
     {
         var nextClip = audioLookup[string.IsNullOrEmpty(track) ? defaultAmbientSound : track];
         if (nextClip == ambient.clip) return;
