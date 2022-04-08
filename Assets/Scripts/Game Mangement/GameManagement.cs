@@ -14,6 +14,17 @@ public class GameManagement : MonoBehaviour
     private bool gamePaused = false;
 
 
+
+    // ****************************** Management Scripts Accessors ********************************
+    private PlayerInputManager playerInputManager;
+    public PlayerInputManager InputManager => playerInputManager;
+    private CameraManagement cameraManager;
+    public CameraManagement CameraManager => cameraManager;
+    private SoundManagement soundManager;
+    public SoundManagement SoundManager => soundManager;
+
+
+
     [Header("Fungus Flowcharts")]
     [SerializeField] private Flowchart tutorial;
     [SerializeField] private Flowchart mission;
@@ -66,6 +77,13 @@ public class GameManagement : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        playerInputManager = GetComponent<PlayerInputManager>();
+        cameraManager = GetComponent<CameraManagement>();
+        soundManager = GetComponent<SoundManagement>();
+    }
+
 
     void Start()
     {
@@ -101,7 +119,11 @@ public class GameManagement : MonoBehaviour
     /// </summary>
     public void ExitToTitle()
     {
-        // TODO
+        Debug.Log("Exit game called, feature not implemented, resuming game.");
+        ResumeGame();
+        
+        // TODO: why doesn't this work...
+        // SceneManager.LoadScene(0);
     }
 
 
@@ -124,6 +146,8 @@ public class GameManagement : MonoBehaviour
     /// </summary>
     public void PauseGame()
     {
+        Debug.Log("Pausing game.");
+
         TogglePause(PauseState.Paused);
 
         // disable health bars and minimap
@@ -144,6 +168,8 @@ public class GameManagement : MonoBehaviour
     /// </summary>
     public void ResumeGame()
     {
+        Debug.Log("Resuming game.");
+
         // enable health bars and minimap
         mafiaPanel.SetActive(true);
         commercialPanel.SetActive(true);
