@@ -14,7 +14,7 @@ public class GameManagement : MonoBehaviour
     private bool gamePaused = false;
 
     /// <summary> List of enemies currently pursuing barge. </summary>
-    private List<GameObject> lockedOnEnemies = new List<GameObject>();
+    private HashSet<GameObject> lockedOnEnemies = new HashSet<GameObject>();
 
 
 
