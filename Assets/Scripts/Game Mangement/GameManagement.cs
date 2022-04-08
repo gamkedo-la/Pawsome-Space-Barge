@@ -136,7 +136,6 @@ public class GameManagement : MonoBehaviour
     /// <param name="context"></param>
     public void OnPause(InputAction.CallbackContext context)
     {
-        Debug.Log("Pause button pushed.");
         if (!gamePaused)
         {
             PauseGame();
@@ -251,7 +250,6 @@ public class GameManagement : MonoBehaviour
     public void NotifyPursuit(GameObject pursuingEnemy)
     {
         lockedOnEnemies.Add(pursuingEnemy);
-        Debug.Log($"Locked on enemies: {lockedOnEnemies.Count}");
         soundManager.SetPursuitAmbient();
     }
 
@@ -264,7 +262,6 @@ public class GameManagement : MonoBehaviour
     public void CancelPursuit(GameObject evadedEnemy)
     {
         lockedOnEnemies.Remove(evadedEnemy);
-        Debug.Log($"Target lost.\nLocked on enemies: {lockedOnEnemies.Count}");
 
         if (lockedOnEnemies.Count == 0)
         {
