@@ -13,6 +13,9 @@ public class GameManagement : MonoBehaviour
     private OrbitalBody bargeOrbitalBody;
     private bool gamePaused = false;
 
+    /// <summary> List of enemies currently pursuing barge. </summary>
+    private List<GameObject> lockedOnEnemies = new List<GameObject>();
+
 
 
     // ****************************** Management Scripts Accessors ********************************
@@ -238,7 +241,38 @@ public class GameManagement : MonoBehaviour
     {
         return type == EnemyType.Police ? policeEvent : pirateEvent;
     }
+
+
+    /// <summary>
+    /// Notify game management of enemy targeting.
+    /// Adds pursuingEnemy to lockedOnEnemies List, and notifies sound manager.
+    /// </summary>
+    /// <param name="pursuingEnemy"></param>
+    public void NotifyPursuit(GameObject pursuingEnemy)
+    {
+        lockedOnEnemies.Add(pursuingEnemy);
+        Debug.Log($"Locked on enemies: {lockedOnEnemies.Count}");
+        soundManager.SetPursuitAmbient();
+    }
+
+
+    /// <summary>
+    /// Notify game management of lost target.
+    /// Pusuing pursuingEnemy to lockedOnEnemies List, and notifies sound manager.
+    /// </summary>
+    /// <param name="pursuingEnemy"></param>
+    public void CancelPursuit(GameObject evadedEnemy)
+    {
+        lockedOnEnemies.Remove(evadedEnemy);
+        Debug.Log($"Target lost.\nLocked on enemies: {lockedOnEnemies.Count}");
+
+        if (lockedOnEnemies.Count == 0)
+        {
+            soundManager.CancelPursuitAmbient();
+        }
+    }
 }
+
 
 /// <summary>
 /// Game paused states. Can be passed as value: Time.timeScale = (int)
