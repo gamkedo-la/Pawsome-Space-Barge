@@ -6,9 +6,9 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class TitleScreenManager : MonoBehaviour
+public class TitleScreenManagement : MonoBehaviour
 {
-    [HideInInspector] public static TitleScreenManager Instance;
+    [HideInInspector] public static TitleScreenManagement Instance;
 
 
     private AsyncOperation loadOperation;
