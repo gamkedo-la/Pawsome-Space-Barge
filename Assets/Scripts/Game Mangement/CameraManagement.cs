@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 /// Sets vsync on, hides visual aid objects,
 /// and controls primary external camera.
 /// </summary>
-public class CameraManager : MonoBehaviour
+public class CameraManagement : MonoBehaviour
 {
     [Tooltip("Overhead camera used for full screen overhead view")] [SerializeField]
     private Camera overheadCamera;
