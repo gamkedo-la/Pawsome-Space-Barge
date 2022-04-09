@@ -45,6 +45,13 @@ public class EnemyEngineSystem : MonoBehaviour
 
 
 
+    [Header("Thrusters")] 
+    [SerializeField] private Thruster rearLeftThruster;
+    
+    [SerializeField] private Thruster rearRightThruster;
+
+
+
     // *********************** Accessors ***********************
     /// <summary> RigidBody2D InstanceID. For comparators. </summary>
     public int rb2dID => rb2d.GetInstanceID();
@@ -101,6 +108,11 @@ public class EnemyEngineSystem : MonoBehaviour
                 ApplyBrakes();
             }
             
+            AdjustThrusters(thrust);
+        }
+        else
+        {
+            AdjustThrusters(0f);
         }
     }
 
@@ -131,6 +143,26 @@ public class EnemyEngineSystem : MonoBehaviour
         if (stunTimer <= 0)
         {
             rb2d.MoveRotation( heading );
+        }
+    }
+    
+
+    /// <summary>
+    /// Adjusts thrusters. On if thrustInput > 0 else off.
+    /// </summary>
+    /// <param name="thrustInput"></param>
+    private void AdjustThrusters(float thrustInput)
+    {        
+        switch (thrustInput)
+        {
+            case > 0:
+                rearLeftThruster.On(thrustInput);
+                rearRightThruster.On(thrustInput);
+                break;
+            default:
+                rearLeftThruster.Off();
+                rearRightThruster.Off();
+                break;
         }
     }
 
