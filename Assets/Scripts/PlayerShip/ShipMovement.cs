@@ -32,7 +32,10 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] private bool speedLimitRelativeToBarge;
 
     [Tooltip("Disable for free flight!")]
-    [SerializeField] private bool enforceBoundary = true;
+
+    // Disabled for now, boundary check needs to consider barge position and rotation.
+    // [SerializeField]
+    private bool enforceBoundary = false;
 
 
     /// <summary> Player boundary collider. </summary>
@@ -143,6 +146,11 @@ public class ShipMovement : MonoBehaviour
         }
     }
 
+
+    // TODO
+    // make player boundary work based upon barge position.
+    // retro throwback for overhead mode
+    // remember to enable Serialization of enforceBoundary
 
     // check bounds, wrap around ship as necessary
     private void checkPosition()
