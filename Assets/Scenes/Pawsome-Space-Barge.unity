@@ -7015,11 +7015,11 @@ GameObject:
   - component: {fileID: 567322171}
   - component: {fileID: 567322168}
   - component: {fileID: 567322170}
-  - component: {fileID: 567322173}
   - component: {fileID: 567322175}
   - component: {fileID: 567322177}
   - component: {fileID: 567322176}
   - component: {fileID: 567322174}
+  - component: {fileID: 567322178}
   m_Layer: 0
   m_Name: WarningsFlowchart
   m_TagString: Untagged
@@ -7099,8 +7099,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 567322151}
-  selectedCommands:
-  - {fileID: 567322165}
+  selectedCommands: []
   variables:
   - {fileID: 567322168}
   - {fileID: 567322174}
@@ -7203,8 +7202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 170.5
-    y: 337.5
+    x: 172.62766
+    y: 338.56384
     width: 87.23404
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -7212,7 +7211,7 @@ MonoBehaviour:
   itemId: 16
   blockName: Police
   description: 
-  eventHandler: {fileID: 567322173}
+  eventHandler: {fileID: 567322178}
   commandList:
   - {fileID: 567322165}
   suppressAllAutoSelections: 0
@@ -7468,21 +7467,6 @@ MonoBehaviour:
     collectionRef: {fileID: 0}
     collectionVal: {fileID: 1794715895}
   variableToUse: {fileID: 567322168}
---- !u!114 &567322173
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567322142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 567322151}
-  suppressBlockAutoSelect: 0
-  waitForFrames: 1
 --- !u!114 &567322174
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7561,6 +7545,21 @@ MonoBehaviour:
   logMessage:
     stringRef: {fileID: 567322174}
     stringVal: 
+--- !u!114 &567322178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567322142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 567322151}
+  suppressBlockAutoSelect: 0
+  message: police
 --- !u!1 &569380977
 GameObject:
   m_ObjectHideFlags: 0

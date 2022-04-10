@@ -247,10 +247,14 @@ public class GameManagement : MonoBehaviour
     /// Adds pursuingEnemy to lockedOnEnemies List, and notifies sound manager.
     /// </summary>
     /// <param name="pursuingEnemy"></param>
-    public void NotifyPursuit(GameObject pursuingEnemy)
+    public void NotifyPursuit(GameObject pursuingEnemy, EnemyType type)
     {
         lockedOnEnemies.Add(pursuingEnemy);
         soundManager.SetPursuitAmbient();
+
+        string enemy = type == EnemyType.Police ? "police" : "pirate";
+
+        warnings.SendFungusMessage(enemy);
     }
 
 

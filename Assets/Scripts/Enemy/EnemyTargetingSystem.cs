@@ -332,7 +332,7 @@ public class EnemyTargetingSystem : MonoBehaviour
         if (!targetLocked)
         {
             targetLocked = true;
-            GameManagement.Instance.NotifyPursuit(gameObject);
+            GameManagement.Instance.NotifyPursuit(gameObject, enemyAI.Type);
         }
     }
 
