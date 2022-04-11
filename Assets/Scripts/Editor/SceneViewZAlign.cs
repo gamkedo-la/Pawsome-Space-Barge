@@ -25,9 +25,12 @@ using UnityEngine;
 	static SceneViewZAlign() => SceneView.duringSceneGui += OnSceneGUI;
 
 	static void OnSceneGUI( SceneView view ) {
-		DrawToggle( view );
+		if (!view.orthographic)
+		{
+			DrawToggle( view );
+		}
 
-		if( !useZAxis || view.isRotationLocked )
+		if( !useZAxis || view.isRotationLocked || view.orthographic )
 			return;
 
 		Event e = Event.current;
