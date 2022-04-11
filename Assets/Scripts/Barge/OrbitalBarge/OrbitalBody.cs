@@ -5,7 +5,8 @@ public class OrbitalBody : MonoBehaviour
     [Header("Limits")] 
     [SerializeField] private float minimumOrbitalRadius = 2000f;
     [SerializeField] private float maximumOrbitalRadius = 7000f;
-    
+    public float MaxOrbitRadius => maximumOrbitalRadius;
+
     [Header("Planet Centric Inertial Coordinates")]
     [SerializeField] private Vector3 positionPci;
     [SerializeField] private Vector3 velocityPci;

@@ -92,6 +92,7 @@ public class GameManagement : MonoBehaviour
         playerInputManager = GetComponent<PlayerInputManager>();
         cameraManager = GetComponent<CameraManagement>();
         soundManager = GetComponent<SoundManagement>();
+        InitializeUI();
     }
 
 
@@ -106,19 +107,37 @@ public class GameManagement : MonoBehaviour
         barge = GameObject.FindGameObjectWithTag("Barge");
         bargeOrbitalBody = barge.GetComponent<OrbitalBody>();
 
-        // ensure overlays are off and UI is on
-        pausePanel.SetActive(false);
-        missionFailPanel.SetActive(false);
-        EnableGameUI();
+        if (settings.firstRun)
+        {
+            StartCoroutine(RunDialog(tutorial, 2));
+        }
     }
 
 
-    void Update()
+    // void Update()
+    // {
+    //     //
+    // }
+
+
+    private void InitializeUI()
     {
-        if (settings.firstRun == true)
-        {
-            StartDialog(tutorial);
-        }
+        // put flowcharts in order
+        tutorial.gameObject.SetActive(false);
+        mission.gameObject.SetActive(false);
+        missionFail.gameObject.SetActive(false);
+        pauseDialog.gameObject.SetActive(false);
+        warnings.gameObject.SetActive(true);
+
+        // ensure overlays are off
+        pausePanel.SetActive(false);
+        missionFailPanel.SetActive(false);
+
+        // enable gameplay ui elements
+        EnableGameUI();
+
+        // and in case of logic error, make sure game is running
+        TogglePause(PauseState.Playing);
     }
 
 
@@ -201,44 +220,35 @@ public class GameManagement : MonoBehaviour
         // disable panel and dialog
         pausePanel.SetActive(false);
 
-        DialogDone(pauseDialog);
-    }
-
-
-    /// <summary>
-    /// Toggles paused state, or sets passed PausedState.
-    /// </summary>
-    /// <param name="enterState"></param>
-    private void TogglePause(PauseState? enterState=null)
-    {
-        if (enterState != null)
+        if ( pauseDialog.IsActive() )
         {
-            Time.timeScale = (int)enterState;
+            DialogDone(pauseDialog);
+        }
+        else if ( missionFail.IsActive() )
+        {
+            DialogDone(missionFail);
         }
         else
         {
-            Time.timeScale = Time.timeScale == 1 ? 0 : 1;
-        }
-
-        gamePaused = Time.timeScale > 0 ? false : true;
-    }
-
-
-    private void DisableGameUI()
-    {
-        foreach (var uiItem in gameUI)
-        {
-            uiItem.SetActive(false);
+            // fallback, reset UI
+            InitializeUI();
         }
     }
 
 
-    private void EnableGameUI()
+    public void MissionFailed()
     {
-        foreach (var uiItem in gameUI)
-        {
-            uiItem.SetActive(true);
-        }
+        Debug.Log("Mission Failed.");
+
+        TogglePause(PauseState.Paused);
+
+        DisableGameUI();
+
+        // enable panel
+        missionFailPanel.SetActive(true);
+
+        // start pause dialog
+        StartDialog(missionFail, false);
     }
 
 
@@ -292,6 +302,18 @@ public class GameManagement : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Starts dialog after delay.
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator RunDialog(Flowchart dialog, float delay)
+    {
+        settings.Reset();
+        yield return new WaitForSeconds(delay);
+        StartDialog(dialog);
+    }
+
+
 
     // ************************************** Alert Network ***************************************
     /// <summary>
@@ -334,6 +356,51 @@ public class GameManagement : MonoBehaviour
         if (lockedOnEnemies.Count == 0)
         {
             soundManager.CancelPursuitAmbient();
+        }
+    }
+
+
+
+    // **************************************** Utilities *****************************************
+    /// <summary>
+    /// Toggles paused state, or sets passed PausedState.
+    /// </summary>
+    /// <param name="enterState"></param>
+    private void TogglePause(PauseState? enterState=null)
+    {
+        if (enterState != null)
+        {
+            Time.timeScale = (int)enterState;
+        }
+        else
+        {
+            Time.timeScale = Time.timeScale == 1 ? 0 : 1;
+        }
+
+        gamePaused = Time.timeScale > 0 ? false : true;
+    }
+
+
+    /// <summary>
+    /// Diables in game UI elements
+    /// </summary>
+    private void DisableGameUI()
+    {
+        foreach (var uiItem in gameUI)
+        {
+            uiItem.SetActive(false);
+        }
+    }
+
+
+    /// <summary>
+    /// Enables in game UI elements
+    /// </summary>
+    private void EnableGameUI()
+    {
+        foreach (var uiItem in gameUI)
+        {
+            uiItem.SetActive(true);
         }
     }
 }

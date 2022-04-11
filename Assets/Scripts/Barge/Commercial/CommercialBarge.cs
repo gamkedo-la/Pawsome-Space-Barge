@@ -54,6 +54,11 @@ namespace Commercial
             if (damage > 0)
             {
                 bargeHealth.Subtract(damage);
+
+                if (bargeHealth.Value <= 0)
+                {
+                    GameManagement.Instance.MissionFailed();
+                }
             }
         }
     }

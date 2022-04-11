@@ -42,6 +42,11 @@ public class OrbitalRigidbody : MonoBehaviour
         {
             UseForces();
         }
+
+        if (Vector2.Distance(rb2d.position, Vector2.zero) > orbitalBody.MaxOrbitRadius)
+        {
+            GameManagement.Instance.MissionFailed();
+        }
     }
 
     private void UseForces()
@@ -92,6 +97,11 @@ public class OrbitalRigidbody : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        if (col.gameObject.CompareTag("Planet"))
+        {
+            GameManagement.Instance.MissionFailed();
+        }
+
         if (method == UpdateMethod.Forces)
         {
             return;
