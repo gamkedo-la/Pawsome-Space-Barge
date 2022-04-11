@@ -112,7 +112,7 @@ public class GameManagement : MonoBehaviour
     {
         if (settings.firstRun == true)
         {
-            StartDialog(tutorial, pauseOnDialog ? true : false );
+            StartDialog(tutorial);
             settings.firstRun = false;
         }
     }
@@ -159,7 +159,7 @@ public class GameManagement : MonoBehaviour
     /// <param name="context"></param>
     public void OnPause(InputAction.CallbackContext context)
     {
-        if (!gamePaused)
+        if (!gamePaused && !tutorial.IsActive())
         {
             PauseGame();
         }
@@ -228,12 +228,15 @@ public class GameManagement : MonoBehaviour
 
 
     // ***************************************** Dialog *******************************************
+    bool dialogActive = false;
+
     /// <summary>
     /// Disable dialog object and resumes game if paused.
     /// </summary>
     /// <param name="chart"></param>
     public void DialogDone(Flowchart chart)
     {
+        dialogActive = false;
         chart.gameObject.SetActive(false);
         if (Time.timeScale == 0) TogglePause(PauseState.Playing);
     }
@@ -246,9 +249,13 @@ public class GameManagement : MonoBehaviour
     /// <param name="pause"></param>
     private void StartDialog(Flowchart dialog, bool pause=false)
     {
-        if (pause) TogglePause(PauseState.Paused);
-        dialog.gameObject.SetActive(true);
-        dialog.SendFungusMessage("start");
+        if (!dialogActive)
+        {
+            if (pause || pauseOnDialog) TogglePause(PauseState.Paused);
+            dialogActive = true;
+            dialog.gameObject.SetActive(true);
+            dialog.SendFungusMessage("start");
+        }
     }
 
 
