@@ -9,8 +9,11 @@ public class GameManagement : MonoBehaviour
 {
     [HideInInspector] public static GameManagement Instance;
 
+    // barge
     private GameObject barge;
     private OrbitalBody bargeOrbitalBody;
+
+    // pause state switch
     private bool gamePaused = false;
 
     /// <summary> List of enemies currently pursuing barge. </summary>
@@ -123,16 +126,21 @@ public class GameManagement : MonoBehaviour
     /// </summary>
     public void ExitToTitle()
     {
-        Debug.Log("Exit game called, feature not implemented, resuming game.");
+        Debug.Log("Exiting to Title.");
+        ResumeGame(); // cleanup, else game is paused with no recourse.
         SceneManager.LoadScene(0);
     }
 
 
-    // TODO testing and integration to pause menu
+    // TODO: 
+    /// <summary>
+    /// Restarts mission.
+    /// </summary>
     public void RestartMission()
     {
         Debug.Log("Restarting mission.");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ResumeGame(); // cleanup, else game is paused with no recourse.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 
@@ -258,6 +266,7 @@ public class GameManagement : MonoBehaviour
         lockedOnEnemies.Add(pursuingEnemy);
         soundManager.SetPursuitAmbient();
 
+        // these strings must match those in the flowchart, there is probably a more robust way to do this...
         string enemy = type == EnemyType.Police ? "police" : "pirate";
 
         warnings.SendFungusMessage(enemy);
