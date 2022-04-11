@@ -15904,7 +15904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 361243278}
+  selectedFlowchart: {fileID: 6017164002153553802}
 --- !u!4 &1130922501
 Transform:
   m_ObjectHideFlags: 1
@@ -30159,7 +30159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2078571866
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36024,9 +36024,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 6017164002153553897}
+  - {fileID: 6017164002153553845}
   selectedCommands:
-  - {fileID: 6017164002153553894}
+  - {fileID: 8331166322818829441}
   variables:
   - {fileID: 6017164002153553801}
   - {fileID: 6017164002153553798}
@@ -40003,26 +40003,9 @@ MonoBehaviour:
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManagement
-  targetMethod: DialogDone
-  targetMethodText: 'DialogDone (Flowchart): Void'
-  methodParameters:
-  - objValue:
-      typeAssemblyname: Fungus.Flowchart, Fungus, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      typeFullname: Fungus.Flowchart
-      intValue: 0
-      boolValue: 0
-      floatValue: 0
-      stringValue: 
-      colorValue: {r: 0, g: 0, b: 0, a: 0}
-      gameObjectValue: {fileID: 0}
-      materialValue: {fileID: 0}
-      objectValue: {fileID: 6017164002153553802}
-      spriteValue: {fileID: 0}
-      textureValue: {fileID: 0}
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-    variableKey: 
+  targetMethod: TutorialDone
+  targetMethodText: 'TutorialDone (): Void'
+  methodParameters: []
   saveReturnValue: 0
   returnValueVariableKey: 
   returnValueType: System.Void

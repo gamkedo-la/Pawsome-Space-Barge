@@ -113,7 +113,6 @@ public class GameManagement : MonoBehaviour
         if (settings.firstRun == true)
         {
             StartDialog(tutorial);
-            settings.firstRun = false;
         }
     }
 
@@ -230,6 +229,7 @@ public class GameManagement : MonoBehaviour
     // ***************************************** Dialog *******************************************
     bool dialogActive = false;
 
+
     /// <summary>
     /// Disable dialog object and resumes game if paused.
     /// </summary>
@@ -256,6 +256,18 @@ public class GameManagement : MonoBehaviour
             dialog.gameObject.SetActive(true);
             dialog.SendFungusMessage("start");
         }
+    }
+
+
+    /// <summary>
+    /// Switches firstRun off, and closes tutorial dialog.
+    /// Called when tutorial dialog ends.
+    /// </summary>
+    public void TutorialDone()
+    {
+        DialogDone(tutorial);
+
+        settings.firstRun = false;
     }
 
 
