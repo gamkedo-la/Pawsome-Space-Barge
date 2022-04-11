@@ -12,6 +12,7 @@ public class GameManagement : MonoBehaviour
     // barge
     private GameObject barge;
     private OrbitalBody bargeOrbitalBody;
+    public OrbitalBody BargeOrbitalBody => bargeOrbitalBody;
 
     // pause state switch
     private bool gamePaused = false;
@@ -68,7 +69,8 @@ public class GameManagement : MonoBehaviour
     private void Awake()
     {
         // setup singleton
-        if (Instance != null && Instance != this) {
+        if (Instance != null && Instance != this)
+        {
             Destroy(this);
         }
         else
@@ -76,6 +78,7 @@ public class GameManagement : MonoBehaviour
             Instance = this;
         }
 
+        // TODO: check for save data and load, else create new data
         // initialize player settings if not present
         if (settings == null)
         {
@@ -88,6 +91,12 @@ public class GameManagement : MonoBehaviour
         playerInputManager = GetComponent<PlayerInputManager>();
         cameraManager = GetComponent<CameraManagement>();
         soundManager = GetComponent<SoundManagement>();
+    }
+
+
+    private void OnDisable()
+    {
+        // save data
     }
 
 
