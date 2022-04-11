@@ -9408,7 +9408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &569380978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25321,9 +25321,6 @@ MonoBehaviour:
   - {fileID: 1122333055}
   - {fileID: 1099020547}
   - {fileID: 1945651747}
-  mafiaPanel: {fileID: 1122333055}
-  commercialPanel: {fileID: 1099020547}
-  minimap: {fileID: 1945651747}
 --- !u!114 &1635844464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34957,11 +34954,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608143, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100
+      value: -74
       objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608143, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5004
+      value: -5157
       objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608143, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: m_LocalPosition.z
