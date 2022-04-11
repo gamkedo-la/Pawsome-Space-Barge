@@ -9786,7 +9786,7 @@ GameObject:
   - component: {fileID: 2925028900071183746}
   - component: {fileID: 4844272828913950933}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Orbital Purrtrol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9978,7 +9978,7 @@ MonoBehaviour:
   target: {x: 0, y: 0}
   nextTarget: {x: 0, y: 0}
   targetLocked: 0
-  bargeDetectionRange: 1000
+  bargeDetectionRange: 1500
   bargeContactRange: 100
   scanInterval: 2
   waypointThreshold: 50
