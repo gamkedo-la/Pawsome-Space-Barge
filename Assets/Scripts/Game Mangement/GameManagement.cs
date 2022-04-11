@@ -113,6 +113,7 @@ public class GameManagement : MonoBehaviour
     /// </summary>
     public void ExitGame()
     {
+        Debug.Log("Exiting game.");
         Application.Quit();
     }
 
@@ -123,10 +124,15 @@ public class GameManagement : MonoBehaviour
     public void ExitToTitle()
     {
         Debug.Log("Exit game called, feature not implemented, resuming game.");
-        ResumeGame();
-        
-        // TODO: why doesn't this work...
-        // SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);
+    }
+
+
+    // TODO testing and integration to pause menu
+    public void RestartMission()
+    {
+        Debug.Log("Restarting mission.");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 
