@@ -263,9 +263,13 @@ public class GameManagement : MonoBehaviour
     /// Switches firstRun off, and closes tutorial dialog.
     /// Called when tutorial dialog ends.
     /// </summary>
-    public void TutorialDone()
+    public void TutorialDone(bool mafiaMad, bool playerSelectBarge, bool tooEasy)
     {
         DialogDone(tutorial);
+
+        settings.mafiaMad = mafiaMad;
+        settings.playerSelectBarge = playerSelectBarge;
+        settings.tooEasy = tooEasy;
 
         settings.firstRun = false;
     }

@@ -6,14 +6,14 @@ using UnityEngine;
 public class PlayerSettings : ScriptableObject
 {
     // first run?
-    public bool firstRun = true;
+    [SerializeField] public bool firstRun = true;
 
     // dialog switches
-    public bool mafiaMad { get; set; }
-    public bool playerSelectBarge { get; set; }
-    public bool tooEasy { get; set; }
+    [SerializeField, ReadOnly] public bool mafiaMad;
+    [SerializeField, ReadOnly] public bool playerSelectBarge;
+    [SerializeField, ReadOnly] public bool tooEasy;
 
-    
+
     public PlayerSettings()
     {
         Reset();
