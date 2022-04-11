@@ -738,7 +738,6 @@ GameObject:
   - component: {fileID: 361243290}
   - component: {fileID: 361243295}
   - component: {fileID: 361243296}
-  - component: {fileID: 361243298}
   - component: {fileID: 361243299}
   - component: {fileID: 361243300}
   - component: {fileID: 361243303}
@@ -752,6 +751,16 @@ GameObject:
   - component: {fileID: 361243309}
   - component: {fileID: 361243310}
   - component: {fileID: 361243311}
+  - component: {fileID: 361243316}
+  - component: {fileID: 361243321}
+  - component: {fileID: 361243323}
+  - component: {fileID: 361243322}
+  - component: {fileID: 361243320}
+  - component: {fileID: 361243319}
+  - component: {fileID: 361243317}
+  - component: {fileID: 361243325}
+  - component: {fileID: 361243324}
+  - component: {fileID: 361243318}
   m_Layer: 0
   m_Name: PauseFlowchart
   m_TagString: Untagged
@@ -817,7 +826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 247, y: 71}
+  scrollPos: {x: 248, y: 71}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 280
@@ -828,10 +837,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 361243285}
-  selectedCommands:
-  - {fileID: 361243310}
+  selectedBlocks: []
+  selectedCommands: []
   variables:
   - {fileID: 361243309}
   description: 
@@ -873,8 +880,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 544
-    y: 213
+    x: 483
+    y: 259
     width: 112
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -978,8 +985,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 528
-    y: 460
+    x: 489
+    y: 393
     width: 137
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -1009,8 +1016,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 548
-    y: 97
+    x: 271
+    y: 197
     width: 106
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -1053,6 +1060,7 @@ MonoBehaviour:
   - {fileID: 361243284}
   - {fileID: 361243282}
   - {fileID: 361243283}
+  - {fileID: 361243316}
   suppressAllAutoSelections: 0
 --- !u!114 &361243288
 MonoBehaviour:
@@ -1216,34 +1224,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 789
-    y: 460
-    width: 70
+    x: 673
+    y: 393
+    width: 108
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 17
-  blockName: Exit
+  blockName: Exit Pause
   description: 
-  eventHandler: {fileID: 361243298}
+  eventHandler: {fileID: 0}
   commandList:
   - {fileID: 361243300}
   suppressAllAutoSelections: 0
---- !u!114 &361243298
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 361243274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 361243296}
-  suppressBlockAutoSelect: 0
-  message: exit
 --- !u!114 &361243299
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1440,17 +1433,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 530
-    y: 338
-    width: 136
+    x: 48
+    y: 449
+    width: 100
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 28
-  blockName: Restart Mission
+  blockName: Quitting?
   description: 
   eventHandler: {fileID: 0}
-  commandList: []
+  commandList:
+  - {fileID: 361243320}
+  - {fileID: 361243319}
   suppressAllAutoSelections: 0
 --- !u!114 &361243309
 MonoBehaviour:
@@ -1487,7 +1482,7 @@ MonoBehaviour:
   variableToUse: {fileID: 361243309}
 --- !u!114 &361243311
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1502,6 +1497,247 @@ MonoBehaviour:
   collection:
     collectionRef: {fileID: 0}
     collectionVal: {fileID: 1332714632}
+--- !u!114 &361243316
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 35
+  indentLevel: 0
+  text: Restart Mission
+  description: 
+  targetBlock: {fileID: 361243317}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+  hideThisOption:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+--- !u!114 &361243317
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 256
+    y: 450
+    width: 136
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 43
+  blockName: Restart Mission
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 361243325}
+  - {fileID: 361243324}
+  - {fileID: 361243318}
+  suppressAllAutoSelections: 0
+--- !u!114 &361243318
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 47
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 361243308}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
+--- !u!114 &361243319
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 42
+  indentLevel: 0
+  text: Actually... no
+  description: 
+  targetBlock: {fileID: 361243277}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+  hideThisOption:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+--- !u!114 &361243320
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 41
+  indentLevel: 0
+  text: Yes, let's abandon this one.
+  description: 
+  targetBlock: {fileID: 361243321}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+  hideThisOption:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+--- !u!114 &361243321
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 33
+    y: 571
+    width: 128
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 36
+  blockName: Mission Reset
+  description: Confirmation of Reset Mission
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 361243323}
+  - {fileID: 361243322}
+  suppressAllAutoSelections: 0
+--- !u!114 &361243322
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 40
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1635844456}
+  targetComponentAssemblyName: GameManagement, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: GameManagement
+  targetMethod: RestartMission
+  targetMethodText: 'RestartMission (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &361243323
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 39
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
+--- !u!114 &361243324
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 45
+  indentLevel: 0
+  storyText: Giving up on this one?
+  description: 
+  character: {fileID: 67495011}
+  portrait: {fileID: 21300000, guid: 7ccfb0a2b38399b4c8c78ce56ffc6b18, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 0
+  waitForClick: 0
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &361243325
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65d551a201c94bc79950076ff3eaf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 44
+  indentLevel: 0
+  sayDialog: {fileID: 7766866625786877198}
 --- !u!1 &370990066
 GameObject:
   m_ObjectHideFlags: 0
@@ -28227,11 +28463,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 467632323136225968, guid: e1cfd97312dbf0c90839939ae3f8f57e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 113
+      value: 149.2
       objectReference: {fileID: 0}
     - target: {fileID: 467632323136225968, guid: e1cfd97312dbf0c90839939ae3f8f57e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6743.8
+      value: -6811.4
       objectReference: {fileID: 0}
     - target: {fileID: 467632323136225968, guid: e1cfd97312dbf0c90839939ae3f8f57e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28239,31 +28475,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 467632323136225968, guid: e1cfd97312dbf0c90839939ae3f8f57e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.14250498
       objectReference: {fileID: 0}
     - target: {fileID: 467632323136225968, guid: e1cfd97312dbf0c90839939ae3f8f57e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.3847939
       objectReference: {fileID: 0}
     - target: {fileID: 467632323136225968, guid: e1cfd97312dbf0c90839939ae3f8f57e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.8367904
       objectReference: {fileID: 0}
     - target: {fileID: 467632323136225968, guid: e1cfd97312dbf0c90839939ae3f8f57e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.36250234
       objectReference: {fileID: 0}
     - target: {fileID: 467632323136225968, guid: e1cfd97312dbf0c90839939ae3f8f57e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 45.754
       objectReference: {fileID: 0}
     - target: {fileID: 467632323136225968, guid: e1cfd97312dbf0c90839939ae3f8f57e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -183.326
       objectReference: {fileID: 0}
     - target: {fileID: 467632323136225968, guid: e1cfd97312dbf0c90839939ae3f8f57e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -50.794
       objectReference: {fileID: 0}
     - target: {fileID: 467632323136225971, guid: e1cfd97312dbf0c90839939ae3f8f57e, type: 3}
       propertyPath: m_Name
@@ -29472,11 +29708,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608143, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1362
+      value: -2019
       objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608143, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6981
+      value: -6798
       objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608143, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: m_LocalPosition.z
