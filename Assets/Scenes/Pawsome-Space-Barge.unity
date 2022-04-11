@@ -734,14 +734,12 @@ GameObject:
   - component: {fileID: 361243283}
   - component: {fileID: 361243282}
   - component: {fileID: 361243292}
-  - component: {fileID: 361243291}
   - component: {fileID: 361243290}
   - component: {fileID: 361243295}
   - component: {fileID: 361243296}
   - component: {fileID: 361243299}
   - component: {fileID: 361243300}
   - component: {fileID: 361243303}
-  - component: {fileID: 361243302}
   - component: {fileID: 361243301}
   - component: {fileID: 361243304}
   - component: {fileID: 361243307}
@@ -753,7 +751,6 @@ GameObject:
   - component: {fileID: 361243311}
   - component: {fileID: 361243316}
   - component: {fileID: 361243321}
-  - component: {fileID: 361243323}
   - component: {fileID: 361243322}
   - component: {fileID: 361243320}
   - component: {fileID: 361243319}
@@ -761,13 +758,14 @@ GameObject:
   - component: {fileID: 361243325}
   - component: {fileID: 361243324}
   - component: {fileID: 361243318}
+  - component: {fileID: 361243326}
   m_Layer: 0
   m_Name: PauseFlowchart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &361243275
 Transform:
   m_ObjectHideFlags: 0
@@ -837,7 +835,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 361243321}
   selectedCommands: []
   variables:
   - {fileID: 361243309}
@@ -893,7 +892,6 @@ MonoBehaviour:
   commandList:
   - {fileID: 361243305}
   - {fileID: 361243303}
-  - {fileID: 361243302}
   - {fileID: 361243301}
   suppressAllAutoSelections: 0
 --- !u!114 &361243282
@@ -1029,7 +1027,6 @@ MonoBehaviour:
   commandList:
   - {fileID: 361243307}
   - {fileID: 361243292}
-  - {fileID: 361243291}
   - {fileID: 361243290}
   suppressAllAutoSelections: 0
 --- !u!114 &361243287
@@ -1138,24 +1135,6 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
---- !u!114 &361243291
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 361243274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 12
-  indentLevel: 0
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 1
-  durationOLD: 0
 --- !u!114 &361243292
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1170,7 +1149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 11
   indentLevel: 0
-  storyText: Aye, aye, Captain!
+  storyText: Aye, aye, Captain!{w=1}
   description: 
   character: {fileID: 67495011}
   portrait: {fileID: 21300000, guid: 7ccfb0a2b38399b4c8c78ce56ffc6b18, type: 3}
@@ -1314,24 +1293,6 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
---- !u!114 &361243302
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 361243274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 22
-  indentLevel: 0
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 1
-  durationOLD: 0
 --- !u!114 &361243303
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1346,7 +1307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 21
   indentLevel: 0
-  storyText: Aye, aye, Captain!
+  storyText: Aye, aye, Captain!{w=1}
   description: 
   character: {fileID: 67495011}
   portrait: {fileID: 21300000, guid: 7ccfb0a2b38399b4c8c78ce56ffc6b18, type: 3}
@@ -1647,7 +1608,7 @@ MonoBehaviour:
   description: Confirmation of Reset Mission
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 361243323}
+  - {fileID: 361243326}
   - {fileID: 361243322}
   suppressAllAutoSelections: 0
 --- !u!114 &361243322
@@ -1678,24 +1639,6 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
---- !u!114 &361243323
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 361243274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 39
-  indentLevel: 0
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 1
-  durationOLD: 0
 --- !u!114 &361243324
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1738,6 +1681,33 @@ MonoBehaviour:
   itemId: 44
   indentLevel: 0
   sayDialog: {fileID: 7766866625786877198}
+--- !u!114 &361243326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 48
+  indentLevel: 0
+  storyText: We can't always win. {w=1}
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!1 &370990066
 GameObject:
   m_ObjectHideFlags: 0
