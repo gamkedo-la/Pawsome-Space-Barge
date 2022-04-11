@@ -37,7 +37,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Flowchart mission;
     [SerializeField] private Flowchart warnings;
     [SerializeField] private Flowchart pauseDialog;
-    [SerializeField] private Flowchart restart;
+    [SerializeField] private Flowchart missionFail;
 
     [SerializeField] private bool pauseOnDialog = false;
 
@@ -51,11 +51,12 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private AlertEvent pirateEvent;
 
 
-    [Header("Pause Overlay")]
+    [Header("Overlays")]
     [SerializeField] private GameObject pausePanel;
-    [SerializeField] private GameObject mafiaPanel;
-    [SerializeField] private GameObject commercialPanel;
-    [SerializeField] private GameObject minimap;
+    [SerializeField] private GameObject missionFailPanel;
+
+    [SerializeField, Tooltip("UI objects to disable when pause or mission failure overlays are active.")]
+    private GameObject[] gameUI;
 
 
 
@@ -104,7 +105,11 @@ public class GameManagement : MonoBehaviour
     {
         barge = GameObject.FindGameObjectWithTag("Barge");
         bargeOrbitalBody = barge.GetComponent<OrbitalBody>();
+
+        // ensure overlays are off and UI is on
         pausePanel.SetActive(false);
+        missionFailPanel.SetActive(false);
+        EnableGameUI();
     }
 
 
@@ -174,10 +179,7 @@ public class GameManagement : MonoBehaviour
 
         TogglePause(PauseState.Paused);
 
-        // disable health bars and minimap
-        mafiaPanel.SetActive(false);
-        commercialPanel.SetActive(false);
-        minimap.SetActive(false);
+        DisableGameUI();
 
         // enable panel
         pausePanel.SetActive(true);
@@ -194,10 +196,7 @@ public class GameManagement : MonoBehaviour
     {
         Debug.Log("Resuming game.");
 
-        // enable health bars and minimap
-        mafiaPanel.SetActive(true);
-        commercialPanel.SetActive(true);
-        minimap.SetActive(true);
+        EnableGameUI();
 
         // disable panel and dialog
         pausePanel.SetActive(false);
@@ -222,6 +221,24 @@ public class GameManagement : MonoBehaviour
         }
 
         gamePaused = Time.timeScale > 0 ? false : true;
+    }
+
+
+    private void DisableGameUI()
+    {
+        foreach (var uiItem in gameUI)
+        {
+            uiItem.SetActive(false);
+        }
+    }
+
+
+    private void EnableGameUI()
+    {
+        foreach (var uiItem in gameUI)
+        {
+            uiItem.SetActive(true);
+        }
     }
 
 

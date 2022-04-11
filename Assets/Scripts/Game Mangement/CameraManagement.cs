@@ -171,7 +171,6 @@ public class CameraManagement : MonoBehaviour
     private void SetThirdPersonMode()
     {
         overheadCamera.gameObject.SetActive(false);
-        minimapCamera.gameObject.SetActive(true);
         foreach (var playerCamera in playerCameras)
         {
             playerCamera.gameObject.SetActive(true);
@@ -181,7 +180,6 @@ public class CameraManagement : MonoBehaviour
     private void SetOverheadMode()
     {
         overheadCamera.gameObject.SetActive(true);
-        minimapCamera.gameObject.SetActive(false);
         foreach (var playerCamera in playerCameras)
         {
             playerCamera.gameObject.SetActive(false);
