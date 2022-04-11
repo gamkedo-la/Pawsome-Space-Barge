@@ -106,4 +106,23 @@ public class OrbitalBody : MonoBehaviour
 
         return orbitCache;
     }
+
+    /// <summary>
+    /// Returns current orbital statistics.
+    /// </summary>
+    /// <returns></returns>
+    public OrbitalStatHolder GetOrbitalStats()
+    {
+        return new OrbitalStatHolder(
+            Position,
+            Velocity,
+            OrbitalElements.semiMajorAxis,
+            OrbitalElements.eccentricity,
+            OrbitalElements.nu,
+            OrbitalElements.T,
+            OrbitalElements.omega,
+            OrbitalElements.rp,
+            OrbitalElements.ra
+        );
+    }
 }
