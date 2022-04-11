@@ -13,6 +13,8 @@ public class EnemyTargetingSystem : MonoBehaviour
     private bool bargeContact = false;
 
     [ReadOnly][SerializeField] private float stunTimer = 0;
+    [ReadOnly][SerializeField] private int stunCount = 0;
+    [ReadOnly][SerializeField] private float currentDetectionRange = -1;
     [ReadOnly][SerializeField] private Vector2 previousBargePosition;
     [ReadOnly][SerializeField] private Vector2 target = Vector2.zero;
     [ReadOnly][SerializeField] private Vector2 nextTarget = Vector2.zero;
@@ -83,6 +85,7 @@ public class EnemyTargetingSystem : MonoBehaviour
         enemyAI = GetComponent<EnemyAIStateMachine>();
         barge = GameObject.FindGameObjectWithTag("Barge");
         layerMask = LayerMask.GetMask("Waypoints");
+        currentDetectionRange = bargeDetectionRange;
     }
 
 
@@ -142,7 +145,10 @@ public class EnemyTargetingSystem : MonoBehaviour
     private void OnDrawGizmos()
     {
         // draw detection radius
-        Gizmos.DrawWireSphere(transform.position, bargeDetectionRange);
+        if (Application.isPlaying)
+            Gizmos.DrawWireSphere(transform.position, currentDetectionRange );
+        else
+            Gizmos.DrawWireSphere(transform.position, bargeDetectionRange );
     }
 
 
@@ -296,7 +302,7 @@ public class EnemyTargetingSystem : MonoBehaviour
     /// <returns></returns>
     private bool IsBargeInRange()
     {
-        return Vector3.Distance(transform.position, barge.transform.position) <= bargeDetectionRange;
+        return Vector3.Distance(transform.position, barge.transform.position) <= currentDetectionRange;
     }
 
 
@@ -357,6 +363,8 @@ public class EnemyTargetingSystem : MonoBehaviour
             if (other.gameObject.CompareTag("Asteroid") && !enemyAI.Engines.Online)
             {
                 stunTimer = asteroidStunTime;
+                stunCount++;
+                currentDetectionRange = bargeDetectionRange / (stunCount + 2);
             }
             if (other.gameObject.CompareTag("Player"))
             {
