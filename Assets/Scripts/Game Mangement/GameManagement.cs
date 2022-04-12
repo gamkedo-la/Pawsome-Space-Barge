@@ -103,7 +103,11 @@ public class GameManagement : MonoBehaviour
 
     private void OnDisable()
     {
+
+    #if UNITY_EDITOR
         settings.SaveGame();
+    #endif
+
     }
 
 

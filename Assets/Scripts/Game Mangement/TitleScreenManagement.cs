@@ -17,6 +17,11 @@ public class TitleScreenManagement : MonoBehaviour
     private ProgressBar progressBar;
 
 
+    [SerializeField, Tooltip("PlayerSettings object for injecting settings.\nCurrently none are used in Title scene.")]
+    private PlayerSettings settings;
+    public PlayerSettings Settings => settings;
+
+
     [SerializeField, Tooltip("Settings flowchart.")]
     private Flowchart kitty;
 
@@ -57,9 +62,30 @@ public class TitleScreenManagement : MonoBehaviour
 
     private void OnEnable()
     {
+        
+    #if UNITY_EDITOR
+        if (settings == null)
+        {
+            settings = ScriptableObject.CreateInstance<PlayerSettings>();
+        }
+    #else
+        settings = DataUtilities.LoadPlayerData();
+    #endif
+
         playButton.interactable = false;
         playButtonText.color = buttonDisabledTextColor;
     }
+
+
+    // if ever settings are changed in Title scene...
+    // private void OnDisable()
+    // {
+
+    // #if UNITY_EDITOR
+    //     settings.SaveGame();
+    // #endif
+
+    // }
 
 
     private void Start()
@@ -102,6 +128,23 @@ public class TitleScreenManagement : MonoBehaviour
         {
             loadOperation.allowSceneActivation = true;
         }
+    }
+
+
+    /// <summary>
+    /// Creates new PlayerSettings instance and saves it to disk.
+    /// Will overwrite previous save data. Use carefully.
+    /// </summary>
+    public void ResetData()
+    {
+
+    #if !UNITY_EDITOR
+        settings = ScriptableObject.CreateInstance<PlayerSettings>();
+        settings.SaveGame();
+    #else
+        Debug.Log("Reset Data Called, data not saved in editor.");
+    #endif
+
     }
 
 

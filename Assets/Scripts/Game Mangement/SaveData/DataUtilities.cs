@@ -8,6 +8,12 @@ public static class DataUtilities
 
 
     /// <summary>
+    /// Checks if save file exists, returns true if it does.
+    /// </summary>
+    public static bool SaveFileExists => File.Exists(path);
+
+
+    /// <summary>
     /// Saves player settings to disk
     /// </summary>
     /// <param name="settings"></param>
