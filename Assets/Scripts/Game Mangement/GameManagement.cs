@@ -126,7 +126,7 @@ public class GameManagement : MonoBehaviour
     {
         // put flowcharts in order
         tutorial.gameObject.SetActive(false);
-        mission.gameObject.SetActive(false);
+        // mission.gameObject.SetActive(false);
         missionFail.gameObject.SetActive(false);
         missionSuccess.gameObject.SetActive(false);
         pauseDialog.gameObject.SetActive(false);
