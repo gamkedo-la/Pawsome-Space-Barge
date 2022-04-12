@@ -28653,7 +28653,7 @@ MonoBehaviour:
   missionFail: {fileID: 1266301739}
   missionSuccess: {fileID: 1267770782}
   pauseOnDialog: 0
-  settings: {fileID: 11400000, guid: 8dff29eced539db7ca374a4db3cbb6a3, type: 2}
+  settings: {fileID: 0}
   policeEvent: {fileID: 11400000, guid: 14144eca98c44312a94d9cd12b48b522, type: 2}
   pirateEvent: {fileID: 11400000, guid: 141ada0ad4ce1ad20989b62d3aedff19, type: 2}
   pausePanel: {fileID: 2078571865}
@@ -45852,7 +45852,7 @@ LineRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 0.39215687}
-      key1: {r: 1, g: 1, b: 1, a: 0.39215687}
+      key1: {r: 0.5, g: 0.5, b: 0.5, a: 0.39215687}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

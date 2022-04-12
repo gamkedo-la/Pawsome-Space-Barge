@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerSettings", menuName = "Player Settings")]
@@ -9,15 +7,16 @@ public class PlayerSettings : ScriptableObject
     [SerializeField] public bool firstRun = true;
 
     // dialog switches
-    [SerializeField, ReadOnly] public bool mafiaMad;
-    [SerializeField, ReadOnly] public bool playerSelectBarge;
-    [SerializeField, ReadOnly] public bool tooEasy;
+    [SerializeField, ReadOnly] public bool mafiaMad = false;
+    [SerializeField, ReadOnly] public bool playerSelectBarge = false;
+    [SerializeField, ReadOnly] public bool tooEasy = false;
 
 
-    public PlayerSettings()
+    PlayerSettings()
     {
         Reset();
     }
+
 
     public void Reset()
     {
@@ -25,5 +24,31 @@ public class PlayerSettings : ScriptableObject
         mafiaMad = false;
         playerSelectBarge = false;
         tooEasy = false;
+    }
+
+
+    public void SaveGame()
+    {
+        DataUtilities.SavePlayerData(this);
+    }
+
+
+    public static PlayerSettings ConvertFromData(PlayerSaveData data)
+    {
+        PlayerSettings newSettings = ScriptableObject.CreateInstance<PlayerSettings>();
+
+        try
+        {
+            newSettings.firstRun = data.firstRun;
+            newSettings.mafiaMad = data.mafiaMad;
+            newSettings.playerSelectBarge = data.playerSelectBarge;
+            newSettings.tooEasy = data.tooEasy;
+        }
+        catch
+        {
+            newSettings.Reset();
+        }
+
+        return newSettings;
     }
 }
