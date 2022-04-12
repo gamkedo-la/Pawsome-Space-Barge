@@ -38,6 +38,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Flowchart warnings;
     [SerializeField] private Flowchart pauseDialog;
     [SerializeField] private Flowchart missionFail;
+    [SerializeField] private Flowchart missionSuccess;
 
     [SerializeField] private bool pauseOnDialog = false;
 
@@ -54,6 +55,7 @@ public class GameManagement : MonoBehaviour
     [Header("Overlays")]
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject missionFailPanel;
+    [SerializeField] private GameObject missionSuccessPanel;
 
     [SerializeField, Tooltip("UI objects to disable when pause or mission failure overlays are active.")]
     private GameObject[] gameUI;
@@ -126,12 +128,14 @@ public class GameManagement : MonoBehaviour
         tutorial.gameObject.SetActive(false);
         mission.gameObject.SetActive(false);
         missionFail.gameObject.SetActive(false);
+        missionSuccess.gameObject.SetActive(false);
         pauseDialog.gameObject.SetActive(false);
         warnings.gameObject.SetActive(true);
 
         // ensure overlays are off
         pausePanel.SetActive(false);
         missionFailPanel.SetActive(false);
+        missionSuccessPanel.SetActive(false);
 
         // enable gameplay ui elements
         EnableGameUI();
@@ -228,6 +232,10 @@ public class GameManagement : MonoBehaviour
         {
             DialogDone(missionFail);
         }
+        else if ( missionSuccess.IsActive() )
+        {
+            DialogDone(missionSuccess);
+        }
         else
         {
             // fallback, reset UI
@@ -249,6 +257,33 @@ public class GameManagement : MonoBehaviour
 
         // start pause dialog
         StartDialog(missionFail, false);
+    }
+
+
+    public void MissionSuccess()
+    {
+        Debug.Log("Mission Accomplished!");
+
+        TogglePause(PauseState.Paused);
+
+        DisableGameUI();
+
+        // // enable panel
+        missionSuccessPanel.SetActive(true);
+
+        // TODO save player data
+
+        // // start pause dialog
+        StartDialog(missionSuccess, false);
+    }
+
+
+    public void NextMission()
+    {
+        // TODO mission setup
+
+        // for now just reload scene
+        RestartMission();
     }
 
 
