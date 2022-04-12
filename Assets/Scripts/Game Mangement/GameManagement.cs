@@ -80,17 +80,20 @@ public class GameManagement : MonoBehaviour
         {
             Instance = this;
         }
-
-        // TODO: check for save data and load, else create new data
-        // initialize player settings if not present
-        if (settings == null)
-        {
-            settings = ScriptableObject.CreateInstance<PlayerSettings>();
-        }
     }
 
     private void OnEnable()
     {
+        
+    #if UNITY_EDITOR
+        if (settings == null)
+        {
+            settings = ScriptableObject.CreateInstance<PlayerSettings>();
+        }
+    #else
+        settings = DataUtilities.LoadPlayerData();
+    #endif
+
         playerInputManager = GetComponent<PlayerInputManager>();
         cameraManager = GetComponent<CameraManagement>();
         soundManager = GetComponent<SoundManagement>();
@@ -100,7 +103,7 @@ public class GameManagement : MonoBehaviour
 
     private void OnDisable()
     {
-        // save data
+        settings.SaveGame();
     }
 
 
@@ -255,6 +258,20 @@ public class GameManagement : MonoBehaviour
         // enable panel
         missionFailPanel.SetActive(true);
 
+        // TODO update player settings
+        //
+        // need to track:
+        // int totalCommercialValueDelivered
+        // int numberOfMafiaDeliveries
+        // int bargesDelivered
+        // int bargesLost
+        // 
+        //
+        // settings.UpdatePlayerStats();
+
+        // save player data
+        settings.SaveGame();
+
         // start pause dialog
         StartDialog(missionFail, false);
     }
@@ -271,7 +288,19 @@ public class GameManagement : MonoBehaviour
         // // enable panel
         missionSuccessPanel.SetActive(true);
 
-        // TODO save player data
+        // TODO update player settings
+        //
+        // need to track:
+        // int totalCommercialValueDelivered
+        // int numberOfMafiaDeliveries
+        // int bargesDelivered
+        // int bargesLost
+        // 
+        //
+        // settings.UpdatePlayerStats();
+
+        // save player data
+        settings.SaveGame();
 
         // // start pause dialog
         StartDialog(missionSuccess, false);

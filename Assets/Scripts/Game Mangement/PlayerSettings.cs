@@ -29,7 +29,11 @@ public class PlayerSettings : ScriptableObject
 
     public void SaveGame()
     {
+    
+    #if !UNITY_EDITOR
         DataUtilities.SavePlayerData(this);
+    #endif
+
     }
 
 
