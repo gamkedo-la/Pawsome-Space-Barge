@@ -4,12 +4,12 @@ using UnityEngine;
 public class PlayerSettings : ScriptableObject
 {
     // first run?
-    [SerializeField] public bool firstRun = true;
+    public bool firstRun = true;
 
     // dialog switches
-    [SerializeField, ReadOnly] public bool mafiaMad = false;
-    [SerializeField, ReadOnly] public bool playerSelectBarge = false;
-    [SerializeField, ReadOnly] public bool tooEasy = false;
+    public bool mafiaMad = false;
+    public bool playerSelectBarge = false;
+    public bool tooEasy = false;
 
 
     PlayerSettings()
