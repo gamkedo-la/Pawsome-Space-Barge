@@ -17,8 +17,8 @@ public class AsteroidField : MonoBehaviour
     /// </summary>
     public static float baseSpeed = 100f;
 
-    /// <summary> Asteroid field boundary. </summary>
-    [HideInInspector] public BoxCollider2D fieldBounds;
+    // /// <summary> Asteroid field boundary. </summary>
+    // [HideInInspector] public BoxCollider2D fieldBounds;
 
     public BoxCollider2D spawnBounds;
 
@@ -58,7 +58,7 @@ public class AsteroidField : MonoBehaviour
         }
 
         // cache boundary
-        fieldBounds = GameObject.FindGameObjectWithTag("AsteroidBoundary").GetComponent<BoxCollider2D>();
+        // fieldBounds = GameObject.FindGameObjectWithTag("AsteroidBoundary").GetComponent<BoxCollider2D>();
 
         // cache rotational center
         planet = GameObject.FindGameObjectWithTag("Planet").transform.position;
