@@ -43,7 +43,7 @@ public class OrbitalRigidbody : MonoBehaviour
             UseForces();
         }
 
-        if (Vector2.Distance(rb2d.position, Vector2.zero) > orbitalBody.MaxOrbitRadius)
+        if (Vector2.Distance(rb2d.position, Vector2.zero) > orbitalBody.MaxOrbitRadius * 0.8f)
         {
             GameManagement.Instance.MissionFailed();
         }
@@ -97,6 +97,7 @@ public class OrbitalRigidbody : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        // TODO: why doesn't this work? The barge goes right through the planet...
         if (col.gameObject.CompareTag("Planet"))
         {
             GameManagement.Instance.MissionFailed();
