@@ -103,11 +103,7 @@ public class GameManagement : MonoBehaviour
 
     private void OnDisable()
     {
-
-    #if UNITY_EDITOR
-        settings.SaveGame();
-    #endif
-
+        SavePlayerSettings();
     }
 
 
@@ -274,7 +270,8 @@ public class GameManagement : MonoBehaviour
         // settings.UpdatePlayerStats();
 
         // save player data
-        settings.SaveGame();
+        SavePlayerSettings();
+        // settings.SaveGame();
 
         // start pause dialog
         StartDialog(missionFail, false);
@@ -304,7 +301,8 @@ public class GameManagement : MonoBehaviour
         // settings.UpdatePlayerStats();
 
         // save player data
-        settings.SaveGame();
+        SavePlayerSettings();
+        // settings.SaveGame();
 
         // // start pause dialog
         StartDialog(missionSuccess, false);
@@ -367,6 +365,8 @@ public class GameManagement : MonoBehaviour
         settings.tooEasy = tooEasy;
 
         settings.firstRun = false;
+
+        SavePlayerSettings();
     }
 
 
@@ -470,6 +470,19 @@ public class GameManagement : MonoBehaviour
         {
             uiItem.SetActive(true);
         }
+    }
+
+
+    /// <summary>
+    /// Saves settings data to disk.
+    /// </summary>
+    private void SavePlayerSettings()
+    {
+
+    #if !UNITY_EDITOR
+        settings.SaveGame();
+    #endif
+
     }
 }
 
