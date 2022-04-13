@@ -21,6 +21,7 @@ public class AsteroidField : MonoBehaviour
     [HideInInspector] public Vector3 planet;
 
 
+    [Header("World Settings")]
     [Tooltip("Asteroid field 'speed'.")]
     [Range(-50,50)]
     [SerializeField] public float fieldSpeed = 25;
@@ -31,6 +32,17 @@ public class AsteroidField : MonoBehaviour
     [Tooltip("Speed variance of asteroids.")]
     [Range(0, 0.2f)]
     [SerializeField] public float orbitalSpeedVariance = 0.1f;
+
+
+    [Header("Asteroid Factories")]
+    [SerializeField, Tooltip("Outer ring factory.")] public RandomPrefabFactory outerRing;
+    [SerializeField, Tooltip("Middle ring factory.")] public RandomPrefabFactory middleRing;
+    [SerializeField, Tooltip("Inner ring factory.")] public RandomPrefabFactory innerRing;
+
+    // to enable editing of asteroid ring factories
+    [HideInInspector] public bool outerRingFoldout;
+    [HideInInspector] public bool middleRingFoldout;
+    [HideInInspector] public bool innerRingFoldout;
 
 
 

@@ -28543,18 +28543,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a63dd9609511f32995ce7a7275fce8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnBounds: {fileID: 0}
   planet: {x: 0, y: 0, z: 0}
   fieldSpeed: -25
   maxAsteroidTumbleSpeed: 10
   orbitalSpeedVariance: 0.05
-  asteroidList:
-  - <prefab>k__BackingField: {fileID: 7257938796415413944, guid: 3b8d634d8ca02a1bf9698a342781e403, type: 3}
-    <weight>k__BackingField: 25
-  - <prefab>k__BackingField: {fileID: 7696257734742167689, guid: 56dfb0f54a32422f290468068258ccf7, type: 3}
-    <weight>k__BackingField: 50
-  - <prefab>k__BackingField: {fileID: 1528038712871602469, guid: 9537b7242b983f04fa139e46a8f08c9b, type: 3}
-    <weight>k__BackingField: 25
+  outerRing: {fileID: 11400000, guid: 4f1c85a1a75542d4b8d829ace69b8610, type: 2}
+  middleRing: {fileID: 11400000, guid: 618a2a861fc731547920e0fb3ba9ffd4, type: 2}
+  innerRing: {fileID: 11400000, guid: bebff26138d8fac4294f1ba082abac8a, type: 2}
+  outerRingFoldout: 0
+  middleRingFoldout: 0
+  innerRingFoldout: 0
 --- !u!114 &1635844461
 MonoBehaviour:
   m_ObjectHideFlags: 0
