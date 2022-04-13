@@ -97,6 +97,8 @@ public class TitleScreenManagement : MonoBehaviour
 
         progressBar.StartLoading(loadOperation, loadCompleteAction);
         StartCoroutine(AnimateLoadingText());
+
+        SoundManagement.Instance.SetAmbientSound("DarkLoops");
     }
 
 
