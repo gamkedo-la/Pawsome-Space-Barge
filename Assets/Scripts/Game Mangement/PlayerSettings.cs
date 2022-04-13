@@ -11,6 +11,12 @@ public class PlayerSettings : ScriptableObject
     public bool playerSelectBarge = false;
     public bool tooEasy = false;
 
+    // game state variables
+    public int commercialEarnings;
+    public int mafiaDeliveries;
+    public int bargesDelivered;
+    public int bargesLost;
+
 
     PlayerSettings()
     {
@@ -24,6 +30,11 @@ public class PlayerSettings : ScriptableObject
         mafiaMad = false;
         playerSelectBarge = false;
         tooEasy = false;
+
+        commercialEarnings = 0;
+        mafiaDeliveries = 0;
+        bargesDelivered = 0;
+        bargesLost = 0;
     }
 
 
@@ -47,6 +58,10 @@ public class PlayerSettings : ScriptableObject
             newSettings.mafiaMad = data.mafiaMad;
             newSettings.playerSelectBarge = data.playerSelectBarge;
             newSettings.tooEasy = data.tooEasy;
+            newSettings.commercialEarnings = data.commercialEarnings;
+            newSettings.mafiaDeliveries = data.mafiaDeliveries;
+            newSettings.bargesDelivered = data.bargesDelivered;
+            newSettings.bargesLost = data.bargesLost;
         }
         catch
         {
