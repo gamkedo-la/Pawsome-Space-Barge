@@ -10,7 +10,7 @@ using UnityEngine;
 /// </summary>
 public class SoundManagement : MonoBehaviour
 {
-    // [HideInInspector] public static SoundManager Instance;
+    [HideInInspector] public static SoundManagement Instance;
     [SerializeField] private bool ambientSound = true;
     [SerializeField][Range(0,1)] private float ambientVolume = 1;
     [SerializeField] private string defaultAmbientSound = "Slow Space";
@@ -29,13 +29,15 @@ public class SoundManagement : MonoBehaviour
     private void Awake()
     {
         // // setup singleton
-        // if (Instance != null && Instance != this) {
-        //     Destroy(this);
-        // }
-        // else
-        // {
-        //     Instance = this;
-        // }
+        if (Instance != null && Instance != this) {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+
+        DontDestroyOnLoad(this);
 
         // turn List<> from inspector into usable Dictionary<>
         audioLookup = new Dictionary<string, AudioClip>();
@@ -46,7 +48,12 @@ public class SoundManagement : MonoBehaviour
 
         InitializeAudioSources();
 
-        SetAmbientSound(defaultAmbientSound);
+        // SetAmbientSound(defaultAmbientSound);
+    }
+
+    private void OnDisable()
+    {
+        Destroy(this);
     }
 
 
@@ -103,7 +110,7 @@ public class SoundManagement : MonoBehaviour
 
     /// <summary> Sets ambient AudioClip. </summary>
     /// <param name="track">Music track to loop.</param>
-    private void SetAmbientSound(string track)
+    public void SetAmbientSound(string track)
     {
         var nextClip = audioLookup[string.IsNullOrEmpty(track) ? defaultAmbientSound : track];
         if (nextClip == ambient.clip) return;
