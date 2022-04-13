@@ -1670,6 +1670,11 @@ GameObject:
   - component: {fileID: 361243327}
   - component: {fileID: 361243334}
   - component: {fileID: 361243333}
+  - component: {fileID: 361243335}
+  - component: {fileID: 361243339}
+  - component: {fileID: 361243338}
+  - component: {fileID: 361243337}
+  - component: {fileID: 361243336}
   m_Layer: 0
   m_Name: Pause Flowchart
   m_TagString: Untagged
@@ -2253,14 +2258,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 48
-    y: 449
-    width: 100
+    x: 280
+    y: 547
+    width: 91
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 28
-  blockName: Quitting?
+  blockName: Really?
   description: 
   eventHandler: {fileID: 0}
   commandList:
@@ -2406,9 +2411,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 42
   indentLevel: 0
-  text: Actually... no
+  text: Actually... no.
   description: 
-  targetBlock: {fileID: 361243277}
+  targetBlock: {fileID: 361243335}
   hideIfVisited: 0
   interactable:
     booleanRef: {fileID: 0}
@@ -2431,7 +2436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 41
   indentLevel: 0
-  text: Yes, let's abandon this one.
+  text: Yes, I need to re-evaluate this situation.
   description: 
   targetBlock: {fileID: 361243321}
   hideIfVisited: 0
@@ -2456,8 +2461,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 33
-    y: 571
+    x: 260
+    y: 650
     width: 128
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2762,6 +2767,126 @@ MonoBehaviour:
   hideThisOption:
     booleanRef: {fileID: 0}
     booleanVal: 0
+--- !u!114 &361243335
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 31.5
+    y: 547
+    width: 138
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 57
+  blockName: Encouragement
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 361243338}
+  - {fileID: 361243337}
+  - {fileID: 361243336}
+  - {fileID: 361243339}
+  suppressAllAutoSelections: 0
+--- !u!114 &361243336
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 62
+  indentLevel: 0
+  storyText: Anything else Captain?
+  description: 
+  character: {fileID: 67495011}
+  portrait: {fileID: 21300000, guid: 7ccfb0a2b38399b4c8c78ce56ffc6b18, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 0
+  waitForClick: 0
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &361243337
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 60
+  indentLevel: 0
+  storyText: We can do this Captain, don't give up!
+  description: 
+  character: {fileID: 67495011}
+  portrait: {fileID: 21300000, guid: 7ccfb0a2b38399b4c8c78ce56ffc6b18, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 0
+  waitForClick: 0
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &361243338
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65d551a201c94bc79950076ff3eaf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 59
+  indentLevel: 0
+  sayDialog: {fileID: 7766866625786877198}
+--- !u!114 &361243339
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 58
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 361243287}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
 --- !u!1 &370990066
 GameObject:
   m_ObjectHideFlags: 0
@@ -18500,7 +18625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 6017164002153553802}
+  selectedFlowchart: {fileID: 361243278}
 --- !u!4 &1130922501
 Transform:
   m_ObjectHideFlags: 1
@@ -28543,18 +28668,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a63dd9609511f32995ce7a7275fce8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnBounds: {fileID: 0}
   planet: {x: 0, y: 0, z: 0}
   fieldSpeed: -25
   maxAsteroidTumbleSpeed: 10
   orbitalSpeedVariance: 0.05
-  asteroidList:
-  - <prefab>k__BackingField: {fileID: 7257938796415413944, guid: 3b8d634d8ca02a1bf9698a342781e403, type: 3}
-    <weight>k__BackingField: 25
-  - <prefab>k__BackingField: {fileID: 7696257734742167689, guid: 56dfb0f54a32422f290468068258ccf7, type: 3}
-    <weight>k__BackingField: 50
-  - <prefab>k__BackingField: {fileID: 1528038712871602469, guid: 9537b7242b983f04fa139e46a8f08c9b, type: 3}
-    <weight>k__BackingField: 25
+  outerRing: {fileID: 11400000, guid: 4f1c85a1a75542d4b8d829ace69b8610, type: 2}
+  middleRing: {fileID: 11400000, guid: 618a2a861fc731547920e0fb3ba9ffd4, type: 2}
+  innerRing: {fileID: 11400000, guid: bebff26138d8fac4294f1ba082abac8a, type: 2}
+  outerRingFoldout: 1
+  middleRingFoldout: 1
+  innerRingFoldout: 1
 --- !u!114 &1635844461
 MonoBehaviour:
   m_ObjectHideFlags: 0
