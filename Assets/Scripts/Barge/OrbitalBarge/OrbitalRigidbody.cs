@@ -22,6 +22,7 @@ public class OrbitalRigidbody : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         orbitalBody = GetComponent<OrbitalBody>();
         rb2d.isKinematic = method != UpdateMethod.Forces;
+        if (rb2d.isKinematic) rb2d.useFullKinematicContacts = true;
         contactArray = new ContactPoint2D[maxContacts];
     }
 
