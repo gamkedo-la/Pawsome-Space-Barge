@@ -54,15 +54,13 @@ public static class DataUtilities
             {
                 PlayerSaveData data = formatter.Deserialize(stream) as PlayerSaveData;
 
-                var thing1 = PlayerSettings.ConvertFromData(data);
-
-                return thing1;
+                return PlayerSettings.ConvertFromData(data);
             }
         }
         else
         {
             Debug.Log("No Save File Found, creating new settings.");
-            PlayerSettings newSettings = ScriptableObject.CreateInstance<PlayerSettings>(); //new PlayerSettings();
+            PlayerSettings newSettings = ScriptableObject.CreateInstance<PlayerSettings>();
             SavePlayerData(newSettings);
 
             return newSettings;
