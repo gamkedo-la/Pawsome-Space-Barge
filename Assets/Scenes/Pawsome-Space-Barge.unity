@@ -42131,7 +42131,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 38.92084
     y: 1563.7448
-    width: 132.35297
+    width: 132
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -42329,7 +42329,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 491.38538
     y: 776.7714
-    width: 118.23532
+    width: 116
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -42810,6 +42810,16 @@ GameObject:
   - component: {fileID: 8331166322818829445}
   - component: {fileID: 8331166322818829444}
   - component: {fileID: 8331166322818829443}
+  - component: {fileID: 8331166322818829457}
+  - component: {fileID: 8331166322818829461}
+  - component: {fileID: 8331166322818829459}
+  - component: {fileID: 8331166322818829462}
+  - component: {fileID: 8331166322818829458}
+  - component: {fileID: 8331166322818829460}
+  - component: {fileID: 8331166322818829463}
+  - component: {fileID: 8331166322818829466}
+  - component: {fileID: 8331166322818829465}
+  - component: {fileID: 8331166322818829464}
   m_Layer: 0
   m_Name: Tutorial Flowchart
   m_TagString: Untagged
@@ -42887,11 +42897,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 686.933, y: -107.211426}
+  scrollPos: {x: 291.74323, y: -552.5744}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 280
-  zoom: 0.84999967
+  zoom: 1
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -42899,9 +42909,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 6017164002153553845}
+  - {fileID: 8331166322818829463}
   selectedCommands:
-  - {fileID: 8331166322818829441}
+  - {fileID: 8331166322818829465}
   variables:
   - {fileID: 6017164002153553801}
   - {fileID: 6017164002153553798}
@@ -42932,7 +42942,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 107.714294
     y: -251.99986
-    width: 122.94121
+    width: 123
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -43052,7 +43062,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 274.66364
     y: 369.90714
-    width: 122.94121
+    width: 121
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -43133,7 +43143,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 480.81604
     y: 891.55884
-    width: 142.94122
+    width: 142
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -43144,6 +43154,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 8331166322818829449}
   - {fileID: 6017164002153553880}
+  - {fileID: 8331166322818829457}
   - {fileID: 6017164002153553870}
   suppressAllAutoSelections: 0
 --- !u!114 &6017164002153553831
@@ -43189,7 +43200,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 60.012585
     y: 582.76416
-    width: 118.23532
+    width: 116
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -43246,7 +43257,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 757.2003
     y: 684.19293
-    width: 102.94119
+    width: 103
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -43306,7 +43317,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 440.42856
     y: 180.71446
-    width: 104.11767
+    width: 103
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -43386,7 +43397,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -276.28543
     y: 585.9997
-    width: 70.00001
+    width: 70
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -43495,7 +43506,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 267.00003
     y: -34.63754
-    width: 146.47063
+    width: 146
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -43526,7 +43537,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -33.28566
     y: -33.85707
-    width: 93.529434
+    width: 93
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -43584,7 +43595,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 292.86987
     y: 77.05025
-    width: 92.35296
+    width: 92
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -43755,7 +43766,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 600.2806
     y: 465.75497
-    width: 92.35296
+    width: 92
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -44002,7 +44013,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 284.29834
     y: 461.33572
-    width: 93.529434
+    width: 93
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -44176,7 +44187,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 591.44135
     y: 364.19275
-    width: 107.64708
+    width: 107
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -44257,7 +44268,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -51.415783
     y: 85.62167
-    width: 130.00003
+    width: 129
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -44285,7 +44296,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 124.29845
     y: -143.15875
-    width: 91.17648
+    width: 91
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -44312,10 +44323,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 48
   indentLevel: 0
-  storyText: 'Mafia Mission Exposition!
+  storyText: 'Well I finally manged to speak with Olaf Havskatt personally. No small
+    danger to myself.
 
 
-    coming "soon"'
+    He''s worryingly interested in our new business, but...'
   description: 
   character: {fileID: 67495011}
   portrait: {fileID: 21300000, guid: 7ccfb0a2b38399b4c8c78ce56ffc6b18, type: 3}
@@ -44405,7 +44417,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 446.62375
     y: 262.76453
-    width: 93.529434
+    width: 93
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -44551,7 +44563,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 484.34097
     y: 1563.0983
-    width: 151.17651
+    width: 151
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -44730,7 +44742,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 244.34068
     y: 1563.0988
-    width: 179.41182
+    width: 177
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -44810,7 +44822,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 26.227379
     y: 1345.5342
-    width: 164.11769
+    width: 162
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -45060,7 +45072,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 477.96082
     y: 1084.8129
-    width: 151.17651
+    width: 150
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -45091,7 +45103,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 505.3756
     y: 989.5005
-    width: 92.35296
+    width: 92
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -45103,6 +45115,7 @@ MonoBehaviour:
   - {fileID: 6017164002153553409}
   - {fileID: 6017164002153553907}
   - {fileID: 6017164002153553904}
+  - {fileID: 8331166322818829461}
   suppressAllAutoSelections: 0
 --- !u!114 &6017164002153553907
 MonoBehaviour:
@@ -45121,7 +45134,7 @@ MonoBehaviour:
   text: I guess dad left us in this mess, and he isn't getting us out of it. I'm
     with you!
   description: 
-  targetBlock: {fileID: 6017164002153553835}
+  targetBlock: {fileID: 8331166322818829463}
   hideIfVisited: 0
   interactable:
     booleanRef: {fileID: 0}
@@ -45146,7 +45159,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 468.8739
     y: 1183.0192
-    width: 178.23535
+    width: 177
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -45223,7 +45236,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 508.0224
     y: 1276.3328
-    width: 92.35296
+    width: 92
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -45298,7 +45311,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 32.87949
     y: 986.647
-    width: 168.82358
+    width: 167
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -45520,7 +45533,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 506.72113
     y: 1468.9805
-    width: 92.35296
+    width: 92
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -45575,7 +45588,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 486.72125
     y: 1370.1573
-    width: 130.00003
+    width: 128
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -47083,6 +47096,250 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 133
+  indentLevel: 0
+  sayDialog: {fileID: 7766866625786877198}
+--- !u!114 &8331166322818829457
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017164002153553797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 147
+  indentLevel: 0
+  storyText: 'He agreed to consider the debt paid if we can transport 3 barges safely
+    across the rings for him.
+
+
+    It seems a small price to pay.'
+  description: 
+  character: {fileID: 67495011}
+  portrait: {fileID: 21300000, guid: 7ccfb0a2b38399b4c8c78ce56ffc6b18, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &8331166322818829458
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017164002153553797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 151
+  indentLevel: 0
+  storyText: 'He wasn''t willing to say.
+
+
+    And I''m sure the Orbital Purrtrol
+    won''t like it.'
+  description: 
+  character: {fileID: 67495011}
+  portrait: {fileID: 21300000, guid: 7ccfb0a2b38399b4c8c78ce56ffc6b18, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &8331166322818829459
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017164002153553797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 665.2568
+    y: 990.5744
+    width: 111
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 149
+  blockName: Not Telling
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 8331166322818829462}
+  - {fileID: 8331166322818829458}
+  - {fileID: 8331166322818829460}
+  suppressAllAutoSelections: 0
+--- !u!114 &8331166322818829460
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017164002153553797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 152
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 6017164002153553906}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
+--- !u!114 &8331166322818829461
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017164002153553797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 148
+  indentLevel: 0
+  text: What does he want us to transport?
+  description: 
+  targetBlock: {fileID: 8331166322818829459}
+  hideIfVisited: 1
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+  hideThisOption:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+--- !u!114 &8331166322818829462
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017164002153553797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65d551a201c94bc79950076ff3eaf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 150
+  indentLevel: 0
+  sayDialog: {fileID: 7766866625786877198}
+--- !u!114 &8331166322818829463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017164002153553797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 369.25684
+    y: 989.5744
+    width: 112
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 149
+  blockName: Acept Deal
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 8331166322818829466}
+  - {fileID: 8331166322818829465}
+  - {fileID: 8331166322818829464}
+  suppressAllAutoSelections: 0
+--- !u!114 &8331166322818829464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017164002153553797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 156
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 6017164002153553835}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
+--- !u!114 &8331166322818829465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017164002153553797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 155
+  indentLevel: 0
+  storyText: I knew you'd see sense.
+  description: 
+  character: {fileID: 67495011}
+  portrait: {fileID: 21300000, guid: 7ccfb0a2b38399b4c8c78ce56ffc6b18, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &8331166322818829466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017164002153553797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65d551a201c94bc79950076ff3eaf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 154
   indentLevel: 0
   sayDialog: {fileID: 7766866625786877198}
 --- !u!4 &8870666834117475441
