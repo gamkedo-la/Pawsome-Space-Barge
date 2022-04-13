@@ -28468,7 +28468,6 @@ GameObject:
   - component: {fileID: 1635844463}
   - component: {fileID: 1635844459}
   - component: {fileID: 1635844461}
-  - component: {fileID: 1635844462}
   - component: {fileID: 1635844460}
   - component: {fileID: 1635844464}
   m_Layer: 0
@@ -28603,37 +28602,6 @@ MonoBehaviour:
   initialCameraMode: 0
   minimapFollowSinglePlayer: 0
   hidenObjects: []
---- !u!114 &1635844462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635844456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84e58a4f1e31b2e4eb4359271af306d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ambientSound: 1
-  ambientVolume: 0.2
-  defaultAmbientSound: Slow Space
-  pursuitMusic: Space Chase
-  crossFadeSpeed: 0.4
-  soundEffects: 1
-  audioClips:
-  - <name>k__BackingField: DarkLoops
-    <file>k__BackingField: {fileID: 8300000, guid: 30fc0789780d90b9993cfba52e42bcbb, type: 3}
-  - <name>k__BackingField: Ping
-    <file>k__BackingField: {fileID: 8300000, guid: f1856a326619dda0982294c19f4df442, type: 3}
-  - <name>k__BackingField: Slow Space
-    <file>k__BackingField: {fileID: 8300000, guid: 9052ce32673fc6e4cbc7d810fdf0cce3, type: 3}
-  - <name>k__BackingField: Space Chase
-    <file>k__BackingField: {fileID: 8300000, guid: 71636a2ae5a918d4b97b0133471518fc, type: 3}
-  - <name>k__BackingField: Bump Sound
-    <file>k__BackingField: {fileID: 8300000, guid: 2661e6c0e2343d543b748ded2114cdc3, type: 3}
-  - <name>k__BackingField: Thrusters
-    <file>k__BackingField: {fileID: 8300000, guid: e18de8e9793f8a9468bff93f71bc505a, type: 3}
 --- !u!114 &1635844463
 MonoBehaviour:
   m_ObjectHideFlags: 0

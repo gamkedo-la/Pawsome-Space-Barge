@@ -27,7 +27,7 @@ public class GameManagement : MonoBehaviour
     public PlayerInputManager InputManager => playerInputManager;
     private CameraManagement cameraManager;
     public CameraManagement CameraManager => cameraManager;
-    private SoundManagement soundManager;
+    private SoundManagement soundManager = SoundManagement.Instance;
     public SoundManagement SoundManager => soundManager;
 
 
@@ -96,8 +96,19 @@ public class GameManagement : MonoBehaviour
 
         playerInputManager = GetComponent<PlayerInputManager>();
         cameraManager = GetComponent<CameraManagement>();
-        soundManager = GetComponent<SoundManagement>();
+
+    #if UNITY_EDITOR
+        if (SoundManagement.Instance == null)
+        {
+            Instantiate(Resources.Load("SoundManager", typeof(GameObject)), transform.position, Quaternion.identity);
+
+            soundManager = SoundManagement.Instance;
+        }
+    #endif
+
         InitializeUI();
+
+        if (SoundManagement.Instance != null) SoundManager.SetAmbientSound(null);
     }
 
 
