@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -14,19 +12,7 @@ public class AsteroidFieldEditor : Editor
 
     public override void OnInspectorGUI()
 	{
-        // using (var check = new EditorGUI.ChangeCheckScope())
-        // {
-            base.OnInspectorGUI();
-            // if (check.changed)
-            // {
-            //     field.GeneratePlanet();
-            // }
-        // }
-
-        // if (GUILayout.Button("Generate Planet (Debug)"))
-        // {
-        //     field.GeneratePlanet();
-        // }
+        base.OnInspectorGUI();
 
         DrawSettingsEditor(field.outerRing, ref field.outerRingFoldout, ref outerRingEditor);
         DrawSettingsEditor(field.middleRing, ref field.middleRingFoldout, ref middleRingEditor);
@@ -38,22 +24,12 @@ public class AsteroidFieldEditor : Editor
         if (settings != null)
         {
             foldout = EditorGUILayout.InspectorTitlebar(foldout, settings);
-            // using (var check = new EditorGUI.ChangeCheckScope())
-            // {
-                if (foldout)
-                {
-                    CreateCachedEditor(settings, null, ref editor);
-                    editor.OnInspectorGUI();
 
-                    // if (check.changed)
-                    // {
-                    //     if (onSettingsUpdated != null)
-                    //     {
-                    //         onSettingsUpdated();
-                    //     }
-                    // }
-                }
-            // }
+            if (foldout)
+            {
+                CreateCachedEditor(settings, null, ref editor);
+                editor.OnInspectorGUI();
+            }
         }
     }
 
