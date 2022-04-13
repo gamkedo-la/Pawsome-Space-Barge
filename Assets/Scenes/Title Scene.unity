@@ -5150,12 +5150,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 79197ecfbc3a4294a89ce589dac02cf2, type: 3}
-    m_FontSize: 45
+    m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 3
     m_MaxSize: 50
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -5685,7 +5685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 516.4663, y: -123.65983}
+  scrollPos: {x: 608.2189, y: -133.9691}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 280
@@ -5697,8 +5697,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 2754693412151678622}
-  selectedCommands: []
+  - {fileID: 2754693412151678697}
+  selectedCommands:
+  - {fileID: 2754693412151678696}
   variables:
   - {fileID: 2754693412151678662}
   description: 
@@ -5814,6 +5815,10 @@ GameObject:
   - component: {fileID: 2754693412151678692}
   - component: {fileID: 2754693412151678691}
   - component: {fileID: 2754693412151678690}
+  - component: {fileID: 2754693412151678699}
+  - component: {fileID: 2754693412151678697}
+  - component: {fileID: 2754693412151678696}
+  - component: {fileID: 2754693412151678698}
   m_Layer: 0
   m_Name: TitleFlowchart
   m_TagString: Untagged
@@ -5835,7 +5840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 342
+    x: 342.00018
     y: 244
     width: 77.83505
     height: 40
@@ -5843,7 +5848,7 @@ MonoBehaviour:
   useCustomTint: 0
   itemId: 0
   blockName: Start
-  description: Game title screen menu.
+  description: 
   eventHandler: {fileID: 2754693412151678617}
   commandList:
   - {fileID: 2754693412151678663}
@@ -5880,12 +5885,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 957.4537
     y: 415.75256
-    width: 70.61856
+    width: 110.82474
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 2
-  blockName: Exit
+  blockName: Exit Dialog
   description: 
   eventHandler: {fileID: 0}
   commandList:
@@ -5934,18 +5939,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 319.0309
-    y: 468
+    x: 318.00003
+    y: 469.0309
     width: 126.28866
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 5
   blockName: Main Options
-  description: Menu Options
+  description: 
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 2754693412151678644}
+  - {fileID: 2754693412151678699}
   - {fileID: 2754693412151678623}
   - {fileID: 2754693412151678634}
   - {fileID: 2754693412151678669}
@@ -5989,7 +5995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 313.99988
+    x: 313.99994
     y: 631.00024
     width: 134.53607
     height: 40
@@ -6044,8 +6050,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 599.22656
-    y: 633.2167
+    x: 960.0514
+    y: 468.2683
     width: 107.73196
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -6280,8 +6286,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 317.75
-    y: 374
+    x: 317.75006
+    y: 372.969
     width: 127.31959
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -6427,7 +6433,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 100.65721
-    y: 395
+    y: 394.9999
     width: 133.50516
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -6454,8 +6460,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -320.23987
-    y: 394.00006
+    x: -573.8479
+    y: 390.90732
     width: 134.53607
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -6730,8 +6736,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 102.75
-    y: 540
+    x: 101.7191
+    y: 543.0929
     width: 124.2268
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -8189,3 +8195,133 @@ MonoBehaviour:
   - {fileID: 2754693412151678690}
   - {fileID: 2754693412151678692}
   suppressAllAutoSelections: 0
+--- !u!114 &2754693412151678696
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754693412151678613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 92
+  indentLevel: 0
+  storyText: '{size=60}{b}Controls{/b}{/size}
+
+
+    Keyboard:  W, A, S, D  or  Arrow
+    Keys
+
+    Gamepad:  D-pad
+
+
+    Up: thrust
+
+    Down brakes
+
+    Left: rotate
+    left
+
+    Right: rotate right
+
+
+    Tab: switch camera views
+
+    Esc: pause
+    gameplay
+
+
+    Push the barge to change it''s orbit and hit the delivery window
+    to complete the mission.
+
+
+    {vpunch=10,0.5}Watch out for asteroids!'
+  description: 
+  character: {fileID: 339176038}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 981833931}
+--- !u!114 &2754693412151678697
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754693412151678613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 472.96674
+    y: 541.80426
+    width: 98.453606
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 94
+  blockName: Controls
+  description: Explanation of controls.
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 2754693412151678696}
+  - {fileID: 2754693412151678698}
+  suppressAllAutoSelections: 0
+--- !u!114 &2754693412151678698
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754693412151678613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 93
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 2754693412151678654}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
+--- !u!114 &2754693412151678699
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754693412151678613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 90
+  indentLevel: 0
+  text: Controls
+  description: 
+  targetBlock: {fileID: 2754693412151678697}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+  hideThisOption:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
