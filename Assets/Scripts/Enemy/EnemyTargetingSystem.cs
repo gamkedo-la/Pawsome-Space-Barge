@@ -65,7 +65,7 @@ public class EnemyTargetingSystem : MonoBehaviour
     /// <param name="position"></param>
     public void recieveAlert(Vector2 position)
     {
-        Debug.Log(position.ToString());
+        // Debug.Log(position.ToString());
     }
 
 

@@ -12,6 +12,7 @@ public class SoundManagement : MonoBehaviour
 {
     [HideInInspector] public static SoundManagement Instance;
     [SerializeField] private bool ambientSound = true;
+
     [SerializeField][Range(0,1)] private float ambientVolume = 1;
     [SerializeField] private string defaultAmbientSound = "Slow Space";
     [SerializeField] private string pursuitMusic = "Space Chase";
@@ -19,8 +20,8 @@ public class SoundManagement : MonoBehaviour
     [SerializeField] private bool soundEffects = true;
     private AudioSource ambient, effects, shipThrusters;
 
-    [Tooltip("Dictionary of game sounds.")]
-    [SerializeField] private List<AudioClipStruct<string, AudioClip>> audioClips
+    [Tooltip("Dictionary of game sounds.")] [SerializeField]
+    private List<AudioClipStruct<string, AudioClip>> audioClips
         = new List<AudioClipStruct<string, AudioClip>>();
 
     // actual dictionary used for audio lookup
@@ -114,7 +115,7 @@ public class SoundManagement : MonoBehaviour
     {
         var nextClip = audioLookup[string.IsNullOrEmpty(track) ? defaultAmbientSound : track];
         if (nextClip == ambient.clip) return;
-        
+
         if (ambient.isPlaying)
         {
             StartCoroutine(SwitchAmbientTracks(nextClip));
@@ -136,7 +137,7 @@ public class SoundManagement : MonoBehaviour
 
         ambient.Stop();
         ambient.clip = nextClip;
-        
+
         while (ambientVolume < originalVolume)
         {
             ambientVolume = Mathf.Min(originalVolume, ambientVolume + crossFadeSpeed * Time.deltaTime);
@@ -163,9 +164,11 @@ public class SoundManagement : MonoBehaviour
     {
         if (!shipThrusters.isPlaying && soundEffects)
         {
-            shipThrusters.PlayOneShot(audioLookup[sound]);
             shipThrusters.loop = true;
+            shipThrusters.clip = audioLookup[sound];
+            shipThrusters.Play();
         }
+
         shipThrusters.volume = volume;
     }
 
@@ -177,25 +180,25 @@ public class SoundManagement : MonoBehaviour
     public void AdjustThrusterDirection(float pan)
     {
         shipThrusters.panStereo = pan;
-        if (pan is < -.1f or > .1f )
+        if (pan is < -.1f or > .1f)
             shipThrusters.pitch = 1.0f;
         else
             shipThrusters.pitch = 1.07f;
     }
-    
+
     /// <summary> STOP PLAYING A Sound ON 2ND LAYER. </summary>
     /// <param name="sound">Which sound to stop playing.</param>
     public void StopEffects()
     {
         effects.Stop();
         effects.loop = false;
-    }    
-    
+    }
+
     /// <summary> STOP PLAYING A Sound ON 2ND LAYER. </summary>
     /// <param name="sound">Which sound to stop playing.</param>
     public void StopThrusters()
     {
-        shipThrusters.Stop();
+        shipThrusters.volume = 0;
         shipThrusters.loop = false;
     }
 }
@@ -214,10 +217,12 @@ public struct AudioClipStruct<String, AudioClip>
     public AudioClipStruct(string clipName, AudioClip clipFile) => (name, file) = (clipName, clipFile);
 
     [Tooltip("Name of the audio file for in-game lookup.")]
-    [field: SerializeField] public string name { get; private set; }
+    [field: SerializeField]
+    public string name { get; private set; }
 
     [Tooltip("Audio file.")]
-    [field: SerializeField] public AudioClip file { get; private set; }
+    [field: SerializeField]
+    public AudioClip file { get; private set; }
 
     // deconstructor
     public void Destructor(out string clipName, out AudioClip clipFile) => (clipName, clipFile) = (name, file);
