@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using Variables;
 
-namespace Commercial
-{
+// namespace Commercial
+// {
     public class CommercialBarge : MonoBehaviour
     {
         public IntVariable missionType;
@@ -62,4 +62,4 @@ namespace Commercial
             }
         }
     }
-}
+// }

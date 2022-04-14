@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using Variables;
 
-namespace Mafia
-{
+// namespace Mafia
+// {
     public class MafiaBarge : MonoBehaviour
     {
         public IntVariable missionType;
@@ -62,4 +62,4 @@ namespace Mafia
             }
         }
     }
-}
+// }
