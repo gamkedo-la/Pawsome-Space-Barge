@@ -198,7 +198,7 @@ public class SoundManagement : MonoBehaviour
     /// <param name="sound">Which sound to stop playing.</param>
     public void StopThrusters()
     {
-        shipThrusters.Pause();
+        shipThrusters.volume = 0;
         shipThrusters.loop = false;
     }
 }
