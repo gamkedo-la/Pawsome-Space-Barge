@@ -20,25 +20,31 @@ public abstract class Barge : MonoBehaviour
 
     [Tooltip("Cargo model prefab")]
     public GameObject cargoPrefab;
+    private GameObject cargo;
 
-    private void Awake()
+    public void InitializeBarge()
     {
-        // Remove this component if the mission type isn't Mafia
+        // Disable this component if the mission type isn't Mafia,
+        // and destroy caro mesh.
         if (missionType.Value != (int)type)
         {
-            Destroy(this);
-            // enabled = false;
+            if (cargo != null)
+            {
+                Destroy(cargo);
+            }
+
+            enabled = false;
             return;
         }
+
+        enabled = true;
 
         bargeHealth.MaxValue = maxHealth;
         bargeHealth.MinValue = 0;
         bargeHealth.Value = maxHealth;
 
-        Instantiate(cargoPrefab, transform);
+        cargo = Instantiate(cargoPrefab, transform);
     }
-
-    // // private
 
     private void OnCollisionEnter2D(Collision2D col)
     {

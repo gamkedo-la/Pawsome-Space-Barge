@@ -11,6 +11,7 @@ public class GameManagement : MonoBehaviour
 
     // barge
     private GameObject barge;
+    public GameObject Barge => barge;
     private OrbitalBody bargeOrbitalBody;
     public OrbitalBody BargeOrbitalBody => bargeOrbitalBody;
 
@@ -29,6 +30,8 @@ public class GameManagement : MonoBehaviour
     public CameraManagement CameraManager => cameraManager;
     private SoundManagement soundManager = SoundManagement.Instance;
     public SoundManagement SoundManager => soundManager;
+    private MissionManagement missionManager;
+    public MissionManagement MissionManager => missionManager;
 
 
 
@@ -104,7 +107,9 @@ public class GameManagement : MonoBehaviour
 
             soundManager = SoundManagement.Instance;
         }
-    #endif
+#endif
+
+        missionManager = GetComponent<MissionManagement>();
 
         InitializeUI();
 
@@ -127,6 +132,8 @@ public class GameManagement : MonoBehaviour
         {
             StartCoroutine(RunDialog(tutorial, 2));
         }
+
+        missionManager.SwitchBarge(missionManager.missionType);
     }
 
 
@@ -255,6 +262,9 @@ public class GameManagement : MonoBehaviour
             // fallback, reset UI
             InitializeUI();
         }
+
+        // enable this to test switching barges
+        // missionManager.SwitchBarge(missionManager.missionType == 0 ? MissionType.Commercial : MissionType.Mafia);
     }
 
 
@@ -269,20 +279,11 @@ public class GameManagement : MonoBehaviour
         // enable panel
         missionFailPanel.SetActive(true);
 
-        // TODO update player settings
-        //
-        // need to track:
-        // int totalCommercialValueDelivered
-        // int numberOfMafiaDeliveries
-        // int bargesDelivered
-        // int bargesLost
-        // 
-        //
-        // settings.UpdatePlayerStats();
+        // Update player settings
+        settings.bargesLost++;
 
         // save player data
         SavePlayerSettings();
-        // settings.SaveGame();
 
         // start pause dialog
         StartDialog(missionFail, false);
@@ -307,9 +308,10 @@ public class GameManagement : MonoBehaviour
         // int numberOfMafiaDeliveries
         // int bargesDelivered
         // int bargesLost
-        // 
-        //
-        // settings.UpdatePlayerStats();
+        
+        // if (mafiaBargeType) mafiaDeliveries++;
+        // else commercialEarnings += bargeValue;
+        // bargesDelivered++;
 
         // save player data
         SavePlayerSettings();

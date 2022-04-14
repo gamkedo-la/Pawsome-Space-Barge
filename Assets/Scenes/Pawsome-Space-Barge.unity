@@ -1740,7 +1740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 500.5, y: 98}
+  scrollPos: {x: 500.5, y: 97}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 280
@@ -18250,7 +18250,6 @@ GameObject:
   - component: {fileID: 1099020552}
   - component: {fileID: 1099020551}
   - component: {fileID: 1099020550}
-  - component: {fileID: 1099020549}
   m_Layer: 5
   m_Name: Commercial Barge Health Panel
   m_TagString: Untagged
@@ -18280,20 +18279,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 1, y: 0}
---- !u!114 &1099020549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099020547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4629d00c45bd403d803cea60f4eedec9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missionType: {fileID: 11400000, guid: a29a164efcfc3d04c96af998bc991c11, type: 2}
-  activeMissionType: 1
 --- !u!114 &1099020550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18454,7 +18439,6 @@ GameObject:
   - component: {fileID: 1122333057}
   - component: {fileID: 1122333061}
   - component: {fileID: 1122333060}
-  - component: {fileID: 1122333059}
   m_Layer: 5
   m_Name: Mafia Barge Health Panel
   m_TagString: Untagged
@@ -18522,20 +18506,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122333055}
   m_CullTransparentMesh: 1
---- !u!114 &1122333059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1122333055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4629d00c45bd403d803cea60f4eedec9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missionType: {fileID: 11400000, guid: a29a164efcfc3d04c96af998bc991c11, type: 2}
-  activeMissionType: 0
 --- !u!114 &1122333060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28565,6 +28535,7 @@ GameObject:
   - component: {fileID: 1635844461}
   - component: {fileID: 1635844460}
   - component: {fileID: 1635844464}
+  - component: {fileID: 1635844465}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: GameController
@@ -28736,6 +28707,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff886f9734c64f2b8707e46d979105b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1635844465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635844456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1bcb100838af09c08d59893f4c03114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionScriptable: {fileID: 11400000, guid: a29a164efcfc3d04c96af998bc991c11, type: 2}
+  mafiaHealthPanel: {fileID: 1122333055}
+  commercialHealthPanel: {fileID: 1099020547}
 --- !u!1 &1639712335
 GameObject:
   m_ObjectHideFlags: 0
