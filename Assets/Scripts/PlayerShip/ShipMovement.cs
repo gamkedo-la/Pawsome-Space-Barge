@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class ShipMovement : MonoBehaviour
 {
+    public static ShipMovement instance; // Only used for billboard behavior. Could refactor out.
     private SoundManagement soundManager;
 
 
@@ -73,6 +74,8 @@ public class ShipMovement : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
+
         rb2d = GetComponent<Rigidbody2D>();
 
         // setup boundary
