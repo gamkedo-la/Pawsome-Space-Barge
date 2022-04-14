@@ -106,7 +106,8 @@ public class OrbitalRigidbody : MonoBehaviour
 
         if (method == UpdateMethod.Forces)
         {
-            return;
+            // return;
+            rb2d.AddForce(GetDeltaV(col));
         }
 
         orbitalBody.AddDeltaV(CurrentTime, GetDeltaV(col));
@@ -116,7 +117,8 @@ public class OrbitalRigidbody : MonoBehaviour
     {
         if (method == UpdateMethod.Forces)
         {
-            return;
+            // return;
+            rb2d.AddForce(GetDeltaV(col));
         }
 
         orbitalBody.AddDeltaV(CurrentTime, GetDeltaV(col));
