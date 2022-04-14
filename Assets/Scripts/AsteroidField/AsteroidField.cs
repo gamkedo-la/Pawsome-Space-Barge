@@ -17,15 +17,11 @@ public class AsteroidField : MonoBehaviour
     /// </summary>
     public static float baseSpeed = 100f;
 
-    /// <summary> Asteroid field boundary. </summary>
-    [HideInInspector] public BoxCollider2D fieldBounds;
-
-    public BoxCollider2D spawnBounds;
-
     /// <summary> Rotational center of things. </summary>
     [HideInInspector] public Vector3 planet;
 
 
+    [Header("World Settings")]
     [Tooltip("Asteroid field 'speed'.")]
     [Range(-50,50)]
     [SerializeField] public float fieldSpeed = 25;
@@ -37,13 +33,17 @@ public class AsteroidField : MonoBehaviour
     [Range(0, 0.2f)]
     [SerializeField] public float orbitalSpeedVariance = 0.1f;
 
-    [Tooltip("Objects to choose randomly amongst when respawning debris.")]
-    [SerializeField] private List<AsteroidPrefab<GameObject, int>> asteroidList
-        = new List<AsteroidPrefab<GameObject, int>>();
 
-    private AsteroidDebrisData[] debris;
+    [Header("Asteroid Factories")]
+    [SerializeField, Tooltip("Outer ring factory.")] public RandomPrefabFactory outerRing;
+    [SerializeField, Tooltip("Middle ring factory.")] public RandomPrefabFactory middleRing;
+    [SerializeField, Tooltip("Inner ring factory.")] public RandomPrefabFactory innerRing;
 
-    private int totalWeights;
+    // to enable editing of asteroid ring factories
+    [HideInInspector] public bool outerRingFoldout;
+    [HideInInspector] public bool middleRingFoldout;
+    [HideInInspector] public bool innerRingFoldout;
+
 
 
     private void Awake()
@@ -55,27 +55,6 @@ public class AsteroidField : MonoBehaviour
         else
         {
             Instance = this;
-        }
-
-        // cache boundary
-        fieldBounds = GameObject.FindGameObjectWithTag("AsteroidBoundary").GetComponent<BoxCollider2D>();
-
-        // cache rotational center
-        planet = GameObject.FindGameObjectWithTag("Planet").transform.position;
-
-        // setup debris data for spawning
-        debris = new AsteroidDebrisData[asteroidList.Count];
-        for (int i = 0; i < asteroidList.Count; i++)
-        {
-            debris[i] = new AsteroidDebrisData
-            (
-                asteroidList[i].prefab.GetComponent<MeshFilter>().sharedMesh,
-                asteroidList[i].prefab.GetComponent<Rigidbody2D>().mass,
-                asteroidList[i].prefab.GetComponent<CircleCollider2D>().radius,
-                asteroidList[i].weight
-            );
-
-            totalWeights += asteroidList[i].weight;
         }
     }
 
@@ -91,84 +70,25 @@ public class AsteroidField : MonoBehaviour
         // But that looks kinda weird, because the ring graphics is on a fixed speed, so I'll leave this commented
         // out for now.
 
+        // TODO: try this again
         // var zeroRadius = planet.magnitude;
         // var maxRadius = (fieldBounds.bounds.extents.y) + zeroRadius;
         // var asteroidRadius = (position - planet).magnitude;
         // return (maxRadius - asteroidRadius) * 0 *
         //        orbitalSpeedVariance / 100f;
+
+        // original method
         return Random.Range(-orbitalSpeedVariance, orbitalSpeedVariance);
     }
 
 
-    /// <summary> Returns random position within spawn area. </summary>
-    public Vector2 RandomSpawnPosition()
-    {
-        var bounds = spawnBounds.bounds;
-        var min = bounds.min;
-        var max = bounds.max;
-        return new Vector2(Random.Range(min.x, max.x), Random.Range(min.y, max.y));
-    }
-
-
-    /// <summary> Selects a random debris field item, influenced by probability weighting. </summary>
-    /// <returns>AsteroidDebrisData</returns>
-    public AsteroidDebrisData RandomDebris()
-    {
-        int randomNumber = Random.Range(1, totalWeights + 1);
-        int pos = 0;
-
-        for (int i = 0; i < debris.Length; i++)
-        {
-            if (randomNumber <= debris[i].probability + pos)
-            {
-                return debris[i];
-            }
-
-            pos += asteroidList[i].weight;
-        }
-
-        // if that fails (which it shouldn't...)
-        // return default asteroid (index 0)
-        return debris[0];
-    }
-
+    /// <summary> Returns a random Vector3. For use as rotational speed degrees/s for debris and asteroids.  </summary>
     public Vector3 RandomRotationalVelocity()
     {
         return new Vector3(
-            Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed),
-            Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed),
-            Random.Range(-AsteroidField.Instance.maxAsteroidTumbleSpeed, AsteroidField.Instance.maxAsteroidTumbleSpeed)
+            Random.Range(-maxAsteroidTumbleSpeed, maxAsteroidTumbleSpeed),
+            Random.Range(-maxAsteroidTumbleSpeed, maxAsteroidTumbleSpeed),
+            Random.Range(-maxAsteroidTumbleSpeed, maxAsteroidTumbleSpeed)
         );
     }
-}
-
-
-/// <summary> Holds prefab and probability weighting data. </summary>
-/// <typeparam name="GameObject">Debris Prefab</typeparam>
-/// <typeparam name="Integer">Probability Weight</typeparam>
-[System.Serializable] public struct AsteroidPrefab<GameObject, Integer>
-{
-    public AsteroidPrefab(GameObject _prefab, int _weight) => (prefab, weight) = (_prefab, _weight);
-
-    [Tooltip("Debris Prefab.")]
-    [field: SerializeField] public GameObject prefab { get; private set; }
-
-    [Tooltip("Item probability weighting.")]
-    [field: SerializeField] public int weight { get; private set; }
-}
-
-
-/// <summary>
-/// Stores necessary data to swap mesh of an asteroid.
-/// Includes mesh, mass, radius, and probability data.
-/// Created from asteroidList at runtime.
-/// </summary>
-public struct AsteroidDebrisData
-{
-    public AsteroidDebrisData(Mesh _mesh, float _mass, float _radius, int _probability)
-        => (prefabMesh, mass, radius, probability) = (_mesh, _mass, _radius, _probability);
-    public Mesh prefabMesh;
-    public float mass;
-    public float radius;
-    public int probability;
 }

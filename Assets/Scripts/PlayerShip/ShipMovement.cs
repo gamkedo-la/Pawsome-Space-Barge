@@ -8,6 +8,11 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class ShipMovement : MonoBehaviour
 {
+    public static ShipMovement instance; // Only used for billboard behavior. Could refactor out.
+    private SoundManagement soundManager;
+
+
+
     [Tooltip("Tug rotation speed.")]
     [Range(100,500)]
     [SerializeField] private int rotationSpeed = 300;
@@ -28,10 +33,10 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] private bool speedLimitRelativeToBarge;
 
     [Tooltip("Disable for free flight!")]
-    [SerializeField] private bool enforceBoundary = true;
 
-    // [Tooltip("Select a prefab to spawn when you hit an asteroid!")]
-    // [SerializeField] private GameObject collision_FX_Prefab;
+    // Disabled for now, boundary check needs to consider barge position and rotation.
+    // [SerializeField]
+    private bool enforceBoundary = false;
 
 
     /// <summary> Player boundary collider. </summary>
@@ -46,6 +51,8 @@ public class ShipMovement : MonoBehaviour
     /// <summary> Most recent thrust input value. </summary>
     [HideInInspector] private float thrustInput = 0;
 
+
+
     [Header("Thrusters")] 
     [SerializeField] private Thruster rearLeftThruster;
     
@@ -55,22 +62,31 @@ public class ShipMovement : MonoBehaviour
     
     [SerializeField] private Thruster frontRightThruster;
 
+
+
     private Rigidbody2D bargeRigidbody;
     
     private float MaxSpeed => (speedLimitRelativeToBarge && bargeRigidbody != null)
         ? maxSpeed * bargeRigidbody.velocity.magnitude / 100f
         : maxSpeed;
-    
+
+
+
     private void Awake()
     {
+        instance = this;
+
         rb2d = GetComponent<Rigidbody2D>();
 
         // setup boundary
         playerBoundary = GameObject.FindGameObjectWithTag("PlayerBoundary").GetComponent<BoxCollider2D>();
     }
 
+
     private void Start()
     {
+        soundManager = GameManagement.Instance.SoundManager;
+
         // Spawn close to the barge, if we find it
         var barge = GameObject.FindGameObjectWithTag("Barge");
         if (barge != null)
@@ -80,10 +96,15 @@ public class ShipMovement : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
-        AdjustThrusters();
+        if (!GameManagement.Instance.GamePaused)
+        {
+            AdjustThrusters();
+        }
     }
+
 
     private void FixedUpdate()
     {
@@ -129,6 +150,11 @@ public class ShipMovement : MonoBehaviour
     }
 
 
+    // TODO
+    // make player boundary work based upon barge position.
+    // retro throwback for overhead mode
+    // remember to enable Serialization of enforceBoundary
+
     // check bounds, wrap around ship as necessary
     private void checkPosition()
     {
@@ -165,6 +191,7 @@ public class ShipMovement : MonoBehaviour
         }
     }
 
+
     private void AdjustThrusters()
     {
         switch (rotationInput)
@@ -174,16 +201,16 @@ public class ShipMovement : MonoBehaviour
                 rearRightThruster.On(rotationInput);
                 frontLeftThruster.On(rotationInput);
                 frontRightThruster.Off();
-                SoundManager.Instance.PlayShipThrusters("Thrusters", 1f);
-                SoundManager.Instance.AdjustThrusterDirection(-.5f);
+                soundManager.PlayShipThrusters("Thrusters", 0.5f);
+                soundManager.AdjustThrusterDirection(-.5f);
                 return;
             case < 0:
                 rearLeftThruster.On(rotationInput);
                 rearRightThruster.Off();
                 frontLeftThruster.Off();
                 frontRightThruster.On(rotationInput);
-                SoundManager.Instance.PlayShipThrusters("Thrusters", 1f);
-                SoundManager.Instance.AdjustThrusterDirection(.5f);
+                soundManager.PlayShipThrusters("Thrusters", 0.5f);
+                soundManager.AdjustThrusterDirection(.5f);
                 return;
         }
         
@@ -194,23 +221,23 @@ public class ShipMovement : MonoBehaviour
                 rearRightThruster.On(thrustInput);
                 frontLeftThruster.Off();
                 frontRightThruster.Off();
-                SoundManager.Instance.PlayShipThrusters("Thrusters", 1.5f);
-                SoundManager.Instance.AdjustThrusterDirection(0f);
+                soundManager.PlayShipThrusters("Thrusters", 1f);
+                soundManager.AdjustThrusterDirection(0f);
                 break;
             case < 0:
                 rearLeftThruster.On(thrustInput);
                 rearRightThruster.On(thrustInput);
                 frontLeftThruster.On(thrustInput);
                 frontRightThruster.On(thrustInput);
-                SoundManager.Instance.PlayShipThrusters("Thrusters", .8f);
-                SoundManager.Instance.AdjustThrusterDirection(0f);
+                soundManager.PlayShipThrusters("Thrusters", .5f);
+                soundManager.AdjustThrusterDirection(0f);
                 break;
             default:
                 rearLeftThruster.Off();
                 rearRightThruster.Off();
                 frontLeftThruster.Off();
                 frontRightThruster.Off();
-                SoundManager.Instance.StopThrusters();
+                soundManager.StopThrusters();
                 break;
         }
     }
@@ -235,14 +262,7 @@ public class ShipMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Asteroid" && other.relativeVelocity.magnitude > 5)
         {
-            SoundManager.Instance.PlaySound("Bump Sound", 0.5f);
-            
-            // if (this.collision_FX_Prefab) {
-            //     Debug.Log("Spawning collision FX prefab!");
-            //     Instantiate(this.collision_FX_Prefab,
-            //         other.GetContact(0).point,//this.transform.position,
-            //         this.transform.rotation); 
-            // }
+            soundManager.PlaySound("Bump Sound", 0.5f);
         }
     }
 }

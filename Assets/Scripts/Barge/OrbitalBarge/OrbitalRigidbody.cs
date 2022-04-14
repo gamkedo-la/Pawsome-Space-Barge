@@ -22,6 +22,7 @@ public class OrbitalRigidbody : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         orbitalBody = GetComponent<OrbitalBody>();
         rb2d.isKinematic = method != UpdateMethod.Forces;
+        if (rb2d.isKinematic) rb2d.useFullKinematicContacts = true;
         contactArray = new ContactPoint2D[maxContacts];
     }
 
@@ -41,6 +42,11 @@ public class OrbitalRigidbody : MonoBehaviour
         else
         {
             UseForces();
+        }
+
+        if (Vector2.Distance(rb2d.position, Vector2.zero) > orbitalBody.MaxOrbitRadius * 0.8f)
+        {
+            GameManagement.Instance.MissionFailed();
         }
     }
 
@@ -92,6 +98,12 @@ public class OrbitalRigidbody : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        // TODO: why doesn't this work? The barge goes right through the planet...
+        if (col.gameObject.CompareTag("Planet"))
+        {
+            GameManagement.Instance.MissionFailed();
+        }
+
         if (method == UpdateMethod.Forces)
         {
             return;

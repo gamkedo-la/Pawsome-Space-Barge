@@ -16,7 +16,8 @@ public class EnemyAIStateMachine : MonoBehaviour
     [SerializeField] private UnityEvent onSeekExit;
     [SerializeField] private UnityEvent onContactEnter;
     [SerializeField] private UnityEvent onContactExit;
-    
+
+    public EnemyAIState currentState = EnemyAIState.Idle;
     private Animator animator;
 
     private EnemyEngineSystem engines;
@@ -73,8 +74,10 @@ public class EnemyAIStateMachine : MonoBehaviour
                 break;
             default:
                 Debug.LogError($"EnemyAIStateMachine: Not implemented: {state}");
-                break;
+                return;
         }
+
+        currentState = state;
     }
 
 

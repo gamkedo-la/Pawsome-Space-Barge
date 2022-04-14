@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: EditorPlayerSettings
   m_EditorClassIdentifier: 
   firstRun: 0
+  mafiaMad: 1
+  playerSelectBarge: 0
+  tooEasy: 0

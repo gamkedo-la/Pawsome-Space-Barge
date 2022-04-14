@@ -15123,7 +15123,7 @@ MonoBehaviour:
   thrustForce: 750
   decelerationCoefficient: 4
   maxSpeed: 75
-  enforceBoundary: 0
+  speedLimitRelativeToBarge: 0
   rearLeftThruster: {fileID: 6168574696401668428}
   rearRightThruster: {fileID: 5876401595062667565}
   frontLeftThruster: {fileID: 2359675508760712820}
