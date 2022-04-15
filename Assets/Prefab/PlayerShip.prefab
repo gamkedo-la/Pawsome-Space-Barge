@@ -64,7 +64,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 759
+    m_Bits: 4855
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -5325,7 +5325,6 @@ MonoBehaviour:
   decelerationCoefficient: 4
   maxSpeed: 125
   speedLimitRelativeToBarge: 1
-  enforceBoundary: 0
   rearLeftThruster: {fileID: 873941775012930959}
   rearRightThruster: {fileID: 591906093513762286}
   frontLeftThruster: {fileID: 8720291825281546935}
