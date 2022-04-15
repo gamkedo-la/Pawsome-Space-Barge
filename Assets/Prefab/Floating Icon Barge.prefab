@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6663380231785809684}
   m_Layer: 0
-  m_Name: Floating Icon
-  m_TagString: MainCamera
+  m_Name: Floating Icon Barge
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
