@@ -82,18 +82,27 @@ public class OrbitalRigidbody : MonoBehaviour
         float impulse = 0;
         Vector2 normal = new Vector2(0,0);
 
+        float multiplier = method == UpdateMethod.FollowOrbit ? playerMultiplier : playerMultiplier - 1;
+
         for (int i = 0; i < contactNum; i++)
         {
             var newImpulse = contactArray[i].rigidbody.CompareTag("Player")
                                 ? contactArray[i].normalImpulse * playerMultiplier
-                                : contactArray[i].normalImpulse;
+                                    : method == UpdateMethod.FollowOrbit
+                                        ? contactArray[i].normalImpulse
+                                            : 0;
+
+            var newNormal = contactArray[i].rigidbody.CompareTag("Player")
+                                ? contactArray[i].normal
+                                    : method == UpdateMethod.FollowOrbit
+                                        ? contactArray[i].normal
+                                            : Vector2.zero;
 
             impulse += newImpulse;
-            normal += contactArray[i].normal;
-            
+            normal += newNormal;
         }
 
-        return (impulse * normal) / ourMass;
+        return (impulse * normal) / (method == UpdateMethod.FollowOrbit ? ourMass : 1);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -106,8 +115,8 @@ public class OrbitalRigidbody : MonoBehaviour
 
         if (method == UpdateMethod.Forces)
         {
-            // return;
-            rb2d.AddForce(GetDeltaV(col));
+            rb2d.AddForce(GetDeltaV(col), ForceMode2D.Impulse);
+            return;
         }
 
         orbitalBody.AddDeltaV(CurrentTime, GetDeltaV(col));
@@ -117,8 +126,8 @@ public class OrbitalRigidbody : MonoBehaviour
     {
         if (method == UpdateMethod.Forces)
         {
-            // return;
-            rb2d.AddForce(GetDeltaV(col));
+            rb2d.AddForce(GetDeltaV(col), ForceMode2D.Impulse);
+            return;
         }
 
         orbitalBody.AddDeltaV(CurrentTime, GetDeltaV(col));
