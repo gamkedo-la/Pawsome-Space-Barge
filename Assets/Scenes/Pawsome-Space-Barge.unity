@@ -18043,6 +18043,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
+--- !u!1 &1003829762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7901721973288210389, guid: 5db56a3152ad58349b903675f66eb428, type: 3}
+  m_PrefabInstance: {fileID: 11141541445959235}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1003829766
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003829762}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20.48, y: 20.48}
+    newSize: {x: 20.48, y: 20.48}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 21}
+  m_EdgeRadius: 0
 --- !u!1 &1005215084
 GameObject:
   m_ObjectHideFlags: 0
@@ -38017,7 +38048,32 @@ PrefabInstance:
       propertyPath: onBargeEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1635844463}
-    m_RemovedComponents: []
+    - target: {fileID: 573297219413852108, guid: 5db56a3152ad58349b903675f66eb428, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 573297219413852108, guid: 5db56a3152ad58349b903675f66eb428, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 573297219413852108, guid: 5db56a3152ad58349b903675f66eb428, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901721973288210389, guid: 5db56a3152ad58349b903675f66eb428, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8237819707640041907, guid: 5db56a3152ad58349b903675f66eb428, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985165404236398310, guid: 5db56a3152ad58349b903675f66eb428, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8985165404236398310, guid: 5db56a3152ad58349b903675f66eb428, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5db56a3152ad58349b903675f66eb428, type: 3}
 --- !u!114 &126204426785436131
 MonoBehaviour:
