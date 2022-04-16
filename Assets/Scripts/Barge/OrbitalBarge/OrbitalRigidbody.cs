@@ -87,7 +87,7 @@ public class OrbitalRigidbody : MonoBehaviour
         for (int i = 0; i < contactNum; i++)
         {
             var newImpulse = contactArray[i].rigidbody.CompareTag("Player")
-                                ? contactArray[i].normalImpulse * playerMultiplier
+                                ? contactArray[i].normalImpulse * multiplier
                                     : method == UpdateMethod.FollowOrbit
                                         ? contactArray[i].normalImpulse
                                             : 0;
