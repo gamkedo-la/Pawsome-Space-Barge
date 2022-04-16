@@ -27,7 +27,7 @@ public class PlayerSaveData
 
         commercialEarnings = settings.commercialEarnings;
         mafiaDeliveries = settings.mafiaDeliveries;
-        playerSelectBarge = settings.playerSelectBarge;
+        bargesDelivered = settings.bargesDelivered;
         bargesLost = settings.bargesLost;
     }
 }
