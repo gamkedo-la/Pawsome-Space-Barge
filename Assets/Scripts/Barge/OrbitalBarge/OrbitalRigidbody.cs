@@ -87,7 +87,7 @@ public class OrbitalRigidbody : MonoBehaviour
         for (int i = 0; i < contactNum; i++)
         {
             var newImpulse = contactArray[i].rigidbody.CompareTag("Player")
-                                ? contactArray[i].normalImpulse * playerMultiplier
+                                ? contactArray[i].normalImpulse * multiplier
                                     : method == UpdateMethod.FollowOrbit
                                         ? contactArray[i].normalImpulse
                                             : 0;
@@ -107,7 +107,6 @@ public class OrbitalRigidbody : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        // TODO: why doesn't this work? The barge goes right through the planet...
         if (col.gameObject.CompareTag("Planet"))
         {
             GameManagement.Instance.MissionFailed();

@@ -13,6 +13,7 @@ public class MissionManagement : MonoBehaviour
 
 
     public MissionType missionType => (MissionType)missionScriptable.Value;
+    public int bargeHealth => bargeHealthScript.bargeHealth.Value;
 
 
 
