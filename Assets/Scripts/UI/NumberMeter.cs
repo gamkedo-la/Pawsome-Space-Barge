@@ -20,7 +20,7 @@ namespace UI
         [Header("Connection")]
         public TMP_Text numberDisplay;
         
-        private float displayedNumber;
+        private float displayedNumber = -1; // needs to be -1 for initialization check
 
         private void FixedUpdate()
         {
@@ -32,14 +32,22 @@ namespace UI
 
         private void UpdateHealthNumber()
         {
+            if (displayedNumber == -1)
+            {
+                // initialize value on first pass
+                // for some reason doing this in monobehaviour start displays '000000'
+                displayedNumber = variable.Value;
+            }
+
             displayedNumber = Mathf.Lerp(displayedNumber, variable.Value, numberAnimationSpeed);
+
             if (displayAsPercent)
             {
                 numberDisplay.text = $"{(displayedNumber / variable.MaxValue * 100).ToString("0")}%";
             }
             else
             {
-                numberDisplay.text = ((displayedNumber* 10f) + 5f).ToString(format);
+                numberDisplay.text = (displayedNumber * 10f).ToString(format);
             }
         }
     }
