@@ -18330,6 +18330,7 @@ MonoBehaviour:
   variable: {fileID: 11400000, guid: d1e7b9772be57934ab37d619f58dc6fc, type: 2}
   numberAnimationSpeed: 0.2
   format: "\xA2 0"
+  displayAsPercent: 0
   numberDisplay: {fileID: 1329400458}
 --- !u!114 &1099020551
 MonoBehaviour:
@@ -18557,6 +18558,7 @@ MonoBehaviour:
   variable: {fileID: 11400000, guid: d1e7b9772be57934ab37d619f58dc6fc, type: 2}
   numberAnimationSpeed: 0.2
   format: 0
+  displayAsPercent: 1
   numberDisplay: {fileID: 694117138}
 --- !u!114 &1122333061
 MonoBehaviour:
@@ -28714,6 +28716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edce0aeaad6a311c8be422450685100b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CommecialSuccess: 2400000
   tutorial: {fileID: 6017164002153553802}
   mission: {fileID: 0}
   warnings: {fileID: 567322145}

@@ -7,7 +7,7 @@ namespace UI
     public class NumberMeter : MonoBehaviour
     {
         [Header("Variable")] [Tooltip("Variable to track")]
-        public IntVariable variable;
+        public MinMaxIntVariable variable;
         
         [Header("Appearance")] 
         [Range(0.001f, 1)] 
@@ -15,7 +15,8 @@ namespace UI
 
         [Tooltip("C# number formatting string")]
         public string format = "0";
-        
+        public bool displayAsPercent = false;
+
         [Header("Connection")]
         public TMP_Text numberDisplay;
         
@@ -32,7 +33,14 @@ namespace UI
         private void UpdateHealthNumber()
         {
             displayedNumber = Mathf.Lerp(displayedNumber, variable.Value, numberAnimationSpeed);
-            numberDisplay.text = displayedNumber.ToString(format);
+            if (displayAsPercent)
+            {
+                numberDisplay.text = $"{(displayedNumber / variable.MaxValue * 100).ToString("0")}%";
+            }
+            else
+            {
+                numberDisplay.text = ((displayedNumber* 10f) + 5f).ToString(format);
+            }
         }
     }
 }
