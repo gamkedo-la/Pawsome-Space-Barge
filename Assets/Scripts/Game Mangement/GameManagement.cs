@@ -139,6 +139,7 @@ public class GameManagement : MonoBehaviour
 
         if (settings.firstRun)
         {
+            pauseOnDialog = true;
             StartCoroutine(RunDialog(tutorial, 2));
         }
 
@@ -406,6 +407,7 @@ public class GameManagement : MonoBehaviour
         settings.tooEasy = tooEasy;
 
         settings.firstRun = false;
+        pauseOnDialog = false;
 
         SavePlayerSettings();
     }
