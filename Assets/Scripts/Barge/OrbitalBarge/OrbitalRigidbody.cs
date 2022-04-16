@@ -107,7 +107,6 @@ public class OrbitalRigidbody : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        // TODO: why doesn't this work? The barge goes right through the planet...
         if (col.gameObject.CompareTag("Planet"))
         {
             GameManagement.Instance.MissionFailed();
