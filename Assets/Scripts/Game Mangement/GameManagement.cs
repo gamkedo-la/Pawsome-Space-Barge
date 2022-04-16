@@ -34,6 +34,15 @@ public class GameManagement : MonoBehaviour
     public MissionManagement MissionManager => missionManager;
 
 
+    [Header("Success Conditions")]
+     // 2400000 means 3 missions at 80% health, 4 at 60%, this feels fair and less certain than 
+    [SerializeField, Tooltip("Earnings to trigger commercial success ending.")]
+    private int commecialSuccess = 2400000;
+
+    [SerializeField, Tooltip("Number of mafia barges delivered to trigger mafia success.")]
+    private int mafiaSuccess = 3;
+
+
 
     [Header("Fungus Flowcharts")]
     [SerializeField] private Flowchart tutorial;
@@ -301,24 +310,43 @@ public class GameManagement : MonoBehaviour
         // // enable panel
         missionSuccessPanel.SetActive(true);
 
-        // TODO update player settings
-        //
-        // need to track:
-        // int totalCommercialValueDelivered
-        // int numberOfMafiaDeliveries
-        // int bargesDelivered
-        // int bargesLost
-        
-        // if (mafiaBargeType) mafiaDeliveries++;
-        // else commercialEarnings += bargeValue;
-        // bargesDelivered++;
+        // update player settings
+        settings.bargesDelivered++;
+
+        if (missionManager.missionType == MissionType.Mafia)
+        {
+            settings.mafiaDeliveries++;
+        }
+        else
+        {
+            settings.commercialEarnings += missionManager.bargeHealth * 10;
+        }
 
         // save player data
         SavePlayerSettings();
-        // settings.SaveGame();
+
+        GameCompletionCheck();
 
         // // start pause dialog
         StartDialog(missionSuccess, false);
+    }
+
+
+    private void GameCompletionCheck()
+    {
+        if  (settings.commercialEarnings >= commecialSuccess)
+        {
+            // trigger game end sequence
+
+            Debug.Log("Commercial success!");
+        }
+
+        if (settings.mafiaDeliveries >= mafiaSuccess)
+        {
+            // trigger game end sequence
+
+            Debug.Log("A force to be feared...");
+        }
     }
 
 
