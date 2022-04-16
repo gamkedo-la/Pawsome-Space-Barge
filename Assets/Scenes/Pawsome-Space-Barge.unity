@@ -38063,6 +38063,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 7599793606688957416, guid: 5db56a3152ad58349b903675f66eb428, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599793606688957416, guid: 5db56a3152ad58349b903675f66eb428, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.254717
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599793606688957416, guid: 5db56a3152ad58349b903675f66eb428, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.254717
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599793606688957416, guid: 5db56a3152ad58349b903675f66eb428, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.254717
+      objectReference: {fileID: 0}
     - target: {fileID: 7901721973288210389, guid: 5db56a3152ad58349b903675f66eb428, type: 3}
       propertyPath: m_Layer
       value: 0
