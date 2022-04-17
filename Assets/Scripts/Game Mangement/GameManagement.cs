@@ -142,6 +142,10 @@ public class GameManagement : MonoBehaviour
             pauseOnDialog = true;
             StartCoroutine(RunDialog(tutorial, 2));
         }
+        else
+        {
+            // StartDialog(mission);
+        }
 
         missionManager.SwitchBarge(missionManager.missionType);
     }
