@@ -61,6 +61,23 @@ public class CameraManagement : MonoBehaviour
         }
     }
 
+    private bool minimapEnlarged = false;
+    private Rect smallMinimap = new Rect(0.01f, 0.01f, 0.17f, 0.3f);
+    private Rect enlargedMinimap = new Rect(0.01f, 0.01f, 0.55f, 0.98f);
+    public void ToggleMinimapSize()
+    {
+        if (minimapEnlarged)
+        {
+            minimapCamera.rect = smallMinimap;
+            minimapEnlarged = false;
+        }
+        else
+        {
+            minimapCamera.rect = enlargedMinimap;
+            minimapEnlarged = true;
+        }
+    }
+
     public void PlayerJoined(PlayerInput pi)
     {
         var isFirstPlayer = playerCameras.Count == 0;

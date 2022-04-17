@@ -24,24 +24,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Grab",
-                    "type": "Button",
-                    "id": "19caddd9-4151-47ce-9323-3d6d2ad8a44f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(behavior=2)",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Fire",
-                    "type": "Button",
-                    "id": "a98d6532-0cf5-492f-b85e-e75392664718",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Toggle View",
                     "type": "Button",
                     "id": "b260ff16-b9d4-40f7-ae70-ffab5b75f34b",
@@ -57,6 +39,15 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Minimap",
+                    "type": "Button",
+                    "id": "dd47fda6-72be-42a8-a61f-da799f150cb3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -256,6 +247,17 @@
                     "processors": "",
                     "groups": "Catboard",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6265067b-806c-41a7-b3ee-fb0b63b351f8",
+                    "path": "<Keyboard>/c",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Catboard",
+                    "action": "Minimap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

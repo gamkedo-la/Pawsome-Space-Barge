@@ -5224,14 +5224,6 @@ MonoBehaviour:
     m_ActionId: 33d96291-0c77-46b6-9cd4-31f03b0e1ab8
     m_ActionName: Gameplay/New action
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a98d6532-0cf5-492f-b85e-e75392664718
-    m_ActionName: Gameplay/Fire[/Keyboard/x]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 19caddd9-4151-47ce-9323-3d6d2ad8a44f
-    m_ActionName: Gameplay/Grab
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1997685034449814611}
         m_TargetAssemblyTypeName: ShipActions, Assembly-CSharp
@@ -5303,6 +5295,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9c5633e8-b435-49c1-80ad-4bfd035643ac
     m_ActionName: Gameplay/Pause[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1997685034449814611}
+        m_TargetAssemblyTypeName: ShipActions, Assembly-CSharp
+        m_MethodName: OnMinimap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dd47fda6-72be-42a8-a61f-da799f150cb3
+    m_ActionName: Gameplay/Minimap[/Keyboard/c]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay

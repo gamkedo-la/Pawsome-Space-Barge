@@ -24,4 +24,9 @@ public class ShipActions : MonoBehaviour
             GameManagement.Instance.OnPause(context);
         }
     }
+
+    public void OnMinimap(InputAction.CallbackContext context)
+    {
+        GameManagement.Instance.CameraManager.ToggleMinimapSize();
+    }
 }
