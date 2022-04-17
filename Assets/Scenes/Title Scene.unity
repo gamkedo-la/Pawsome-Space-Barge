@@ -8220,7 +8220,7 @@ MonoBehaviour:
 
     Up: thrust
 
-    Down brakes
+    Down: brakes
 
     Left: rotate
     left
