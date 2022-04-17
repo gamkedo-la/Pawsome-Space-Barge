@@ -139,24 +139,28 @@ public class GameManagement : MonoBehaviour
         barge = GameObject.FindGameObjectWithTag("Barge");
         bargeOrbitalBody = barge.GetComponent<OrbitalBody>();
 
+        StartMission();
+    }
+
+
+    private void StartMission()
+    {
+
         if (settings.firstRun)
         {
             StartCoroutine(RunDialog(tutorial, 2));
         }
         else
         {
+            mission.SetBooleanVariable("tooEasy", settings.tooEasy);
+            mission.SetBooleanVariable("playerSelectBarge", settings.playerSelectBarge);
+            mission.SetBooleanVariable("mafiaMad", settings.mafiaMad);
+
+            // StartCoroutine(RunDialog(mission, 2f));
+            // temp route, skip mission dialog -- until dialog is ready
             InputManager.EnableJoining();
-            // StartDialog(mission);
         }
-
-        missionManager.SwitchBarge(missionManager.missionType);
     }
-
-
-    // void Update()
-    // {
-    //     //
-    // }
 
 
     private void InitializeUI()
@@ -416,6 +420,22 @@ public class GameManagement : MonoBehaviour
 
         SavePlayerSettings();
 
+        missionManager.SwitchBarge(mafiaMad ? MissionType.Commercial : MissionType.Mafia);
+
+        InputManager.EnableJoining();
+    }
+
+
+    /// <summary>
+    /// Wraps up mission dialog. Takes a 0 for Mafia mission, 1 for Commercial mission.
+    /// </summary>
+    /// <param name="missionType"></param>
+    public void MissionDialogDone(int missionType)
+    {
+        DialogDone(mission);
+
+        missionManager.SwitchBarge((MissionType)missionType);
+
         InputManager.EnableJoining();
     }
 
@@ -426,7 +446,6 @@ public class GameManagement : MonoBehaviour
     /// <returns></returns>
     private IEnumerator RunDialog(Flowchart dialog, float delay)
     {
-        settings.Reset();
         yield return new WaitForSeconds(delay);
         StartDialog(dialog);
     }
