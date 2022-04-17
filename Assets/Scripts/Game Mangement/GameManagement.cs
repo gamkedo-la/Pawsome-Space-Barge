@@ -123,6 +123,8 @@ public class GameManagement : MonoBehaviour
         InitializeUI();
 
         if (SoundManagement.Instance != null) SoundManager.SetAmbientSound(null);
+
+        InputManager.DisableJoining();
     }
 
 
@@ -139,11 +141,11 @@ public class GameManagement : MonoBehaviour
 
         if (settings.firstRun)
         {
-            pauseOnDialog = true;
             StartCoroutine(RunDialog(tutorial, 2));
         }
         else
         {
+            InputManager.EnableJoining();
             // StartDialog(mission);
         }
 
@@ -411,9 +413,10 @@ public class GameManagement : MonoBehaviour
         settings.tooEasy = tooEasy;
 
         settings.firstRun = false;
-        pauseOnDialog = false;
 
         SavePlayerSettings();
+
+        InputManager.EnableJoining();
     }
 
 
