@@ -16,6 +16,13 @@ public class MissionManagement : MonoBehaviour
     public int bargeHealth => bargeHealthScript.bargeHealth.Value;
 
 
+    private void Awake()
+    {
+        mafiaHealthPanel.SetActive(false);
+        commercialHealthPanel.SetActive(false);
+    }
+
+
 
     private void SetupBarge()
     {
