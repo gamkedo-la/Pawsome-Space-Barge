@@ -18,6 +18,9 @@ public class GameManagement : MonoBehaviour
     // pause state switch
     private bool gamePaused = false;
 
+    // dialog state switch
+    private bool dialogActive = false;
+
     /// <summary> List of enemies currently pursuing barge. </summary>
     private HashSet<GameObject> lockedOnEnemies = new HashSet<GameObject>();
 
@@ -143,26 +146,9 @@ public class GameManagement : MonoBehaviour
     }
 
 
-    private void StartMission()
-    {
-
-        if (settings.firstRun)
-        {
-            StartCoroutine(RunDialog(tutorial, 2));
-        }
-        else
-        {
-            mission.SetBooleanVariable("tooEasy", settings.tooEasy);
-            mission.SetBooleanVariable("playerSelectBarge", settings.playerSelectBarge);
-            mission.SetBooleanVariable("mafiaMad", settings.mafiaMad);
-
-            // StartCoroutine(RunDialog(mission, 2f));
-            // temp route, skip mission dialog -- until dialog is ready
-            InputManager.EnableJoining();
-        }
-    }
-
-
+    /// <summary>
+    /// Ensure UI is in correct initial state, or use to reset UI display.
+    /// </summary>
     private void InitializeUI()
     {
         // put flowcharts in order
@@ -194,7 +180,18 @@ public class GameManagement : MonoBehaviour
     public void ExitGame()
     {
         Debug.Log("Exiting game.");
+
+    #if UNITY_EDITOR
+        // stop the editor playmode
+        UnityEditor.EditorApplication.isPlaying = false;
+    #elif UNITY_WEBGL
+        // reload itch.io page
+        Application.OpenURL("https://esklarski.itch.io/pawsome-space-barge");
+    #else
+        // close application
         Application.Quit();
+    #endif
+
     }
 
 
@@ -282,12 +279,134 @@ public class GameManagement : MonoBehaviour
             // fallback, reset UI
             InitializeUI();
         }
-
-        // enable this to test switching barges
-        // missionManager.SwitchBarge(missionManager.missionType == 0 ? MissionType.Commercial : MissionType.Mafia);
     }
 
 
+    /// <summary>
+    /// Check player game completion condtions.
+    /// </summary>
+    private void GameCompletionCheck()
+    {
+        if  (settings.commercialEarnings >= commecialSuccess)
+        {
+            // trigger game end sequence
+
+            Debug.Log("Commercial success!");
+        }
+
+        if (settings.mafiaDeliveries >= mafiaSuccess)
+        {
+            // trigger game end sequence
+
+            Debug.Log("A force to be feared...");
+        }
+    }
+
+
+    // Called from mission success panel. Maybe unneccessary...
+    public void NextMission()
+    {
+        // TODO mission setup
+
+        // for now just reload scene
+        RestartMission();
+    }
+
+
+
+    // ***************************************** Dialog *******************************************
+    /// <summary>
+    /// Disable dialog object and resumes game if paused.
+    /// </summary>
+    /// <param name="chart"></param>
+    public void DialogDone(Flowchart chart)
+    {
+        dialogActive = false;
+        chart.gameObject.SetActive(false);
+        if (Time.timeScale == 0) TogglePause(PauseState.Playing);
+    }
+
+
+    /// <summary>
+    /// Starts specified Fungus dialog.
+    /// </summary>
+    /// <param name="dialog"></param>
+    /// <param name="pause"></param>
+    private void StartDialog(Flowchart dialog, bool pause=false)
+    {
+        if (!dialogActive)
+        {
+            if (pause || pauseOnDialog) TogglePause(PauseState.Paused);
+            dialogActive = true;
+            dialog.gameObject.SetActive(true);
+            dialog.SendFungusMessage("start");
+        }
+    }
+
+
+    /// <summary> Starts appropriate intro dialog on scene load. </summary>
+    private void StartMission()
+    {
+
+        if (settings.firstRun)
+        {
+            CameraManager.ToggleDialogCamera();
+            StartCoroutine(RunDialog(tutorial, 2));
+        }
+        else
+        {
+            mission.SetBooleanVariable("tooEasy", settings.tooEasy);
+            mission.SetBooleanVariable("playerSelectBarge", settings.playerSelectBarge);
+            mission.SetBooleanVariable("mafiaMad", settings.mafiaMad);
+
+            // StartCoroutine(RunDialog(mission, 2f)); // which will call MissionDialogDone()
+
+            // temp route, skip mission dialog -- until dialog is ready
+            MissionManager.SwitchBarge(MissionManager.missionType);
+            InputManager.EnableJoining();
+        }
+    }
+
+
+    /// <summary>
+    /// Switches firstRun off, and closes tutorial dialog.
+    /// Called when tutorial dialog ends.
+    /// </summary>
+    public void TutorialDone(bool mafiaMad, bool playerSelectBarge, bool tooEasy)
+    {
+        DialogDone(tutorial);
+
+        settings.mafiaMad = mafiaMad;
+        settings.playerSelectBarge = playerSelectBarge;
+        settings.tooEasy = tooEasy;
+
+        settings.firstRun = false;
+
+        SavePlayerSettings();
+
+        missionManager.SwitchBarge(mafiaMad ? MissionType.Commercial : MissionType.Mafia);
+
+        InputManager.EnableJoining();
+
+        CameraManager.ToggleDialogCamera();
+    }
+
+
+    /// <summary>
+    /// Wraps up mission dialog. Takes a 0 for Mafia mission, 1 for Commercial mission.
+    /// </summary>
+    /// <param name="missionType"></param>
+    public void MissionDialogDone(int missionType)
+    {
+        DialogDone(mission);
+
+        missionManager.SwitchBarge((MissionType)missionType);
+
+        InputManager.EnableJoining();
+    }
+
+
+    /// <summary> Called when mission is failed. </summary>
     public void MissionFailed()
     {
         Debug.Log("Mission Failed.");
@@ -310,6 +429,7 @@ public class GameManagement : MonoBehaviour
     }
 
 
+    /// <summary> Called when barge hits delivery window. </summary>
     public void MissionSuccess()
     {
         Debug.Log("Mission Accomplished!");
@@ -343,107 +463,7 @@ public class GameManagement : MonoBehaviour
     }
 
 
-    private void GameCompletionCheck()
-    {
-        if  (settings.commercialEarnings >= commecialSuccess)
-        {
-            // trigger game end sequence
-
-            Debug.Log("Commercial success!");
-        }
-
-        if (settings.mafiaDeliveries >= mafiaSuccess)
-        {
-            // trigger game end sequence
-
-            Debug.Log("A force to be feared...");
-        }
-    }
-
-
-    public void NextMission()
-    {
-        // TODO mission setup
-
-        // for now just reload scene
-        RestartMission();
-    }
-
-
-
-    // ***************************************** Dialog *******************************************
-    bool dialogActive = false;
-
-
-    /// <summary>
-    /// Disable dialog object and resumes game if paused.
-    /// </summary>
-    /// <param name="chart"></param>
-    public void DialogDone(Flowchart chart)
-    {
-        dialogActive = false;
-        chart.gameObject.SetActive(false);
-        if (Time.timeScale == 0) TogglePause(PauseState.Playing);
-    }
-
-
-    /// <summary>
-    /// Starts specified Fungus dialog.
-    /// </summary>
-    /// <param name="dialog"></param>
-    /// <param name="pause"></param>
-    private void StartDialog(Flowchart dialog, bool pause=false)
-    {
-        if (!dialogActive)
-        {
-            if (pause || pauseOnDialog) TogglePause(PauseState.Paused);
-            dialogActive = true;
-            dialog.gameObject.SetActive(true);
-            dialog.SendFungusMessage("start");
-        }
-    }
-
-
-    /// <summary>
-    /// Switches firstRun off, and closes tutorial dialog.
-    /// Called when tutorial dialog ends.
-    /// </summary>
-    public void TutorialDone(bool mafiaMad, bool playerSelectBarge, bool tooEasy)
-    {
-        DialogDone(tutorial);
-
-        settings.mafiaMad = mafiaMad;
-        settings.playerSelectBarge = playerSelectBarge;
-        settings.tooEasy = tooEasy;
-
-        settings.firstRun = false;
-
-        SavePlayerSettings();
-
-        missionManager.SwitchBarge(mafiaMad ? MissionType.Commercial : MissionType.Mafia);
-
-        InputManager.EnableJoining();
-    }
-
-
-    /// <summary>
-    /// Wraps up mission dialog. Takes a 0 for Mafia mission, 1 for Commercial mission.
-    /// </summary>
-    /// <param name="missionType"></param>
-    public void MissionDialogDone(int missionType)
-    {
-        DialogDone(mission);
-
-        missionManager.SwitchBarge((MissionType)missionType);
-
-        InputManager.EnableJoining();
-    }
-
-
-    /// <summary>
-    /// Starts dialog after delay.
-    /// </summary>
-    /// <returns></returns>
+    /// <summary> Starts dialog after delay. </summary>
     private IEnumerator RunDialog(Flowchart dialog, float delay)
     {
         yield return new WaitForSeconds(delay);

@@ -16,6 +16,9 @@ public class CameraManagement : MonoBehaviour
     [Tooltip("Overhead camera used for the minimap")] [SerializeField]
     private Camera minimapCamera;
 
+    [Tooltip("Camera used for certain dialogs.")] [SerializeField]
+    private Camera dialogCamera;
+
     [Tooltip("The camera mode used when the scene starts")] [SerializeField]
     private CameraMode initialCameraMode;
 
@@ -31,6 +34,13 @@ public class CameraManagement : MonoBehaviour
     private CameraMode cameraMode;
     private List<Camera> playerCameras = new();
     private bool refreshCameras;
+
+    // minimap display
+    private bool minimapEnlarged = false;
+    private Rect smallMinimap = new Rect(0.01f, 0.01f, 0.17f, 0.3f);
+    private Rect enlargedMinimap = new Rect(0.01f, 0.01f, 0.55f, 0.98f);
+
+
 
     private void Awake()
     {
@@ -61,9 +71,7 @@ public class CameraManagement : MonoBehaviour
         }
     }
 
-    private bool minimapEnlarged = false;
-    private Rect smallMinimap = new Rect(0.01f, 0.01f, 0.17f, 0.3f);
-    private Rect enlargedMinimap = new Rect(0.01f, 0.01f, 0.55f, 0.98f);
+
     public void ToggleMinimapSize()
     {
         if (minimapEnlarged)
@@ -77,6 +85,7 @@ public class CameraManagement : MonoBehaviour
             minimapEnlarged = true;
         }
     }
+
 
     public void PlayerJoined(PlayerInput pi)
     {
@@ -98,6 +107,7 @@ public class CameraManagement : MonoBehaviour
         refreshCameras = true;
     }
 
+
     public void PlayerLeft(PlayerInput pi)
     {
         var playerCamera = pi.GetComponentInChildren<Camera>();
@@ -110,6 +120,7 @@ public class CameraManagement : MonoBehaviour
 
         refreshCameras = true;
     }
+
 
     public void ToggleCameraMode()
     {
@@ -125,28 +136,14 @@ public class CameraManagement : MonoBehaviour
         cameraMode = cameraMode == CameraMode.Overhead ? CameraMode.ThirdPerson : CameraMode.Overhead;
     }
 
-    // sudo code for camera behaviour:
-    // private void Update()
-    // {
-    //     // follow player?
 
-    //     // if (playerCount > 1 || cameraMode == CameraMode.Mode2)
-    //     // {
-    //     //     // 3rd person cameras + split screen
-    //     // }
-    //     // else // cameraMode == CameraMode.Mode1
-    //     // {
-    //     //     if (player touching PlayerBoundary)
-    //     //     {
-    //     //         // overhead camera
-    //     //     }
+    public void ToggleDialogCamera()
+    {
+        refreshCameras = true;
 
-    //     //     if (player !touching PlayerBoundary)
-    //     //     {
-    //     //         // barge centered player following, zoom in as player gets farther
-    //     //     }
-    //     // }
-    // }
+        cameraMode = cameraMode == CameraMode.Dialog ? CameraMode.Overhead : CameraMode.Dialog;
+    }
+
 
     private void LateUpdate()
     {
@@ -161,6 +158,7 @@ public class CameraManagement : MonoBehaviour
         }
     }
 
+
     private void FollowTransformXY(Transform follower, Transform target)
     {
         var targetPosition = target.position;
@@ -171,42 +169,67 @@ public class CameraManagement : MonoBehaviour
         follower.position = followerPosition;
     }
 
+
     private void SetActiveCameras()
     {
-        if (cameraMode == CameraMode.Overhead)
+        if (cameraMode == CameraMode.Dialog)
         {
-            SetOverheadMode();
+            SetDialogMode();
+        }
+        else if (cameraMode == CameraMode.ThirdPerson)
+        {
+            SetThirdPersonMode();
         }
         else
         {
-            SetThirdPersonMode();
+            SetOverheadMode();
         }
 
         refreshCameras = false;
     }
 
-    private void SetThirdPersonMode()
-    {
-        overheadCamera.gameObject.SetActive(false);
-        foreach (var playerCamera in playerCameras)
-        {
-            playerCamera.gameObject.SetActive(true);
-        }
-    }
 
-    private void SetOverheadMode()
+    private void SetDialogMode()
     {
-        overheadCamera.gameObject.SetActive(true);
+        dialogCamera.gameObject.SetActive(true);
+        overheadCamera.gameObject.SetActive(false);
+
         foreach (var playerCamera in playerCameras)
         {
             playerCamera.gameObject.SetActive(false);
         }
     }
 
+
+    private void SetThirdPersonMode()
+    {
+        dialogCamera.gameObject.SetActive(false);
+        overheadCamera.gameObject.SetActive(false);
+
+        foreach (var playerCamera in playerCameras)
+        {
+            playerCamera.gameObject.SetActive(true);
+        }
+    }
+
+
+    private void SetOverheadMode()
+    {
+        dialogCamera.gameObject.SetActive(false);
+        overheadCamera.gameObject.SetActive(true);
+
+        foreach (var playerCamera in playerCameras)
+        {
+            playerCamera.gameObject.SetActive(false);
+        }
+    }
+
+
     [Serializable]
     public enum CameraMode
     {
         Overhead,
-        ThirdPerson
+        ThirdPerson,
+        Dialog
     }
 }

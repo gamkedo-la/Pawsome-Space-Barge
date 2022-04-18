@@ -17161,8 +17161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 636
-    y: 126
+    x: 249
+    y: 47
     width: 123
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -17189,7 +17189,7 @@ MonoBehaviour:
   scrollPos: {x: 47.5, y: 326}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 400
+  blockViewHeight: 428
   zoom: 1
   scrollViewRect:
     serializedVersion: 2
@@ -28461,6 +28461,100 @@ Transform:
   m_Father: {fileID: 1138344733}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1519031590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1519031591}
+  - component: {fileID: 1519031594}
+  - component: {fileID: 1519031593}
+  - component: {fileID: 1519031592}
+  m_Layer: 0
+  m_Name: Dialog Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1519031591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519031590}
+  m_LocalRotation: {x: -0.67559016, y: 0, z: 0, w: 0.7372774}
+  m_LocalPosition: {x: 100, y: 0, z: -50}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2066133851900518385}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: -85, y: 0, z: 0}
+--- !u!45 &1519031592
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519031590}
+  m_Enabled: 0
+  m_CustomSkybox: {fileID: 0}
+--- !u!81 &1519031593
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519031590}
+  m_Enabled: 1
+--- !u!20 &1519031594
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519031590}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 50000
+  field of view: 45
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 759
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 0
+  m_HDR: 1
+  m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 0
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &1520594109
 GameObject:
   m_ObjectHideFlags: 0
@@ -29047,6 +29141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overheadCamera: {fileID: 519420031}
   minimapCamera: {fileID: 1945651751}
+  dialogCamera: {fileID: 1519031594}
   initialCameraMode: 0
   minimapFollowSinglePlayer: 0
   hidenObjects: []
@@ -38652,6 +38747,7 @@ Transform:
   - {fileID: 3723873978001626332}
   - {fileID: 1805405032}
   - {fileID: 230598228}
+  - {fileID: 1519031591}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
