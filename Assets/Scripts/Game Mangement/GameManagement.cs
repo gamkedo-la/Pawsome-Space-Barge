@@ -142,7 +142,12 @@ public class GameManagement : MonoBehaviour
         barge = GameObject.FindGameObjectWithTag("Barge");
         bargeOrbitalBody = barge.GetComponent<OrbitalBody>();
 
+        // gameplay
         StartMission();
+
+        // for screenshot
+        // DisableGameUI();
+        // CameraManager.ToggleDialogCamera();
     }
 
 
@@ -347,10 +352,10 @@ public class GameManagement : MonoBehaviour
     /// <summary> Starts appropriate intro dialog on scene load. </summary>
     private void StartMission()
     {
+        CameraManager.ToggleDialogCamera();
 
         if (settings.firstRun)
         {
-            CameraManager.ToggleDialogCamera();
             StartCoroutine(RunDialog(tutorial, 2));
         }
         else
@@ -359,11 +364,7 @@ public class GameManagement : MonoBehaviour
             mission.SetBooleanVariable("playerSelectBarge", settings.playerSelectBarge);
             mission.SetBooleanVariable("mafiaMad", settings.mafiaMad);
 
-            // StartCoroutine(RunDialog(mission, 2f)); // which will call MissionDialogDone()
-
-            // temp route, skip mission dialog -- until dialog is ready
-            MissionManager.SwitchBarge(MissionManager.missionType);
-            InputManager.EnableJoining();
+            StartCoroutine(RunDialog(mission, 2f));
         }
     }
 
@@ -396,13 +397,19 @@ public class GameManagement : MonoBehaviour
     /// Wraps up mission dialog. Takes a 0 for Mafia mission, 1 for Commercial mission.
     /// </summary>
     /// <param name="missionType"></param>
-    public void MissionDialogDone(int missionType)
+    public void MissionDialogDone(int missionType, bool tooEasy)
     {
         DialogDone(mission);
+
+        settings.tooEasy = tooEasy;
+
+        SavePlayerSettings();
 
         missionManager.SwitchBarge((MissionType)missionType);
 
         InputManager.EnableJoining();
+
+        CameraManager.ToggleDialogCamera();
     }
 
 
