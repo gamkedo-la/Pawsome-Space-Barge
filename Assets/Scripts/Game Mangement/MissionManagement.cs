@@ -25,6 +25,23 @@ public class MissionManagement : MonoBehaviour
     }
 
 
+    [SerializeField, Tooltip("Pirate damage per second")] private float pirateDamage = 1f;
+    private void Update()
+    {
+        if (GameManagement.Instance.enemyContactsCount > 0)
+        {
+            if (missionType == MissionType.Commercial)
+            {
+                float damage = pirateDamage * Time.deltaTime * GameManagement.Instance.enemyContactsCount;
+                bargeHealthScript.ApplyDamage(damage);
+            }
+            else
+            {
+                // apply force
+            }
+        }
+    }
+
 
     private void SetupMission()
     {

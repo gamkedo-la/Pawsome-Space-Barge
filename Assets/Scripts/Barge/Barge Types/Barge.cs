@@ -79,4 +79,30 @@ public abstract class Barge : MonoBehaviour
             GameManagement.Instance.MissionFailed();
         }
     }
+
+
+    // accumulates float value for ApplyDamage
+    float damageAccumulator = 0f;
+
+    /// <summary>
+    /// Accumulates a float value.
+    /// Applies the damage to the barge when accumulator >= 1
+    /// </summary>
+    /// <param name="damage"></param>
+    public void ApplyDamage(float damage)
+    {
+        damageAccumulator += damage;
+
+        if (damageAccumulator >= 1)
+        {
+            damageAccumulator -= Mathf.FloorToInt(damageAccumulator);
+
+            bargeHealth.Subtract(1);
+
+            if (bargeHealth.Value <= 0)
+            {
+                GameManagement.Instance.MissionFailed();
+            }
+        }
+    }
 }
