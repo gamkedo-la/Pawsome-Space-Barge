@@ -44,8 +44,11 @@ public class OrbitalBody : MonoBehaviour
 
     private void Start()
     {
-        // SetOrbit(Time.time, positionPci, velocityPci);
-        AddDeltaV(Time.fixedTime, velocityPci.normalized * 0.1f);
+        // hack for FollowOrbit mode, doesn't solve problem, not needed for UseForces
+        if (GetComponent<OrbitalRigidbody>().Method == UpdateMethod.FollowOrbit)
+        {
+            AddDeltaV(Time.fixedTime, velocityPci.normalized * 0.1f);
+        }
     }
 
     public void SetOrbit(float time)

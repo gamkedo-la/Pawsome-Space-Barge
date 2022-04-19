@@ -16,6 +16,8 @@ public class OrbitalRigidbody : MonoBehaviour
 
     private const float MaxAllowedDeltaV = 0.2f;
 
+    public UpdateMethod Method => method;
+
 
     private void Awake()
     {
@@ -131,11 +133,11 @@ public class OrbitalRigidbody : MonoBehaviour
 
         orbitalBody.AddDeltaV(CurrentTime, GetDeltaV(col));
     }
+}
 
-    [Serializable]
-    public enum UpdateMethod
-    {
-        Forces,
-        FollowOrbit,
-    }
+[Serializable]
+public enum UpdateMethod
+{
+    Forces,
+    FollowOrbit,
 }
