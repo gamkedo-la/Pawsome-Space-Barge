@@ -19,7 +19,7 @@ public class GameManagement : MonoBehaviour
     private bool gamePaused = false;
 
     // dialog state switch
-    private bool dialogActive = false;
+    private bool dialogActive = true;
 
     /// <summary> List of enemies currently pursuing barge. </summary>
     private HashSet<GameObject> lockedOnEnemies = new HashSet<GameObject>();
@@ -145,6 +145,7 @@ public class GameManagement : MonoBehaviour
         bargeOrbitalBody = barge.GetComponent<OrbitalBody>();
 
         // gameplay
+        dialogActive = true;
         StartMission();
 
         // for screenshot
@@ -341,13 +342,9 @@ public class GameManagement : MonoBehaviour
     /// <param name="pause"></param>
     private void StartDialog(Flowchart dialog, bool pause=false)
     {
-        if (!dialogActive)
-        {
-            if (pause || pauseOnDialog) TogglePause(PauseState.Paused);
-            dialogActive = true;
-            dialog.gameObject.SetActive(true);
-            dialog.SendFungusMessage("start");
-        }
+        if (pause || pauseOnDialog) TogglePause(PauseState.Paused);
+        dialog.gameObject.SetActive(true);
+        dialog.SendFungusMessage("start");
     }
 
 
@@ -387,11 +384,7 @@ public class GameManagement : MonoBehaviour
 
         SavePlayerSettings();
 
-        missionManager.SwitchBarge(mafiaMad ? MissionType.Commercial : MissionType.Mafia);
-
-        InputManager.EnableJoining();
-
-        CameraManager.ToggleDialogCamera();
+        FinalizeMission(mafiaMad ? MissionType.Commercial : MissionType.Mafia);
     }
 
 
@@ -407,7 +400,17 @@ public class GameManagement : MonoBehaviour
 
         SavePlayerSettings();
 
-        missionManager.SwitchBarge((MissionType)missionType);
+        FinalizeMission((MissionType)missionType);
+    }
+
+
+    /// <summary>
+    /// Finalizes mission setup and enables gameplay.
+    /// </summary>
+    /// <param name="type"></param>
+    void FinalizeMission(MissionType type)
+    {
+        missionManager.SwitchBarge(type);
 
         InputManager.EnableJoining();
 
