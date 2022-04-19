@@ -9856,7 +9856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7ad85813df4c7f8943e8239025da58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 0
+  enemyType: 1
   onIdleEnter:
     m_PersistentCalls:
       m_Calls:

@@ -31647,6 +31647,8 @@ MonoBehaviour:
   missionScriptable: {fileID: 11400000, guid: a29a164efcfc3d04c96af998bc991c11, type: 2}
   mafiaHealthPanel: {fileID: 1122333055}
   commercialHealthPanel: {fileID: 1099020547}
+  orbitalPurrtrol: {fileID: 1639712335}
+  pirateFleet: {fileID: 598696592}
 --- !u!1 &1639712335
 GameObject:
   m_ObjectHideFlags: 0
@@ -31657,7 +31659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639712336}
   m_Layer: 0
-  m_Name: Police
+  m_Name: Orbital Purrtrol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
