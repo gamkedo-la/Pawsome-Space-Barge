@@ -81,6 +81,7 @@ public class GameManagement : MonoBehaviour
     // **************************************** Accessors *****************************************
     public Vector2 bargeVelocity => bargeOrbitalBody.Velocity;
     public bool GamePaused => gamePaused;
+    public bool DialogActive => dialogActive;
 
 
 
