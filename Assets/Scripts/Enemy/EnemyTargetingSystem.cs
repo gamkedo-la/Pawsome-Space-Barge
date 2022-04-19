@@ -140,7 +140,7 @@ public class EnemyTargetingSystem : MonoBehaviour
     /// <param name="position"></param>
     public void sendAlert()
     {
-        if (!timerRunning && stunTimer > 0)
+        if (!timerRunning && stunTimer <= 0)
         {
             callForHelp.TriggerEvent(transform.position);
             alertTimer = timerLength;
