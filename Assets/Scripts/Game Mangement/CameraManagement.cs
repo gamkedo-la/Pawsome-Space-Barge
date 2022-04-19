@@ -193,11 +193,7 @@ public class CameraManagement : MonoBehaviour
     {
         dialogCamera.gameObject.SetActive(true);
         overheadCamera.gameObject.SetActive(false);
-
-        foreach (var playerCamera in playerCameras)
-        {
-            playerCamera.gameObject.SetActive(false);
-        }
+        SetActivePlayerCameras(false);
     }
 
 
@@ -205,11 +201,7 @@ public class CameraManagement : MonoBehaviour
     {
         dialogCamera.gameObject.SetActive(false);
         overheadCamera.gameObject.SetActive(false);
-
-        foreach (var playerCamera in playerCameras)
-        {
-            playerCamera.gameObject.SetActive(true);
-        }
+        SetActivePlayerCameras(true);
     }
 
 
@@ -217,10 +209,15 @@ public class CameraManagement : MonoBehaviour
     {
         dialogCamera.gameObject.SetActive(false);
         overheadCamera.gameObject.SetActive(true);
+        SetActivePlayerCameras(false);
+    }
 
+
+    private void SetActivePlayerCameras(bool value)
+    {
         foreach (var playerCamera in playerCameras)
         {
-            playerCamera.gameObject.SetActive(false);
+            playerCamera.gameObject.SetActive(value);
         }
     }
 
