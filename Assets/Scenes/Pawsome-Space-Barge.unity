@@ -31650,6 +31650,8 @@ MonoBehaviour:
   commercialHealthPanel: {fileID: 1099020547}
   orbitalPurrtrol: {fileID: 1639712335}
   pirateFleet: {fileID: 598696592}
+  pirateDamage: 1
+  purrtrolForce: 500
 --- !u!1 &1639712335
 GameObject:
   m_ObjectHideFlags: 0
@@ -42190,7 +42192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608143, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -74
+      value: -73
       objectReference: {fileID: 0}
     - target: {fileID: 2925028900334608143, guid: 7545049f4de40d2d5947508b9ad34193, type: 3}
       propertyPath: m_LocalPosition.y

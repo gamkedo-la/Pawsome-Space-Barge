@@ -5,13 +5,20 @@ public class MissionManagement : MonoBehaviour
 {
     private Barge bargeHealthScript;
     private GameObject barge => GameManagement.Instance.Barge;
+    private OrbitalRigidbody orrb;
 
-
+    [Header("Mission Variables")]
     [SerializeField, Tooltip("Mission Type ScriptableObject")] private IntVariable missionScriptable;
+
+    [Header("Barge UI Panels")]
     [SerializeField, Tooltip("Mafia canvas health panel.")] private GameObject mafiaHealthPanel;
     [SerializeField, Tooltip("Commercial canvas health panel.")] private GameObject commercialHealthPanel;
+
+    [Header("Enemies")]
     [SerializeField, Tooltip("Orbital Purrtrol parent object.")] private GameObject orbitalPurrtrol;
     [SerializeField, Tooltip("Pirate fleet parent object.")] private GameObject pirateFleet;
+    [SerializeField, Tooltip("Pirate damage per second")] private float pirateDamage = 1f;
+    [SerializeField, Tooltip("Pirate damage per second")] private float purrtrolForce = 500f;
 
 
     public MissionType missionType => (MissionType)missionScriptable.Value;
@@ -25,19 +32,21 @@ public class MissionManagement : MonoBehaviour
     }
 
 
-    [SerializeField, Tooltip("Pirate damage per second")] private float pirateDamage = 1f;
     private void Update()
     {
+        if (orrb == null) GameManagement.Instance.Barge.TryGetComponent<OrbitalRigidbody>(out orrb);
+
         if (GameManagement.Instance.enemyContactsCount > 0)
         {
             if (missionType == MissionType.Commercial)
             {
                 float damage = pirateDamage * Time.deltaTime * GameManagement.Instance.enemyContactsCount;
-                bargeHealthScript.ApplyDamage(damage);
+                if (bargeHealthScript != null) bargeHealthScript.ApplyDamage(damage);
             }
             else
             {
-                // apply force
+                float force = purrtrolForce * Time.deltaTime * GameManagement.Instance.enemyContactsCount;
+                orrb.AddEnemyForce(force);
             }
         }
     }
