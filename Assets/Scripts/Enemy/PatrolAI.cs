@@ -5,6 +5,8 @@ public class PatrolAI : MonoBehaviour
 {
     private EnemyAIStateMachine enemyAI;
     private Vector2 target;
+    private Vector2 alertTarget = Vector2.zero;
+
 
     [SerializeField, Tooltip("Braking factor."), Range(0,10)]
     private float braking = 0.1f;
@@ -48,13 +50,41 @@ public class PatrolAI : MonoBehaviour
         target = enemyAI.Targeting.TrackPath();
 
         // instruct navigation system
-        if (target != Vector2.zero)
+        if (alertTarget == Vector2.zero)
         {
             enemyAI.Navigation.NavigateToTarget(target);
         }
         else
         {
-            // something else?
+            // TODO: alert target navigation
+            // navigate to closest path node
+            //
+
+
+
+            // navigate to target
+            //
+
+
+
+            // if targetClose && !bargeDetected
+            // // alertTarget = Vector2.zero
         }
+    }
+
+
+    [SerializeField, ReadOnly] private int alertsRecieved = 0;
+
+    /// <summary>
+    /// Notification reciever.
+    /// </summary>
+    /// <param name="position"></param>
+    public void recieveAlert(Vector2 position)
+    {
+        // Debug.Log(position.ToString());
+        alertsRecieved++;
+
+        // TODO: uncomment when above complete
+        // alertTarget = position;
     }
 }

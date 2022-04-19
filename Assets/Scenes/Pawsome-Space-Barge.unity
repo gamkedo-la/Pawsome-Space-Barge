@@ -31613,6 +31613,7 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: 8dff29eced539db7ca374a4db3cbb6a3, type: 2}
   policeEvent: {fileID: 11400000, guid: 14144eca98c44312a94d9cd12b48b522, type: 2}
   pirateEvent: {fileID: 11400000, guid: 141ada0ad4ce1ad20989b62d3aedff19, type: 2}
+  enemyContactsCount: 0
   pausePanel: {fileID: 2078571865}
   missionFailPanel: {fileID: 544157754}
   missionSuccessPanel: {fileID: 679115417}

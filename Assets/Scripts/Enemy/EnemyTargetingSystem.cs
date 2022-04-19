@@ -11,6 +11,9 @@ public class EnemyTargetingSystem : MonoBehaviour
     private List<List<Transform>> orbitalPathsNodes;
     private int currentPath, currentNode, nextNode;
     private bool bargeContact = false;
+    private float alertTimer = 0;
+    private bool timerRunning => alertTimer > 0;
+
 
     [ReadOnly][SerializeField] private float stunTimer = 0;
     [ReadOnly][SerializeField] private int stunCount = 0;
@@ -33,6 +36,9 @@ public class EnemyTargetingSystem : MonoBehaviour
     [SerializeField][Tooltip("Required time to complete a scan for the barge")]
     [Min(0.1f)] private float scanInterval = 3f;
 
+    [SerializeField, Tooltip("Alert send interval."), Min(0)]
+    private float timerLength = 10f;
+
 
 
     [Header("Waypoint Settings")]
@@ -45,9 +51,6 @@ public class EnemyTargetingSystem : MonoBehaviour
     [SerializeField][Tooltip("Stun time, in seconds.")]
     [Min(0)] private float asteroidStunTime = 7f;
 
-    [SerializeField][Tooltip("Stun time, in seconds.")]
-    [Min(0)] private float playerStunTime = 0f;
-
 
 
     // *********************** Accessors ***********************
@@ -56,27 +59,6 @@ public class EnemyTargetingSystem : MonoBehaviour
 
     /// <summary> Target lock check. </summary>
     public bool TargetLocked => targetLocked;
-
-
-
-    /// <summary>
-    /// Example reciever method.
-    /// </summary>
-    /// <param name="position"></param>
-    public void recieveAlert(Vector2 position)
-    {
-        // Debug.Log(position.ToString());
-    }
-
-
-    /// <summary>
-    /// Example notification broadcast.
-    /// </summary>
-    /// <param name="position"></param>
-    public void sendAlert(Vector2 position)
-    {
-        callForHelp.TriggerEvent(position);
-    }
 
 
 
@@ -118,14 +100,13 @@ public class EnemyTargetingSystem : MonoBehaviour
 
         // begin barge range check
         StartCoroutine(ScanForBarge());
-
-        // event system test
-        sendAlert(transform.position);
     }
 
 
     private void Update()
     {
+        alertTimer = alertTimer > 0 ? alertTimer - Time.deltaTime : 0;
+
         if (stunTimer > 0)
         {
             stunTimer -= Time.deltaTime;
@@ -142,6 +123,7 @@ public class EnemyTargetingSystem : MonoBehaviour
         }
     }
 
+
     private void OnDrawGizmos()
     {
         // draw detection radius
@@ -149,6 +131,21 @@ public class EnemyTargetingSystem : MonoBehaviour
             Gizmos.DrawWireSphere(transform.position, currentDetectionRange );
         else
             Gizmos.DrawWireSphere(transform.position, bargeDetectionRange );
+    }
+
+
+    /// <summary>
+    /// Example notification broadcast.
+    /// </summary>
+    /// <param name="position"></param>
+    public void sendAlert()
+    {
+        if (!timerRunning && stunTimer > 0)
+        {
+            callForHelp.TriggerEvent(transform.position);
+            alertTimer = timerLength;
+        }
+        
     }
 
 
@@ -358,18 +355,11 @@ public class EnemyTargetingSystem : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (stunTimer <= 0)
+        if (other.gameObject.CompareTag("Asteroid") && !enemyAI.Engines.Online)
         {
-            if (other.gameObject.CompareTag("Asteroid") && !enemyAI.Engines.Online)
-            {
-                stunTimer = asteroidStunTime;
-                stunCount++;
-                currentDetectionRange = bargeDetectionRange / (stunCount + 2);
-            }
-            if (other.gameObject.CompareTag("Player"))
-            {
-                stunTimer = playerStunTime;
-            }
+            stunTimer = asteroidStunTime;
+            stunCount++;
+            currentDetectionRange = bargeDetectionRange / (stunCount + 1);
         }
     }
 

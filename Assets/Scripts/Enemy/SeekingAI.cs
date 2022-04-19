@@ -44,12 +44,24 @@ public class SeekingAI : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // if police, call for help
+        if (enemyAI.Type == EnemyType.Police && !enemyAI.Engines.Online)
+        {
+            enemyAI.Targeting.sendAlert();
+        }
+
         // query targeting system
         target = enemyAI.Targeting.TrackBarge();
 
         // instruct navigation system
         if (target != Vector2.zero)
         {
+            // if pirate, call for help
+            if (enemyAI.Type == EnemyType.Pirate)
+            {
+                enemyAI.Targeting.sendAlert();
+            }
+
             if (!experimentalSteering)
             {
                 enemyAI.Navigation.NavigateToTarget(target);
@@ -61,7 +73,7 @@ public class SeekingAI : MonoBehaviour
         }
         else
         {
-            // something else
+            // something else?
         }
     }
 }

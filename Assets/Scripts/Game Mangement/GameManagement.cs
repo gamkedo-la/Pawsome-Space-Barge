@@ -65,6 +65,7 @@ public class GameManagement : MonoBehaviour
     [Header("Alert Networks")]
     [SerializeField] private AlertEvent policeEvent;
     [SerializeField] private AlertEvent pirateEvent;
+    [ReadOnly] public int enemyContactsCount = 0;
 
 
     [Header("Overlays")]

@@ -32,13 +32,15 @@ public class ContactAI : MonoBehaviour
         enemyAI.Engines.MaxSpeed = maxSpeed;
 
         // lock target
-        target = GameObject.FindGameObjectWithTag("Barge");
+        target = GameManagement.Instance.Barge;
+        GameManagement.Instance.enemyContactsCount++;
     }
 
 
     private void OnDisable()
     {
         Debug.Log("ContactAI disabled.");
+        GameManagement.Instance.enemyContactsCount--;
     }
 
 
@@ -46,6 +48,6 @@ public class ContactAI : MonoBehaviour
     {
         enemyAI.Navigation.NavigateToTarget(target.transform.position);
 
-        // call barge method to reduce value or speed it up here
+        enemyAI.Targeting.sendAlert();
     }
 }
