@@ -95,7 +95,7 @@ public class EnemyEngineSystem : MonoBehaviour
     /// <param name="thrust"></param>
     public void ApplyThrust(float thrust)
     {
-        if (stunTimer <= 0)
+        if (stunTimer <= 0 && !GameManagement.Instance.DialogActive)
         {
             if (thrust >= 0)
             {
