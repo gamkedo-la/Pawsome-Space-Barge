@@ -90,6 +90,8 @@ public class EnemyNavigationSystem : MonoBehaviour
     /// <param name="nextTarget"></param>
     public void NavigateToTarget(Vector2 target)
     {
+        if (target == Vector2.zero) return;
+
         float sensorSteer = enemyAI.currentState != EnemyAIState.Idle ? Sensors() : 0;
 
         // steering vectors array
