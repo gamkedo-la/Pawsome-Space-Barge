@@ -61,12 +61,22 @@ public abstract class Barge : MonoBehaviour
 
         if (damage > 0)
         {
-            bargeHealth.Subtract(damage);
+            ApplyDamage(damage);
+        }
+    }
 
-            if (bargeHealth.Value <= 0)
-            {
-                GameManagement.Instance.MissionFailed();
-            }
+
+    /// <summary>
+    /// Apply damage to barge.
+    /// </summary>
+    /// <param name="damage"></param>
+    public void ApplyDamage(int damage)
+    {
+        bargeHealth.Subtract(damage);
+
+        if (bargeHealth.Value <= 0)
+        {
+            GameManagement.Instance.MissionFailed();
         }
     }
 }
