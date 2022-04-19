@@ -107,6 +107,24 @@ public class OrbitalRigidbody : MonoBehaviour
         return (impulse * normal) / (method == UpdateMethod.FollowOrbit ? ourMass : 1);
     }
 
+
+    private void AddForce(Vector2 force)
+    {
+        if (method == UpdateMethod.Forces)
+        {
+            rb2d.AddForce(force, ForceMode2D.Impulse);
+        }
+        else
+        {
+            orbitalBody.AddDeltaV(CurrentTime, force);
+        }
+    }
+
+    public void AddEnemyForce(float force)
+    {
+        AddForce(force * orbitalBody.Velocity.normalized);
+    }
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Planet"))
@@ -114,24 +132,12 @@ public class OrbitalRigidbody : MonoBehaviour
             GameManagement.Instance.MissionFailed();
         }
 
-        if (method == UpdateMethod.Forces)
-        {
-            rb2d.AddForce(GetDeltaV(col), ForceMode2D.Impulse);
-            return;
-        }
-
-        orbitalBody.AddDeltaV(CurrentTime, GetDeltaV(col));
+        AddForce(GetDeltaV(col));
     }
 
     private void OnCollisionStay2D(Collision2D col)
     {
-        if (method == UpdateMethod.Forces)
-        {
-            rb2d.AddForce(GetDeltaV(col), ForceMode2D.Impulse);
-            return;
-        }
-
-        orbitalBody.AddDeltaV(CurrentTime, GetDeltaV(col));
+        AddForce(GetDeltaV(col));
     }
 }
 
