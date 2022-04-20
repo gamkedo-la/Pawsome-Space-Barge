@@ -56,6 +56,13 @@ public class OrbitalBody : MonoBehaviour
         SetOrbit(time, positionPci, velocityPci);
     }
 
+
+    public void SetNewOrbit()
+    {
+        positionPci = transform.position;
+        orbitalElements.SetCircularOrbit(Time.time, positionPci);
+    }
+
     public void Recalculate(float time)
     {
         UpdatePositionAndVelocityAtTime(time);

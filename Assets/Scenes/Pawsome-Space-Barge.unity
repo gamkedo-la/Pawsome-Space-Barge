@@ -31624,6 +31624,7 @@ MonoBehaviour:
   - {fileID: 1945651747}
   celestialThings: {fileID: 2691550583351307774}
   theSun: {fileID: 1320882034}
+  missionDirection: 0
 --- !u!114 &1635844464
 MonoBehaviour:
   m_ObjectHideFlags: 0

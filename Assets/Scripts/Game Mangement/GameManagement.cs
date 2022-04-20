@@ -11,9 +11,10 @@ public class GameManagement : MonoBehaviour
 
     // barge
     private GameObject barge;
-    public GameObject Barge => barge;
     private OrbitalBody bargeOrbitalBody;
-    public OrbitalBody BargeOrbitalBody => bargeOrbitalBody;
+
+    private GameObject deliveryWindow;
+    private OrbitalBody deliveryWindowOrbitalBody;
 
     // pause state switch
     private bool gamePaused = false;
@@ -80,11 +81,15 @@ public class GameManagement : MonoBehaviour
     [Header("Mission Objects")]
     [SerializeField, Tooltip("Celestial things.")] private GameObject celestialThings;
     [SerializeField, Tooltip("The sun.")] private GameObject theSun;
+    [SerializeField, Tooltip("Mission direction.")] MissionDirection missionDirection = MissionDirection.Inwards;
 
 
 
     // **************************************** Accessors *****************************************
+    public GameObject Barge => barge;
+    public OrbitalBody BargeOrbitalBody => bargeOrbitalBody;
     public Vector2 bargeVelocity => bargeOrbitalBody.Velocity;
+
     public bool GamePaused => gamePaused;
     public bool DialogActive => dialogActive;
 
@@ -149,6 +154,9 @@ public class GameManagement : MonoBehaviour
         barge = GameObject.FindGameObjectWithTag("Barge");
         bargeOrbitalBody = barge.GetComponent<OrbitalBody>();
 
+        deliveryWindow = GameObject.FindGameObjectWithTag("Delivery Window");
+        deliveryWindowOrbitalBody = deliveryWindow.GetComponent<OrbitalBody>();
+
         // call wold setup
         SetupWorld();
 
@@ -201,14 +209,33 @@ public class GameManagement : MonoBehaviour
         theSun.transform.localEulerAngles = new Vector3(0, 0, angle);
     }
 
+    private Vector2[] innerOrbitalPositions =
+    {
+        new Vector2( 0,    -2250),
+        new Vector2( 2250,  0   ),
+        new Vector2( 0,     2250),
+        new Vector2(-2250,  0   )
+    };
+
+    private Vector2[] outerOrbitalPositions =
+    {
+        new Vector2( 0,    -6750),
+        new Vector2( 6750,  0   ),
+        new Vector2( 0,     6750),
+        new Vector2(-6750,  0   )
+    };
+
 
     private void SetupWorld()
     {
+        // Initial scene state for first run.
         if (settings.firstRun)
         {
             RotateSun((float)WorldSetup.SunnySide);
             return;
         }
+
+        // else randomize
 
         RotateCelestialThings(Random.Range(0, 360));
 
@@ -220,6 +247,59 @@ public class GameManagement : MonoBehaviour
         {
             RotateSun(Random.Range(50, 310));
         }
+
+        int random = Random.Range(0, innerOrbitalPositions.Length);
+
+        // // I want to do this, a special mission for the last mafia mission
+        // if ( settings.mafiaDeliveries == 2 && !settings.playerSelectBarge )
+        // {
+        //     missionDirection = MissionDirection.Outwards;
+        //     SetOrbitalPositions(random, missionDirection);
+        // }
+        // else
+        // {
+        //     missionDirection = MissionDirection.Inwards;
+        //     SetOrbitalPositions(random, missionDirection);
+        // }
+
+        SetOrbitalPositions(1, missionDirection);
+    }
+
+
+    /// <summary>
+    /// Sets orbit for delivery window and barge.
+    /// </summary>
+    /// <param name="positionIndex">Position index for delivery window.</param>
+    /// <param name="direction"></param>
+    private void SetOrbitalPositions(int positionIndex, MissionDirection direction=MissionDirection.Inwards)
+    {
+        if (direction == MissionDirection.Inwards)
+        {
+            // this works
+            deliveryWindow.transform.position = innerOrbitalPositions[positionIndex];
+            deliveryWindowOrbitalBody.SetNewOrbit();
+
+            barge.transform.position = outerOrbitalPositions[0];
+            bargeOrbitalBody.SetNewOrbit();
+        }
+        else
+        {
+            // this does not...
+            // and for some reason the mission instantly fails for "barge out of orbit" reasons,
+            // despite the barge being moved inwards.
+            deliveryWindow.transform.position = outerOrbitalPositions[positionIndex];
+            deliveryWindowOrbitalBody.SetNewOrbit();
+
+            barge.transform.position = innerOrbitalPositions[0];
+            bargeOrbitalBody.SetNewOrbit();
+        }
+    }
+
+
+    private enum MissionDirection
+    {
+        Inwards,
+        Outwards
     }
 
 
