@@ -77,6 +77,11 @@ public class GameManagement : MonoBehaviour
     private GameObject[] gameUI;
 
 
+    [Header("Mission Objects")]
+    [SerializeField, Tooltip("Celestial things.")] private GameObject celestialThings;
+    [SerializeField, Tooltip("The sun.")] private GameObject theSun;
+
+
 
     // **************************************** Accessors *****************************************
     public Vector2 bargeVelocity => bargeOrbitalBody.Velocity;
@@ -121,7 +126,7 @@ public class GameManagement : MonoBehaviour
 
             soundManager = SoundManagement.Instance;
         }
-#endif
+    #endif
 
         missionManager = GetComponent<MissionManagement>();
 
@@ -143,6 +148,9 @@ public class GameManagement : MonoBehaviour
     {
         barge = GameObject.FindGameObjectWithTag("Barge");
         bargeOrbitalBody = barge.GetComponent<OrbitalBody>();
+
+        // call wold setup
+        SetupWorld();
 
         // gameplay
         dialogActive = true;
@@ -177,6 +185,48 @@ public class GameManagement : MonoBehaviour
 
         // and in case of logic error, make sure game is running
         TogglePause(PauseState.Playing);
+    }
+
+
+
+    // ************************************* World Management *************************************
+    private void RotateCelestialThings(float angle)
+    {
+        celestialThings.transform.localEulerAngles = new Vector3(0, 0, angle);
+    }
+
+
+    private void RotateSun(float angle)
+    {
+        theSun.transform.localEulerAngles = new Vector3(0, 0, angle);
+    }
+
+
+    private void SetupWorld()
+    {
+        if (settings.firstRun)
+        {
+            RotateSun((float)WorldSetup.SunnySide);
+            return;
+        }
+
+        RotateCelestialThings(Random.Range(0, 360));
+
+        if (settings.mafiaDeliveries == 2 && !settings.playerSelectBarge)
+        {
+            RotateSun((float)WorldSetup.DarkSide);
+        }
+        else
+        {
+            RotateSun(Random.Range(50, 310));
+        }
+    }
+
+
+    private enum WorldSetup
+    {
+        SunnySide = 2,
+        DarkSide = 30
     }
 
 

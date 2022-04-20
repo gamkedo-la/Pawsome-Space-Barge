@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0fc4a12e0f3f126be2a2eb51e251ad, type: 3}
   m_Name: EditorPlayerSettings
   m_EditorClassIdentifier: 
-  firstRun: 1
+  firstRun: 0
   mafiaMad: 0
-  playerSelectBarge: 0
+  playerSelectBarge: 1
   tooEasy: 0
   commercialEarnings: 0
   mafiaDeliveries: 0
