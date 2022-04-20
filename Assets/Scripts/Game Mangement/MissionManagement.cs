@@ -34,8 +34,6 @@ public class MissionManagement : MonoBehaviour
 
     private void Update()
     {
-        if (orrb == null) GameManagement.Instance.Barge.TryGetComponent<OrbitalRigidbody>(out orrb);
-
         if (GameManagement.Instance.enemyContactsCount > 0)
         {
             if (missionType == MissionType.Commercial)
@@ -43,10 +41,13 @@ public class MissionManagement : MonoBehaviour
                 float damage = pirateDamage * Time.deltaTime * GameManagement.Instance.enemyContactsCount;
                 if (bargeHealthScript != null) bargeHealthScript.ApplyDamage(damage);
             }
-            else
+            else // MissionType.Mafia
             {
-                float force = purrtrolForce * Time.deltaTime * GameManagement.Instance.enemyContactsCount;
-                orrb.AddEnemyForce(force);
+                if (orrb != null || GameManagement.Instance.Barge.TryGetComponent<OrbitalRigidbody>(out orrb))
+                {
+                    float force = purrtrolForce * Time.deltaTime * GameManagement.Instance.enemyContactsCount;
+                    orrb.AddEnemyForce(force);
+                }
             }
         }
     }
