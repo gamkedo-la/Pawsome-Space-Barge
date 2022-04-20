@@ -30165,6 +30165,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320607668}
   m_CullTransparentMesh: 1
+--- !u!1 &1320882034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1320882035}
+  m_Layer: 0
+  m_Name: SunPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1320882035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320882034}
+  m_LocalRotation: {x: 0, y: 0, z: 0.008726558, w: 0.999962}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2691550583682575033}
+  m_Father: {fileID: 2691550583351307773}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1}
 --- !u!1 &1329400456
 GameObject:
   m_ObjectHideFlags: 0
@@ -42062,7 +42094,7 @@ Transform:
   m_Children:
   - {fileID: 2691550582408661247}
   - {fileID: 2691550582803305268}
-  - {fileID: 2691550583682575033}
+  - {fileID: 1320882035}
   - {fileID: 2691550583952171893}
   m_Father: {fileID: 2085625797}
   m_RootOrder: 0
@@ -42098,8 +42130,8 @@ Transform:
   m_Children:
   - {fileID: 2691550582952392839}
   - {fileID: 1831964646}
-  m_Father: {fileID: 2691550583351307773}
-  m_RootOrder: 2
+  m_Father: {fileID: 1320882035}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 71.789, y: -44.623, z: 44.672}
 --- !u!1 &2691550583682575035
 GameObject:
