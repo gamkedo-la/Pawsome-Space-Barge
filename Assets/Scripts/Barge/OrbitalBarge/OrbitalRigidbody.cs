@@ -48,6 +48,7 @@ public class OrbitalRigidbody : MonoBehaviour
 
         if (Vector2.Distance(rb2d.position, Vector2.zero) > orbitalBody.MaxOrbitRadius * 0.8f)
         {
+            Debug.Log("Barge pushed out of orbit.");
             GameManagement.Instance.MissionFailed();
         }
     }
@@ -129,6 +130,7 @@ public class OrbitalRigidbody : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Planet"))
         {
+            Debug.Log("Barge hit planet.");
             GameManagement.Instance.MissionFailed();
         }
 
