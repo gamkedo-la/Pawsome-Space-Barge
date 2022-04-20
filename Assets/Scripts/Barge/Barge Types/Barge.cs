@@ -76,6 +76,7 @@ public abstract class Barge : MonoBehaviour
 
         if (bargeHealth.Value <= 0)
         {
+            Debug.Log("Barge health == 0");
             GameManagement.Instance.MissionFailed();
         }
     }
@@ -93,16 +94,13 @@ public abstract class Barge : MonoBehaviour
     {
         damageAccumulator += damage;
 
-        if (damageAccumulator >= 1)
+        var temp = Mathf.CeilToInt(damageAccumulator);
+
+        if (temp > 0)
         {
-            damageAccumulator -= Mathf.FloorToInt(damageAccumulator);
+            damageAccumulator -= temp;
 
-            bargeHealth.Subtract(1);
-
-            if (bargeHealth.Value <= 0)
-            {
-                GameManagement.Instance.MissionFailed();
-            }
+            ApplyDamage(temp);
         }
     }
 }
