@@ -15,6 +15,7 @@ TagManager:
   - Minimap Marker
   - Dialog
   - OrbitalPath
+  - Delivery Window
   layers:
   - Default
   - TransparentFX
