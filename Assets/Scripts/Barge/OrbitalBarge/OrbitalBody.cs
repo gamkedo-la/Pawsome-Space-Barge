@@ -60,7 +60,7 @@ public class OrbitalBody : MonoBehaviour
     public void SetNewOrbit()
     {
         positionPci = transform.position;
-        orbitalElements.SetCircularOrbit(Time.time, positionPci);
+        orbitalElements.SetCircularOrbit(Time.fixedTime, positionPci);
     }
 
     public void Recalculate(float time)
