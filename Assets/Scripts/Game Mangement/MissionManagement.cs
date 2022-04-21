@@ -5,10 +5,15 @@ public class MissionManagement : MonoBehaviour
 {
     private Barge bargeHealthScript;
     private GameObject barge => GameManagement.Instance.Barge;
-    private OrbitalRigidbody orrb;
+    private OrbitalBody bargeOrbitalBody => GameManagement.Instance.BargeOrbitalBody;
+    private OrbitalRigidbody bargeOrbitalRigidbody;
+
+    private GameObject deliveryWindow => GameManagement.Instance.DeliveryWindow;
+    private OrbitalBody deliveryWindowOrbitalBody => GameManagement.Instance.DeliveryWindowOrbitalBody;
 
     [Header("Mission Variables")]
     [SerializeField, Tooltip("Mission Type ScriptableObject")] private IntVariable missionScriptable;
+    [SerializeField, Tooltip("Mission direction; inwards or outwards.")] private MissionDirection missionDirection = MissionDirection.Inwards;
 
     [Header("Barge UI Panels")]
     [SerializeField, Tooltip("Mafia canvas health panel.")] private GameObject mafiaHealthPanel;
@@ -21,7 +26,8 @@ public class MissionManagement : MonoBehaviour
     [SerializeField, Tooltip("Pirate damage per second")] private float purrtrolForce = 500f;
 
 
-    public MissionType missionType => (MissionType)missionScriptable.Value;
+    public MissionType MissionType => (MissionType)missionScriptable.Value;
+    public MissionDirection Direction => missionDirection;
     public int bargeHealth => bargeHealthScript.bargeHealth.Value;
 
 
@@ -34,21 +40,22 @@ public class MissionManagement : MonoBehaviour
 
     private static float distanceCheckInterval = 2;
     private float distanceCheckTimer = 0;
+
     private void Update()
     {
         if (GameManagement.Instance.enemyContactsCount > 0)
         {
-            if (missionType == MissionType.Commercial)
+            if (MissionType == MissionType.Commercial)
             {
                 float damage = pirateDamage * Time.deltaTime * GameManagement.Instance.enemyContactsCount;
                 if (bargeHealthScript != null) bargeHealthScript.ApplyDamage(damage);
             }
             else // MissionType.Mafia
             {
-                if (orrb != null || GameManagement.Instance.Barge.TryGetComponent<OrbitalRigidbody>(out orrb))
+                if (bargeOrbitalRigidbody != null || barge.TryGetComponent<OrbitalRigidbody>(out bargeOrbitalRigidbody))
                 {
                     float force = purrtrolForce * Time.deltaTime * GameManagement.Instance.enemyContactsCount;
-                    orrb.AddEnemyForce(force);
+                    bargeOrbitalRigidbody.AddEnemyForce(force);
                 }
             }
         }
@@ -75,7 +82,7 @@ public class MissionManagement : MonoBehaviour
     {
         barge.SendMessage("InitializeBarge");
 
-        if (missionType == MissionType.Mafia)
+        if (MissionType == MissionType.Mafia)
         {
             bargeHealthScript = barge.GetComponent<MafiaBarge>();
 
@@ -108,4 +115,83 @@ public class MissionManagement : MonoBehaviour
         missionScriptable.Value = (int)mission;
         SetupMission();
     }
+
+
+    /// <summary> Valid inner orbital positions, at 6, 3, 12, 9 o'clock. </summary>
+    private Vector2[] innerOrbitalPositions =
+    {
+        new Vector2( 0,    -2250),
+        new Vector2( 2250,  0   ),
+        new Vector2( 0,     2250),
+        new Vector2(-2250,  0   )
+    };
+
+    /// <summary> Valid outer orbital positions, at 6, 3, 12, 9 o'clock.  </summary>
+    private Vector2[] outerOrbitalPositions =
+    {
+        new Vector2( 0,    -6750),
+        new Vector2( 6750,  0   ),
+        new Vector2( 0,     6750),
+        new Vector2(-6750,  0   )
+    };
+
+
+    /// <summary>
+    /// Wrapper for setup of barge and delivery window locations and orbits.
+    /// </summary>
+    public void SetupOrbitalThings()
+    {
+        int random = Random.Range(0, innerOrbitalPositions.Length);
+
+        // // I want to do this, a special mission for the last mafia mission
+        // if ( settings.mafiaDeliveries == 2 && !settings.playerSelectBarge )
+        // {
+        //     missionDirection = MissionDirection.Outwards;
+        //     SetOrbitalPositions(random, missionDirection);
+        // }
+        // else
+        // {
+        //     missionDirection = MissionDirection.Inwards;
+        //     SetOrbitalPositions(random, missionDirection);
+        // }
+
+        SetOrbitalPositions(1, missionDirection);
+    }
+
+
+    /// <summary>
+    /// Sets orbit for delivery window and barge.
+    /// </summary>
+    /// <param name="positionIndex">Position index for delivery window.</param>
+    /// <param name="direction"></param>
+    private void SetOrbitalPositions(int positionIndex, MissionDirection direction=MissionDirection.Inwards)
+    {
+        if (direction == MissionDirection.Inwards)
+        {
+            deliveryWindow.transform.position = innerOrbitalPositions[positionIndex];
+            barge.transform.position = outerOrbitalPositions[0];
+
+            Physics2D.SyncTransforms();
+
+            deliveryWindowOrbitalBody.SetNewOrbit();
+            bargeOrbitalBody.SetNewOrbit();
+        }
+        else
+        {
+            deliveryWindow.transform.position = outerOrbitalPositions[3];
+            barge.transform.position = innerOrbitalPositions[0];
+
+            Physics2D.SyncTransforms();
+
+            deliveryWindowOrbitalBody.SetNewOrbit();
+            bargeOrbitalBody.SetNewOrbit();
+        }
+    }
+}
+
+
+public enum MissionDirection
+{
+    Inwards,
+    Outwards
 }

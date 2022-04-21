@@ -78,10 +78,9 @@ public class GameManagement : MonoBehaviour
     private GameObject[] gameUI;
 
 
-    [Header("Mission Objects")]
+    [Header("Celestial Objects")]
     [SerializeField, Tooltip("Celestial things.")] private GameObject celestialThings;
     [SerializeField, Tooltip("The sun.")] private GameObject theSun;
-    [SerializeField, Tooltip("Mission direction.")] MissionDirection missionDirection = MissionDirection.Inwards;
 
 
 
@@ -89,6 +88,9 @@ public class GameManagement : MonoBehaviour
     public GameObject Barge => barge;
     public OrbitalBody BargeOrbitalBody => bargeOrbitalBody;
     public Vector2 bargeVelocity => bargeOrbitalBody.Velocity;
+
+    public GameObject DeliveryWindow => deliveryWindow;
+    public OrbitalBody DeliveryWindowOrbitalBody => deliveryWindowOrbitalBody;
 
     public bool GamePaused => gamePaused;
     public bool DialogActive => dialogActive;
@@ -158,7 +160,7 @@ public class GameManagement : MonoBehaviour
         deliveryWindowOrbitalBody = deliveryWindow.GetComponent<OrbitalBody>();
 
         // call wold setup
-        SetupWorld();
+        missionManager.SetupOrbitalThings();
 
         // gameplay
         dialogActive = true;
@@ -207,99 +209,6 @@ public class GameManagement : MonoBehaviour
     private void RotateSun(float angle)
     {
         theSun.transform.localEulerAngles = new Vector3(0, 0, angle);
-    }
-
-    private Vector2[] innerOrbitalPositions =
-    {
-        new Vector2( 0,    -2250),
-        new Vector2( 2250,  0   ),
-        new Vector2( 0,     2250),
-        new Vector2(-2250,  0   )
-    };
-
-    private Vector2[] outerOrbitalPositions =
-    {
-        new Vector2( 0,    -6750),
-        new Vector2( 6750,  0   ),
-        new Vector2( 0,     6750),
-        new Vector2(-6750,  0   )
-    };
-
-
-    private void SetupWorld()
-    {
-        // Initial scene state for first run.
-        if (settings.firstRun)
-        {
-            RotateSun((float)WorldSetup.SunnySide);
-            return;
-        }
-
-        // else randomize
-
-        RotateCelestialThings(Random.Range(0, 360));
-
-        if (settings.mafiaDeliveries == 2 && !settings.playerSelectBarge)
-        {
-            RotateSun((float)WorldSetup.DarkSide);
-        }
-        else
-        {
-            RotateSun(Random.Range(50, 310));
-        }
-
-        int random = Random.Range(0, innerOrbitalPositions.Length);
-
-        // // I want to do this, a special mission for the last mafia mission
-        // if ( settings.mafiaDeliveries == 2 && !settings.playerSelectBarge )
-        // {
-        //     missionDirection = MissionDirection.Outwards;
-        //     SetOrbitalPositions(random, missionDirection);
-        // }
-        // else
-        // {
-        //     missionDirection = MissionDirection.Inwards;
-        //     SetOrbitalPositions(random, missionDirection);
-        // }
-
-        SetOrbitalPositions(1, missionDirection);
-    }
-
-
-    /// <summary>
-    /// Sets orbit for delivery window and barge.
-    /// </summary>
-    /// <param name="positionIndex">Position index for delivery window.</param>
-    /// <param name="direction"></param>
-    private void SetOrbitalPositions(int positionIndex, MissionDirection direction=MissionDirection.Inwards)
-    {
-        if (direction == MissionDirection.Inwards)
-        {
-            deliveryWindow.transform.position = innerOrbitalPositions[positionIndex];
-            barge.transform.position = outerOrbitalPositions[0];
-
-            Physics2D.SyncTransforms();
-
-            deliveryWindowOrbitalBody.SetNewOrbit();
-            bargeOrbitalBody.SetNewOrbit();
-        }
-        else
-        {
-            deliveryWindow.transform.position = outerOrbitalPositions[3];
-            barge.transform.position = innerOrbitalPositions[0];
-
-            Physics2D.SyncTransforms();
-
-            deliveryWindowOrbitalBody.SetNewOrbit();
-            bargeOrbitalBody.SetNewOrbit();
-        }
-    }
-
-
-    private enum MissionDirection
-    {
-        Inwards,
-        Outwards
     }
 
 
@@ -586,7 +495,7 @@ public class GameManagement : MonoBehaviour
         // update player settings
         settings.bargesDelivered++;
 
-        if (missionManager.missionType == MissionType.Mafia)
+        if (missionManager.MissionType == MissionType.Mafia)
         {
             settings.mafiaDeliveries++;
         }
