@@ -88,6 +88,8 @@ public class CameraManagement : MonoBehaviour
     }
 
 
+    private int firstPlayer = -1;
+    private int maxPlayerIndex = -1;
     public void PlayerJoined(PlayerInput pi)
     {
         var isFirstPlayer = playerCameras.Count == 0;
@@ -103,7 +105,12 @@ public class CameraManagement : MonoBehaviour
         if (isFirstPlayer)
         {
             cameraMode = CameraMode.ThirdPerson;
+            firstPlayer = pi.playerIndex;
+            pi.gameObject.AddComponent<AudioListener>();
         }
+
+        if (pi.playerIndex > maxPlayerIndex) maxPlayerIndex = pi.playerIndex;
+
 
         refreshCameras = true;
     }
@@ -111,7 +118,6 @@ public class CameraManagement : MonoBehaviour
 
     public void PlayerLeft(PlayerInput pi)
     {
-        var playerCamera = pi.GetComponentInChildren<Camera>();
         playerCameras.Remove(pi.playerIndex);
 
         if (playerCameras.Count == 0)
@@ -120,6 +126,46 @@ public class CameraManagement : MonoBehaviour
         }
 
         refreshCameras = true;
+    }
+
+
+    public void DeviceLost(PlayerInput pi)
+    {
+        // var playerCamera = pi.GetComponentInChildren<Camera>();
+        // playerCameras.Remove(pi.playerIndex);
+        Destroy(pi.gameObject.GetComponent<AudioListener>());
+
+        PlayerLeft(pi);
+
+        if (pi.playerIndex == firstPlayer)
+        {
+            if (playerCameras.Count > 0)
+            {
+                for (int i = 0; i <= maxPlayerIndex; i++)
+                {
+                    if (playerCameras.ContainsKey(i))
+                    {
+                        firstPlayer = i;
+                        Camera thing;
+                        playerCameras.TryGetValue(i, out thing);
+                        
+                        thing.gameObject.AddComponent<AudioListener>();
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                cameraMode = CameraMode.Overhead;
+            }
+        }
+
+        if (playerCameras.Count < 2)
+        {
+            GameManagement.Instance.InputManager.splitScreen = false;
+        }
+
+        Destroy(pi.gameObject);
     }
 
 

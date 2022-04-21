@@ -29,4 +29,9 @@ public class ShipActions : MonoBehaviour
     {
         GameManagement.Instance.CameraManager.ToggleMinimapSize();
     }
+
+    public void OnDeviceLost(PlayerInput input)
+    {
+        GameManagement.Instance.CameraManager.DeviceLost(input);
+    }
 }
