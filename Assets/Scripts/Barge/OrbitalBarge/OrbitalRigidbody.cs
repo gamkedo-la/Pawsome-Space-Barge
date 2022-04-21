@@ -28,7 +28,7 @@ public class OrbitalRigidbody : MonoBehaviour
         contactArray = new ContactPoint2D[maxContacts];
     }
 
-    private void OnEnable()
+    private void Start()
     {
         orbitalBody.Recalculate(0);
         FollowOrbit();
@@ -44,12 +44,6 @@ public class OrbitalRigidbody : MonoBehaviour
         else
         {
             UseForces();
-        }
-
-        if (Vector2.Distance(rb2d.position, Vector2.zero) > orbitalBody.MaxOrbitRadius * 0.8f)
-        {
-            Debug.Log("Barge pushed out of orbit.");
-            GameManagement.Instance.MissionFailed();
         }
     }
 
