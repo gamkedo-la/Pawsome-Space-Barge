@@ -53,6 +53,8 @@ public class TitleScreenManagement : MonoBehaviour
     private void Awake()
     {
         Application.backgroundLoadingPriority = ThreadPriority.Low;
+        Application.targetFrameRate = 30;
+        QualitySettings.vSyncCount = 1;
 
         playButtonText = playButton.GetComponentInChildren<TextMeshProUGUI>();
 
@@ -120,7 +122,19 @@ public class TitleScreenManagement : MonoBehaviour
 
     public void ExitGame()
     {
+        Debug.Log("Exiting game.");
+
+    #if UNITY_EDITOR
+        // stop the editor playmode
+        UnityEditor.EditorApplication.isPlaying = false;
+    #elif UNITY_WEBGL
+        // reload itch.io page
+        Application.OpenURL("https://esklarski.itch.io/pawsome-space-barge");
+    #else
+        // close application
         Application.Quit();
+    #endif
+
     }
 
 
@@ -128,8 +142,15 @@ public class TitleScreenManagement : MonoBehaviour
     {
         if (loadComplete)
         {
-            loadOperation.allowSceneActivation = true;
+            kitty.StopAllBlocks();
+            kitty.SendFungusMessage("launch");
         }
+    }
+
+
+    public void LaunchGame()
+    {
+        loadOperation.allowSceneActivation = true;
     }
 
 
