@@ -32,7 +32,7 @@ public class CameraManagement : MonoBehaviour
     [SerializeField] private GameObject[] hidenObjects;
 
     private CameraMode cameraMode;
-    private List<Camera> playerCameras = new();
+    private Dictionary<int, Camera> playerCameras = new Dictionary<int, Camera>();
     private bool refreshCameras;
 
     // minimap display
@@ -46,6 +46,7 @@ public class CameraManagement : MonoBehaviour
     {
         // set vsync on
         QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = 60;
 
         // hide all objects in array
         foreach (GameObject o in hidenObjects)
@@ -97,7 +98,7 @@ public class CameraManagement : MonoBehaviour
         // // stops errors but minimap is broken
         // var playerCamera = pi.transform.parent.GetComponentInChildren<Camera>();
 
-        playerCameras.Add(playerCamera);
+        playerCameras.Add(pi.playerIndex, playerCamera);
 
         if (isFirstPlayer)
         {
@@ -111,7 +112,7 @@ public class CameraManagement : MonoBehaviour
     public void PlayerLeft(PlayerInput pi)
     {
         var playerCamera = pi.GetComponentInChildren<Camera>();
-        playerCameras.Remove(playerCamera);
+        playerCameras.Remove(pi.playerIndex);
 
         if (playerCameras.Count == 0)
         {
@@ -119,6 +120,19 @@ public class CameraManagement : MonoBehaviour
         }
 
         refreshCameras = true;
+    }
+
+
+    public Transform GetActiveCamera(PlayerInput pi)
+    {
+        if (cameraMode == CameraMode.Overhead)
+        {
+            return overheadCamera.transform;
+        }
+        else
+        {
+            return playerCameras[pi.playerIndex].transform;
+        }
     }
 
 
@@ -217,7 +231,7 @@ public class CameraManagement : MonoBehaviour
     {
         foreach (var playerCamera in playerCameras)
         {
-            playerCamera.gameObject.SetActive(value);
+            playerCamera.Value.gameObject.SetActive(value);
         }
     }
 
