@@ -275,22 +275,22 @@ public class GameManagement : MonoBehaviour
     {
         if (direction == MissionDirection.Inwards)
         {
-            // this works
             deliveryWindow.transform.position = innerOrbitalPositions[positionIndex];
-            deliveryWindowOrbitalBody.SetNewOrbit();
-
             barge.transform.position = outerOrbitalPositions[0];
+
+            Physics2D.SyncTransforms();
+
+            deliveryWindowOrbitalBody.SetNewOrbit();
             bargeOrbitalBody.SetNewOrbit();
         }
         else
         {
-            // this does not...
-            // and for some reason the mission instantly fails for "barge out of orbit" reasons,
-            // despite the barge being moved inwards.
-            deliveryWindow.transform.position = outerOrbitalPositions[positionIndex];
-            deliveryWindowOrbitalBody.SetNewOrbit();
-
+            deliveryWindow.transform.position = outerOrbitalPositions[3];
             barge.transform.position = innerOrbitalPositions[0];
+
+            Physics2D.SyncTransforms();
+
+            deliveryWindowOrbitalBody.SetNewOrbit();
             bargeOrbitalBody.SetNewOrbit();
         }
     }
