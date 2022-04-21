@@ -30,7 +30,7 @@ public class OrbitalRigidbody : MonoBehaviour
 
     private void Start()
     {
-        orbitalBody.Recalculate(0);
+        orbitalBody.Recalculate(CurrentTime);
         FollowOrbit();
     }
 
