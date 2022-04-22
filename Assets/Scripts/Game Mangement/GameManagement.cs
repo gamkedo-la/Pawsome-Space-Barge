@@ -696,6 +696,7 @@ public class GameManagement : MonoBehaviour
 
     public void RollCredits(bool mafiaSuccess)
     {
+        ResumeGame(); // cleanup, else game is paused with no recourse.
         SceneManager.LoadScene(2);
     }
 }
