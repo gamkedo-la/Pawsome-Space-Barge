@@ -264,7 +264,7 @@ public class EnemyTargetingSystem : MonoBehaviour
     /// <returns></returns>
     private Vector2 AdjustedBarge(Vector2 position)
     {
-        return target - GameManagement.Instance.bargeVelocity;
+        return target - GameManagement.Instance.BargeVelocity;
     }
 
 
