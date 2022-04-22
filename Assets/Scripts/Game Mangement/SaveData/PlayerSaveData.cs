@@ -10,6 +10,7 @@ public class PlayerSaveData
     public bool mafiaMad;
     public bool playerSelectBarge;
     public bool tooEasy;
+    public bool iveExplainedMyselfBefore;
 
     // game state variables
     public int commercialEarnings;
@@ -24,6 +25,7 @@ public class PlayerSaveData
         mafiaMad = settings.mafiaMad;
         playerSelectBarge = settings.playerSelectBarge;
         tooEasy = settings.tooEasy;
+        iveExplainedMyselfBefore = settings.iveExplainedMyselfBefore;
 
         commercialEarnings = settings.commercialEarnings;
         mafiaDeliveries = settings.mafiaDeliveries;

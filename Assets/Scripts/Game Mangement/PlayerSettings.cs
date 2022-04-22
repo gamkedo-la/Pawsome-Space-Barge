@@ -4,12 +4,13 @@ using UnityEngine;
 public class PlayerSettings : ScriptableObject
 {
     // first run?
-    public bool firstRun = true;
+    public bool firstRun;
 
     // dialog switches
-    public bool mafiaMad = false;
-    public bool playerSelectBarge = false;
-    public bool tooEasy = false;
+    public bool mafiaMad;
+    public bool playerSelectBarge;
+    public bool tooEasy;
+    public bool iveExplainedMyselfBefore;
 
     // game state variables
     public int commercialEarnings;
@@ -27,9 +28,11 @@ public class PlayerSettings : ScriptableObject
     public void Reset()
     {
         firstRun = true;
+
         mafiaMad = false;
         playerSelectBarge = false;
         tooEasy = false;
+        iveExplainedMyselfBefore = false;
 
         commercialEarnings = 0;
         mafiaDeliveries = 0;
@@ -55,9 +58,12 @@ public class PlayerSettings : ScriptableObject
         try
         {
             newSettings.firstRun = data.firstRun;
+
             newSettings.mafiaMad = data.mafiaMad;
             newSettings.playerSelectBarge = data.playerSelectBarge;
             newSettings.tooEasy = data.tooEasy;
+            newSettings.iveExplainedMyselfBefore = data.iveExplainedMyselfBefore;
+
             newSettings.commercialEarnings = data.commercialEarnings;
             newSettings.mafiaDeliveries = data.mafiaDeliveries;
             newSettings.bargesDelivered = data.bargesDelivered;
