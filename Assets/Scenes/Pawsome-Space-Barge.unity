@@ -21139,6 +21139,100 @@ MonoBehaviour:
   - Loading coordinates now Captain.
   - Locating client...
   - Just making a sandwich.
+--- !u!1 &1091173290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1091173291}
+  - component: {fileID: 1091173294}
+  - component: {fileID: 1091173293}
+  - component: {fileID: 1091173292}
+  m_Layer: 0
+  m_Name: Outward Dialog Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1091173291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091173290}
+  m_LocalRotation: {x: -0, y: -0.67559016, z: 0.7372774, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -50}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2066133851900518385}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: -85, y: 0, z: 0}
+--- !u!45 &1091173292
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091173290}
+  m_Enabled: 0
+  m_CustomSkybox: {fileID: 0}
+--- !u!81 &1091173293
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091173290}
+  m_Enabled: 1
+--- !u!20 &1091173294
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091173290}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 50000
+  field of view: 45
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 759
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 0
+  m_HDR: 1
+  m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 0
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &1099020547
 GameObject:
   m_ObjectHideFlags: 0
@@ -21609,7 +21703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 859589325}
+  selectedFlowchart: {fileID: 6017164002153553802}
 --- !u!4 &1130922501
 Transform:
   m_ObjectHideFlags: 1
@@ -31194,7 +31288,7 @@ GameObject:
   - component: {fileID: 1519031593}
   - component: {fileID: 1519031592}
   m_Layer: 0
-  m_Name: Dialog Camera
+  m_Name: Inward Dialog Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31208,7 +31302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519031590}
   m_LocalRotation: {x: -0.67559016, y: 0, z: 0, w: 0.7372774}
-  m_LocalPosition: {x: 100, y: 0, z: -50}
+  m_LocalPosition: {x: 0, y: 0, z: -50}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31861,7 +31955,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overheadCamera: {fileID: 519420031}
   minimapCamera: {fileID: 1945651751}
-  dialogCamera: {fileID: 1519031594}
+  inwardDialogCamera: {fileID: 1519031594}
+  outwardDialogCamera: {fileID: 1091173294}
   initialCameraMode: 0
   minimapFollowSinglePlayer: 0
   hidenObjects: []
@@ -41500,6 +41595,7 @@ Transform:
   - {fileID: 1805405032}
   - {fileID: 230598228}
   - {fileID: 1519031591}
+  - {fileID: 1091173291}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

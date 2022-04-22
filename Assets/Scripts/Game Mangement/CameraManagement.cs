@@ -16,8 +16,11 @@ public class CameraManagement : MonoBehaviour
     [Tooltip("Overhead camera used for the minimap")] [SerializeField]
     private Camera minimapCamera;
 
-    [Tooltip("Camera used for certain dialogs.")] [SerializeField]
-    private Camera dialogCamera;
+    [Tooltip("Camera used for certain dialogs. Faces in to planet.")] [SerializeField]
+    private Camera inwardDialogCamera;
+
+    [Tooltip("Camera used for certain dialogs. Faces out from planet.")] [SerializeField]
+    private Camera outwardDialogCamera;
 
     [Tooltip("The camera mode used when the scene starts")] [SerializeField]
     private CameraMode initialCameraMode;
@@ -166,6 +169,11 @@ public class CameraManagement : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// For retrieving the camera currently active for the given PlayerInput. Intended for use with joystick input.
+    /// </summary>
+    /// <param name="pi"></param>
+    /// <returns></returns>
     public Transform GetActiveCamera(PlayerInput pi)
     {
         if (cameraMode == CameraMode.Overhead)
@@ -248,7 +256,17 @@ public class CameraManagement : MonoBehaviour
 
     private void SetDialogMode()
     {
-        dialogCamera.gameObject.SetActive(true);
+        if (GameManagement.Instance.MissionManager.Direction == MissionDirection.Inwards)
+        {
+            inwardDialogCamera.gameObject.SetActive(true);
+            outwardDialogCamera.gameObject.SetActive(false);
+        }
+        else
+        {
+            inwardDialogCamera.gameObject.SetActive(false);
+            outwardDialogCamera.gameObject.SetActive(true);
+        }
+
         overheadCamera.gameObject.SetActive(false);
         SetActivePlayerCameras(false);
     }
@@ -256,17 +274,21 @@ public class CameraManagement : MonoBehaviour
 
     private void SetThirdPersonMode()
     {
-        dialogCamera.gameObject.SetActive(false);
-        overheadCamera.gameObject.SetActive(false);
         SetActivePlayerCameras(true);
+
+        overheadCamera.gameObject.SetActive(false);
+        inwardDialogCamera.gameObject.SetActive(false);
+        outwardDialogCamera.gameObject.SetActive(false);
     }
 
 
     private void SetOverheadMode()
     {
-        dialogCamera.gameObject.SetActive(false);
         overheadCamera.gameObject.SetActive(true);
+
         SetActivePlayerCameras(false);
+        inwardDialogCamera.gameObject.SetActive(false);
+        outwardDialogCamera.gameObject.SetActive(false);
     }
 
 
