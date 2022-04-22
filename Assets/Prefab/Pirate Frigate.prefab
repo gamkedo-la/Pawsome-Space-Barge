@@ -9962,13 +9962,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heading: 0
   stunTimer: 0
+  stunCount: 0
   turningSpeed: 200
   maxSpeed: 100
   minSpeed: 25
   thrusterForce: 1000
   decelerationCoefficient: 1
-  asteroidStunTime: 0
   playerStunTime: 3
+  stunsToDisable: 10
   rearLeftThruster: {fileID: 6286333940712078554}
   rearRightThruster: {fileID: 6286333940271487105}
 --- !u!114 &9199236794740918463
@@ -10194,8 +10195,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.4}
-  m_Size: {x: 8.39, y: 17.79}
+  m_Offset: {x: 0, y: 1.6}
+  m_Size: {x: 7, y: 12}
   m_Direction: 0
 --- !u!1001 &4743895408671177409
 PrefabInstance:

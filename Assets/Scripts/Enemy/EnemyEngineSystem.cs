@@ -16,6 +16,9 @@ public class EnemyEngineSystem : MonoBehaviour
     [ReadOnly][SerializeField]
     private float stunTimer = 0;
 
+    [ReadOnly][SerializeField]
+    private int stunCount = 0;
+
 
 
     [Header("Velocity Settings")]
@@ -37,11 +40,11 @@ public class EnemyEngineSystem : MonoBehaviour
 
 
     [Header("Stun Timer Settings")]
-    [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
-    private float asteroidStunTime = 0f;
-
-    [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds.")]
+    [SerializeField] [Min(0)] [Tooltip("Stun time, in seconds. Multiplied by stunCount for final timer.")]
     float playerStunTime = 3f;
+
+    [SerializeField, Min(1), Tooltip("Stuns to disable enemy engines")]
+    int stunsToDisable = 3;
 
 
 
@@ -82,7 +85,7 @@ public class EnemyEngineSystem : MonoBehaviour
 
     private void Update()
     {
-        if (stunTimer > 0)
+        if (stunTimer > 0 && stunCount < stunsToDisable)
         {
             stunTimer -= Time.deltaTime;
         }
@@ -182,13 +185,10 @@ public class EnemyEngineSystem : MonoBehaviour
     {
         if (stunTimer <= 0)
         {
-            if (other.gameObject.CompareTag("Asteroid"))
-            {
-                stunTimer = asteroidStunTime;
-            }
             if (other.gameObject.CompareTag("Player"))
             {
-                stunTimer = playerStunTime;
+                stunCount++;
+                stunTimer = playerStunTime * stunCount;
             }
         }
     }

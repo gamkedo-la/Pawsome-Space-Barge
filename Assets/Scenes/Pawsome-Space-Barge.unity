@@ -31930,7 +31930,7 @@ MonoBehaviour:
   orbitalPurrtrol: {fileID: 1639712335}
   pirateFleet: {fileID: 598696592}
   pirateDamage: 1
-  purrtrolForce: 500
+  purrtrolForce: 750
 --- !u!1 &1639712335
 GameObject:
   m_ObjectHideFlags: 0
