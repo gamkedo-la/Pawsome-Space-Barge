@@ -87,13 +87,17 @@ public class GameManagement : MonoBehaviour
     // **************************************** Accessors *****************************************
     public GameObject Barge => barge;
     public OrbitalBody BargeOrbitalBody => bargeOrbitalBody;
-    public Vector2 bargeVelocity => bargeOrbitalBody.Velocity;
+    public Vector2 BargeVelocity => bargeOrbitalBody.Velocity;
 
     public GameObject DeliveryWindow => deliveryWindow;
     public OrbitalBody DeliveryWindowOrbitalBody => deliveryWindowOrbitalBody;
 
     public bool GamePaused => gamePaused;
     public bool DialogActive => dialogActive;
+
+    public int MafiaDeliveries => settings.mafiaDeliveries;
+    public bool PlayerSelectBarge => settings.playerSelectBarge;
+    public int CommercialEarnings => settings.commercialEarnings;
 
 
 
@@ -159,10 +163,14 @@ public class GameManagement : MonoBehaviour
         deliveryWindow = GameObject.FindGameObjectWithTag("Delivery Window");
         deliveryWindowOrbitalBody = deliveryWindow.GetComponent<OrbitalBody>();
 
-        // call wold setup
-        missionManager.SetupOrbitalThings();
+        // call world setup
+        SetupWorld();
 
-        // gameplay
+        // call orbital setup
+        missionManager.SetupOrbitalThings(settings.firstRun);
+
+
+        // forgameplay
         dialogActive = true;
         StartMission();
 
@@ -200,6 +208,32 @@ public class GameManagement : MonoBehaviour
 
 
     // ************************************* World Management *************************************
+    private void SetupWorld()
+    {
+        if (settings.firstRun) return;
+
+        if ( MafiaDeliveries > 0  && !PlayerSelectBarge )
+        {
+            // DarkSide
+            RotateSun((float)WorldSetup.DarkSide);
+
+        }
+        else if (PlayerSelectBarge)
+        {
+            int randomSun = Random.Range(0, 360);
+            RotateSun(randomSun);
+        }
+        else
+        {
+            // Sunny
+            RotateSun((float)WorldSetup.SunnySide);
+        }
+
+        int random = Random.Range(0, 360);
+        RotateCelestialThings(random);
+    }
+
+
     private void RotateCelestialThings(float angle)
     {
         celestialThings.transform.localEulerAngles = new Vector3(0, 0, angle);

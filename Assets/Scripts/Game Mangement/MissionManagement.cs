@@ -4,16 +4,17 @@ using Variables;
 public class MissionManagement : MonoBehaviour
 {
     private Barge bargeHealthScript;
+    private GameManagement gm => GameManagement.Instance;
     private GameObject barge => GameManagement.Instance.Barge;
     private OrbitalBody bargeOrbitalBody => GameManagement.Instance.BargeOrbitalBody;
     private OrbitalRigidbody bargeOrbitalRigidbody;
-
     private GameObject deliveryWindow => GameManagement.Instance.DeliveryWindow;
     private OrbitalBody deliveryWindowOrbitalBody => GameManagement.Instance.DeliveryWindowOrbitalBody;
 
+
     [Header("Mission Variables")]
     [SerializeField, Tooltip("Mission Type ScriptableObject")] private IntVariable missionScriptable;
-    [SerializeField, Tooltip("Mission direction; inwards or outwards.")] private MissionDirection missionDirection = MissionDirection.Inwards;
+    [SerializeField, Tooltip("Mission direction; inwards or outwards.")] private MissionDirection missionDirection;
 
     [Header("Barge UI Panels")]
     [SerializeField, Tooltip("Mafia canvas health panel.")] private GameObject mafiaHealthPanel;
@@ -139,23 +140,32 @@ public class MissionManagement : MonoBehaviour
     /// <summary>
     /// Wrapper for setup of barge and delivery window locations and orbits.
     /// </summary>
-    public void SetupOrbitalThings()
+    public void SetupOrbitalThings(bool firstRun=false)
     {
-        int random = Random.Range(0, innerOrbitalPositions.Length);
+        if (firstRun)
+        {
+            missionDirection = MissionDirection.Inwards;
+            SetOrbitalPositions(1);
+            return;
+        }
 
-        // // I want to do this, a special mission for the last mafia mission
-        // if ( settings.mafiaDeliveries == 2 && !settings.playerSelectBarge )
-        // {
-        //     missionDirection = MissionDirection.Outwards;
-        //     SetOrbitalPositions(random, missionDirection);
-        // }
-        // else
-        // {
-        //     missionDirection = MissionDirection.Inwards;
-        //     SetOrbitalPositions(random, missionDirection);
-        // }
+        if ( ( gm.MafiaDeliveries > 1 || gm.CommercialEarnings > 1600000 ) && !gm.PlayerSelectBarge )
+        {
+            missionDirection = MissionDirection.Outwards;
+            SetOrbitalPositions();
+        }
+        else if (gm.PlayerSelectBarge)
+        {
+            missionDirection = MissionDirection.Inwards;
 
-        SetOrbitalPositions(1, missionDirection);
+            int random = Random.Range(0, innerOrbitalPositions.Length);
+            SetOrbitalPositions(random);
+        }
+        else
+        {
+            missionDirection = MissionDirection.Inwards;
+            SetOrbitalPositions(1);
+        }
     }
 
 
@@ -164,9 +174,9 @@ public class MissionManagement : MonoBehaviour
     /// </summary>
     /// <param name="positionIndex">Position index for delivery window.</param>
     /// <param name="direction"></param>
-    private void SetOrbitalPositions(int positionIndex, MissionDirection direction=MissionDirection.Inwards)
+    private void SetOrbitalPositions(int positionIndex=0)
     {
-        if (direction == MissionDirection.Inwards)
+        if (missionDirection == MissionDirection.Inwards)
         {
             deliveryWindow.transform.position = innerOrbitalPositions[positionIndex];
             barge.transform.position = outerOrbitalPositions[0];
@@ -176,7 +186,7 @@ public class MissionManagement : MonoBehaviour
             deliveryWindowOrbitalBody.SetNewOrbit();
             bargeOrbitalBody.SetNewOrbit();
         }
-        else
+        else // MissionDirection.Outwards
         {
             deliveryWindow.transform.position = outerOrbitalPositions[3];
             barge.transform.position = innerOrbitalPositions[0];
