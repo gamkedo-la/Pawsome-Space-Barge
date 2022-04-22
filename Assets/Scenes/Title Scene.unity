@@ -5219,7 +5219,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 50
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -5761,8 +5761,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 2754693412151678622}
-  selectedCommands: []
+  - {fileID: 2754693412151678624}
+  selectedCommands:
+  - {fileID: 2754693412151678709}
   variables:
   - {fileID: 2754693412151678662}
   description: 
@@ -5890,6 +5891,8 @@ GameObject:
   - component: {fileID: 2754693412151678706}
   - component: {fileID: 2754693412151678707}
   - component: {fileID: 2754693412151678708}
+  - component: {fileID: 2754693412151678709}
+  - component: {fileID: 2754693412151678710}
   m_Layer: 0
   m_Name: TitleFlowchart
   m_TagString: Untagged
@@ -6077,6 +6080,8 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 2754693412151678631}
+  - {fileID: 2754693412151678710}
+  - {fileID: 2754693412151678709}
   - {fileID: 2754693412151678628}
   suppressAllAutoSelections: 0
 --- !u!114 &2754693412151678625
@@ -6246,7 +6251,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 13
   indentLevel: 0
-  storyText: '** Credits to come ***'
+  storyText: 'Grygoriy Kulesko: Fridge debris model and materials, bump sound, thrust
+    audio with variations, sound integration
+
+
+    Liyi Zhang: Satellite model, debris
+    model, pirate ship model and material, UI ship indicators
+
+
+    Christer "McFunkypants"
+    Kaitila: Starfield, sun, rock debris, collision dust effects
+
+
+    Justin Chin:
+    Voice noises
+
+
+    Farah R: Floating billboard icon above barge (functionality)
+
+
+    Writing
+    for some voice barks, script proofing
+
+
+    Patrick McKeown: Typo fixes
+
+
+    Play
+    Testers: Patrick McKeown, Klaim, Michael Monty Tanner, Rodrigo Bonzerr S. Lopez'
   description: 
   character: {fileID: 339176038}
   portrait: {fileID: 0}
@@ -8373,7 +8405,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &2754693412151678700
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8401,7 +8433,7 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &2754693412151678701
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8416,7 +8448,7 @@ MonoBehaviour:
   message: launch
 --- !u!114 &2754693412151678702
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8445,7 +8477,7 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &2754693412151678703
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8472,7 +8504,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 1934903072}
 --- !u!114 &2754693412151678704
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8502,7 +8534,7 @@ MonoBehaviour:
   waitUntilFinished: 0
 --- !u!114 &2754693412151678705
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8523,7 +8555,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &2754693412151678706
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8551,7 +8583,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &2754693412151678707
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8566,7 +8598,7 @@ MonoBehaviour:
   menuDialog: {fileID: 1221094886}
 --- !u!114 &2754693412151678708
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8589,3 +8621,104 @@ MonoBehaviour:
   hideThisOption:
     booleanRef: {fileID: 0}
     booleanVal: 0
+--- !u!114 &2754693412151678709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754693412151678613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 103
+  indentLevel: 0
+  storyText: 'Evan Sklarski:
+
+    - Project lead,
+
+    - Core gameplay and mission
+    flow,
+
+    - Dialog and menu system,
+
+    - Lead writer,
+
+    - AI system and
+    related behaviors,
+
+    - Player controls,
+
+    - Game management scripting,
+
+    -
+    Kitty Tug and Orbital Purrtrol models,
+
+    - Multiplayer camera behavior,
+
+    -
+    Scene lighting,
+
+    - Title scene,
+
+    - Game UI,
+
+    - Save data system,
+
+    -
+    Pause functionality,
+
+    - Tutorial,
+
+    - Mission control,
+
+    - Play tuning,
+
+    -
+    Asset integration, and bug fixing.'
+  description: 
+  character: {fileID: 339176038}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 981833931}
+--- !u!114 &2754693412151678710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754693412151678613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 104
+  indentLevel: 0
+  storyText: "Johan \xD6stling:\n- Realistic orbital mechanics,\n- Asteroid ring
+    particle duality system,\n- Barge interaction,\n- Barge model and textures (mafia,
+    and commercial),\n- Character portraits (tug captain, dispatcher),\n- Cuborg
+    ship,\n- Ambient loop, police chase song,\n- AI state machine,\n- Delivery window,\n-
+    Ship thrusters,\n- Dust ring shader,\n- Minimap,\n- Smooth fade for audio,\n-
+    Star tuning,\n- Asteroid normal map,\n- Siren light,\n- Many bug fixes."
+  description: 
+  character: {fileID: 339176038}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 981833931}
