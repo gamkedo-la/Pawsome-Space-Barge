@@ -138,6 +138,13 @@ public class TitleScreenManagement : MonoBehaviour
     }
 
 
+    public void ExitButtonClicked()
+    {
+        kitty.StopAllBlocks();
+        kitty.SendFungusMessage("exit");
+    }
+
+
     public void PlayButtonClicked()
     {
         if (loadComplete)
