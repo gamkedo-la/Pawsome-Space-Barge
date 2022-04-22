@@ -131,8 +131,6 @@ public class CameraManagement : MonoBehaviour
 
     public void DeviceLost(PlayerInput pi)
     {
-        // var playerCamera = pi.GetComponentInChildren<Camera>();
-        // playerCameras.Remove(pi.playerIndex);
         Destroy(pi.gameObject.GetComponent<AudioListener>());
 
         PlayerLeft(pi);
@@ -143,12 +141,11 @@ public class CameraManagement : MonoBehaviour
             {
                 for (int i = 0; i <= maxPlayerIndex; i++)
                 {
-                    if (playerCameras.ContainsKey(i))
+                    Camera thing;
+
+                    if (playerCameras.TryGetValue(i, out thing))
                     {
                         firstPlayer = i;
-                        Camera thing;
-                        playerCameras.TryGetValue(i, out thing);
-                        
                         thing.gameObject.AddComponent<AudioListener>();
                         break;
                     }
