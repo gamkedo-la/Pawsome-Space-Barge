@@ -16,6 +16,7 @@ MonoBehaviour:
   mafiaMad: 0
   playerSelectBarge: 1
   tooEasy: 0
+  iveExplainedMyselfBefore: 0
   commercialEarnings: 0
   mafiaDeliveries: 0
   bargesDelivered: 0
