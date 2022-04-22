@@ -11,6 +11,7 @@ using UnityEngine;
 public class SoundManagement : MonoBehaviour
 {
     [HideInInspector] public static SoundManagement Instance;
+    [HideInInspector] public GameSuccess successReason;
     [SerializeField] private bool ambientSound = true;
 
     [SerializeField][Range(0,1)] private float ambientVolume = 1;

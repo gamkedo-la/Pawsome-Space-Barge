@@ -55,6 +55,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Flowchart pauseDialog;
     [SerializeField] private Flowchart missionFail;
     [SerializeField] private Flowchart missionSuccess;
+    [SerializeField] private Flowchart gameCompletion;
 
     [SerializeField] private bool pauseOnDialog = false;
 
@@ -73,6 +74,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject missionFailPanel;
     [SerializeField] private GameObject missionSuccessPanel;
+    [SerializeField] private GameObject gameCompletePanel;
 
     [SerializeField, Tooltip("UI objects to disable when pause or mission failure overlays are active.")]
     private GameObject[] gameUI;
@@ -365,13 +367,16 @@ public class GameManagement : MonoBehaviour
     /// <summary>
     /// Check player game completion condtions.
     /// </summary>
-    private void GameCompletionCheck()
+    private bool GameCompletionCheck()
     {
+        bool gameComplete = false;
+
         if  (settings.commercialEarnings >= commecialSuccess)
         {
             // trigger game end sequence
 
             Debug.Log("Commercial success!");
+            gameComplete = true;
         }
 
         if (settings.mafiaDeliveries >= mafiaSuccess)
@@ -379,7 +384,10 @@ public class GameManagement : MonoBehaviour
             // trigger game end sequence
 
             Debug.Log("A force to be feared...");
+            gameComplete = true;
         }
+
+        return gameComplete;
     }
 
 
@@ -520,11 +528,6 @@ public class GameManagement : MonoBehaviour
 
         TogglePause(PauseState.Paused);
 
-        DisableGameUI();
-
-        // // enable panel
-        missionSuccessPanel.SetActive(true);
-
         // update player settings
         settings.bargesDelivered++;
 
@@ -540,10 +543,21 @@ public class GameManagement : MonoBehaviour
         // save player data
         SavePlayerSettings();
 
-        GameCompletionCheck();
+        DisableGameUI();
 
-        // // start pause dialog
-        StartDialog(missionSuccess, false);
+        // TODO
+        if (!GameCompletionCheck())
+        {
+            // enable panel
+            missionSuccessPanel.SetActive(true);
+
+            // start dialog
+            StartDialog(missionSuccess, false);
+        }
+        else
+        {
+            GameCompletion();
+        }
     }
 
 
@@ -657,6 +671,33 @@ public class GameManagement : MonoBehaviour
     #endif
 
     }
+
+
+
+    // ************************************** Game Complete! **************************************
+    private void GameCompletion()
+    {
+        if (settings.mafiaDeliveries >= mafiaSuccess)
+        {
+            // mafia ending
+            soundManager.successReason = GameSuccess.Mafia;
+            gameCompletion.SetBooleanVariable("mafiaSuccess", true);
+        }
+        else
+        {
+            // commercial ending
+            soundManager.successReason = GameSuccess.Commercial;
+            gameCompletion.SetBooleanVariable("mafiaSuccess", false);
+        }
+
+        gameCompletePanel.SetActive(true);
+        StartDialog(gameCompletion);
+    }
+
+    public void RollCredits(bool mafiaSuccess)
+    {
+        // load credits scene
+    }
 }
 
 
@@ -667,4 +708,10 @@ public enum PauseState
 {
     Paused,
     Playing
+}
+
+public enum GameSuccess
+{
+    Mafia,
+    Commercial
 }
