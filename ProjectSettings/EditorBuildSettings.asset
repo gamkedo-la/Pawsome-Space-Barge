@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pawsome-Space-Barge.unity
     guid: 1e81bf1bf6c752693a682a492d85a2a7
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: e6ca92e77468e90059d47bd0049356af
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 3478e75c99d9504bb8b848cff46177ff, type: 2}

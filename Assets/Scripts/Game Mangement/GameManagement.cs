@@ -696,7 +696,7 @@ public class GameManagement : MonoBehaviour
 
     public void RollCredits(bool mafiaSuccess)
     {
-        // load credits scene
+        SceneManager.LoadScene(2);
     }
 }
 

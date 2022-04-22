@@ -6031,9 +6031,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 2754693412151678636}
+  - {fileID: 2754693412151678624}
   selectedCommands:
-  - {fileID: 2754693412151678638}
+  - {fileID: 2754693412151678710}
   variables:
   - {fileID: 2754693412151678662}
   description: 
@@ -6530,34 +6530,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 13
   indentLevel: 0
-  storyText: 'Grygoriy Kulesko: Fridge debris model and materials, bump sound, thrust
-    audio with variations, sound integration
+  storyText: '{b}Grygoriy Kulesko{/b}: Fridge debris model and materials, bump sound,
+    thruster audio with variations, sound integration
 
 
-    Liyi Zhang: Satellite model, debris
-    model, pirate ship model and material, UI ship indicators
+    {b}Liyi Zhang{/b}: Satellite
+    model, debris models, pirate frigate model and material, HUD ship indicators
 
 
-    Christer "McFunkypants"
-    Kaitila: Starfield, sun, rock debris, collision dust effects
+    {b}Christer
+    "McFunkypants" Kaitila{/b}: Starfield, sun, rock debris, collision dust effects
 
 
-    Justin Chin:
-    Voice noises
+    {b}Justin
+    Chin{/b}: Voice noises
 
 
-    Farah R: Floating billboard icon above barge (functionality)
+    {b}Farah R{/b}: Implementation of floating icons
 
 
-    Writing
-    for some voice barks, script proofing
+    {b}Abhishek
+    @akhmin_ak{/b}: Writing for some voice barks, script proofing
 
 
-    Patrick McKeown: Typo fixes
+    {b}Patrick
+    McKeown{/b}: Typo fixes
 
 
-    Play
-    Testers: Patrick McKeown, Klaim, Michael Monty Tanner, Rodrigo Bonzerr S. Lopez'
+    {b}Play Testers{/b}: Patrick McKeown, Klaim, Michael
+    Monty Tanner, Rodrigo Bonzerr S. Lopez'
   description: 
   character: {fileID: 339176038}
   portrait: {fileID: 0}
@@ -8889,19 +8890,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 103
   indentLevel: 0
-  storyText: 'Evan Sklarski:
+  storyText: '{b}Evan Sklarski{/b}:
 
     - Project lead,
 
-    - Core gameplay and mission
-    flow,
+    - Core gameplay and
+    mission flow,
 
     - Dialog and menu system,
 
     - Lead writer,
 
-    - AI system and
-    related behaviors,
+    - AI system
+    and related behaviors,
 
     - Player controls,
 
@@ -8958,12 +8959,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 104
   indentLevel: 0
-  storyText: "Johan \xD6stling:\n- Realistic orbital mechanics,\n- Asteroid ring
-    particle duality system,\n- Barge interaction,\n- Barge model and textures (mafia,
-    and commercial),\n- Character portraits (tug captain, dispatcher),\n- Cuborg
-    ship,\n- Ambient loop, police chase song,\n- AI state machine,\n- Delivery window,\n-
-    Ship thrusters,\n- Dust ring shader,\n- Minimap,\n- Smooth fade for audio,\n-
-    Star tuning,\n- Asteroid normal map,\n- Siren light,\n- Many bug fixes."
+  storyText: "{b}Johan \xD6stling{/b}:\n- Realistic orbital mechanics,\n- Asteroid
+    ring particle duality system,\n- Barge interaction,\n- Barge model and textures
+    (mafia, and commercial),\n- Character portraits (tug captain, dispatcher),\n-
+    Cuborg ship,\n- Ambient loop, police chase song,\n- AI state machine,\n- Delivery
+    window,\n- Ship thrusters,\n- Dust ring shader,\n- Minimap,\n- Smooth fade for
+    audio,\n- Star tuning,\n- Asteroid normal map,\n- Siren light,\n- Many bug fixes."
   description: 
   character: {fileID: 339176038}
   portrait: {fileID: 0}
