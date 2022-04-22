@@ -328,7 +328,7 @@ public class EnemyNavigationSystem : MonoBehaviour
             Debug.DrawLine(rightSensorStart, rightSensorStart + heading * SensorLength, Color.white);
         }
 
-        // TODO this seems wrong but does the trick, 
+        // this seems wrong but does the trick, 
         if (leftHit && rightHit)
         {
             // panic and scan all whiskers in hope of resolution

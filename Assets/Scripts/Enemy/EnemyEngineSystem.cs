@@ -142,7 +142,7 @@ public class EnemyEngineSystem : MonoBehaviour
     {
         heading = ClampAngle( rb2d.rotation + headingChange * turningSpeed * Time.fixedDeltaTime );
 
-        // TODO: dampen this rotation?
+        // dampen this rotation?
         if (stunTimer <= 0)
         {
             rb2d.MoveRotation( heading );

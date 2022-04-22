@@ -287,7 +287,6 @@ public class GameManagement : MonoBehaviour
     }
 
 
-    // TODO: 
     /// <summary>
     /// Restarts mission.
     /// </summary>
@@ -387,7 +386,7 @@ public class GameManagement : MonoBehaviour
     // Called from mission success panel. Maybe unneccessary...
     public void NextMission()
     {
-        // TODO mission setup
+        // mission setup?
 
         // for now just reload scene
         RestartMission();

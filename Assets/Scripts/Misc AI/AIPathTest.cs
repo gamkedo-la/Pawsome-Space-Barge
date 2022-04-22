@@ -344,7 +344,7 @@ public class AIPathTest : MonoBehaviour
             Debug.DrawLine(rightSensorStart, rightSensorStart + heading * sensorLength, Color.white);
         }
 
-        // TODO this seems wrong but does the trick, 
+        // this seems wrong but does the trick, 
         if (leftHit && rightHit)
         {
             avoidSteering += WhiskerScanLeft(leftSensorStart, true)/4;
