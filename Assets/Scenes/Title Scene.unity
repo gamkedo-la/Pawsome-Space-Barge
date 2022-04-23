@@ -4016,6 +4016,58 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3064754298697170483, guid: 3799a1d79322b908fa167dc55d8f5dce, type: 3}
+      propertyPath: audioClips.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064754298697170483, guid: 3799a1d79322b908fa167dc55d8f5dce, type: 3}
+      propertyPath: audioClips.Array.data[0].<file>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 9052ce32673fc6e4cbc7d810fdf0cce3, type: 3}
+    - target: {fileID: 3064754298697170483, guid: 3799a1d79322b908fa167dc55d8f5dce, type: 3}
+      propertyPath: audioClips.Array.data[0].<name>k__BackingField
+      value: Slow Space
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064754298697170483, guid: 3799a1d79322b908fa167dc55d8f5dce, type: 3}
+      propertyPath: audioClips.Array.data[1].<file>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 71636a2ae5a918d4b97b0133471518fc, type: 3}
+    - target: {fileID: 3064754298697170483, guid: 3799a1d79322b908fa167dc55d8f5dce, type: 3}
+      propertyPath: audioClips.Array.data[1].<name>k__BackingField
+      value: Space Chase
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064754298697170483, guid: 3799a1d79322b908fa167dc55d8f5dce, type: 3}
+      propertyPath: audioClips.Array.data[2].<file>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 2661e6c0e2343d543b748ded2114cdc3, type: 3}
+    - target: {fileID: 3064754298697170483, guid: 3799a1d79322b908fa167dc55d8f5dce, type: 3}
+      propertyPath: audioClips.Array.data[2].<name>k__BackingField
+      value: Bump Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064754298697170483, guid: 3799a1d79322b908fa167dc55d8f5dce, type: 3}
+      propertyPath: audioClips.Array.data[3].<file>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 63079665315bcc6419feee6e363d8399, type: 3}
+    - target: {fileID: 3064754298697170483, guid: 3799a1d79322b908fa167dc55d8f5dce, type: 3}
+      propertyPath: audioClips.Array.data[3].<name>k__BackingField
+      value: Thrusters
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064754298697170483, guid: 3799a1d79322b908fa167dc55d8f5dce, type: 3}
+      propertyPath: audioClips.Array.data[4].<file>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 93f4e88b07a5541b8bdc913dac40317e, type: 3}
+    - target: {fileID: 3064754298697170483, guid: 3799a1d79322b908fa167dc55d8f5dce, type: 3}
+      propertyPath: audioClips.Array.data[4].<name>k__BackingField
+      value: 1 Bit Song
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064754298697170483, guid: 3799a1d79322b908fa167dc55d8f5dce, type: 3}
+      propertyPath: audioClips.Array.data[5].<file>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 1363c55d89006c93f9742007c3d075c8, type: 3}
+    - target: {fileID: 3064754298697170483, guid: 3799a1d79322b908fa167dc55d8f5dce, type: 3}
+      propertyPath: audioClips.Array.data[5].<name>k__BackingField
+      value: 1 Bit Loop
+      objectReference: {fileID: 0}
     - target: {fileID: 3064754298697170484, guid: 3799a1d79322b908fa167dc55d8f5dce, type: 3}
       propertyPath: m_RootOrder
       value: 0
