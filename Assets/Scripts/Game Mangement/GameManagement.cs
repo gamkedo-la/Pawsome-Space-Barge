@@ -76,8 +76,17 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject missionSuccessPanel;
     [SerializeField] private GameObject gameCompletePanel;
 
-    [SerializeField, Tooltip("UI objects to disable when pause or mission failure overlays are active.")]
-    private GameObject[] gameUI;
+
+    [Header("Game UI")]
+    [SerializeField, Tooltip("Mafia health panel.")]
+    private GameObject mafiaHealthPanel;
+
+    [SerializeField, Tooltip("Commercial health panel")]
+    private GameObject commercialHealthPanel;
+
+    [SerializeField, Tooltip("Minimap camera.")]
+    private GameObject minimapCamera;
+
 
 
     [Header("Celestial Objects")]
@@ -346,20 +355,18 @@ public class GameManagement : MonoBehaviour
 
         if ( pauseDialog.IsActive() )
         {
+            Debug.Log("Closing pause dialog.");
             DialogDone(pauseDialog);
         }
-        else if ( missionFail.IsActive() )
+        if ( missionFail.IsActive() )
         {
+            Debug.Log("Closing mission fail dialog.");
             DialogDone(missionFail);
         }
-        else if ( missionSuccess.IsActive() )
+        if ( missionSuccess.IsActive() )
         {
+            Debug.Log("Closing mission success panel.");
             DialogDone(missionSuccess);
-        }
-        else
-        {
-            // fallback, reset UI
-            InitializeUI();
         }
     }
 
@@ -641,10 +648,9 @@ public class GameManagement : MonoBehaviour
     /// </summary>
     private void DisableGameUI()
     {
-        foreach (var uiItem in gameUI)
-        {
-            uiItem.SetActive(false);
-        }
+        minimapCamera.SetActive(false);
+        mafiaHealthPanel.SetActive(false);
+        commercialHealthPanel.SetActive(false);
     }
 
 
@@ -653,9 +659,15 @@ public class GameManagement : MonoBehaviour
     /// </summary>
     private void EnableGameUI()
     {
-        foreach (var uiItem in gameUI)
+        minimapCamera.SetActive(true);
+
+        if (missionManager.MissionType == MissionType.Mafia)
         {
-            uiItem.SetActive(true);
+            mafiaHealthPanel.SetActive(true);
+        }
+        else
+        {
+            commercialHealthPanel.SetActive(true);
         }
     }
 
