@@ -22526,7 +22526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collection:
-  - Guess we can't win them all Captian.
+  - Guess we can't win them all Captain.
   - Well it might ruin us, but let's keep trying.
   - I suppose that's what happens when doing unorthodox things.
   - Chin up, shall we try again?
@@ -22779,7 +22779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collection:
   - Contacting Olaf now Captain.
-  - Recieving barge location...
+  - Receiving barge location...
   - Decrypting barge coordinates...
 --- !u!1 &1130922499
 GameObject:
