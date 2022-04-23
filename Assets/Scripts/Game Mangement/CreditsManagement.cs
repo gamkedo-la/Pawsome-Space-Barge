@@ -47,12 +47,14 @@ public class CreditsManagement : MonoBehaviour
         {
             Instantiate(Resources.Load("SoundManager", typeof(GameObject)), transform.position, Quaternion.identity);
 
-            soundManager = SoundManagement.Instance;
-            soundManager.successReason = successReason;
+            SoundManagement.Instance.successReason = successReason;
+
         }
     #endif
 
-        if (SoundManagement.Instance.successReason == GameSuccess.Mafia)
+        soundManager = SoundManagement.Instance;
+
+        if (soundManager.successReason == GameSuccess.Mafia)
         {
             combinedCreditsText.text = mafiaText.text + textSpacer + creditsText.text;
         }
@@ -60,6 +62,8 @@ public class CreditsManagement : MonoBehaviour
         {
             combinedCreditsText.text = commercialText.text + textSpacer + creditsText.text;
         }
+
+        soundManager.PlaySound("1 Bit Song", 1f);
     }
 
 
