@@ -695,13 +695,18 @@ public class GameManagement : MonoBehaviour
             // mafia ending
             soundManager.successReason = GameSuccess.Mafia;
             gameCompletion.SetBooleanVariable("mafiaSuccess", true);
+            settings.mafiaDeliveries = 0;
         }
         else
         {
             // commercial ending
             soundManager.successReason = GameSuccess.Commercial;
             gameCompletion.SetBooleanVariable("mafiaSuccess", false);
+            settings.commercialEarnings = 0;
         }
+
+        settings.playerSelectBarge = true;
+        SavePlayerSettings();
 
         gameCompletePanel.SetActive(true);
         StartDialog(gameCompletion);

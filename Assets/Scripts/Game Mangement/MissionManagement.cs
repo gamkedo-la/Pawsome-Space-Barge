@@ -159,7 +159,9 @@ public class MissionManagement : MonoBehaviour
         }
         else if (gm.PlayerSelectBarge)
         {
-            missionDirection = MissionDirection.Inwards;
+            int whatDirection = Random.Range(0,2);
+            missionDirection = (MissionDirection)whatDirection;
+            // missionDirection = MissionDirection.Inwards;
 
             int random = Random.Range(0, innerOrbitalPositions.Length);
             SetOrbitalPositions(random);
