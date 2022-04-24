@@ -5331,7 +5331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dedd934ca2729ec899d843201ab858aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 300
+  rotationSpeed: 200
   thrustForce: 750
   decelerationCoefficient: 4
   maxSpeed: 125
