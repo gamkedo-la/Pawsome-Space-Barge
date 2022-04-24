@@ -43,8 +43,8 @@ public class CameraManagement : MonoBehaviour
 
     // minimap display
     private bool minimapEnlarged = false;
-    private Rect smallMinimap = new Rect(0.01f, 0.01f, 0.17f, 0.3f);
-    private Rect enlargedMinimap = new Rect(0.01f, 0.01f, 0.55f, 0.98f);
+    private Rect smallMinimap = new Rect(0, 0, 0.22f, 0.38f);
+    private Rect enlargedMinimap = new Rect(0, 0, 0.58f, 1f);
 
 
 
