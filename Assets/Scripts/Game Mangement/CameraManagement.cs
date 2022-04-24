@@ -89,23 +89,41 @@ public class CameraManagement : MonoBehaviour
     }
 
 
+    public void EnlageMinimap()
+    {
+        minimapCamera.rect = enlargedMinimap;
+
+        // ToggleMinimapText(true);
+
+        minimapEnlarged = true;
+    }
+
+
+    public void DispalyMinimapText(bool enabled)
+    {
+        ToggleMinimapText(enabled);
+    }
+
+
+    public void ShrinkMinimap()
+    {
+        minimapCamera.rect = smallMinimap;
+
+        ToggleMinimapText(false);
+
+        minimapEnlarged = false;
+    }
+
+
     public void ToggleMinimapSize()
     {
         if (minimapEnlarged)
         {
-            minimapCamera.rect = smallMinimap;
-
-            ToggleMinimapText(false);
-
-            minimapEnlarged = false;
+            ShrinkMinimap();
         }
         else
         {
-            minimapCamera.rect = enlargedMinimap;
-
-            ToggleMinimapText(true);
-
-            minimapEnlarged = true;
+            EnlageMinimap();
         }
     }
 

@@ -13,8 +13,6 @@ public class TutorialManagement : MonoBehaviour
 
     [Header("Minimap Hints")]
     [SerializeField, Tooltip("Player minimap hint object.")] private GameObject playerTooltip;
-    [SerializeField, Tooltip("Delivery Window minimap hint object.")] private GameObject deliveryTooltip;
-    [SerializeField, Tooltip("Barge minimap hint object")] private GameObject bargeTooltip;
 
 
 
@@ -27,11 +25,11 @@ public class TutorialManagement : MonoBehaviour
 
     public void DisplaySideArrows()
     {
-        foreAftArrows.SetActive(true);
+        sideArrows.SetActive(true);
     }
     public void HideSideArrows()
     {
-        foreAftArrows.SetActive(false);
+        sideArrows.SetActive(false);
     }
 
 
@@ -52,25 +50,5 @@ public class TutorialManagement : MonoBehaviour
     public void HidePlayerTooltip()
     {
         playerTooltip.SetActive(false);
-    }
-
-
-    public void DisplayDeliveryTooltip()
-    {
-        deliveryTooltip.SetActive(true);
-    }
-    public void HideDeliveryTooltip()
-    {
-        deliveryTooltip.SetActive(false);
-    }
-
-
-    public void DisplayBargeTooltip()
-    {
-        bargeTooltip.SetActive(true);
-    }
-    public void HideBargeTooltip()
-    {
-        bargeTooltip.SetActive(false);
     }
 }
