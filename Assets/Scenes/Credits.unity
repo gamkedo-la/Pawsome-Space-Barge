@@ -764,27 +764,28 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Thanks for playing!\nPawsome Space Barge was brought to you by:\n\n\nCat\u2019thulu
-    - Grygoriy Kulesko:\n- Fridge debris model and materials,\n- bump sound,\n- thruster
-    audio with variations,\n- sound integration\n\nLiyi Zhang:\n- Satellite model,\n-
-    asteroid debris models,\n- pirate frigate model and material,\n- HUD ship indicators\n\nChrister
-    \"McFunkypants\" Kaitila:\n- Starfield and nebulas,\n- sun,\n- collision dust
-    effects\n\nJustin Chin:\n- Voice noises\n\nFarah R:\n- Implementation of floating
-    icons\n\nAbhishek @akhmin_ak:\n- Writing for some voice barks, script proofing\n\nPatrick
-    McKeown:\n- Typo fixes\n\nPlay Testers:\n- Patrick McKeown,\n- Klaim,\n- Michael
-    Monty Tanner,\n- Rodrigo Bonzerr S. Lopez\n\n\n\nMeowster at Arms - Johan \xD6stling:\n-
-    Realistic orbital mechanics,\n- Asteroid ring particle duality system,\n- Barge
-    interaction,\n- Barge model and textures (mafia, and commercial),\n- Character
-    portraits (tug captain, dispatcher),\n- Cuborg ship,\n- Ambient loop, police
-    chase song,\n- AI state machine,\n- Delivery window,\n- Ship thrusters,\n- Dust
-    ring shader,\n- Minimap,\n- Smooth fade for audio,\n- Star tuning,\n- Asteroid
-    normal map,\n- Siren light,\n- Many bug fixes.\n\n\n\nKitten Wrangler - Evan
-    Sklarski:\n- Project lead,\n- Core gameplay and mission flow,\n- Dialog and menu
-    system,\n- Lead writer,\n- AI system and related behaviors,\n- Player controls,\n-
-    Game management scripting,\n- Kitty Tug and Orbital Purrtrol models,\n- Multiplayer
-    camera behavior,\n- Scene lighting,\n- Title scene,\n- Game UI,\n- Save data
-    system,\n- Pause functionality,\n- Tutorial,\n- Mission control,\n- Play tuning,\n-
-    Asset integration, and bug fixing.\n\n\nAnd all our friends at Home Team Game
-    Dev !"
+    - Grygoriy Kulesko: Fridge debris model and materials, bump sound, thruster audio
+    with variations, sound integration\n\nShip Purrgeon - Liyi Zhang: Satellite model,
+    asteroid debris models, pirate frigate model and material, HUD ship indicators\n\nMeowtenant
+    - Christer \"McFunkypants\" Kaitila: Starfield and nebulas, sun, collision dust
+    effects, code review\n\nShip Purrser - Justin Chin: Voice meow sounds\n\nTailmaker
+    - Farah R: Floating icons implementation\n\nMeowster Catpenter - Abhishek @akhmin_ak:
+    Writing for some voice barks, script proofing\n\nQuartermeowster - Patrick McKeown:
+    Typo fixes\n\nCatnip Testers: Patrick McKeown, Klaim, Michael Monty Tanner, Rodrigo
+    Bonzerr S. Lopez\n\n\nMeowster at Arms - Johan \xD6stling:\n- Realistic orbital
+    mechanics,\n- Asteroid ring particle duality system,\n- Barge interaction and
+    UI,\n- Barge model and textures (mafia, and commercial),\n- Character portraits
+    (tug captain, dispatcher),\n- Cuborg ship,\n- Ambient, pursuit, mission success
+    loops  and credits song\n- AI state machine,\n- Delivery window,\n- Ship thrusters,
+    Siren light,\n- Dust ring shader,\n- Minimap,\n- Smooth fade for audio,\n- Star
+    tuning,\n- Asteroid normal map,\n- Gamepad controls,\n- Many bug fixes.\n\n\nMeowman
+    of the Catnip Room, Kitten Wrangler - Evan Sklarski:\n- Project lead,\n- Core
+    gameplay and mission flow,\n- Dialog and menu system,\n- Lead writer,\n- AI system
+    and related behaviors,\n- Player controls,\n- Game management scripting,\n- Kitty
+    Tug and Orbital Purrtrol models,\n- Multiplayer camera handling,\n- Scene lighting,\n-
+    Title and Credit scenes,\n- Game UI,\n- Save data system,\n- Pause functionality,\n-
+    Tutorial,\n- Mission initialization,\n- Gameplay tuning,\n- Asset integration,
+    play testing, and bug fixing.\n\n\n\nAnd all our friends at Home Team Game Dev!"
 --- !u!222 &1208277351
 CanvasRenderer:
   m_ObjectHideFlags: 0
