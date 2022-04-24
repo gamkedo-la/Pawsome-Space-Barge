@@ -109,7 +109,7 @@ public class CameraManagement : MonoBehaviour
         {
             cameraMode = CameraMode.ThirdPerson;
             firstPlayer = pi.playerIndex;
-            pi.gameObject.AddComponent<AudioListener>();
+            playerCamera.gameObject.AddComponent<AudioListener>();
         }
 
         if (pi.playerIndex > maxPlayerIndex) maxPlayerIndex = pi.playerIndex;
