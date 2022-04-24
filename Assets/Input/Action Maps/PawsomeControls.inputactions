@@ -242,7 +242,7 @@
                 {
                     "name": "",
                     "id": "517319fe-ff36-42d8-8098-1c060a22ff63",
-                    "path": "<Gamepad>/selectButton",
+                    "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "Catpad",
@@ -264,7 +264,7 @@
                 {
                     "name": "",
                     "id": "761ec5c0-0b89-42e8-bd93-e0a953f71602",
-                    "path": "<Gamepad>/startButton",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "Catpad",
