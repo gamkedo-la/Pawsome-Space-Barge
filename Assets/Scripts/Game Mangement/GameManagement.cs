@@ -22,6 +22,9 @@ public class GameManagement : MonoBehaviour
     // dialog state switch
     private bool dialogActive = true;
 
+    // switch to prevent recursive pause calling
+    private bool exitCalled = false;
+
     /// <summary> List of enemies currently pursuing barge. </summary>
     private HashSet<GameObject> lockedOnEnemies = new HashSet<GameObject>();
 
@@ -181,7 +184,7 @@ public class GameManagement : MonoBehaviour
         missionManager.SetupOrbitalThings(settings.firstRun);
 
 
-        // forgameplay
+        // for game play
         dialogActive = true;
         StartMission();
 
@@ -315,15 +318,14 @@ public class GameManagement : MonoBehaviour
     /// <param name="context"></param>
     public void OnPause(InputAction.CallbackContext context)
     {
-        Debug.Log("escape key pushed");
-
         if (!gamePaused && !dialogActive)
         {
             PauseGame();
         }
-        else if (gamePaused)
+        else if (gamePaused && dialogActive && !exitCalled)
         {
             // pauseDialog.StopAllBlocks();
+            exitCalled = true;
             pauseDialog.SendFungusMessage("exit");
         }
     }
@@ -335,6 +337,8 @@ public class GameManagement : MonoBehaviour
     public void PauseGame()
     {
         Debug.Log("Pausing game.");
+
+        dialogActive = true;
 
         TogglePause(PauseState.Paused);
 
@@ -375,6 +379,9 @@ public class GameManagement : MonoBehaviour
             Debug.Log("Closing mission success panel.");
             DialogDone(missionSuccess);
         }
+
+        exitCalled = false;
+        dialogActive = false;
     }
 
 
@@ -449,7 +456,7 @@ public class GameManagement : MonoBehaviour
 
         if (settings.firstRun)
         {
-            StartCoroutine(RunDialog(tutorial, 2));
+            StartCoroutine(RunDialog(tutorial, 2f));
         }
         else
         {

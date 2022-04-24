@@ -1958,7 +1958,7 @@ MonoBehaviour:
   scrollPos: {x: 63.5, y: 29}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 280
+  blockViewHeight: 412
   zoom: 1
   scrollViewRect:
     serializedVersion: 2
@@ -1967,9 +1967,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 361243285}
-  selectedCommands:
-  - {fileID: 361243295}
+  - {fileID: 361243296}
+  selectedCommands: []
   variables:
   - {fileID: 361243309}
   description: 
@@ -2263,7 +2262,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 7766866625786877198}
@@ -2281,7 +2280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 623
+    x: 624
     y: 321
     width: 108
     height: 40
@@ -36094,7 +36093,7 @@ Camera:
     y: 0.01
     width: 0.17
     height: 0.3
-  near clip plane: 0
+  near clip plane: 5
   far clip plane: 2200
   field of view: 45
   orthographic: 1
@@ -36102,7 +36101,7 @@ Camera:
   m_Depth: 100
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 343
+    m_Bits: 279
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
