@@ -39,6 +39,8 @@ public class GameManagement : MonoBehaviour
     public SoundManagement SoundManager => soundManager;
     private MissionManagement missionManager;
     public MissionManagement MissionManager => missionManager;
+    private TutorialManagement tutorialManager;
+    public TutorialManagement TutorialManager => tutorialManager;
 
 
     [Header("Success Conditions")]
@@ -177,6 +179,8 @@ public class GameManagement : MonoBehaviour
 
         deliveryWindow = GameObject.FindGameObjectWithTag("Delivery Window");
         deliveryWindowOrbitalBody = deliveryWindow.GetComponent<OrbitalBody>();
+
+        tutorialManager = GetComponent<TutorialManagement>();
 
         // call world setup
         SetupWorld();
@@ -487,6 +491,8 @@ public class GameManagement : MonoBehaviour
         SavePlayerSettings();
 
         FinalizeMission(mafiaMad ? MissionType.Commercial : MissionType.Mafia);
+
+        tutorialManager.DisplayBargeTip();
     }
 
     public void ExplainationNeeded(bool mafiaMad, bool playerSelectBarge, bool tooEasy)
@@ -531,6 +537,11 @@ public class GameManagement : MonoBehaviour
         SavePlayerSettings();
 
         FinalizeMission((MissionType)missionType);
+
+        if (!settings.iveExplainedMyselfBefore && settings.bargesDelivered == 0)
+        {
+            tutorialManager.DisplayBargeTip();
+        }
     }
 
 

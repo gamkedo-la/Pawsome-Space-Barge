@@ -19,7 +19,7 @@ public class MissionManagement : MonoBehaviour
     [Header("Barge UI Panels")]
     [SerializeField, Tooltip("Mafia canvas health panel.")] private GameObject mafiaHealthPanel;
     [SerializeField, Tooltip("Commercial canvas health panel.")] private GameObject commercialHealthPanel;
-    [SerializeField, Tooltip("Tutorial Tooltip.")] private GameObject tutorialTooltip;
+    // [SerializeField, Tooltip("Tutorial Tooltip.")] private GameObject tutorialTooltip;
 
     [Header("Enemies")]
     [SerializeField, Tooltip("Orbital Purrtrol parent object.")] private GameObject orbitalPurrtrol;
@@ -84,7 +84,7 @@ public class MissionManagement : MonoBehaviour
     {
         barge.SendMessage("InitializeBarge");
 
-        if (tutorialTooltip) tutorialTooltip.SetActive(true);
+        // if (tutorialTooltip) tutorialTooltip.SetActive(true);
 
         if (MissionType == MissionType.Mafia)
         {
