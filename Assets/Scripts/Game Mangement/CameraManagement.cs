@@ -16,6 +16,9 @@ public class CameraManagement : MonoBehaviour
     [Tooltip("Overhead camera used for the minimap")] [SerializeField]
     private Camera minimapCamera;
 
+    [SerializeField, Tooltip("Minimap Text Objects")]
+    private GameObject[] mapText;
+
     [Tooltip("Camera used for certain dialogs. Faces in to planet.")] [SerializeField]
     private Camera inwardDialogCamera;
 
@@ -42,6 +45,14 @@ public class CameraManagement : MonoBehaviour
     private bool minimapEnlarged = false;
     private Rect smallMinimap = new Rect(0.01f, 0.01f, 0.17f, 0.3f);
     private Rect enlargedMinimap = new Rect(0.01f, 0.01f, 0.55f, 0.98f);
+
+
+
+
+    public Camera OverheadCamera => overheadCamera;
+    public Camera MinimapCamera => minimapCamera;
+    public Camera InwardDialogCamera => inwardDialogCamera;
+    public Camera OutwardDialogCamera => outwardDialogCamera;
 
 
 
@@ -73,6 +84,8 @@ public class CameraManagement : MonoBehaviour
                 //
             }
         }
+
+        ToggleMinimapText(false);
     }
 
 
@@ -81,12 +94,27 @@ public class CameraManagement : MonoBehaviour
         if (minimapEnlarged)
         {
             minimapCamera.rect = smallMinimap;
+
+            ToggleMinimapText(false);
+
             minimapEnlarged = false;
         }
         else
         {
             minimapCamera.rect = enlargedMinimap;
+
+            ToggleMinimapText(true);
+
             minimapEnlarged = true;
+        }
+    }
+
+
+    public void ToggleMinimapText(bool enabled)
+    {
+        foreach (var text in mapText)
+        {
+            text.SetActive(enabled);
         }
     }
 
