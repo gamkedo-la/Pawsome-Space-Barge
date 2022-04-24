@@ -121,7 +121,7 @@
                 {
                     "name": "positive",
                     "id": "a4acbd81-268f-48e2-b742-c0eb2d33dcdc",
-                    "path": "<Gamepad>/dpad/left",
+                    "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "Catpad",
@@ -132,7 +132,7 @@
                 {
                     "name": "negative",
                     "id": "f32dd22b-2899-4215-adaa-de999a02e4e9",
-                    "path": "<Gamepad>/dpad/right",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "Catpad",
@@ -209,7 +209,7 @@
                 {
                     "name": "positive",
                     "id": "9c4f0565-7082-4c37-8598-d84b15d4700b",
-                    "path": "<Gamepad>/dpad/up",
+                    "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "Catpad",
@@ -220,7 +220,40 @@
                 {
                     "name": "negative",
                     "id": "59ffbbac-f3a3-4dda-bb97-498fd30c0b67",
-                    "path": "<Gamepad>/dpad/down",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Catpad",
+                    "action": "Thrust",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Gamepad",
+                    "id": "4fd09b81-be07-48b1-887e-7bf353fa76fb",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Thrust",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "896cd3d0-c77b-4246-b6cc-7da098523876",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Catpad",
+                    "action": "Thrust",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "a745d43c-2b07-45e6-9904-ef2101fd5f0e",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Catpad",
@@ -279,6 +312,17 @@
                     "interactions": "Press",
                     "processors": "",
                     "groups": "Catboard",
+                    "action": "Minimap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "41b9db64-2c8d-4644-be98-33cafb16d5e6",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Catpad",
                     "action": "Minimap",
                     "isComposite": false,
                     "isPartOfComposite": false
