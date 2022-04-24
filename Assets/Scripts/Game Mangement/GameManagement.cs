@@ -315,9 +315,16 @@ public class GameManagement : MonoBehaviour
     /// <param name="context"></param>
     public void OnPause(InputAction.CallbackContext context)
     {
-        if (!gamePaused && !tutorial.IsActive())
+        Debug.Log("escape key pushed");
+
+        if (!gamePaused && !dialogActive)
         {
             PauseGame();
+        }
+        else if (gamePaused)
+        {
+            // pauseDialog.StopAllBlocks();
+            pauseDialog.SendFungusMessage("exit");
         }
     }
 

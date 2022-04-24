@@ -1887,6 +1887,10 @@ GameObject:
   - component: {fileID: 361243339}
   - component: {fileID: 361243337}
   - component: {fileID: 361243336}
+  - component: {fileID: 361243340}
+  - component: {fileID: 361243341}
+  - component: {fileID: 361243342}
+  - component: {fileID: 361243343}
   m_Layer: 0
   m_Name: Pause Flowchart
   m_TagString: Untagged
@@ -1951,7 +1955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 63.5, y: 30}
+  scrollPos: {x: 63.5, y: 29}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 280
@@ -1963,9 +1967,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 361243286}
+  - {fileID: 361243285}
   selectedCommands:
-  - {fileID: 361243292}
+  - {fileID: 361243295}
   variables:
   - {fileID: 361243309}
   description: 
@@ -2061,7 +2065,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 440
-    y: 320
+    y: 319
     width: 137
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2259,7 +2263,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 7766866625786877198}
@@ -2989,6 +2993,85 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
+--- !u!114 &361243340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 473.5
+    y: 483
+    width: 70
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 63
+  blockName: Exit
+  description: 
+  eventHandler: {fileID: 361243341}
+  commandList:
+  - {fileID: 361243343}
+  - {fileID: 361243342}
+  suppressAllAutoSelections: 0
+--- !u!114 &361243341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 361243340}
+  suppressBlockAutoSelect: 0
+  message: exit
+--- !u!114 &361243342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 65
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 361243285}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
+--- !u!114 &361243343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361243274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430ab3c61eef444b2aec02aee7f809bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 66
+  indentLevel: 0
+  menuDialog: {fileID: 5705355823709672607}
 --- !u!1 &370990066
 GameObject:
   m_ObjectHideFlags: 0
@@ -22773,7 +22856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 6017164002153553802}
+  selectedFlowchart: {fileID: 361243278}
 --- !u!4 &1130922501
 Transform:
   m_ObjectHideFlags: 1
