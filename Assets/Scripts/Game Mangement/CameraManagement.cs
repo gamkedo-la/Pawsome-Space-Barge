@@ -230,6 +230,23 @@ public class CameraManagement : MonoBehaviour
     }
 
 
+    private CameraMode prevCameraMode;
+    public void ExplainerOverhead(bool enable)
+    {
+        refreshCameras = true;
+
+        if (enable)
+        {
+            prevCameraMode = cameraMode;
+            cameraMode = CameraMode.Overhead;
+        }
+        else
+        {
+            cameraMode = prevCameraMode;
+        }
+    }
+
+
     public void ToggleDialogCamera()
     {
         refreshCameras = true;

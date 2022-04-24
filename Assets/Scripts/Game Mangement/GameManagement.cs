@@ -53,6 +53,7 @@ public class GameManagement : MonoBehaviour
 
     [Header("Fungus Flowcharts")]
     [SerializeField] private Flowchart tutorial;
+    [SerializeField] private Flowchart explainer;
     [SerializeField] private Flowchart mission;
     [SerializeField] private Flowchart warnings;
     [SerializeField] private Flowchart pauseDialog;
@@ -486,6 +487,34 @@ public class GameManagement : MonoBehaviour
         SavePlayerSettings();
 
         FinalizeMission(mafiaMad ? MissionType.Commercial : MissionType.Mafia);
+    }
+
+    public void ExplainationNeeded(bool mafiaMad, bool playerSelectBarge, bool tooEasy)
+    {
+        tutorial.gameObject.SetActive(false);
+
+        settings.mafiaMad = mafiaMad;
+        settings.playerSelectBarge = playerSelectBarge;
+        settings.tooEasy = tooEasy;
+
+        settings.firstRun = false;
+
+        SavePlayerSettings();
+
+        FinalizeMission(mafiaMad ? MissionType.Commercial : MissionType.Mafia);
+
+        explainer.SetBooleanVariable("iveExplainedMyselfBefore", settings.iveExplainedMyselfBefore);
+        StartDialog(explainer);
+    }
+
+
+    public void ExplanationOver(bool iveExplainedMyselfBefore)
+    {
+        DialogDone(explainer);
+
+        settings.iveExplainedMyselfBefore = iveExplainedMyselfBefore;
+
+        SavePlayerSettings();
     }
 
 
