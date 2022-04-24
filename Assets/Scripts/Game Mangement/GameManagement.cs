@@ -514,6 +514,23 @@ public class GameManagement : MonoBehaviour
     }
 
 
+    public void MissionExplainer()
+    {
+        mission.gameObject.SetActive(false);
+        explainer.SetBooleanVariable("iveExplainedMyselfBefore", settings.iveExplainedMyselfBefore);
+
+        explainer.gameObject.SetActive(true);
+        explainer.SendFungusMessage("mission");
+    }
+
+
+    public void MissionExplanationOver()
+    {
+        DialogDone(explainer);
+        StartDialog(mission);
+    }
+
+
     public void ExplanationOver(bool iveExplainedMyselfBefore)
     {
         DialogDone(explainer);
