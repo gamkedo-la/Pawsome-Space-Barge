@@ -25106,7 +25106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 498476617}
+  selectedFlowchart: {fileID: 6017164002153553802}
 --- !u!4 &1130922501
 Transform:
   m_ObjectHideFlags: 1
@@ -50027,8 +50027,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 8331166322818829478}
+  selectedCommands:
+  - {fileID: 8331166322818829477}
   variables:
   - {fileID: 6017164002153553881}
   - {fileID: 6017164002153553798}
@@ -54497,7 +54499,7 @@ MonoBehaviour:
   storyText: Could I offer an explanation of what's going on here?
   description: 
   character: {fileID: 67495011}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7ccfb0a2b38399b4c8c78ce56ffc6b18, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -54522,7 +54524,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -459.66003
-    y: 586.204
+    y: 584.8882
     width: 115.78945
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
