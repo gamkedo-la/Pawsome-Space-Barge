@@ -524,9 +524,12 @@ public class GameManagement : MonoBehaviour
     }
 
 
-    public void MissionExplanationOver()
+    public void MissionExplanationOver(bool iveExplainedMyselfBefore)
     {
         DialogDone(explainer);
+
+        settings.iveExplainedMyselfBefore = iveExplainedMyselfBefore;
+
         StartDialog(mission);
     }
 
