@@ -1,5 +1,5 @@
 ﻿/// <summary>
-/// Implements Barge class, fixes MissionType as Commercial.
+/// Implements Barge class, fixes MissionType as Mafia.
 /// </summary>
 public class MafiaBarge : Barge
 {
