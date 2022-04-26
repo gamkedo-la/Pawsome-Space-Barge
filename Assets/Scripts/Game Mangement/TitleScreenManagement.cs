@@ -130,7 +130,7 @@ public class TitleScreenManagement : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
     #elif UNITY_WEBGL
         // reload itch.io page
-        Application.OpenURL("https://esklarski.itch.io/pawsome-space-barge");
+        Application.ExternalEval("window.open('https://esklarski.itch.io/pawsome-space-barge','_self')");
     #else
         // close application
         Application.Quit();

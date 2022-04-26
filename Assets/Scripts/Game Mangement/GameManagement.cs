@@ -281,16 +281,16 @@ public class GameManagement : MonoBehaviour
     {
         Debug.Log("Exiting game.");
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
         // stop the editor playmode
         UnityEditor.EditorApplication.isPlaying = false;
-    #elif UNITY_WEBGL
+#elif UNITY_WEBGL
         // reload itch.io page
-        Application.OpenURL("https://esklarski.itch.io/pawsome-space-barge");
-    #else
+        Application.ExternalEval("window.open('https://esklarski.itch.io/pawsome-space-barge','_self')");
+#else
         // close application
         Application.Quit();
-    #endif
+#endif
 
     }
 
