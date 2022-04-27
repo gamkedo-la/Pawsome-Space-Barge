@@ -10223,7 +10223,7 @@ GameObject:
   - component: {fileID: 491414419}
   - component: {fileID: 491414420}
   - component: {fileID: 491414421}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Despawn Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37921,7 +37921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1805405031
 BoxCollider2D:
   m_ObjectHideFlags: 0
