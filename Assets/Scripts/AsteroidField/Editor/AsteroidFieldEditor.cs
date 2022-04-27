@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEditor;
 
 
+/// <summary>
+/// Enables display and editing of Asteroid Prefab Factories from AsteroidField panel.
+/// </summary>
 [CustomEditor(typeof(AsteroidField))]
 public class AsteroidFieldEditor : Editor
 {
