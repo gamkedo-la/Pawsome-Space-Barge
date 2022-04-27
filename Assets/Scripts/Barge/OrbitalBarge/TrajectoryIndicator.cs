@@ -7,6 +7,7 @@ public class TrajectoryIndicator : MonoBehaviour
 
     [Range(2, 200)]
     public int steps = 10;
+    public float zHeight = 5;
 
     private void FixedUpdate()
     {
@@ -19,8 +20,9 @@ public class TrajectoryIndicator : MonoBehaviour
 
         for (var i = 0; i < steps; i++)
         {
-            var point = points[i];
-            lineRenderer.SetPosition(i, transform.InverseTransformPoint(point));
+            var point = transform.InverseTransformPoint(points[i]);
+            point.z += zHeight;
+            lineRenderer.SetPosition(i, point);
         }
     }
 }
