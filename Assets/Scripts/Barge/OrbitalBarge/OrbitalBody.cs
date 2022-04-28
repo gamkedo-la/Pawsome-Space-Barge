@@ -68,6 +68,24 @@ public class OrbitalBody : MonoBehaviour
         UpdatePositionAndVelocityAtTime(time);
     }
 
+    /// <summary>
+    /// Returns true if barge orbit < max orbit radius.
+    /// </summary>
+    /// <returns></returns>
+    public bool CheckMaxRadius()
+    {
+        return orbitalElements.ra < maximumOrbitalRadius;
+    }
+
+    /// <summary>
+    /// Returrns true if barge orbit > min orbit radius.
+    /// </summary>
+    /// <returns></returns>
+    public bool CheckMinRadius()
+    {
+        return orbitalElements.rp > minimumOrbitalRadius;
+    }
+
     public void AddDeltaV(float time, Vector3 deltaV)
     {
         var oldOrbitalElements = orbitalElements;
