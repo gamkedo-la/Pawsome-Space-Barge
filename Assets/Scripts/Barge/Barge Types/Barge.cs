@@ -48,6 +48,14 @@ public abstract class Barge : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        if (col.gameObject.CompareTag("Planet"))
+        {
+            // trigger barge destruction
+
+            // do not subtract health
+            return;
+        }
+
         var numberOfContacts = col.contactCount;
         var totalImpulse = 0f;
         for (var i = 0; i < numberOfContacts; i++)
