@@ -47973,7 +47973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumOrbitalRadius: 1000
-  maximumOrbitalRadius: 10000
+  maximumOrbitalRadius: 20000
   positionPci: {x: 0, y: -6750, z: 0}
   velocityPci: {x: -42.486946, y: 0, z: 0}
   orbitalElements:

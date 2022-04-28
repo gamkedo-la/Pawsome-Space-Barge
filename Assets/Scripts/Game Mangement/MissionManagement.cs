@@ -40,9 +40,6 @@ public class MissionManagement : MonoBehaviour
     }
 
 
-    private static float distanceCheckInterval = 2;
-    private float distanceCheckTimer = 0;
-
     private void Update()
     {
         if (GameManagement.Instance.enemyContactsCount > 0)
@@ -58,22 +55,6 @@ public class MissionManagement : MonoBehaviour
                 {
                     float force = purrtrolForce * Time.deltaTime * GameManagement.Instance.enemyContactsCount;
                     bargeOrbitalRigidbody.AddEnemyForce(force);
-                }
-            }
-        }
-
-        if (!GameManagement.Instance.DialogActive)
-        {
-            distanceCheckTimer += Time.deltaTime;
-
-            if (distanceCheckTimer > distanceCheckInterval)
-            {
-                distanceCheckTimer -= distanceCheckInterval;
-
-                if (Vector2.Distance(GameManagement.Instance.Barge.transform.position, Vector2.zero) > GameManagement.Instance.BargeOrbitalBody.MaxOrbitRadius * 0.8f)
-                {
-                    Debug.Log("Barge pushed out of orbit.");
-                    GameManagement.Instance.MissionFailed();
                 }
             }
         }
