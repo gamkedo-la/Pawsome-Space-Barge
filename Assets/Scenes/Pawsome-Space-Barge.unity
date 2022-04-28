@@ -36237,13 +36237,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1635844457}
-  - component: {fileID: 1635844466}
-  - component: {fileID: 1635844463}
-  - component: {fileID: 1635844459}
-  - component: {fileID: 1635844461}
   - component: {fileID: 1635844460}
-  - component: {fileID: 1635844464}
+  - component: {fileID: 1635844461}
+  - component: {fileID: 1635844463}
   - component: {fileID: 1635844465}
+  - component: {fileID: 1635844464}
+  - component: {fileID: 1635844459}
+  - component: {fileID: 1635844466}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: GameController
