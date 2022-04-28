@@ -108,7 +108,7 @@ public class OrbitalBody : MonoBehaviour
         if (orbitalElements.rp < minimumOrbitalRadius)
         {
             // send warning only first time
-            if (!atMinRadius) GameManagement.Instance.SendMaxOrbitWarning();
+            if (!atMinRadius) GameManagement.Instance.SendMinOrbitWarning();
 
             atMinRadius = true;
             saneOrbit = false;
