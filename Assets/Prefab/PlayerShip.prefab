@@ -81,7 +81,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 500
+  m_Radius: 600
 --- !u!114 &2544032380306582521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5427,10 +5427,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dedd934ca2729ec899d843201ab858aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 200
+  rotationSpeed: 300
+  accellerateSteering: 1
+  steeringAcceleration: 2
   thrustForce: 750
   decelerationCoefficient: 4
-  maxSpeed: 125
+  maxSpeed: 135
   speedLimitRelativeToBarge: 1
   rearLeftThruster: {fileID: 873941775012930959}
   rearRightThruster: {fileID: 591906093513762286}

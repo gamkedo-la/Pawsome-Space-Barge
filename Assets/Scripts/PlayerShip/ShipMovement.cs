@@ -10,32 +10,33 @@ public class ShipMovement : MonoBehaviour
 {
     public static ShipMovement instance; // Only used for billboard behavior. Could refactor out.
     private SoundManagement soundManager;
+    private float steeringAccumulator = 0;
 
 
 
-    [Tooltip("Tug rotation speed.")]
-    [Range(100,500)]
-    [SerializeField] private int rotationSpeed = 300;
+    [SerializeField, Tooltip("Tug rotation speed."), Range(100,500)]
+    private int rotationSpeed = 300;
 
-    [Tooltip("Tug thrust power. Moar POWER!")]
-    [Range(250,1000)]
-    [SerializeField] private int thrustForce = 500;
+    [SerializeField, Tooltip("Should steering be accellerated? Ie start slow and turn faster as input held?")]
+    private bool accellerateSteering = false;
 
-    [Tooltip("Tug braking coefficient, more => faster.")]
-    [Range(0,10)]
-    [SerializeField] private float decelerationCoefficient = 4;
+    [SerializeField, Tooltip("Accelleration factor. Percentage."), Range(0.001f, 190f)]
+    private float steeringAcceleration = 0.01f;
 
-    [Tooltip("Tug max speed.")]
-    [Range(50,300)]
-    [SerializeField] private int maxSpeed = 150;
+    [SerializeField, Tooltip("Tug thrust power. Moar POWER!"), Range(250,1000)]
+    private int thrustForce = 500;
 
-    [Tooltip("Max speed as percentage of barge speed")]
-    [SerializeField] private bool speedLimitRelativeToBarge;
+    [SerializeField, Tooltip("Tug braking coefficient, more => faster."), Range(0,10)]
+    private float decelerationCoefficient = 4;
 
-    [Tooltip("Disable for free flight!")]
+    [SerializeField, Tooltip("Tug max speed."), Range(50,300)]
+    private int maxSpeed = 150;
+
+    [SerializeField, Tooltip("Max speed as percentage of barge speed")] private bool speedLimitRelativeToBarge;
+
 
     // Disabled for now, boundary check needs to consider barge position and rotation.
-    // [SerializeField]
+    // [SerializeField, Tooltip("Disable for free flight!")]
     private bool enforceBoundary = false;
 
 
@@ -120,7 +121,24 @@ public class ShipMovement : MonoBehaviour
         // input reaction
         if (rotationInput != 0)
         {
-            rb2d.rotation += rotationSpeed * Time.fixedDeltaTime * rotationInput;
+            if (accellerateSteering)
+            {
+                if (steeringAccumulator < rotationSpeed)
+                {
+                    // steeringAccumulator += rotationSpeed * steeringAcceleration;
+                    steeringAccumulator = Mathf.Lerp(steeringAccumulator, rotationSpeed, steeringAcceleration * Time.fixedDeltaTime);
+                }
+
+                rb2d.rotation += steeringAccumulator * Time.fixedDeltaTime * rotationInput;
+            }
+            else
+            {
+                rb2d.rotation += rotationSpeed * Time.fixedDeltaTime * rotationInput;
+            }
+        }
+        else
+        {
+            steeringAccumulator = 0;
         }
 
         if (thrustInput > 0)
