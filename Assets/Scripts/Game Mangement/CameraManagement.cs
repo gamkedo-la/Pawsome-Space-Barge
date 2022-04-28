@@ -35,7 +35,7 @@ public class CameraManagement : MonoBehaviour
     /// Array of objects to be hidden on game load.
     /// Things like the sample ship to help visualize scales.
     /// </summary>
-    [SerializeField] private GameObject[] hidenObjects;
+    [SerializeField] private GameObject[] hiddenObjects;
 
     private CameraMode cameraMode;
     private Dictionary<int, Camera> playerCameras = new Dictionary<int, Camera>();
@@ -63,7 +63,7 @@ public class CameraManagement : MonoBehaviour
         Application.targetFrameRate = 60;
 
         // hide all objects in array
-        foreach (GameObject o in hidenObjects)
+        foreach (GameObject o in hiddenObjects)
         {
             o.SetActive(false);
         }
@@ -151,6 +151,17 @@ public class CameraManagement : MonoBehaviour
 
         playerCameras.Add(pi.playerIndex, playerCamera);
 
+        if (AsteroidField.Instance.IndividualSpawnZones)
+        {
+            PlayerSpawnCollider psc = pi.gameObject.GetComponentInChildren<PlayerSpawnCollider>(false);
+
+            if (psc != null)
+            {
+                AsteroidField.Instance.AddPlayerCollider(psc.InitializePlayerSpawnArea());
+            }
+        }
+
+
         if (isFirstPlayer)
         {
             cameraMode = CameraMode.ThirdPerson;
@@ -168,6 +179,13 @@ public class CameraManagement : MonoBehaviour
     public void PlayerLeft(PlayerInput pi)
     {
         playerCameras.Remove(pi.playerIndex);
+
+        if (AsteroidField.Instance.IndividualSpawnZones)
+        {
+            AsteroidField.Instance.RemovePlayerCollider(
+                pi.gameObject.GetComponentInChildren<PlayerSpawnCollider>().playerCollider
+            );
+        }
 
         if (playerCameras.Count == 0)
         {

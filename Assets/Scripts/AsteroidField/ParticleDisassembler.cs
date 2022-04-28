@@ -11,6 +11,8 @@ public class ParticleDisassembler : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        // only trigger exit if not in an active zone
+        // avoids asteroids rapidly spawning/despawning where areas overlap
         if (!other.IsTouchingLayers(layerMask))
         {
             ParticleDuality pd;

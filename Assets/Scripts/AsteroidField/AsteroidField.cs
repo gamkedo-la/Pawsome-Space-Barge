@@ -39,6 +39,18 @@ public class AsteroidField : MonoBehaviour
     [SerializeField, Tooltip("Middle ring factory.")] public RandomPrefabFactory middleRing;
     [SerializeField, Tooltip("Inner ring factory.")] public RandomPrefabFactory innerRing;
 
+
+    [Header("Asteroid Particle Systems")]
+    [SerializeField, Tooltip("Outer ring particle system.")] private ParticleSystem outerRingParticles;
+    [SerializeField, Tooltip("Middle ring particle system.")] private ParticleSystem middleRingParticles;
+    [SerializeField, Tooltip("Inner ring particle system")] private ParticleSystem innerRingParticles;
+
+
+    [Header("Asteroid Spawn Zone Settings")]
+    [SerializeField] private bool individualSpawnZones = false;
+    public bool IndividualSpawnZones => individualSpawnZones;
+
+
     // to enable editing of asteroid ring factories
     [HideInInspector] public bool outerRingFoldout;
     [HideInInspector] public bool middleRingFoldout;
@@ -90,5 +102,29 @@ public class AsteroidField : MonoBehaviour
             Random.Range(-maxAsteroidTumbleSpeed, maxAsteroidTumbleSpeed),
             Random.Range(-maxAsteroidTumbleSpeed, maxAsteroidTumbleSpeed)
         );
+    }
+
+
+    /// <summary>
+    /// Adds player collider to triggers list for each asteroid ring.
+    /// </summary>
+    /// <param name="playerCollider"></param>
+    public void AddPlayerCollider(SphereCollider playerCollider)
+    {
+        outerRingParticles.trigger.AddCollider(playerCollider);
+        middleRingParticles.trigger.AddCollider(playerCollider);
+        innerRingParticles.trigger.AddCollider(playerCollider);
+    }
+
+
+    /// <summary>
+    /// Removes player collider from triggers list of each asteroid ring.
+    /// </summary>
+    /// <param name="playerCollider"></param>
+    public void RemovePlayerCollider(SphereCollider playerCollider)
+    {
+        outerRingParticles.trigger.RemoveCollider(playerCollider);
+        middleRingParticles.trigger.RemoveCollider(playerCollider);
+        innerRingParticles.trigger.RemoveCollider(playerCollider);
     }
 }
