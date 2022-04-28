@@ -107,7 +107,36 @@ public class OrbitalRigidbody : MonoBehaviour
     {
         if (method == UpdateMethod.Forces)
         {
-            rb2d.AddForce(force, ForceMode2D.Impulse);
+            bool maxCheck = orbitalBody.CheckMaxRadius();
+            bool minCheck = orbitalBody.CheckMinRadius();
+
+            if (minCheck && maxCheck)
+            {
+                rb2d.AddForce(force, ForceMode2D.Impulse);
+            }
+            else
+            {
+                float forceDot = Vector2.Dot(force.normalized, rb2d.velocity.normalized);
+                int forceModifier = 1;
+
+                if (!maxCheck)
+                {
+                    if (forceDot > 0)
+                    {
+                        forceModifier = -1;
+                    }
+                }
+                
+                if (!minCheck)
+                {
+                    if (forceDot < 0)
+                    {
+                        forceModifier = -1;
+                    }
+                }
+
+                rb2d.AddForce(force * forceModifier, ForceMode2D.Impulse);
+            }
         }
         else
         {
