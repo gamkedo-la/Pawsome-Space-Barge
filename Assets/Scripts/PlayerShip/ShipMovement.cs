@@ -79,7 +79,16 @@ public class ShipMovement : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
 
         // setup boundary
-        playerBoundary = GameObject.FindGameObjectWithTag("PlayerBoundary").GetComponent<BoxCollider2D>();
+        var boundary = GameObject.FindGameObjectWithTag("PlayerBoundary");
+
+        if (boundary != null)
+        {
+            playerBoundary = boundary.GetComponent<BoxCollider2D>();
+        }
+        else
+        {
+            playerBoundary = null;
+        }
     }
 
 
@@ -143,7 +152,7 @@ public class ShipMovement : MonoBehaviour
         rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, MaxSpeed);
 
         // enforce player boundary
-        if (enforceBoundary)
+        if (enforceBoundary && playerBoundary != null)
         {
             checkPosition();
         }
@@ -158,7 +167,7 @@ public class ShipMovement : MonoBehaviour
     // check bounds, wrap around ship as necessary
     private void checkPosition()
     {
-        if (!rb2d.IsTouching(playerBoundary))
+        if (playerBoundary != null && !rb2d.IsTouching(playerBoundary))
         {
             // copy current position
             Vector2 mirroredPos = rb2d.position;
@@ -257,7 +266,7 @@ public class ShipMovement : MonoBehaviour
     }
 
 
-    // collison event for playing a shield noise
+    // collsion event for playing a shield noise
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Asteroid" && other.relativeVelocity.magnitude > 5)
