@@ -36357,7 +36357,8 @@ MonoBehaviour:
   outerRingParticles: {fileID: 2011980347}
   middleRingParticles: {fileID: 771071386}
   innerRingParticles: {fileID: 1141971318}
-  individualBoundaries: 0
+  individualSpawnZones: 0
+  orphanAsteroidInterval: 10
   outerRingFoldout: 0
   middleRingFoldout: 0
   innerRingFoldout: 0
@@ -36382,7 +36383,7 @@ MonoBehaviour:
   outwardDialogCamera: {fileID: 1091173294}
   initialCameraMode: 0
   minimapFollowSinglePlayer: 0
-  hidenObjects: []
+  hiddenObjects: []
 --- !u!114 &1635844463
 MonoBehaviour:
   m_ObjectHideFlags: 0

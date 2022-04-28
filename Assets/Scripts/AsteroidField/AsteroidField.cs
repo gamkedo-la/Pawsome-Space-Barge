@@ -47,8 +47,16 @@ public class AsteroidField : MonoBehaviour
 
 
     [Header("Asteroid Spawn Zone Settings")]
-    [SerializeField] private bool individualSpawnZones = false;
+    [SerializeField]
+    private bool individualSpawnZones = false;
     public bool IndividualSpawnZones => individualSpawnZones;
+
+    [SerializeField, Tooltip("How often to check for orphaned asteroids, in seconds.")]
+    private int orphanAsteroidInterval = 10;
+    public int OrphanInterval => orphanAsteroidInterval * 60;
+
+    private int frameCounter = 0;
+    public int FrameCounter => frameCounter;
 
 
     // to enable editing of asteroid ring factories
@@ -67,6 +75,19 @@ public class AsteroidField : MonoBehaviour
         else
         {
             Instance = this;
+        }
+    }
+
+
+    private void FixedUpdate()
+    {
+        if (individualSpawnZones)
+        {
+            frameCounter++;
+            if (frameCounter == orphanAsteroidInterval * 60)
+            {
+                frameCounter = 0;
+            }
         }
     }
 
