@@ -16,6 +16,9 @@ public class OrbitalBody : MonoBehaviour
     private bool orbitCached;
     private Vector3[] orbitCache;
 
+    private bool atMinRadius = false;
+    private bool atMaxRadius = false;
+
     public Vector3 Position => positionPci;
     public Vector3 Velocity => velocityPci;
     public Vector3 Prograde => velocityPci.normalized;
@@ -70,11 +73,28 @@ public class OrbitalBody : MonoBehaviour
 
     /// <summary>
     /// Returns true if barge orbit < max orbit radius.
+    /// Triggers orbital warning from Kitty.
     /// </summary>
     /// <returns></returns>
     public bool CheckMaxRadius()
     {
-        return orbitalElements.ra < maximumOrbitalRadius;
+        bool saneOrbit = true;
+
+        if (orbitalElements.ra > maximumOrbitalRadius)
+        {
+            // send warning only first time
+            if (!atMaxRadius) GameManagement.Instance.SendMaxOrbitWarning();
+
+            atMaxRadius = true;
+            saneOrbit = false;
+        }
+        // 1% dead zone to prevent spamming warning message.
+        else if (orbitalElements.ra < maximumOrbitalRadius * 0.99f)
+        {
+            atMaxRadius = false;
+        }
+
+        return saneOrbit;
     }
 
     /// <summary>
@@ -83,14 +103,30 @@ public class OrbitalBody : MonoBehaviour
     /// <returns></returns>
     public bool CheckMinRadius()
     {
-        return orbitalElements.rp > minimumOrbitalRadius;
+        bool saneOrbit = true;
+
+        if (orbitalElements.rp < minimumOrbitalRadius)
+        {
+            // send warning only first time
+            if (!atMinRadius) GameManagement.Instance.SendMaxOrbitWarning();
+
+            atMinRadius = true;
+            saneOrbit = false;
+        }
+        // 1% dead zone to prevent spamming warning message.
+        else if (orbitalElements.rp > minimumOrbitalRadius * 1.01f)
+        {
+            atMinRadius = false;
+        }
+
+        return saneOrbit;
     }
 
     public void AddDeltaV(float time, Vector3 deltaV)
     {
         var oldOrbitalElements = orbitalElements;
         orbitalElements.SetOrbit(time, positionPci, velocityPci + deltaV);
-        if (orbitalElements.ra > maximumOrbitalRadius || orbitalElements.rp < minimumOrbitalRadius)
+        if (!CheckMaxRadius() || !CheckMinRadius())
         {
             orbitalElements = oldOrbitalElements;
             // TODO: trigger gameplay context warning

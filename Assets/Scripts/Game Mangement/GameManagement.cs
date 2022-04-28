@@ -565,6 +565,20 @@ public class GameManagement : MonoBehaviour
     }
 
 
+    public void SendMaxOrbitWarning()
+    {
+        Debug.Log("That's as as much power as we have!");
+        // warnings.SendFungusMessage("maxOrbit");
+    }
+
+
+    public void SendMinOrbitWarning()
+    {
+        Debug.Log("Any lower and we'll never escape the planet's gravity.");
+        // warnings.SendFungusMessage("minOrbit");
+    }
+
+
     /// <summary>
     /// Finalizes mission setup and enables gameplay.
     /// </summary>
