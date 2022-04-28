@@ -5,12 +5,15 @@
 /// </summary>
 public class ParticleDuality : MonoBehaviour
 {
+    [HideInInspector] private int layerMask;
+
     private ParticleSystem originatingSystem;
     private ParticleSystem.Particle originalParticle;
     private Rigidbody2D rb2d;
     private float speed;
     private Vector3 rotationalVelocity;
     private bool alive = false;
+    private int orphanCheckFrame;
 
     private void Awake()
     {
@@ -18,6 +21,8 @@ public class ParticleDuality : MonoBehaviour
         speed = AsteroidField.Instance.RandomSpeed(transform.position);
         rotationalVelocity = AsteroidField.Instance.RandomRotationalVelocity();
         transform.rotation = Random.rotation;
+        layerMask = LayerMask.GetMask("ActiveAsteroidZone");
+        orphanCheckFrame = Random.Range(0, AsteroidField.Instance.OrphanInterval);
     }
 
     public void CreateFromParticle(ParticleSystem ps, ParticleSystem.Particle particle)
@@ -51,6 +56,15 @@ public class ParticleDuality : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (orphanCheckFrame == AsteroidField.Instance.FrameCounter)
+        {
+            if (!rb2d.IsTouchingLayers(layerMask))
+            {
+                Debug.Log($"Particle'izing orphan asteroid at: {transform.position.ToString()}, on frame: {orphanCheckFrame}");
+                TurnIntoParticle();
+            }
+        }
+
         if (alive)
         {
             transform.Rotate(rotationalVelocity * Time.fixedDeltaTime);
