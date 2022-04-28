@@ -171,6 +171,11 @@ public class CameraManagement : MonoBehaviour
 
         if (pi.playerIndex > maxPlayerIndex) maxPlayerIndex = pi.playerIndex;
 
+        if (playerCameras.Count > 1)
+        {
+            GameManagement.Instance.InputManager.splitScreen = true;
+        }
+
 
         refreshCameras = true;
     }
