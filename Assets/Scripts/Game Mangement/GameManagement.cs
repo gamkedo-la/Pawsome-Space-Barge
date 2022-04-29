@@ -63,6 +63,8 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Flowchart missionSuccess;
     [SerializeField] private Flowchart gameCompletion;
 
+    [SerializeField] private MenuDialog menuDialog;
+
     [SerializeField] private bool pauseOnDialog = false;
 
 
@@ -330,7 +332,8 @@ public class GameManagement : MonoBehaviour
         else if (gamePaused && dialogActive && !exitCalled)
         {
             exitCalled = true;
-            pauseDialog.SendFungusMessage("exit");
+            ResumeGame(exitCalled);
+            PauseGame(exitCalled);
         }
     }
 
@@ -338,7 +341,7 @@ public class GameManagement : MonoBehaviour
     /// <summary>
     /// Pauses game and disables extraneous objects.
     /// </summary>
-    public void PauseGame()
+    public void PauseGame(bool exiting=false)
     {
         Debug.Log("Pausing game.");
 
@@ -352,16 +355,35 @@ public class GameManagement : MonoBehaviour
         pausePanel.SetActive(true);
 
         // start pause dialog
-        StartDialog(pauseDialog);
+        if (!exiting)
+        {
+            StartDialog(pauseDialog);
+        }
+        else
+        {
+            StartDialog(pauseDialog, "exit");
+        }
     }
 
 
     /// <summary>
     /// Resumes Game from paused state.
     /// </summary>
-    public void ResumeGame()
+    public void ResumeGame(bool exiting = false)
     {
         Debug.Log("Resuming game.");
+
+        if (!exiting)
+        {
+            exitCalled = false;
+            dialogActive = false;
+        }
+        else
+        {
+            menuDialog.Clear();
+            menuDialog.gameObject.SetActive(false);
+            pauseDialog.StopAllBlocks();
+        }
 
         EnableGameUI();
 
@@ -383,9 +405,6 @@ public class GameManagement : MonoBehaviour
             Debug.Log("Closing mission success panel.");
             DialogDone(missionSuccess);
         }
-
-        exitCalled = false;
-        dialogActive = false;
     }
 
 
