@@ -325,15 +325,16 @@ public class GameManagement : MonoBehaviour
     /// <param name="context"></param>
     public void OnPause(InputAction.CallbackContext context)
     {
-        if (!gamePaused && !dialogActive)
+        if (!gamePaused && !dialogActive && !pauseDialog.IsActive())
         {
             PauseGame();
         }
         else if (gamePaused && dialogActive && !exitCalled)
         {
             exitCalled = true;
+            pauseDialog.SetBooleanVariable("exiting", exitCalled);
             ResumeGame(exitCalled);
-            PauseGame(exitCalled);
+            PauseGame();
         }
     }
 
@@ -341,7 +342,7 @@ public class GameManagement : MonoBehaviour
     /// <summary>
     /// Pauses game and disables extraneous objects.
     /// </summary>
-    public void PauseGame(bool exiting=false)
+    public void PauseGame()
     {
         Debug.Log("Pausing game.");
 
@@ -354,15 +355,7 @@ public class GameManagement : MonoBehaviour
         // enable panel
         pausePanel.SetActive(true);
 
-        // start pause dialog
-        if (!exiting)
-        {
-            StartDialog(pauseDialog);
-        }
-        else
-        {
-            StartDialog(pauseDialog, "exit");
-        }
+        StartDialog(pauseDialog);
     }
 
 
@@ -380,8 +373,6 @@ public class GameManagement : MonoBehaviour
         }
         else
         {
-            menuDialog.Clear();
-            menuDialog.gameObject.SetActive(false);
             pauseDialog.StopAllBlocks();
         }
 
