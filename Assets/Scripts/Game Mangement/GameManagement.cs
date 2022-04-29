@@ -329,7 +329,6 @@ public class GameManagement : MonoBehaviour
         }
         else if (gamePaused && dialogActive && !exitCalled)
         {
-            // pauseDialog.StopAllBlocks();
             exitCalled = true;
             pauseDialog.SendFungusMessage("exit");
         }
@@ -353,7 +352,7 @@ public class GameManagement : MonoBehaviour
         pausePanel.SetActive(true);
 
         // start pause dialog
-        StartDialog(pauseDialog, false);
+        StartDialog(pauseDialog);
     }
 
 
@@ -446,11 +445,11 @@ public class GameManagement : MonoBehaviour
     /// </summary>
     /// <param name="dialog"></param>
     /// <param name="pause"></param>
-    private void StartDialog(Flowchart dialog, bool pause=false)
+    private void StartDialog(Flowchart dialog, string message="start")
     {
-        if (pause || pauseOnDialog) TogglePause(PauseState.Paused);
+        if (pauseOnDialog) TogglePause(PauseState.Paused);
         dialog.gameObject.SetActive(true);
-        dialog.SendFungusMessage("start");
+        dialog.SendFungusMessage(message);
     }
 
 
@@ -612,7 +611,7 @@ public class GameManagement : MonoBehaviour
         SavePlayerSettings();
 
         // start pause dialog
-        StartDialog(missionFail, false);
+        StartDialog(missionFail);
     }
 
 
@@ -648,7 +647,7 @@ public class GameManagement : MonoBehaviour
             missionSuccessPanel.SetActive(true);
 
             // start dialog
-            StartDialog(missionSuccess, false);
+            StartDialog(missionSuccess);
         }
         else
         {
