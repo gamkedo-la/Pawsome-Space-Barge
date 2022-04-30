@@ -170,6 +170,31 @@ namespace Fungus
         }
 
         /// <summary>
+        /// Mimics menu button press, but does not hide SayDialog and calls passed block.
+        /// Used when exiting from pause menu with 'esc' key.
+        /// </summary>
+        /// <param name="block"></param>
+        public void PawsomeClear(Block block)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+
+            StopAllCoroutines();
+
+            Clear();
+
+            // HideSayDialog();
+
+            if (block != null)
+            {
+                var flowchart = block.GetFlowchart();
+                gameObject.SetActive(false);
+                // Use a coroutine to call the block on the next frame
+                // Have to use the Flowchart gameobject as the MenuDialog is now inactive
+                flowchart.StartCoroutine(CallBlock(block));
+            }
+        }
+
+        /// <summary>
         /// Clear all displayed options in the Menu Dialog.
         /// </summary>
         public virtual void Clear()

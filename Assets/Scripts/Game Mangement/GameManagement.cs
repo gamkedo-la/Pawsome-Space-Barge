@@ -64,6 +64,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Flowchart gameCompletion;
 
     [SerializeField] private MenuDialog menuDialog;
+    [SerializeField] private BlockReference exitMeow;
 
     [SerializeField] private bool pauseOnDialog = false;
 
@@ -332,9 +333,10 @@ public class GameManagement : MonoBehaviour
         else if (gamePaused && dialogActive && !exitCalled)
         {
             exitCalled = true;
-            pauseDialog.SetBooleanVariable("exiting", exitCalled);
-            ResumeGame(exitCalled);
-            PauseGame();
+
+            pauseDialog.StopAllBlocks();
+
+            menuDialog.PawsomeClear(exitMeow.block);
         }
     }
 
@@ -362,19 +364,12 @@ public class GameManagement : MonoBehaviour
     /// <summary>
     /// Resumes Game from paused state.
     /// </summary>
-    public void ResumeGame(bool exiting = false)
+    public void ResumeGame()
     {
         Debug.Log("Resuming game.");
 
-        if (!exiting)
-        {
-            exitCalled = false;
-            dialogActive = false;
-        }
-        else
-        {
-            pauseDialog.StopAllBlocks();
-        }
+        exitCalled = false;
+        dialogActive = false;
 
         EnableGameUI();
 
@@ -383,17 +378,14 @@ public class GameManagement : MonoBehaviour
 
         if ( pauseDialog.IsActive() )
         {
-            Debug.Log("Closing pause dialog.");
             DialogDone(pauseDialog);
         }
         if ( missionFail.IsActive() )
         {
-            Debug.Log("Closing mission fail dialog.");
             DialogDone(missionFail);
         }
         if ( missionSuccess.IsActive() )
         {
-            Debug.Log("Closing mission success panel.");
             DialogDone(missionSuccess);
         }
     }
