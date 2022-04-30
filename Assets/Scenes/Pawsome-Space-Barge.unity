@@ -2481,7 +2481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 15
   indentLevel: 0
-  storyText: '{$annoyedKitty}{w=0.5}'
+  storyText: '{$annoyedKitty}{w=0.2}'
   description: 
   character: {fileID: 67495011}
   portrait: {fileID: 21300000, guid: 7ccfb0a2b38399b4c8c78ce56ffc6b18, type: 3}
@@ -35522,7 +35522,7 @@ MonoBehaviour:
   - Thanks for the distraction Captain....
   - It's not like I keep a spaceship running...
   - I'm so glad {i}you{/i} have time to kill brother.
-  - Yup, no {w=1}{c} not like I had work to do.
+  - Yup, no {w=0.25}{c} not like I had work to do.
 --- !u!1 &1341099490
 GameObject:
   m_ObjectHideFlags: 0
