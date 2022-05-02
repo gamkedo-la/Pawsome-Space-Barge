@@ -25998,7 +25998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 361243278}
+  selectedFlowchart: {fileID: 6017164002153553802}
 --- !u!4 &1130922501
 Transform:
   m_ObjectHideFlags: 1
@@ -50922,7 +50922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 950.44965, y: 16.427124}
+  scrollPos: {x: 835.9759, y: -786.20416}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 280
@@ -50934,9 +50934,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 8331166322818829469}
+  - {fileID: 6017164002153553415}
   selectedCommands:
-  - {fileID: 8331166322818829479}
+  - {fileID: 6017164002153553417}
   variables:
   - {fileID: 6017164002153553881}
   - {fileID: 6017164002153553798}
@@ -52728,7 +52728,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 96
   indentLevel: 0
-  storyText: I'll call you when I have a customer lined up.
+  storyText: 'I''ll call you when I have a customer lined up.
+
+    ...'
   description: 
   character: {fileID: 67495011}
   portrait: {fileID: 21300000, guid: 7ccfb0a2b38399b4c8c78ce56ffc6b18, type: 3}
@@ -52736,8 +52738,8 @@ MonoBehaviour:
   showAlways: 1
   showCount: 1
   extendPrevious: 0
-  fadeWhenDone: 0
-  waitForClick: 1
+  fadeWhenDone: 1
+  waitForClick: 0
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 7766866625786877198}
