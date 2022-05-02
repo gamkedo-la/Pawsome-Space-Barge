@@ -23,7 +23,7 @@ namespace Fungus
         [SerializeField] protected BooleanData clearPrevious = new BooleanData(true);
         [SerializeField] protected BooleanData waitForInput = new BooleanData(true);
         [Tooltip("a wait for seconds added to each item of the conversation.")]
-        [SerializeField] protected FloatData WaitForSecondsRealtime = new FloatData(0);
+        [SerializeField] protected FloatData waitForSeconds = new FloatData(0);
         [SerializeField] protected BooleanData fadeWhenDone = new BooleanData(true);
 
         protected virtual void Start()
@@ -39,7 +39,7 @@ namespace Fungus
             conversationManager.ClearPrev = clearPrevious;
             conversationManager.WaitForInput = waitForInput;
             conversationManager.FadeDone = fadeWhenDone;
-            conversationManager.WaitForSecondsRealtime = WaitForSecondsRealtime;
+            conversationManager.WaitForSeconds = waitForSeconds;
 
             yield return StartCoroutine(conversationManager.DoConversation(subbedText));
 
@@ -66,7 +66,7 @@ namespace Fungus
         public override bool HasReference(Variable variable)
         {
             return clearPrevious.booleanRef == variable || waitForInput.booleanRef == variable || 
-                WaitForSecondsRealtime.floatRef == variable || fadeWhenDone.booleanRef == variable ||
+                waitForSeconds.floatRef == variable || fadeWhenDone.booleanRef == variable ||
                 base.HasReference(variable);
         }
 

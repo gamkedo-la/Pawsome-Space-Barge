@@ -838,7 +838,7 @@ namespace Fungus.EditorUtils
 
         protected IEnumerator RunBlock(Flowchart flowchart, Block targetBlock, int commandIndex, float delay)
         {
-            yield return new WaitForSecondsRealtime(delay);
+            yield return new WaitForSeconds(delay);
             flowchart.ExecuteBlock(targetBlock, commandIndex);
         }
 
