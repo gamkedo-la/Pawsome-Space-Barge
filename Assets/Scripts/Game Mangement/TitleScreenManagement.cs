@@ -101,7 +101,7 @@ public class TitleScreenManagement : MonoBehaviour
         StartCoroutine(AnimateLoadingText());
 
         // TODO
-        SoundManagement.Instance.SetAmbientSound(null);
+        SoundManagement.Instance.SetAmbientSound("Intro");
     }
 
 
