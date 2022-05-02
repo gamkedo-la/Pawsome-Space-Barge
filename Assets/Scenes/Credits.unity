@@ -765,16 +765,17 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Thanks for playing!\nPawsome Space Barge was brought to you by:\n\n\nCat\u2019thulu
     - Grygoriy Kulesko: Fridge debris model and materials, bump sound, thruster audio
-    with variations, sound integration\n\nShip Purrgeon - Liyi Zhang: Satellite model,
-    asteroid debris models, pirate frigate model and material, HUD ship indicators\n\nMeowtenant
-    - Christer \"McFunkypants\" Kaitila: Starfield and nebulas, sun, collision dust
-    effects, code review\n\nShip Purrser - Justin Chin: Voice meow sounds\n\nTailmaker
-    - Farah R: Floating icons implementation\n\nMeowster Catpenter - Abhishek @akhmin_ak:
-    Writing for some voice barks, script proofing\n\nQuartermeowster - Patrick McKeown:
-    Typo fixes\n\nCatnip Testers: Patrick McKeown, Klaim, Michael Monty Tanner, Rodrigo
-    Bonzerr S. Lopez\n\n\nMeowster at Arms - Johan \xD6stling:\n- Realistic orbital
-    mechanics,\n- Asteroid ring particle duality system,\n- Barge interaction and
-    UI,\n- Barge model and textures (mafia, and commercial),\n- Character portraits
+    with variations, sound integration, planet texture\n\nShip Purrgeon - Liyi Zhang:
+    Satellite model, asteroid debris models, pirate frigate model and material, HUD
+    ship indicators\n\nMeowtenant - Christer \"McFunkypants\" Kaitila: Starfield
+    and nebulas, sun, collision dust effects, code review\n\nShip Purrser - Justin
+    Chin: Voice meow sounds\n\nTailmaker - Farah R: Floating icons implementation\n\nMeowster
+    Catpenter - Abhishek @akhmin_ak: Writing for some voice barks, script proofing\n\nQuartermeowster
+    - Patrick McKeown: Typo fixes\n\nArmeower - Klaim (A. Jo\xEBl Lamotte): Title
+    scene music\n\nCatnip Testers: Patrick McKeown, Klaim, Michael Monty Tanner,
+    Rodrigo Bonzerr S. Lopez\n\n\nMeowster at Arms - Johan \xD6stling:\n- Realistic
+    orbital mechanics,\n- Asteroid ring particle duality system,\n- Barge interaction
+    and UI,\n- Barge model and textures (mafia, and commercial),\n- Character portraits
     (tug captain, dispatcher),\n- Cuborg ship,\n- Ambient, pursuit, mission success
     loops  and credits song\n- AI state machine,\n- Delivery window,\n- Ship thrusters,
     Siren light,\n- Dust ring shader,\n- Minimap,\n- Smooth fade for audio,\n- Star
