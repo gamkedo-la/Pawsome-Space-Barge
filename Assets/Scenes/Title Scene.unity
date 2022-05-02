@@ -6026,8 +6026,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 2754693412151678624}
+  selectedCommands:
+  - {fileID: 2754693412151678709}
   variables:
   - {fileID: 2754693412151678662}
   description: 
@@ -6524,36 +6526,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 13
   indentLevel: 0
-  storyText: '{b}Grygoriy Kulesko{/b}: Fridge debris model and materials, bump sound,
-    thruster audio with variations, sound integration
-
-
-    {b}Liyi Zhang{/b}: Satellite
-    model, asteroid debris models, pirate frigate model and material, HUD ship indicators
-
-
-    {b}Christer
-    "McFunkypants" Kaitila{/b}: Starfield and nebulas, sun, collision dust effects,
-    code review
-
-
-    {b}Justin Chin{/b}: Voice meow sounds
-
-
-    {b}Farah R{/b}:
-    Floating icons implementation
-
-
-    {b}Abhishek @akhmin_ak{/b}: Writing for some
-    voice barks, script proofing
-
-
-    {b}Patrick McKeown{/b}: Typo fixes
-
-
-    {b}Play
-    Testers{/b}: Patrick McKeown, Klaim, Michael Monty Tanner, Rodrigo Bonzerr S.
-    Lopez'
+  storyText: "{b}Grygoriy Kulesko{/b}: {size=28}Fridge debris model and materials,
+    bump sound, thruster audio with variations, sound integration{/size}\n\n{b}Liyi
+    Zhang{/b}: {size=28}Satellite model, asteroid debris models, pirate frigate model
+    and material, HUD ship indicators{/size}\n\n{b}Christer \"McFunkypants\" Kaitila{/b}:
+    {size=28}Starfield and nebulas, sun, collision dust effects, code review{/size}\n\n{b}Justin
+    Chin{/b}: {size=28}Voice meow sounds{/size}\n\n{b}Farah R{/b}: {size=28}Floating
+    icons implementation{/size}\n\n{b}Abhishek @akhmin_ak{/b}: {size=28}Writing for
+    some voice barks, script proofing{/size}\n\n{b}Patrick McKeown{/b}: {size=28}Typo
+    fixes{/size}\n\n{b}Klaim (A. Jo\xEBl Lamotte){/b}: {size=28}Title scene music{/size}\n\n{b}Play
+    Testers{/b}: {size=28}Patrick McKeown, Klaim, Michael Monty Tanner, Rodrigo Bonzerr
+    S. Lopez{/size}"
   description: 
   character: {fileID: 339176038}
   portrait: {fileID: 0}
@@ -8889,49 +8872,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 103
   indentLevel: 0
-  storyText: '{b}Evan Sklarski{/b}:
-
-    - Project lead,
-
-    - Core gameplay and
-    mission flow,
-
-    - Dialog and menu system,
-
-    - Lead writer,
-
-    - AI system
-    and related behaviors,
-
-    - Player controls,
-
-    - Game management scripting,
-
-    -
-    Kitty Tug and Orbital Purrtrol models,
-
-    - Multiplayer camera handling,
-
-    -
-    Scene lighting,
-
-    - Title and Credit scenes,
-
-    - Game UI,
-
-    - Save data
-    system,
-
-    - Pause functionality,
-
-    - Tutorial,
-
-    - Mission initialization,
-
-    -
-    Gameplay tuning,
-
-    - Asset integration, play testing, and bug fixing.'
+  storyText: "{b}Evan Sklarski{/b}:{size=28}\n    - Project lead,\n    - Core gameplay
+    and mission flow,\n    - Dialog and menu system,\n    - Lead writer,\n    - AI
+    system and related behaviors,\n    - Player controls,\n    - Game management
+    scripting,\n    - Kitty Tug and Orbital Purrtrol models,\n    - Multiplayer camera
+    handling,\n    - Scene lighting,\n    - Title and Credit scenes,\n    - Game
+    UI,\n    - Save data system,\n    - Pause functionality,\n    - Tutorial,\n   
+    - Mission initialization,\n    - Gameplay tuning,\n    - Asset integration, play
+    testing, and bug fixing.{/size}"
   description: 
   character: {fileID: 339176038}
   portrait: {fileID: 0}
@@ -8958,13 +8906,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 104
   indentLevel: 0
-  storyText: "{b}Johan \xD6stling{/b}:\n- Realistic orbital mechanics,\n- Asteroid
-    ring particle duality system,\n- Barge interaction and UI,\n- Barge model and
-    textures (mafia, and commercial),\n- Character portraits (tug captain, dispatcher),\n-
-    Cuborg ship,\n- Ambient, pursuit, mission success loops  and credits song\n-
-    AI state machine,\n- Delivery window,\n- Ship thrusters, Siren light,\n- Dust
-    ring shader,\n- Minimap,\n- Smooth fade for audio,\n- Star tuning,\n- Asteroid
-    normal map,\n- Gamepad controls,\n- Many bug fixes.\n\n"
+  storyText: "{b}Johan \xD6stling{/b}:{size=28}\n    - Realistic orbital mechanics,\n   
+    - Asteroid ring particle duality system,\n    - Barge interaction and UI,\n   
+    - Barge model and textures (mafia, and commercial),\n    - Character portraits
+    (tug captain, dispatcher),\n    - Cuborg ship,\n    - Ambient, pursuit, mission
+    success loops  and credits song\n    - AI state machine,\n    - Delivery window,\n   
+    - Ship thrusters, Siren light,\n    - Dust ring shader,\n    - Minimap,\n   
+    - Smooth fade for audio,\n    - Star tuning,\n    - Asteroid normal map,\n   
+    - Gamepad controls,\n    - Many bug fixes.{/size}"
   description: 
   character: {fileID: 339176038}
   portrait: {fileID: 0}
