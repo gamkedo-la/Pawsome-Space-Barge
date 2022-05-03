@@ -764,29 +764,30 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Thanks for playing!\nPawsome Space Barge was brought to you by:\n\n\nCat\u2019thulu
-    - Grygoriy Kulesko: Fridge debris model and materials, bump sound, thruster audio
-    with variations, sound integration, planet texture\n\nShip Purrgeon - Liyi Zhang:
-    Satellite model, asteroid debris models, pirate frigate model and material, HUD
-    ship indicators\n\nMeowtenant - Christer \"McFunkypants\" Kaitila: Starfield
-    and nebulas, sun, collision dust effects, code review\n\nShip Purrser - Justin
-    Chin: Voice meow sounds\n\nTailmaker - Farah R: Floating icons implementation\n\nMeowster
-    Catpenter - Abhishek @akhmin_ak: Writing for some voice barks, script proofing\n\nQuartermeowster
-    - Patrick McKeown: Typo fixes\n\nArmeower - Klaim (A. Jo\xEBl Lamotte): Title
-    scene music\n\nCatnip Testers: Patrick McKeown, Klaim, Michael Monty Tanner,
-    Rodrigo Bonzerr S. Lopez\n\n\nMeowster at Arms - Johan \xD6stling:\n- Realistic
-    orbital mechanics,\n- Asteroid ring particle duality system,\n- Barge interaction
-    and UI,\n- Barge model and textures (mafia, and commercial),\n- Character portraits
-    (tug captain, dispatcher),\n- Cuborg ship,\n- Ambient, pursuit, mission success
-    loops  and credits song\n- AI state machine,\n- Delivery window,\n- Ship thrusters,
-    Siren light,\n- Dust ring shader,\n- Minimap,\n- Smooth fade for audio,\n- Star
-    tuning,\n- Asteroid normal map,\n- Gamepad controls,\n- Many bug fixes.\n\n\nMeowman
-    of the Catnip Room, Kitten Wrangler - Evan Sklarski:\n- Project lead,\n- Core
-    gameplay and mission flow,\n- Dialog and menu system,\n- Lead writer,\n- AI system
-    and related behaviors,\n- Player controls,\n- Game management scripting,\n- Kitty
-    Tug and Orbital Purrtrol models,\n- Multiplayer camera handling,\n- Scene lighting,\n-
-    Title and Credit scenes,\n- Game UI,\n- Save data system,\n- Pause functionality,\n-
-    Tutorial,\n- Mission initialization,\n- Gameplay tuning,\n- Asset integration,
-    play testing, and bug fixing.\n\n\n\nAnd all our friends at Home Team Game Dev!"
+    - Grygoriy Kulesko:\nFridge debris model and materials, bump sound, thruster
+    audio with variations, sound integration, planet texture\n\nShip Purrgeon - Liyi
+    Zhang:\nSatellite model, asteroid debris models, pirate frigate model and material,
+    HUD ship indicators\n\nMeowtenant - Christer \"McFunkypants\" Kaitila:\nStarfield
+    and nebulas, sun, collision dust effects, code review\n\nArmeower - Klaim (A.
+    Jo\xEBl Lamotte):\nTitle scene music\n\nShip Purrser - Justin Chin:\nVoice meow
+    sounds\n\nTailmaker - Farah R:\nFloating icons implementation\n\nMeowster Catpenter
+    - Abhishek @akhmin_ak:\nWriting for some voice barks, script proofing\n\nQuartermeowster
+    - Patrick McKeown:\nTypo fixes\n\nCatnip Testers:\nPatrick McKeown, Klaim, Michael
+    Monty Tanner, Rodrigo Bonzerr S. Lopez\n\n\nMeowster at Arms - Johan \xD6stling:\n-
+    Realistic orbital mechanics,\n- Asteroid ring particle duality system,\n- Barge
+    interaction and UI,\n- Barge model and textures (mafia, and commercial),\n- Character
+    portraits (tug captain, dispatcher),\n- Cuborg ship,\n- Ambient, pursuit, mission
+    success loops  and credits song\n- AI state machine,\n- Delivery window,\n- Ship
+    thrusters, Siren light,\n- Dust ring shader,\n- Camera switching,\n- Minimap,\n-
+    Smooth fade for audio,\n- Star tuning,\n- Asteroid normal map,\n- Gamepad controls,\n-
+    Many bug fixes.\n\n\nMeowman of the Catnip Room, Kitten Wrangler - Evan Sklarski:\n-
+    Project lead,\n- Core gameplay and mission flow,\n- Dialog and menu system,\n-
+    Lead writer,\n- AI system and related behaviors,\n- Player controls,\n- Game
+    management scripting,\n- Kitty Tug and Orbital Purrtrol models,\n- Multiplayer
+    camera handling,\n- Scene lighting,\n- Title and Credit scenes,\n- Game UI,\n-
+    Save data system,\n- Pause functionality,\n- Tutorial,\n- Mission initialization,\n-
+    Gameplay tuning,\n- Asset integration, play testing, and bug fixing.\n\n\n\nAnd
+    all our friends at Home Team Game Dev!"
 --- !u!222 &1208277351
 CanvasRenderer:
   m_ObjectHideFlags: 0

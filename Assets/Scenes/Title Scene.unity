@@ -6029,7 +6029,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 2754693412151678624}
   selectedCommands:
-  - {fileID: 2754693412151678709}
+  - {fileID: 2754693412151678710}
   variables:
   - {fileID: 2754693412151678662}
   description: 
@@ -6354,8 +6354,8 @@ MonoBehaviour:
   description: Credits
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 2754693412151678631}
   - {fileID: 2754693412151678710}
+  - {fileID: 2754693412151678631}
   - {fileID: 2754693412151678709}
   - {fileID: 2754693412151678628}
   suppressAllAutoSelections: 0
@@ -6530,13 +6530,13 @@ MonoBehaviour:
     bump sound, thruster audio with variations, sound integration{/size}\n\n{b}Liyi
     Zhang{/b}: {size=28}Satellite model, asteroid debris models, pirate frigate model
     and material, HUD ship indicators{/size}\n\n{b}Christer \"McFunkypants\" Kaitila{/b}:
-    {size=28}Starfield and nebulas, sun, collision dust effects, code review{/size}\n\n{b}Justin
-    Chin{/b}: {size=28}Voice meow sounds{/size}\n\n{b}Farah R{/b}: {size=28}Floating
-    icons implementation{/size}\n\n{b}Abhishek @akhmin_ak{/b}: {size=28}Writing for
-    some voice barks, script proofing{/size}\n\n{b}Patrick McKeown{/b}: {size=28}Typo
-    fixes{/size}\n\n{b}Klaim (A. Jo\xEBl Lamotte){/b}: {size=28}Title scene music{/size}\n\n{b}Play
-    Testers{/b}: {size=28}Patrick McKeown, Klaim, Michael Monty Tanner, Rodrigo Bonzerr
-    S. Lopez{/size}"
+    {size=28}Starfield and nebulas, sun, collision dust effects, code review{/size}\n\n{b}Klaim
+    (A. Jo\xEBl Lamotte){/b}: {size=28}Title scene music{/size}\n\n{b}Justin Chin{/b}:
+    {size=28}Voice meow sounds{/size}\n\n{b}Farah R{/b}: {size=28}Floating icons
+    implementation{/size}\n\n{b}Abhishek @akhmin_ak{/b}: {size=28}Writing for some
+    voice barks, script proofing{/size}\n\n{b}Patrick McKeown{/b}: {size=28}Typo
+    fixes{/size}\n\n{b}Play Testers{/b}: {size=28}Patrick McKeown, Klaim, Michael
+    Monty Tanner, Rodrigo Bonzerr S. Lopez{/size}"
   description: 
   character: {fileID: 339176038}
   portrait: {fileID: 0}
@@ -8911,9 +8911,9 @@ MonoBehaviour:
     - Barge model and textures (mafia, and commercial),\n    - Character portraits
     (tug captain, dispatcher),\n    - Cuborg ship,\n    - Ambient, pursuit, mission
     success loops  and credits song\n    - AI state machine,\n    - Delivery window,\n   
-    - Ship thrusters, Siren light,\n    - Dust ring shader,\n    - Minimap,\n   
-    - Smooth fade for audio,\n    - Star tuning,\n    - Asteroid normal map,\n   
-    - Gamepad controls,\n    - Many bug fixes.{/size}"
+    - Ship thrusters, Siren light,\n    - Dust ring shader,\n    - Camera switching,\n   
+    - Minimap,\n    - Smooth fade for audio,\n    - Star tuning,\n    - Asteroid
+    normal map,\n    - Gamepad controls,\n    - Many bug fixes.{/size}"
   description: 
   character: {fileID: 339176038}
   portrait: {fileID: 0}
