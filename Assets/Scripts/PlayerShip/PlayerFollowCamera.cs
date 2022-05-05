@@ -23,32 +23,30 @@ public class PlayerFollowCamera : MonoBehaviour
     [Tooltip("Damping factor to smooth the changes in camera position.")]
     [SerializeField] private float rotationDamping = 1.5f;
 
+    private Quaternion initialRotation;
+    private Vector3 desiredPosition;
+    private Quaternion rot;
+
+    private Vector3 forward => transform.rotation * Vector3.forward;
+    private Vector3 right => transform.rotation * Vector3.right;
+    private Vector3 up => transform.rotation * Vector3.up;
+
+
     void LateUpdate()
     {
         // apply initialrotation
-        Quaternion initialRotation = Quaternion.Euler(angleOffset);
+        initialRotation = Quaternion.Euler(angleOffset);
 
-        Quaternion rot = Quaternion
+        rot = Quaternion
             .Lerp(transform.rotation, player.rotation * initialRotation, Time.deltaTime * rotationDamping);
 
         transform.rotation = rot;
-        
-        // calc transformed axes
-        Vector3 forward = transform.rotation * Vector3.forward;
-        Vector3 right = transform.rotation * Vector3.right;
-        Vector3 up = transform.rotation * Vector3.up;
 
-        // calc coordinate from offset
-        Vector3 targetPosition = player.position;
-        Vector3 desiredPosition = targetPosition
-                                    + forward * positionOffset.z
-                                    + right * positionOffset.x
-                                    + up * positionOffset.y;
+        desiredPosition = player.position
+                            + forward * positionOffset.z
+                            + right * positionOffset.x
+                            + up * positionOffset.y;
 
-        // change camera position
-        Vector3 position = Vector3
-            .Lerp(transform.position, desiredPosition, Time.deltaTime * motionDamping);
-
-        transform.position = position;
+        transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime * motionDamping);
     }
 }
