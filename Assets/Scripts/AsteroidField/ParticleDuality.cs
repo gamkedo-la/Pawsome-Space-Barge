@@ -44,7 +44,7 @@ public class ParticleDuality : MonoBehaviour
 
         originalParticle.position = rb2d.position;
         originalParticle.rotation = rb2d.rotation;
-        originalParticle.velocity = rb2d.velocity;
+        originalParticle.velocity = Vector3.zero; // rb2d.velocity;
         originalParticle.angularVelocity = rb2d.angularVelocity;
         var emitParams = new ParticleSystem.EmitParams();
         emitParams.particle = originalParticle;
