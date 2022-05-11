@@ -32,8 +32,25 @@ public class PlayerFollowCamera : MonoBehaviour
     private Vector3 up => transform.rotation * Vector3.up;
 
 
+    private void SnapCamera()
+    {
+        // apply initialrotation
+        initialRotation = Quaternion.Euler(angleOffset);
+
+        transform.rotation = player.rotation * initialRotation;
+
+        desiredPosition = player.position
+                            + forward * positionOffset.z
+                            + right * positionOffset.x
+                            + up * positionOffset.y;
+
+        transform.position = desiredPosition;
+    }
+
+
     void LateUpdate()
     {
+        if (Vector3.Distance(player.position, transform.position) > 1000) SnapCamera();
         // apply initialrotation
         initialRotation = Quaternion.Euler(angleOffset);
 

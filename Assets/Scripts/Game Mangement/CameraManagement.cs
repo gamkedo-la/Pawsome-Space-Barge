@@ -48,11 +48,7 @@ public class CameraManagement : MonoBehaviour
 
 
 
-
-    public Camera OverheadCamera => overheadCamera;
-    public Camera MinimapCamera => minimapCamera;
-    public Camera InwardDialogCamera => inwardDialogCamera;
-    public Camera OutwardDialogCamera => outwardDialogCamera;
+    public CameraMode CurrentCameraMode => cameraMode;
 
 
 
@@ -143,11 +139,8 @@ public class CameraManagement : MonoBehaviour
     {
         var isFirstPlayer = playerCameras.Count == 0;
 
-        // if using PlayerShip prefab:
         var playerCamera = pi.GetComponentInChildren<Camera>();
-        // // if using PlayerShip-freeCamera prefab
-        // // stops errors but minimap is broken
-        // var playerCamera = pi.transform.parent.GetComponentInChildren<Camera>();
+        if (playerCamera == null) playerCamera = pi.transform.parent.GetComponentInChildren<Camera>();
 
         playerCameras.Add(pi.playerIndex, playerCamera);
 
