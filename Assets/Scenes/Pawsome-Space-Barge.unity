@@ -13296,21 +13296,24 @@ MonoBehaviour:
 
     {b}Gamepad:{/b}
 
-    Left thumb stick to steer
-    and control thrusters
+    D-pad: same as keyboard controls
 
-    Right and left triggers also control thrusters
+    Left
+    thumb stick: rotate towards and thrusters
+
+    Right trigger thrust, left trigger
+    braking
 
 
     {b}Misc:{/b}
 
-    Pause
-    Game: Esc key or gamepad start
+    Pause Game: Esc key or gamepad start
 
-    Switch Cameras: Tab key or gamepad select
+    Switch
+    Cameras: Tab key or gamepad select
 
-    Minimap
-    Zoom: C key or left shoulder button'
+    Minimap Zoom: C key or left shoulder
+    button'
   description: 
   character: {fileID: 67495011}
   portrait: {fileID: 0}
@@ -26941,7 +26944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 567322145}
+  selectedFlowchart: {fileID: 498476617}
 --- !u!4 &1130922501
 Transform:
   m_ObjectHideFlags: 1
@@ -52440,9 +52443,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 6017164002153553415}
-  selectedCommands:
-  - {fileID: 6017164002153553417}
+  - {fileID: 8331166322818829469}
+  selectedCommands: []
   variables:
   - {fileID: 6017164002153553881}
   - {fileID: 6017164002153553798}

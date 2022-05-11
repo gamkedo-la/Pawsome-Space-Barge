@@ -6027,9 +6027,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 2754693412151678624}
+  - {fileID: 2754693412151678697}
   selectedCommands:
-  - {fileID: 2754693412151678710}
+  - {fileID: 2754693412151678696}
   variables:
   - {fileID: 2754693412151678662}
   description: 
@@ -8564,21 +8564,24 @@ MonoBehaviour:
 
     {b}Gamepad:{/b}
 
-    Left thumb stick to steer
-    and control thrusters
+    D-pad: same as keyboard controls
 
-    Right and left triggers also control thrusters
+    Left
+    thumb stick: rotate towards and thrusters
+
+    Right trigger thrust, left trigger
+    braking
 
 
     {b}Misc:{/b}
 
-    Pause
-    Game: Esc key or gamepad start
+    Pause Game: Esc key or gamepad start
 
-    Switch Cameras: Tab key or gamepad select
+    Switch
+    Cameras: Tab key or gamepad select
 
-    Minimap
-    Zoom: C key or left shoulder button'
+    Minimap Zoom: C key or left shoulder
+    button'
   description: 
   character: {fileID: 339176038}
   portrait: {fileID: 0}
@@ -8605,8 +8608,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 37.16912
-    y: 701.59784
+    x: 39.800697
+    y: 700.28204
     width: 96.05261
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
