@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Thumbstick",
+                    "type": "Value",
+                    "id": "c41a82c6-22a8-4be7-9d74-ae08c3d20d68",
+                    "expectedControlType": "Stick",
+                    "processors": "StickDeadzone(min=0.05,max=0.999)",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -120,8 +129,8 @@
                 },
                 {
                     "name": "positive",
-                    "id": "a4acbd81-268f-48e2-b742-c0eb2d33dcdc",
-                    "path": "<Gamepad>/leftStick/left",
+                    "id": "a934f36f-1b7c-4fda-ae77-67d50a380e48",
+                    "path": "<Gamepad>/dpad/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "Catpad",
@@ -131,8 +140,8 @@
                 },
                 {
                     "name": "negative",
-                    "id": "f32dd22b-2899-4215-adaa-de999a02e4e9",
-                    "path": "<Gamepad>/leftStick/right",
+                    "id": "6f93a5db-801c-4b8e-92a5-f5ae019f9dc3",
+                    "path": "<Gamepad>/dpad/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "Catpad",
@@ -208,8 +217,8 @@
                 },
                 {
                     "name": "positive",
-                    "id": "9c4f0565-7082-4c37-8598-d84b15d4700b",
-                    "path": "<Gamepad>/leftStick/up",
+                    "id": "50750351-9a58-4c4c-b088-b807dfe1e0ca",
+                    "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "Catpad",
@@ -219,8 +228,8 @@
                 },
                 {
                     "name": "negative",
-                    "id": "59ffbbac-f3a3-4dda-bb97-498fd30c0b67",
-                    "path": "<Gamepad>/leftStick/down",
+                    "id": "26d44339-1cf1-43d0-aa53-b0caeb9a6869",
+                    "path": "<Gamepad>/dpad/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "Catpad",
@@ -324,6 +333,17 @@
                     "processors": "",
                     "groups": "Catpad",
                     "action": "Minimap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "61fc074c-88ae-4a1e-8e83-702e6d084fbc",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Catpad",
+                    "action": "Thumbstick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
