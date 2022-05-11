@@ -38,7 +38,7 @@ public class SeekingAI : MonoBehaviour
 
     private void OnDisable()
     {
-        Debug.Log("SeekingAI disabled.");
+        // Debug.Log("SeekingAI disabled.");
     }
 
 

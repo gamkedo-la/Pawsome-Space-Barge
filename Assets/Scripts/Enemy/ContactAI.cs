@@ -39,7 +39,7 @@ public class ContactAI : MonoBehaviour
 
     private void OnDisable()
     {
-        Debug.Log("ContactAI disabled.");
+        // Debug.Log("ContactAI disabled.");
         GameManagement.Instance.enemyContactsCount--;
     }
 

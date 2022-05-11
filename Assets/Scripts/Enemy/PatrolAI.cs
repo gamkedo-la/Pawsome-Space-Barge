@@ -40,7 +40,7 @@ public class PatrolAI : MonoBehaviour
 
     private void OnDisable()
     {
-        Debug.Log("PatrolAI disabled.");
+        // Debug.Log("PatrolAI disabled.");
     }
 
 
