@@ -130,7 +130,7 @@ public class TitleScreenManagement : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
     #elif UNITY_WEBGL
         // reload itch.io page
-        Application.ExternalEval("window.open('https://esklarski.itch.io/pawsome-space-barge','_self')");
+        Application.ExternalEval("window.location.reload()");
     #else
         // close application
         Application.Quit();
