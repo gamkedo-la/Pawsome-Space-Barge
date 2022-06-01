@@ -140,10 +140,10 @@ PlayerSettings:
     Others: 1
   bundleVersion: 1.1
   preloadedAssets:
-  - {fileID: 3716827569439174972, guid: 9e4d193bce5a08231ab1660c78767b3d, type: 3}
-  - {fileID: 7257938796415413944, guid: 3b8d634d8ca02a1bf9698a342781e403, type: 3}
-  - {fileID: 7696257734742167689, guid: 56dfb0f54a32422f290468068258ccf7, type: 3}
-  - {fileID: 1528038712871602469, guid: 9537b7242b983f04fa139e46a8f08c9b, type: 3}
+  - {fileID: 7432357034357229504, guid: 78c6e805e690146f790de6af5524b9c9, type: 3}
+  - {fileID: 7257938796415413944, guid: c52061cc98a94874c91cd4600ed2f41f, type: 3}
+  - {fileID: 7696257734742167689, guid: 372742460a0c3594d909a1d24d671ab9, type: 3}
+  - {fileID: 1528038712871602469, guid: e03e9861941c25e46ac084a5284ac6a5, type: 3}
   - {fileID: 11400000, guid: 3478e75c99d9504bb8b848cff46177ff, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -506,7 +506,10 @@ PlayerSettings:
       m_Height: 36
       m_Kind: 0
       m_SubKind: 
-  m_BuildTargetBatching: []
+  m_BuildTargetBatching:
+  - m_BuildTarget: Standalone
+    m_StaticBatching: 0
+    m_DynamicBatching: 0
   m_BuildTargetGraphicsJobs:
   - m_BuildTarget: MacStandaloneSupport
     m_GraphicsJobs: 0

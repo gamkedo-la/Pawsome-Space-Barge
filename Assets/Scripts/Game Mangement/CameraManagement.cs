@@ -55,7 +55,7 @@ public class CameraManagement : MonoBehaviour
     private void Awake()
     {
         // set vsync on
-        QualitySettings.vSyncCount = 1;
+        // QualitySettings.vSyncCount = 1;
         Application.targetFrameRate = 60;
 
         // hide all objects in array
