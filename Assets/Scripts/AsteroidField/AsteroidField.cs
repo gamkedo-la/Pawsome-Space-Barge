@@ -76,6 +76,10 @@ public class AsteroidField : MonoBehaviour
         {
             Instance = this;
         }
+
+    #if !UNITY_WEBGL
+        individualSpawnZones = true;
+    #endif
     }
 
 
