@@ -123,7 +123,8 @@ public class ShipMovement : MonoBehaviour
         if (barge != null)
         {
             bargeRigidbody = barge.GetComponent<Rigidbody2D>();
-            transform.Translate(barge.transform.position - ((Vector3)bargeRigidbody.velocity *2));
+            transform.Translate(barge.transform.position + ((Vector3)bargeRigidbody.velocity*3f));
+            rb2d.velocity = bargeRigidbody.velocity;
         }
     }
 
