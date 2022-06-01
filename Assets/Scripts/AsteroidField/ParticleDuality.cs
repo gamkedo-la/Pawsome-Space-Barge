@@ -14,15 +14,17 @@ public class ParticleDuality : MonoBehaviour
     private Vector3 rotationalVelocity;
     private bool alive = false;
     private int orphanCheckFrame;
+    private Transform meshObject;
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         speed = AsteroidField.Instance.RandomSpeed(transform.position);
         rotationalVelocity = AsteroidField.Instance.RandomRotationalVelocity();
-        transform.rotation = Random.rotation;
         layerMask = LayerMask.GetMask("ActiveAsteroidZone");
         orphanCheckFrame = Random.Range(0, AsteroidField.Instance.OrphanInterval);
+        meshObject = GetComponentInChildren<MeshRenderer>().gameObject.transform;
+        meshObject.rotation = Random.rotation;
     }
 
     public void CreateFromParticle(ParticleSystem ps, ParticleSystem.Particle particle)
@@ -67,13 +69,13 @@ public class ParticleDuality : MonoBehaviour
 
         if (alive)
         {
-            transform.Rotate(rotationalVelocity * Time.fixedDeltaTime);
+            meshObject.Rotate(rotationalVelocity * Time.fixedDeltaTime);
 
-            rb2d.transform.RotateAround(
-                AsteroidField.Instance.planet,
-                Vector3.forward,
-                speed * Time.fixedDeltaTime
-            );
+            // rb2d.transform.RotateAround(
+            //     AsteroidField.Instance.planet,
+            //     Vector3.forward,
+            //     speed * Time.fixedDeltaTime
+            // );
         }
     }
 }
