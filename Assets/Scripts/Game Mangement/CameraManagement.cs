@@ -56,7 +56,11 @@ public class CameraManagement : MonoBehaviour
     {
         // set vsync on
         // QualitySettings.vSyncCount = 1;
+#if UNITY_WEBGL
+        Application.targetFrameRate = -1;
+#else
         Application.targetFrameRate = 60;
+#endif
 
         // hide all objects in array
         foreach (GameObject o in hiddenObjects)
