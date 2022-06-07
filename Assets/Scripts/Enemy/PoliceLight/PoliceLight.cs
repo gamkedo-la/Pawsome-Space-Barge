@@ -18,9 +18,13 @@ public class PoliceLight : MonoBehaviour
 
     private void Awake()
     {
+    #if UNITY_WEBGL
+        gameObject.SetActive(false);
+    #else
         material = GetComponent<MeshRenderer>().material;
         intensity = material.GetColor(EmissionColor).maxColorComponent;
         // Debug.Log("Intensity: " + intensity);
+    #endif
     }
 
     private void Update()
