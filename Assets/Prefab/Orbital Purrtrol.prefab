@@ -10070,13 +10070,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heading: 0
   stunTimer: 0
+  stunCount: 0
   turningSpeed: 200
   maxSpeed: 100
   minSpeed: 25
   thrusterForce: 1000
   decelerationCoefficient: 1
-  asteroidStunTime: 0
   playerStunTime: 3
+  stunsToDisable: 3
   rearLeftThruster: {fileID: 982625132}
   rearRightThruster: {fileID: 273895223}
 --- !u!114 &2925028900334608137
@@ -10101,9 +10102,9 @@ MonoBehaviour:
   bargeDetectionRange: 1500
   bargeContactRange: 100
   scanInterval: 2
+  timerLength: 10
   waypointThreshold: 50
   asteroidStunTime: 7
-  playerStunTime: 0
 --- !u!114 &2925028900334608136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10156,7 +10157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a34538cf4245c08e792d14eae72d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerLength: 10
   braking: 4
   maxSpeed: 80
   experimentalSteering: 0
@@ -10177,7 +10177,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -10324,7 +10324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5330633057627879148
 Transform:
   m_ObjectHideFlags: 0
