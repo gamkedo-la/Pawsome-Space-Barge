@@ -621,7 +621,7 @@ public class GameManagement : MonoBehaviour
     public void MissionSuccess()
     {
         Debug.Log("Mission Accomplished!");
-        soundManager.SetAmbientSound("1 Bit Loop");
+        soundManager.SetAmbientSound("1 Bit Loop", true);
 
         TogglePause(PauseState.Paused);
 

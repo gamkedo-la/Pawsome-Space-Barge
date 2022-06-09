@@ -112,12 +112,12 @@ public class SoundManagement : MonoBehaviour
 
     /// <summary> Sets ambient AudioClip. </summary>
     /// <param name="track">Music track to loop.</param>
-    public void SetAmbientSound(string track)
+    public void SetAmbientSound(string track, bool force=false)
     {
         var nextClip = audioLookup[string.IsNullOrEmpty(track) ? defaultAmbientSound : track];
         if (nextClip == ambient.clip) return;
 
-        if (ambient.isPlaying)
+        if (ambient.isPlaying && !force)
         {
             StartCoroutine(SwitchAmbientTracks(nextClip));
         }
